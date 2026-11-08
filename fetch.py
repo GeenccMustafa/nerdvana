@@ -77,8 +77,11 @@ def build(channels):
     chans, vids = [], []
     for ch, d, subs in loaded:
         picked, total = pick_videos(d.get("entries"))
+        avatar = next((t["url"] for t in d.get("thumbnails") or [] if t.get("id") == "avatar_uncropped"), "")
+        if avatar:
+            avatar = avatar.rsplit("=", 1)[0] + "=s88-c-k-c0x00ffffff-no-rj"  # 88px square
         chans.append({"h": ch["handle"], "n": d.get("channel") or ch["handle"], "t": ch["tier"],
-                      "topic": ch["topic"], "subs": subs, "total": total})
+                      "topic": ch["topic"], "subs": subs, "total": total, "a": avatar})
         ci = len(chans) - 1
         vids += [[v[0], v[1], ci, v[2], v[3], v[4]] for v in picked]
     data = {"channels": chans, "videos": vids,

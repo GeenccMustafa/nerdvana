@@ -8,7 +8,9 @@ Inspired by Andrej Karpathy's [TristanTube](https://karpathy.ai/tristan-tube/).
 
 ## Features
 
-- Search across every title, filter by tier (S/A/B), topic, length and channel
+- **Sidebar** with Home, Top picks and History, plus every channel (with its avatar) grouped by tier: Essential, Great, Worth a look
+- **Watch page** with an "Up next" list and autoplay, and a **Surprise me** button for a random unwatched video
+- Search across every title, filter by topic and length
 - **Mix** sort (default): a channel-balanced shuffle, so no single channel floods the feed
 - **TV mode**: full-screen, auto-advancing playback of whatever you have filtered, unwatched first
   - `→` next, `←` previous, `C` subtitles on/off, `Esc` exit

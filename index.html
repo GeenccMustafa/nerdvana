@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: sticky control bar (search + filter chips) over an auto-fill thumbnail grid; player and TV mode are full-screen overlays. */
+/* Layout: sticky control bar over a sidebar (tiers + channels) and an auto-fill thumbnail grid; watch view and TV mode are full-screen layers. */
 :root {
   --bg: #f4f5f8; --surface: #ffffff; --raise: #e8ebf1; --line: #d5dae4;
   --fg: #141a26; --fg2: #5a6478; --accent: #c9761a; --accent-fg: #ffffff;
@@ -64,10 +64,47 @@ header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, v
 .tier { font: 600 11px var(--mono); width: 18px; height: 18px; border-radius: 5px; display: inline-grid; place-items: center; color: #fff; flex: none; }
 .tier.S { background: var(--tS); } .tier.A { background: var(--tA); } .tier.B { background: var(--tB); }
 select.chip { padding-right: 8px; }
-.channels { display: flex; gap: 6px; overflow-x: auto; padding-block: 0 12px; scrollbar-width: thin; }
-.channels .chip { flex: none; }
 
-main { padding-block: 20px 60px; }
+/* Sidebar: nav + channels grouped by tier. Sticky column on desktop, slide-in drawer below 1000px. */
+.layout { display: grid; grid-template-columns: 252px minmax(0, 1fr); max-width: 1680px; margin: 0 auto; }
+.side { position: sticky; top: var(--hh, 112px); height: calc(100vh - var(--hh, 112px)); overflow-y: auto; padding: 14px 10px 40px max(10px, env(safe-area-inset-left, 0px)); border-right: 1px solid var(--line); scrollbar-width: thin; }
+.nav-item, .ch-item { width: 100%; display: flex; align-items: center; gap: 12px; border: 0; background: none; text-align: left; border-radius: 10px; min-width: 0; }
+.nav-item { height: 40px; padding: 0 12px; font-weight: 500; }
+.nav-item svg { flex: none; color: var(--fg2); }
+.nav-item .n { margin-left: auto; font: 11px var(--mono); color: var(--fg2); font-variant-numeric: tabular-nums; }
+.nav-item:hover, .ch-item:hover { background: var(--raise); }
+.nav-item[aria-current="true"], .ch-item[aria-current="true"] { background: var(--raise); font-weight: 600; }
+.nav-item[aria-current="true"] svg { color: var(--accent); }
+.side hr { border: 0; border-top: 1px solid var(--line); margin: 12px 4px; }
+.tier-head { width: 100%; display: flex; align-items: center; gap: 10px; border: 0; background: none; padding: 14px 12px 6px; font: 700 14px var(--display); letter-spacing: -.01em; text-align: left; border-radius: 8px; }
+.tier-head .tier { width: 22px; height: 22px; font-size: 12px; border-radius: 6px; }
+.tier-head .sub { font: 500 11px var(--mono); color: var(--fg2); margin-left: auto; font-variant-numeric: tabular-nums; }
+.tier-head[aria-current="true"] { background: var(--raise); }
+.tier-head:hover { background: var(--raise); }
+.ch-item { height: 38px; padding: 0 12px; font-size: 13.5px; }
+.ch-item .nm { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ch-item .n { font: 11px var(--mono); color: var(--fg2); font-variant-numeric: tabular-nums; opacity: 0; }
+.ch-item:hover .n, .ch-item[aria-current="true"] .n { opacity: 1; }
+.av { width: 26px; height: 26px; border-radius: 50%; flex: none; display: grid; place-items: center; font: 700 10px var(--body); color: #fff; overflow: hidden; background: var(--fg2); }
+.av.S { background: var(--tS); } .av.A { background: var(--tA); } .av.B { background: var(--tB); }
+.av img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.menu-btn { display: none; }
+.scrim { display: none; }
+.context { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; }
+.context .av { width: 52px; height: 52px; font-size: 16px; }
+.context h2 { margin: 0; font: 800 24px/1.1 var(--display); letter-spacing: -.01em; }
+.context p { margin: 2px 0 0; color: var(--fg2); font-size: 13px; }
+.context .txt { flex: 1 1 200px; min-width: 0; }
+
+main { padding-block: 20px 60px; min-width: 0; }
+.layout > main { margin: 0; max-width: none; }
+@media (max-width: 999px) {
+  .layout { display: block; }
+  .menu-btn { display: inline-flex; }
+  .side { position: fixed; z-index: 40; top: 0; left: 0; bottom: 0; height: auto; width: min(300px, 85vw); background: var(--bg); padding-top: max(14px, env(safe-area-inset-top, 0px)); transform: translateX(-102%); transition: transform .25s ease; }
+  body.drawer .side { transform: none; box-shadow: 0 0 40px rgba(0,0,0,.35); }
+  body.drawer .scrim { display: block; position: fixed; inset: 0; z-index: 39; background: var(--shade); }
+}
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px 16px; }
 .card { display: flex; flex-direction: column; gap: 8px; text-align: left; background: none; border: 0; padding: 0; min-width: 0; }
 .thumb { position: relative; aspect-ratio: 16/9; max-width: 100%; border-radius: var(--r); overflow: hidden; background: var(--raise); }
@@ -84,14 +121,36 @@ main { padding-block: 20px 60px; }
 .empty { padding: 60px 0; text-align: center; color: var(--fg2); }
 .sentinel { height: 1px; }
 
-/* Player overlay */
-.overlay { position: fixed; inset: 0; z-index: 50; background: var(--shade); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
-.player { width: min(1100px, 100%); background: var(--surface); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
-.frame { aspect-ratio: 16/9; background: #000; width: 100%; }
+/* Watch view: player + info on the left, "Up next" column on the right (stacks below 1000px) */
+.watch { position: fixed; inset: 0; z-index: 50; background: var(--bg); overflow-y: auto; }
+.watch-bar { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 12px; padding-block: max(10px, env(safe-area-inset-top, 0px)) 10px; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.watch-bar .brand { margin-right: auto; }
+.watch-grid { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 24px; padding-block: 20px 60px; max-width: 1680px; margin: 0 auto; }
+.frame { aspect-ratio: 16/9; background: #000; width: 100%; border-radius: 12px; overflow: hidden; }
 .frame iframe, .frame > div { width: 100%; height: 100%; border: 0; display: block; }
-.pinfo { display: flex; gap: 12px; align-items: center; padding: 14px 16px; flex-wrap: wrap; }
-.pinfo .txt { flex: 1 1 300px; min-width: 0; }
-.pinfo h2 { margin: 0 0 3px; font: 600 17px/1.3 var(--body); }
+.pinfo h2 { margin: 14px 0 10px; font: 700 20px/1.3 var(--body); text-wrap: balance; }
+.prow { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.prow .who { display: flex; align-items: center; gap: 10px; margin-right: auto; min-width: 0; border: 0; background: none; padding: 0; text-align: left; }
+.prow .who .av { width: 40px; height: 40px; font-size: 13px; }
+.prow .who b { display: block; font-size: 15px; }
+.prow .who small { color: var(--fg2); font-size: 12.5px; }
+.pstats { margin-top: 12px; padding: 10px 14px; border-radius: 10px; background: var(--raise); color: var(--fg2); font-size: 13px; font-variant-numeric: tabular-nums; }
+.upnext-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.upnext-head h3 { margin: 0; font: 700 18px var(--display); }
+.switch { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--fg2); border: 0; background: none; padding: 0; }
+.switch i { width: 34px; height: 20px; border-radius: 999px; background: var(--line); position: relative; transition: background .2s; }
+.switch i::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); transition: transform .2s; }
+.switch[aria-checked="true"] i { background: var(--accent); }
+.switch[aria-checked="true"] i::after { transform: translateX(14px); }
+.up { display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 10px; width: 100%; border: 0; background: none; padding: 4px; margin-bottom: 6px; text-align: left; border-radius: 10px; }
+.up:hover { background: var(--raise); }
+.up .thumb { border-radius: 8px; }
+.up h4 { margin: 0 0 4px; font-size: 13.5px; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.up .m { color: var(--fg2); font-size: 12px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.up .m span { display: flex; align-items: center; gap: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.up .tier { width: 16px; height: 16px; font-size: 10px; }
+@media (max-width: 999px) { .watch-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .up { grid-template-columns: 140px minmax(0, 1fr); } }
 
 /* TV mode */
 .tv { position: fixed; inset: 0; z-index: 60; background: #000; color: #fff; }
@@ -113,6 +172,8 @@ main { padding-block: 20px 60px; }
 .tv .btn[aria-pressed="true"] { background: #f2a93b; border-color: #f2a93b; color: #171107; }
 
 @media (max-width: 640px) {
+  #surprise .lbl { display: none; }
+  #surprise { width: 38px; padding: 0; justify-content: center; }
   .brand h1 { font-size: 22px; }
   .search kbd { display: none; }
   .grid { grid-template-columns: 1fr; }
@@ -124,6 +185,8 @@ main { padding-block: 20px 60px; }
 <header>
   <div class="wrap">
     <div class="top">
+      <button class="btn icon-btn menu-btn" id="menuBtn" type="button" aria-label="Channels menu" aria-controls="side" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
       <div class="brand"><h1>Nerd<span>vana</span></h1><small id="count">loading…</small></div>
       <label class="search" for="q">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -131,13 +194,14 @@ main { padding-block: 20px 60px; }
         <kbd>/</kbd>
       </label>
       <div class="actions">
+        <button class="btn" id="surprise" type="button" title="Play a random video">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg><span class="lbl">Surprise me</span></button>
         <button class="btn primary" id="tvBtn" type="button">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m8 2 4 3 4-3"/></svg>TV mode</button>
         <button class="btn icon-btn" id="themeBtn" type="button" aria-label="Toggle theme" title="Theme">◐</button>
       </div>
     </div>
     <div class="filters">
-      <div class="group" id="tiers"><b>Tier</b></div>
       <div class="group" id="topics"><b>Topic</b></div>
       <div class="group" id="durs"><b>Length</b></div>
       <div class="group"><b>Sort</b>
@@ -151,25 +215,53 @@ main { padding-block: 20px 60px; }
         <button class="chip" id="hideSeen" type="button" aria-pressed="false">Hide watched</button>
       </div>
     </div>
-    <div class="channels" id="channels"></div>
   </div>
 </header>
 
-<main class="wrap">
-  <div class="grid" id="grid"></div>
-  <div class="empty" id="empty" hidden>No videos match these filters.</div>
-  <div class="sentinel" id="sentinel"></div>
-</main>
+<div class="layout">
+  <nav class="side" id="side" aria-label="Channels">
+    <button class="nav-item" type="button" data-view="home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</button>
+    <button class="nav-item" type="button" data-view="picks">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>Top picks</button>
+    <button class="nav-item" type="button" data-view="history">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>History<span class="n" id="histN"></span></button>
+    <hr>
+    <div id="tierList"></div>
+  </nav>
+  <div class="scrim" id="scrim"></div>
 
-<div class="overlay" id="overlay" hidden>
-  <div class="player" role="dialog" aria-modal="true" aria-labelledby="pTitle">
-    <div class="frame" id="pFrame"></div>
-    <div class="pinfo">
-      <div class="txt"><h2 id="pTitle"></h2><div class="meta" id="pMeta"></div></div>
-      <button class="btn" id="pSeen" type="button">Mark watched</button>
-      <a class="btn" id="pYt" target="_blank" rel="noopener">Open on YouTube ↗</a>
-      <button class="btn icon-btn" id="pClose" type="button" aria-label="Close">✕</button>
-    </div>
+  <main class="wrap">
+    <div class="context" id="context" hidden></div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>No videos match these filters.</div>
+    <div class="sentinel" id="sentinel"></div>
+  </main>
+</div>
+
+<div class="watch" id="watch" role="dialog" aria-modal="true" aria-labelledby="pTitle" hidden>
+  <div class="watch-bar wrap">
+    <button class="btn" id="pClose" type="button">← Back</button>
+    <div class="brand"><h1 style="font-size:22px">Nerd<span>vana</span></h1></div>
+    <button class="btn" id="surprise2" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>Surprise me</button>
+  </div>
+  <div class="watch-grid wrap">
+    <section class="pinfo">
+      <div class="frame"><div id="wPlayer"></div></div>
+      <h2 id="pTitle"></h2>
+      <div class="prow">
+        <button class="who" id="pWho" type="button" title="Show this channel"></button>
+        <button class="btn" id="pSeen" type="button">Mark watched</button>
+        <a class="btn" id="pYt" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      </div>
+      <div class="pstats" id="pStats"></div>
+    </section>
+    <aside>
+      <div class="upnext-head"><h3>Up next</h3>
+        <button class="switch" id="autoBtn" type="button" role="switch" aria-checked="true">Autoplay <i></i></button></div>
+      <div id="upList"></div>
+    </aside>
   </div>
 </div>
 
@@ -206,7 +298,8 @@ $("#themeBtn").onclick = () => {
 let CH = [], V = [], list = [], shown = 0;
 const seen = new Set(store.get("seen", []));
 const saveSeen = () => store.set("seen", [...seen]);
-const state = { q: "", tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false };
+const state = { q: "", view: "home", tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false };
+const TIERS = [["S", "Essential"], ["A", "Great"], ["B", "Worth a look"]];
 const DURS = [["<10 min", 0, 600], ["10–30 min", 600, 1800], ["30–60 min", 1800, 3600], ["1 h+", 3600, 1e9]];
 
 const fmtDur = s => { const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), ss = s % 60;
@@ -228,20 +321,72 @@ function chip(label, pressed, onclick, extra = "") {
 function toggle(key, val) { state[key] = state[key] === val ? null : val; renderFilters(); apply(); }
 
 function renderFilters() {
-  const base = V.filter(v => (!state.q || v.s.includes(state.q)) && (!state.hideSeen || !seen.has(v.id)));
-  const count = (fn) => base.filter(fn).length;
-  for (const id of ["tiers", "topics", "durs"]) [...$("#" + id).querySelectorAll(".chip")].forEach(n => n.remove());
-  for (const t of ["S", "A", "B"]) $("#tiers").append(chip("", state.tier === t, () => toggle("tier", t), `<span class="tier ${t}">${t}</span>`));
-  for (const t of [...new Set(CH.map(c => c.topic))]) $("#topics").append(chip(t, state.topic === t, () => toggle("topic", t)));
+  for (const id of ["topics", "durs"]) [...$("#" + id).querySelectorAll(".chip")].forEach(n => n.remove());
+  for (const t of [...new Set(CH.map(c => c.topic))].sort()) $("#topics").append(chip(t, state.topic === t, () => toggle("topic", t)));
   DURS.forEach(([l], i) => $("#durs").append(chip(l, state.dur === i, () => toggle("dur", i))));
-  const box = $("#channels"); box.innerHTML = "";
-  CH.map((c, i) => [c, i]).filter(([c]) => (!state.tier || c.t === state.tier) && (!state.topic || c.topic === state.topic))
-    .forEach(([c, i]) => {
-      const b = chip(c.n, state.ch === i, () => toggle("ch", i), `<span class="tier ${c.t}">${c.t}</span>`);
-      b.insertAdjacentHTML("beforeend", ` <span class="n">${count(v => v.c === i).toLocaleString("en-US")}</span>`);
-      box.append(b);
-    });
+  renderSide();
 }
+
+const initials = n => n.replace(/[^\p{L}\p{N} ]/gu, "").split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase() || "?";
+function avatar(c) {
+  return `<span class="av ${c.t}" data-i="${esc(initials(c.n))}">${c.a ? `<img loading="lazy" referrerpolicy="no-referrer" alt="" src="${esc(c.a)}">` : esc(initials(c.n))}</span>`;
+}
+// Broken avatar URL -> fall back to the channel's initials
+document.addEventListener("error", e => {
+  const img = e.target; if (img.tagName === "IMG" && img.parentElement?.classList.contains("av")) img.parentElement.textContent = img.parentElement.dataset.i;
+}, true);
+
+function renderSide() {
+  document.querySelectorAll(".nav-item").forEach(b => b.setAttribute("aria-current", state.view === b.dataset.view && state.ch == null && !state.tier));
+  $("#histN").textContent = seen.size ? seen.size.toLocaleString("en-US") : "";
+  const box = $("#tierList"); box.innerHTML = "";
+  for (const [t, label] of TIERS) {
+    const chans = CH.map((c, i) => [c, i]).filter(([c]) => c.t === t && (!state.topic || c.topic === state.topic));
+    if (!chans.length) continue;
+    const head = document.createElement("button");
+    head.type = "button"; head.className = "tier-head"; head.setAttribute("aria-current", state.tier === t && state.ch == null);
+    head.innerHTML = `<span class="tier ${t}">${t}</span>${label}<span class="sub">${chans.length}</span>`;
+    head.onclick = () => pick({ tier: state.tier === t && state.ch == null ? null : t, ch: null });
+    box.append(head);
+    for (const [c, i] of chans) {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "ch-item"; b.title = `${c.n} · ${fmtNum(c.subs)} subscribers`;
+      b.setAttribute("aria-current", state.ch === i);
+      b.innerHTML = `${avatar(c)}<span class="nm">${esc(c.n)}</span><span class="n">${fmtNum(c.subs)}</span>`;
+      b.onclick = () => pick({ ch: state.ch === i ? null : i, tier: null });
+      box.append(b);
+    }
+  }
+}
+// Sidebar selection: set view/tier/channel, refresh, close the drawer on phones, jump to top
+function pick(p) {
+  Object.assign(state, { view: "home" }, p);
+  renderFilters(); apply(); setDrawer(false); scrollTo({ top: 0 });
+}
+document.querySelectorAll(".nav-item").forEach(b => b.onclick = () => pick({ view: b.dataset.view, tier: null, ch: null }));
+
+function renderContext() {
+  const el = $("#context"), n = list.length.toLocaleString("en-US");
+  let html = "";
+  if (state.ch != null) { const c = CH[state.ch];
+    html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${fmtNum(c.subs)} subscribers · ${c.topic} · showing ${n} of ${(c.total || 0).toLocaleString("en-US")} uploads</p></div>
+      <a class="btn" href="https://www.youtube.com/@${encodeURIComponent(c.h)}" target="_blank" rel="noopener">Channel ↗</a>`;
+  } else if (state.tier) { const [t, label] = TIERS.find(x => x[0] === state.tier);
+    html = `<span class="tier ${t}" style="width:40px;height:40px;font-size:18px;border-radius:10px">${t}</span><div class="txt"><h2>${label}</h2><p>${CH.filter(c => c.t === t).length} channels · ${n} videos</p></div>`;
+  } else if (state.view === "picks") {
+    html = `<div class="txt"><h2>Top picks</h2><p>The 15 most-viewed videos of each Essential channel, mixed · ${n} videos</p></div>`;
+  } else if (state.view === "history") {
+    html = `<div class="txt"><h2>History</h2><p>${seen.size ? `${n} watched videos, newest first` : "Videos you watch or mark as watched show up here."}</p></div>`;
+  }
+  el.innerHTML = html; el.hidden = !html;
+}
+
+/* Drawer (below 1000px) */
+function setDrawer(open) { document.body.classList.toggle("drawer", open); $("#menuBtn").setAttribute("aria-expanded", open); }
+$("#menuBtn").onclick = () => setDrawer(!document.body.classList.contains("drawer"));
+$("#scrim").onclick = () => setDrawer(false);
+// Keep the sticky sidebar exactly below the header, whatever its height
+new ResizeObserver(() => document.documentElement.style.setProperty("--hh", $("header").offsetHeight + "px")).observe($("header"));
 
 function apply() {
   list = V.filter(v => {
@@ -250,11 +395,21 @@ function apply() {
     if (state.topic && c.topic !== state.topic) return false;
     if (state.ch != null && v.c !== state.ch) return false;
     if (state.dur != null) { const [, lo, hi] = DURS[state.dur]; if (v.d < lo || v.d >= hi) return false; }
-    if (state.hideSeen && seen.has(v.id)) return false;
+    if (state.view === "picks" && c.t !== "S") return false;
+    if (state.view === "history" ? !seen.has(v.id) : (state.hideSeen && seen.has(v.id))) return false;
     return !state.q || v.s.includes(state.q);
   });
   const by = { new: (a, b) => b.ts - a.ts, views: (a, b) => b.v - a.v, long: (a, b) => b.d - a.d };
-  if (state.sort === "random") shuffle(list); else if (state.sort === "mix") list = mix(list); else list.sort(by[state.sort]);
+  if (state.view === "history") { const order = [...seen]; list.sort((a, b) => order.lastIndexOf(b.id) - order.lastIndexOf(a.id)); }
+  else if (state.view === "picks") {
+    // Each Essential channel's 15 most-viewed videos, dealt out evenly so no channel dominates
+    const per = new Map();
+    for (const v of list.sort(by.views)) { const a = per.get(v.c) || []; if (a.length < 15) { a.push(v); per.set(v.c, a); } }
+    list = [...per.values()].flat();
+    list = state.sort === "mix" ? mix(list) : state.sort === "random" ? shuffle(list) : list.sort(by[state.sort]);
+  }
+  else if (state.sort === "random") shuffle(list); else if (state.sort === "mix") list = mix(list); else list.sort(by[state.sort]);
+  renderContext();
   $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} videos · ${CH.length} channels`;
   $("#grid").innerHTML = ""; shown = 0; more();
   $("#empty").hidden = list.length > 0;
@@ -289,26 +444,59 @@ function more() {
 }
 new IntersectionObserver(e => { if (e[0].isIntersecting && shown < list.length) more(); }, { rootMargin: "1200px" }).observe($("#sentinel"));
 
-/* Player */
-let current = null;
-function metaHTML(v) { const c = CH[v.c];
-  return `<span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span><span class="dot"></span><span class="num">${fmtNum(v.v)} views</span><span class="dot"></span><span class="num">${fmtAgo(v.ts)}</span>`; }
+/* Watch view */
+let current = null, upNext = [], wp = null, autoplay = store.get("autoplay", true);
 function openPlayer(v) {
   current = v;
-  $("#pFrame").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="${esc(v.t)}"></iframe>`;
-  $("#pTitle").textContent = v.t; $("#pMeta").innerHTML = metaHTML(v);
+  // Up next: what follows this video in the current list; if it isn't in the list, a fresh channel-balanced mix
+  const idx = list.indexOf(v);
+  const pool = idx >= 0 ? [...list.slice(idx + 1), ...list.slice(0, idx)] : mix(list.length ? [...list] : [...V]);
+  upNext = pool.filter(x => x !== v && !seen.has(x.id)).slice(0, 20);
+  if (upNext.length < 20) upNext.push(...pool.filter(x => x !== v && seen.has(x.id)).slice(0, 20 - upNext.length));
+  const c = CH[v.c];
+  $("#pTitle").textContent = v.t;
+  $("#pWho").innerHTML = `${avatar(c)}<span><b>${esc(c.n)}</b><small>${fmtNum(c.subs)} subscribers</small></span>`;
+  $("#pStats").textContent = `${v.v.toLocaleString("en-US")} views · ${fmtAgo(v.ts)} · ${fmtDur(v.d)} · ${TIERS.find(x => x[0] === c.t)[1]} tier · ${c.topic}`;
   $("#pYt").href = `https://www.youtube.com/watch?v=${v.id}`;
   $("#pSeen").textContent = seen.has(v.id) ? "Mark unwatched" : "Mark watched";
-  $("#overlay").hidden = false;
+  $("#upList").innerHTML = "";
+  for (const u of upNext) {
+    const uc = CH[u.c], b = document.createElement("button");
+    b.type = "button"; b.className = "up";
+    b.innerHTML = `<div class="thumb"><img loading="lazy" alt="" src="${thumb(u.id)}">${u.d ? `<span class="dur">${fmtDur(u.d)}</span>` : ""}</div>
+      <div class="m"><h4>${esc(u.t)}</h4><span>${esc(uc.n)} <span class="tier ${uc.t}">${uc.t}</span></span><span>${fmtNum(u.v)} views</span></div>`;
+    b.onclick = () => openPlayer(u);
+    $("#upList").append(b);
+  }
+  const wasHidden = $("#watch").hidden;
+  $("#watch").hidden = false; document.body.style.overflow = "hidden";
+  if (!wasHidden) $("#watch").scrollTo({ top: 0 });
+  loadYT().then(() => {
+    if (current !== v) return;
+    if (wp) wp.loadVideoById(v.id);
+    else wp = new YT.Player("wPlayer", { videoId: v.id, playerVars: { autoplay: 1, rel: 0, modestbranding: 1 },
+      events: { onReady: e => e.target.playVideo(),
+                onStateChange: e => { if (e.data === YT.PlayerState.ENDED && current) { markSeen(current.id, true); if (autoplay && upNext[0]) openPlayer(upNext[0]); } } } });
+  });
 }
-function closePlayer() { $("#overlay").hidden = true; $("#pFrame").innerHTML = ""; current = null; }
+function closePlayer() { $("#watch").hidden = true; document.body.style.overflow = ""; wp?.stopVideo?.(); current = null; renderSide(); }
 function markSeen(id, on) {
   on ? seen.add(id) : seen.delete(id); saveSeen();
   const el = document.querySelector(`.card[data-id="${id}"]`); if (el) el.replaceWith(card(V.find(v => v.id === id)));
 }
 $("#pClose").onclick = closePlayer;
-$("#overlay").onclick = e => { if (e.target.id === "overlay") closePlayer(); };
+$("#pWho").onclick = () => { if (!current) return; const i = current.c; closePlayer(); pick({ ch: i, tier: null }); };
 $("#pSeen").onclick = () => { if (!current) return; const on = !seen.has(current.id); markSeen(current.id, on); $("#pSeen").textContent = on ? "Mark unwatched" : "Mark watched"; };
+function renderAuto() { $("#autoBtn").setAttribute("aria-checked", autoplay); }
+$("#autoBtn").onclick = () => { autoplay = !autoplay; store.set("autoplay", autoplay); renderAuto(); };
+renderAuto();
+
+/* Surprise me: a random unwatched video from the current filter (or from everything if the filter is empty) */
+function surprise() {
+  const pool = (list.length ? list : V).filter(v => !seen.has(v.id));
+  const from = pool.length ? pool : (list.length ? list : V);
+  openPlayer(from[Math.random() * from.length | 0]);
+}
 
 /* TV mode: plays the current filtered list as a channel-balanced mix, unwatched first */
 let yt = null, ytReady = null, queue = [], qi = 0, idleT;
@@ -356,7 +544,7 @@ function renderCC() { $("#tvCC").setAttribute("aria-pressed", cc); $("#tvCC").te
 function toggleCC() { cc = !cc; store.set("cc", cc); renderCC(); applyCC(); }
 renderCC();
 $("#tvCC").onclick = toggleCC;
-$("#tvBtn").onclick = startTV; $("#tvExit").onclick = stopTV;
+$("#tvBtn").onclick = startTV; $("#surprise").onclick = surprise; $("#surprise2").onclick = surprise; $("#tvExit").onclick = stopTV;
 $("#tvSkip").onclick = () => step(1); $("#tvPrev").onclick = () => step(-1);
 $("#tv").addEventListener("mousemove", poke);
 $("#tvHot").addEventListener("mousemove", poke);
@@ -367,7 +555,8 @@ document.addEventListener("keydown", e => {
     else if (e.key === "c") toggleCC();
     poke(); return;
   }
-  if (!$("#overlay").hidden && e.key === "Escape") return closePlayer();
+  if (!$("#watch").hidden) { if (e.key === "Escape") closePlayer(); return; }
+  if (e.key === "Escape" && document.body.classList.contains("drawer")) return setDrawer(false);
   if (e.key === "/" && document.activeElement !== $("#q")) { e.preventDefault(); $("#q").focus(); }
 });
 
