@@ -4,8 +4,8 @@ Usage:
   python3 transcripts.py            # download missing transcripts, then build search.json
   python3 transcripts.py --build    # only rebuild search.json from transcripts/
 
-A weekly GitHub Action (transcripts.yml) runs this for new videos; it keeps the transcripts in the
-Actions cache (TRANSCRIPTS_DIR=.cache/transcripts), never in git or anywhere public. It is resumable: already-downloaded videos are skipped, and videos
+This runs every morning on a local machine (YouTube blocks subtitle downloads from CI runners).
+The transcripts stay in transcripts/ (or $TRANSCRIPTS_DIR) and are never committed; only search.json is. It is resumable: already-downloaded videos are skipped, and videos
 from the last 14 days that had no subtitles yet are tried again (auto-captions can take a while).
 If YouTube starts refusing requests ("confirm you're not a bot"), it stops and keeps what it has.
 
