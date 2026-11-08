@@ -229,7 +229,9 @@ main { padding-block: 20px 60px; min-width: 0; }
 .tabs button { height: 30px; padding: 0 14px; border: 0; border-radius: 999px; background: none; font-weight: 600; font-size: 13px; color: var(--fg2); }
 .tabs button[aria-selected="true"] { background: var(--surface); color: var(--fg); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
 body[data-mode="articles"] #tvBtn { display: none; }
-.path-card .mosaic .ph { position: static; padding: 6px; }
+.path-card .mosaic .mt { position: relative; overflow: hidden; }
+.path-card .mosaic .mt img { position: absolute; inset: 0; }
+.path-card .mosaic .ph { padding: 6px; }
 .path-card .mosaic .ph b { font-size: 13px; }
 
 /* Article cards: cover image (or a tile with the source name), title, short description */
@@ -438,7 +440,7 @@ const LBL = {
   videos:   { one: "video", many: "videos", src: "channels", seen: "watched", later: "Watch later", hide: "Hide watched", q: "Kubernetes, RAG, Terraform…",
               paths: "Learning paths", suggest: ["＋ Suggest a channel", "suggest-channel.yml"] },
   articles: { one: "article", many: "articles", src: "sources", seen: "read", later: "Read later", hide: "Hide read", q: "Distributed systems, Rust, LLMs…",
-              paths: "Reading paths", suggest: ["＋ Suggest a blog", "suggest-blog.yml"] },
+              paths: "Learning paths", suggest: ["＋ Suggest a blog", "suggest-blog.yml"] },
 };
 const L = () => LBL[mode];
 let progress = store.get("progress", {});    // id -> { t: seconds watched, at: last watched (ms) }
@@ -560,12 +562,14 @@ function routeView(p) {
   const next = { view: "home", path: null, like: null, tier: null, ch: null };
   if (p.get("c")) { const i = CH.findIndex(c => c.h.toLowerCase() === p.get("c").toLowerCase()); if (i >= 0) next.ch = i; }
   else if (p.get("tier") && TIERS.some(t => t[0] === p.get("tier").toUpperCase())) next.tier = p.get("tier").toUpperCase();
-  else if (p.get("path")) Object.assign(next, { view: "path", path: p.get("path") });
+  // old automatic paths now live on as curated ones (same id, or renamed)
+  else if (p.get("path")) { const id = { "neural-networks": "llms", networking: "internet" }[p.get("path")] || p.get("path");
+    Object.assign(next, COURSES.some(c => c.id === id) ? { view: "course", course: id } : { view: "path", path: id }); }
   else if (p.get("like") && byId.has(p.get("like"))) Object.assign(next, { view: "like", like: p.get("like") });
   else if (p.get("course")) Object.assign(next, { view: "course", course: p.get("course") });
   else if (p.has("time")) { next.view = "time"; state.budget = BUDGETS.includes(+p.get("time")) ? +p.get("time") : 15; }
   else for (const k of ["picks", "new", "paths", "later", "history"]) if (p.has(k)) next.view = k;
-  Object.assign(state, next); renderFilters(); apply();
+  Object.assign(state, next); renderFilters(); apply(); syncHash();
 }
 
 /* ---------- Videos | Articles ---------- */
@@ -650,8 +654,7 @@ function renderContext() {
   } else if (state.view === "new") {
     html = `<div class="txt"><h2>New this week</h2><p>${n} ${l.many} ${A ? "published" : "uploaded"} in the last 7 days across all ${CH.length} ${l.src}, newest first</p></div>`;
   } else if (state.view === "paths") {
-    html = A ? `<div class="txt"><h2>Reading paths</h2><p>Short, ordered reading lists that take one topic from zero to solid, from the Essential and Great sources.</p></div>`
-      : `<div class="txt"><h2>Learning paths</h2><p>Short, ordered playlists that take one topic from zero to solid, picked from the Essential and Great channels.</p></div>`;
+    html = `<div class="txt"><h2>Learning paths</h2><p>Hand-picked courses that take one topic from zero to solid, mixing the best videos and articles, step by step.</p></div>`;
   } else if (state.view === "course") { const c = COURSES.find(x => x.id === state.course), items = c ? courseItems(c) : [];
     const done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0), nv = items.filter(x => !x.art).length;
     html = c ? `<div class="txt lead"><span class="lvl">${esc(c.level)}</span><h2 style="margin-top:8px">${esc(c.title)}</h2><p>${esc(c.blurb)}</p>
@@ -812,14 +815,19 @@ function renderPaths() {
   if (box.hidden) return;
   box.innerHTML = "";
   if (COURSES.length && !DS.articles.V.length) { ensureArticles().then(() => state.view === "paths" && renderPaths()).catch(() => {}); }
-  const tile = v => v.art ? (v.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(v.img)}">` : `<span class="ph ${v.ch.t}"><b>${esc(v.ch.n)}</b></span>`)
-    : `<img loading="lazy" alt="" src="${thumb(v.id)}">`;
-  if (COURSES.length) box.insertAdjacentHTML("beforeend", `<div class="paths-head">Curated paths <small>hand-picked videos and articles, step by step</small></div>`);
-  for (const c of COURSES) {
+  // each tile has the source-name tile underneath, so a missing or broken image still looks right
+  const tile = v => `<span class="mt">${v.art ? `<span class="ph ${v.ch.t}"><b>${esc(v.ch.n)}</b></span>${v.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(v.img)}">` : ""}`
+    : `<img loading="lazy" alt="" src="${thumb(v.id)}">`}</span>`;
+  const LEVELS = ["Beginner", "Intermediate", "Advanced", "All levels"];
+  const courses = [...COURSES].sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
+  let lastLevel = null;
+  for (const c of courses) {
+    if (c.level !== lastLevel) { lastLevel = c.level; box.insertAdjacentHTML("beforeend", `<div class="paths-head">${esc(c.level)}</div>`); }
     const items = courseItems(c), done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0);
     const b = document.createElement("button");
     b.type = "button"; b.className = "path-card";
-    b.innerHTML = `<div class="mosaic">${items.filter(x => !x.art).slice(0, 4).map(tile).join("")}</div>
+    const cover = [...items.filter(x => !x.art), ...items.filter(x => x.art)].slice(0, 4);   // videos first, articles fill the rest
+    b.innerHTML = `<div class="mosaic">${cover.map(tile).join("")}</div>
       <span class="lvl">${esc(c.level)}</span><h3>${esc(c.title)}</h3><p>${esc(c.blurb)}</p>
       <div class="bar"><i style="width:${items.length ? done / items.length * 100 : 0}%"></i></div>
       <div class="foot"><span>${items.length} steps · ${fmtMin(mins)}</span><span>${done}/${items.length} done</span></div>`;

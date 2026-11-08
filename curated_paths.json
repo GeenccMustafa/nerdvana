@@ -5,41 +5,151 @@
     "level": "Intermediate",
     "blurb": "From a single neuron to how ChatGPT-style models are built, trained and tuned. Light on math, heavy on intuition, with two build-it-yourself detours.",
     "sections": [
-      {"title": "What a neural network is", "steps": [
-        {"v": "aircAruvnKk", "t": "But what is a neural network?", "note": "The clearest picture there is: layers of numbers, weights and a lot of tiny decisions."},
-        {"v": "IHZwWFHWa-w", "t": "Gradient descent, how neural networks learn", "note": "How a network learns: measure how wrong it is, then nudge every weight downhill."},
-        {"v": "Ilg3gGewQ5U", "t": "Backpropagation, intuitively", "note": "The trick that makes learning fast: blame flows backwards through the network."},
-        {"v": "tIeHLnjs5U8", "t": "Backpropagation calculus", "note": "The math behind the last video. Skip it if calculus is rusty; nothing later depends on it."},
-        {"a": "3f5e48ef53", "t": "Hacker's Guide to Neural Networks", "note": "The same ideas once more, as code instead of equations."}
-      ]},
-      {"title": "Build one yourself", "steps": [
-        {"v": "VMj-3S1tku0", "t": "The spelled-out intro to neural networks and backpropagation: building micrograd", "note": "Write a tiny autograd engine and train a net with it in plain Python. Long, and the best investment on this path."},
-        {"a": "21e3e719f6", "t": "A Recipe for Training Neural Networks", "note": "Practical habits for when training doesn't work, which is most of the time."}
-      ]},
-      {"title": "Language: from words to sequences", "steps": [
-        {"v": "viZrOnJclY0", "t": "Word Embedding and Word2Vec, Clearly Explained!!!", "note": "How words become vectors whose distances mean something."},
-        {"a": "7d1cbec3ff", "t": "Embeddings: What they are and why they matter", "note": "What embeddings are good for in practice: search, clustering, recommendations."},
-        {"v": "PaCmpygFfXo", "t": "The spelled-out intro to language modeling: building makemore", "note": "Your first language model: predicting the next character, from counting to a neural net."},
-        {"a": "ce3e63aa26", "t": "The Unreasonable Effectiveness of Recurrent Neural Networks", "note": "The 2015 post that showed how much a simple next-character model can learn."},
-        {"a": "012c93ab19", "t": "Understanding LSTM Networks", "note": "How networks got a memory, and why that wasn't enough."}
-      ]},
-      {"title": "Attention and transformers", "steps": [
-        {"a": "44a3403b7c", "t": "Attention and Augmented Recurrent Neural Networks", "note": "Where the idea of attention came from, with beautiful interactive diagrams."},
-        {"v": "wjZofJX0v4M", "t": "Transformers, the tech behind LLMs", "note": "The transformer as a whole: tokens in, probabilities out."},
-        {"v": "eMlx5fFNoYc", "t": "Attention in transformers, step-by-step", "note": "The heart of it: how every token looks at every other token."},
-        {"a": "62b795f374", "t": "The Illustrated Transformer", "note": "The classic visual walkthrough. Read it right after the videos; it will click."},
-        {"v": "9-Jl0dxWQs8", "t": "How might LLMs store facts", "note": "What the other half of the transformer, the MLP layers, seems to be doing."}
-      ]},
-      {"title": "Build GPT", "steps": [
-        {"v": "kCc8FmEb1nY", "t": "Let's build GPT: from scratch, in code, spelled out.", "note": "Put it all together and train a small GPT on Shakespeare."},
-        {"v": "zduSFxRajkE", "t": "Let's build the GPT Tokenizer", "note": "Why models see text as tokens, and why that explains many of their quirks."},
-        {"a": "50e6fa3c83", "t": "The Illustrated GPT-2", "note": "A visual recap of what you just built, at real scale."}
-      ]},
-      {"title": "Today's LLMs", "steps": [
-        {"v": "zjkBMFhNj_g", "t": "[1hr Talk] Intro to Large Language Models", "note": "The big picture: pretraining, fine-tuning, tools, and where this is all going."},
-        {"v": "qPN_XZcJf_s", "t": "Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!!", "note": "How a text predictor is turned into a helpful assistant."},
-        {"a": "1959c5806d", "t": "Understanding Reasoning LLMs", "note": "How the newest models are trained to think before they answer."}
-      ]}
+      {
+        "title": "What a neural network is",
+        "steps": [
+          {
+            "v": "aircAruvnKk",
+            "t": "But what is a neural network?",
+            "note": "The clearest picture there is: layers of numbers, weights and a lot of tiny decisions."
+          },
+          {
+            "v": "IHZwWFHWa-w",
+            "t": "Gradient descent, how neural networks learn",
+            "note": "How a network learns: measure how wrong it is, then nudge every weight downhill."
+          },
+          {
+            "v": "Ilg3gGewQ5U",
+            "t": "Backpropagation, intuitively",
+            "note": "The trick that makes learning fast: blame flows backwards through the network."
+          },
+          {
+            "v": "tIeHLnjs5U8",
+            "t": "Backpropagation calculus",
+            "note": "The math behind the last video. Skip it if calculus is rusty; nothing later depends on it."
+          },
+          {
+            "a": "3f5e48ef53",
+            "t": "Hacker's Guide to Neural Networks",
+            "note": "The same ideas once more, as code instead of equations."
+          }
+        ]
+      },
+      {
+        "title": "Build one yourself",
+        "steps": [
+          {
+            "v": "VMj-3S1tku0",
+            "t": "The spelled-out intro to neural networks and backpropagation: building micrograd",
+            "note": "Write a tiny autograd engine and train a net with it in plain Python. Long, and the best investment on this path."
+          },
+          {
+            "a": "21e3e719f6",
+            "t": "A Recipe for Training Neural Networks",
+            "note": "Practical habits for when training doesn't work, which is most of the time."
+          }
+        ]
+      },
+      {
+        "title": "Language: from words to sequences",
+        "steps": [
+          {
+            "v": "viZrOnJclY0",
+            "t": "Word Embedding and Word2Vec, Clearly Explained!!!",
+            "note": "How words become vectors whose distances mean something."
+          },
+          {
+            "a": "7d1cbec3ff",
+            "t": "Embeddings: What they are and why they matter",
+            "note": "What embeddings are good for in practice: search, clustering, recommendations."
+          },
+          {
+            "v": "PaCmpygFfXo",
+            "t": "The spelled-out intro to language modeling: building makemore",
+            "note": "Your first language model: predicting the next character, from counting to a neural net."
+          },
+          {
+            "a": "ce3e63aa26",
+            "t": "The Unreasonable Effectiveness of Recurrent Neural Networks",
+            "note": "The 2015 post that showed how much a simple next-character model can learn."
+          },
+          {
+            "a": "012c93ab19",
+            "t": "Understanding LSTM Networks",
+            "note": "How networks got a memory, and why that wasn't enough."
+          }
+        ]
+      },
+      {
+        "title": "Attention and transformers",
+        "steps": [
+          {
+            "a": "44a3403b7c",
+            "t": "Attention and Augmented Recurrent Neural Networks",
+            "note": "Where the idea of attention came from, with beautiful interactive diagrams."
+          },
+          {
+            "v": "wjZofJX0v4M",
+            "t": "Transformers, the tech behind LLMs",
+            "note": "The transformer as a whole: tokens in, probabilities out."
+          },
+          {
+            "v": "eMlx5fFNoYc",
+            "t": "Attention in transformers, step-by-step",
+            "note": "The heart of it: how every token looks at every other token."
+          },
+          {
+            "a": "62b795f374",
+            "t": "The Illustrated Transformer",
+            "note": "The classic visual walkthrough. Read it right after the videos; it will click."
+          },
+          {
+            "v": "9-Jl0dxWQs8",
+            "t": "How might LLMs store facts",
+            "note": "What the other half of the transformer, the MLP layers, seems to be doing."
+          }
+        ]
+      },
+      {
+        "title": "Build GPT",
+        "steps": [
+          {
+            "v": "kCc8FmEb1nY",
+            "t": "Let's build GPT: from scratch, in code, spelled out.",
+            "note": "Put it all together and train a small GPT on Shakespeare."
+          },
+          {
+            "v": "zduSFxRajkE",
+            "t": "Let's build the GPT Tokenizer",
+            "note": "Why models see text as tokens, and why that explains many of their quirks."
+          },
+          {
+            "a": "50e6fa3c83",
+            "t": "The Illustrated GPT-2",
+            "note": "A visual recap of what you just built, at real scale."
+          }
+        ]
+      },
+      {
+        "title": "Today's LLMs",
+        "steps": [
+          {
+            "v": "zjkBMFhNj_g",
+            "t": "[1hr Talk] Intro to Large Language Models",
+            "note": "The big picture: pretraining, fine-tuning, tools, and where this is all going."
+          },
+          {
+            "v": "qPN_XZcJf_s",
+            "t": "Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!!",
+            "note": "How a text predictor is turned into a helpful assistant."
+          },
+          {
+            "a": "1959c5806d",
+            "t": "Understanding Reasoning LLMs",
+            "note": "How the newest models are trained to think before they answer."
+          }
+        ]
+      }
     ]
   },
   {
@@ -48,35 +158,126 @@
     "level": "Beginner",
     "blurb": "Containers from first principles, then running them at scale: from your first Dockerfile to Helm charts and operating a real cluster.",
     "sections": [
-      {"title": "Why containers", "steps": [
-        {"v": "eyNBf1sqdBQ", "t": "Virtual Machines vs Containers", "note": "Start here: what a container actually is, and how it differs from a virtual machine."},
-        {"v": "gAkwW2tuIqE", "t": "Learn Docker in 7 Easy Steps", "note": "A quick tour of the whole Docker workflow, so the rest has context."},
-        {"a": "e06dd46d31", "t": "How Containers Work: Overlayfs", "note": "A peek under the hood: how image layers stack into one filesystem."}
-      ]},
-      {"title": "Docker in practice", "steps": [
-        {"v": "pg19Z8LL06w", "t": "Docker Crash Course for Absolute Beginners", "note": "Hands-on: images, containers, ports and volumes. Follow along on your machine."},
-        {"v": "WmcdMiyqfZs", "t": "Dockerfile Tutorial", "note": "Package your own app as an image."},
-        {"v": "DM65_JyGxCo", "t": "Docker Compose will BLOW your MIND!!", "note": "Run several containers together with one file."},
-        {"v": "bKFMS5C4CG0", "t": "Docker networking is CRAZY!!", "note": "How containers talk to each other and to the outside world."}
-      ]},
-      {"title": "Kubernetes concepts", "steps": [
-        {"v": "TlHvYWVUZyc", "t": "Kubernetes Explained in 6 Minutes", "note": "The architecture on one page: control plane, nodes, pods."},
-        {"v": "Krpb44XR0bk", "t": "Kubernetes Components explained!", "note": "The building blocks you'll use every day: Pods, Services, ConfigMaps, Secrets, Deployments."},
-        {"v": "s_o8dwzRlu4", "t": "Kubernetes Crash Course for Absolute Beginners", "note": "Hands-on: run a local cluster and deploy a real app to it."},
-        {"v": "qmDzcu5uY1I", "t": "Kubernetes YAML File Explained", "note": "How to read and write the manifests you'll be living in."}
-      ]},
-      {"title": "Networking and storage", "steps": [
-        {"v": "T4Z7visMM4E", "t": "Kubernetes Services explained", "note": "ClusterIP, NodePort, LoadBalancer: how traffic finds your pods."},
-        {"v": "80Ew_fsV4rM", "t": "Kubernetes Ingress Tutorial for Beginners", "note": "One entry point and routing rules for all your services."},
-        {"v": "0swOh5C3OVM", "t": "Kubernetes Volumes explained", "note": "Keeping data alive when pods come and go."},
-        {"v": "pPQKAR1pA9U", "t": "Kubernetes StatefulSet simply explained", "note": "Why databases need different treatment than stateless apps."}
-      ]},
-      {"title": "Running it for real", "steps": [
-        {"v": "-ykwb1d0DXU", "t": "What is Helm in Kubernetes?", "note": "Package and version whole applications instead of piles of YAML."},
-        {"v": "ha3LjlD6g7g", "t": "Kubernetes Operator simply explained", "note": "Teaching Kubernetes to run complex software for you."},
-        {"a": "3d81ccac36", "t": "Learning to operate Kubernetes reliably", "note": "What Stripe learned running Kubernetes in production."},
-        {"a": "d396344a08", "t": "Everything I know about Kubernetes I learned from a cluster of Raspberry Pis", "note": "Want to practise on real hardware? This is how."}
-      ]}
+      {
+        "title": "Why containers",
+        "steps": [
+          {
+            "v": "eyNBf1sqdBQ",
+            "t": "Virtual Machines vs Containers",
+            "note": "Start here: what a container actually is, and how it differs from a virtual machine."
+          },
+          {
+            "v": "gAkwW2tuIqE",
+            "t": "Learn Docker in 7 Easy Steps",
+            "note": "A quick tour of the whole Docker workflow, so the rest has context."
+          },
+          {
+            "a": "e06dd46d31",
+            "t": "How Containers Work: Overlayfs",
+            "note": "A peek under the hood: how image layers stack into one filesystem."
+          }
+        ]
+      },
+      {
+        "title": "Docker in practice",
+        "steps": [
+          {
+            "v": "pg19Z8LL06w",
+            "t": "Docker Crash Course for Absolute Beginners",
+            "note": "Hands-on: images, containers, ports and volumes. Follow along on your machine."
+          },
+          {
+            "v": "WmcdMiyqfZs",
+            "t": "Dockerfile Tutorial",
+            "note": "Package your own app as an image."
+          },
+          {
+            "v": "DM65_JyGxCo",
+            "t": "Docker Compose will BLOW your MIND!!",
+            "note": "Run several containers together with one file."
+          },
+          {
+            "v": "bKFMS5C4CG0",
+            "t": "Docker networking is CRAZY!!",
+            "note": "How containers talk to each other and to the outside world."
+          }
+        ]
+      },
+      {
+        "title": "Kubernetes concepts",
+        "steps": [
+          {
+            "v": "TlHvYWVUZyc",
+            "t": "Kubernetes Explained in 6 Minutes",
+            "note": "The architecture on one page: control plane, nodes, pods."
+          },
+          {
+            "v": "Krpb44XR0bk",
+            "t": "Kubernetes Components explained!",
+            "note": "The building blocks you'll use every day: Pods, Services, ConfigMaps, Secrets, Deployments."
+          },
+          {
+            "v": "s_o8dwzRlu4",
+            "t": "Kubernetes Crash Course for Absolute Beginners",
+            "note": "Hands-on: run a local cluster and deploy a real app to it."
+          },
+          {
+            "v": "qmDzcu5uY1I",
+            "t": "Kubernetes YAML File Explained",
+            "note": "How to read and write the manifests you'll be living in."
+          }
+        ]
+      },
+      {
+        "title": "Networking and storage",
+        "steps": [
+          {
+            "v": "T4Z7visMM4E",
+            "t": "Kubernetes Services explained",
+            "note": "ClusterIP, NodePort, LoadBalancer: how traffic finds your pods."
+          },
+          {
+            "v": "80Ew_fsV4rM",
+            "t": "Kubernetes Ingress Tutorial for Beginners",
+            "note": "One entry point and routing rules for all your services."
+          },
+          {
+            "v": "0swOh5C3OVM",
+            "t": "Kubernetes Volumes explained",
+            "note": "Keeping data alive when pods come and go."
+          },
+          {
+            "v": "pPQKAR1pA9U",
+            "t": "Kubernetes StatefulSet simply explained",
+            "note": "Why databases need different treatment than stateless apps."
+          }
+        ]
+      },
+      {
+        "title": "Running it for real",
+        "steps": [
+          {
+            "v": "-ykwb1d0DXU",
+            "t": "What is Helm in Kubernetes?",
+            "note": "Package and version whole applications instead of piles of YAML."
+          },
+          {
+            "v": "ha3LjlD6g7g",
+            "t": "Kubernetes Operator simply explained",
+            "note": "Teaching Kubernetes to run complex software for you."
+          },
+          {
+            "a": "3d81ccac36",
+            "t": "Learning to operate Kubernetes reliably",
+            "note": "What Stripe learned running Kubernetes in production."
+          },
+          {
+            "a": "d396344a08",
+            "t": "Everything I know about Kubernetes I learned from a cluster of Raspberry Pis",
+            "note": "Want to practise on real hardware? This is how."
+          }
+        ]
+      }
     ]
   },
   {
@@ -85,38 +286,1324 @@
     "level": "Beginner",
     "blurb": "What happens between typing a URL and seeing a page: cables, addresses, routing, DNS, HTTP and encryption, plus a few stories of it breaking.",
     "sections": [
-      {"title": "The physical internet", "steps": [
-        {"v": "KjD3KANH-xc", "t": "How Does the Internet Work? | Data Packets", "note": "The core idea in five minutes: everything travels in small packets."},
-        {"v": "G1Ke-H8I1uk", "t": "How Does LIGHT Carry Data? - Fiber Optics Explained", "note": "Most of those packets travel as pulses of light."},
-        {"v": "AFt9le2ytW0", "t": "The Hazardous Life of an Undersea Cable", "note": "The cables on the ocean floor that carry almost all intercontinental traffic."},
-        {"v": "vvKbMueRzrI", "t": "How WiFi Works - Computerphile", "note": "The last few metres: how data gets to your laptop through the air."}
-      ]},
-      {"title": "Addresses and routing", "steps": [
-        {"v": "1z0ULvg_pW8", "t": "Hub, Switch, & Router Explained", "note": "The boxes that move packets around, and what each one knows."},
-        {"v": "ThdO9beHhpA", "t": "IP Address - IPv4 vs IPv6 Tutorial", "note": "How every device gets an address."},
-        {"v": "5WfiTHiU4x8", "t": "what is an IP Address? // You SUCK at Subnetting", "note": "Networks inside networks, and how to read addresses like 10.0.0.0/24."},
-        {"v": "FTUV0t6JaDA", "t": "NAT Explained - Network Address Translation", "note": "How a whole household shares one public address."},
-        {"v": "up3bcBLZS74", "t": "Traceroute (tracert) Explained", "note": "Watch your packets hop across the internet yourself."}
-      ]},
-      {"title": "Protocols: TCP/IP", "steps": [
-        {"v": "CRdL1PcherM", "t": "what is TCP/IP and OSI?", "note": "The layer model that ties everything together."},
-        {"v": "uwoD5YsGACg", "t": "TCP vs UDP Comparison", "note": "Reliable delivery versus speed, and who uses which."},
-        {"a": "746fe7b5c5", "t": "It's always TCP_NODELAY", "note": "A taste of how TCP details still bite in real systems."}
-      ]},
-      {"title": "Names: DNS", "steps": [
-        {"v": "mpQZVYPuDGU", "t": "How a DNS Server (Domain Name System) works.", "note": "How a name like github.com becomes an address."},
-        {"a": "46b9a2b589", "t": "Mess with DNS", "note": "Play with real DNS records in a safe sandbox."},
-        {"a": "e6c3dab6e1", "t": "A toy DNS resolver", "note": "Write a DNS resolver in about 200 lines and see there is no magic."}
-      ]},
-      {"title": "The web on top: HTTP and TLS", "steps": [
-        {"v": "iYM2zFP3Zn0", "t": "HTTP Crash Course & Exploration", "note": "Requests, responses, headers and status codes, explored in the browser."},
-        {"v": "hExRDVZHhig", "t": "SSL, TLS, HTTP, HTTPS Explained", "note": "How the padlock works: encryption and certificates."},
-        {"a": "6ae9be02d8", "t": "HTTP/3: from root to tip", "note": "Why the newest HTTP runs over UDP."}
-      ]},
-      {"title": "When it breaks", "steps": [
-        {"a": "81a022d49d", "t": "How Verizon and a BGP Optimizer Knocked Large Parts of the Internet Offline Today", "note": "How one routing mistake took down large parts of the internet."},
-        {"a": "1e37988bd1", "t": "1.1.1.1: Fast, privacy-first consumer DNS service", "note": "What it takes to run DNS for millions of people."}
-      ]}
+      {
+        "title": "The physical internet",
+        "steps": [
+          {
+            "v": "KjD3KANH-xc",
+            "t": "How Does the Internet Work? | Data Packets",
+            "note": "The core idea in five minutes: everything travels in small packets."
+          },
+          {
+            "v": "G1Ke-H8I1uk",
+            "t": "How Does LIGHT Carry Data? - Fiber Optics Explained",
+            "note": "Most of those packets travel as pulses of light."
+          },
+          {
+            "v": "AFt9le2ytW0",
+            "t": "The Hazardous Life of an Undersea Cable",
+            "note": "The cables on the ocean floor that carry almost all intercontinental traffic."
+          },
+          {
+            "v": "vvKbMueRzrI",
+            "t": "How WiFi Works - Computerphile",
+            "note": "The last few metres: how data gets to your laptop through the air."
+          }
+        ]
+      },
+      {
+        "title": "Addresses and routing",
+        "steps": [
+          {
+            "v": "1z0ULvg_pW8",
+            "t": "Hub, Switch, & Router Explained",
+            "note": "The boxes that move packets around, and what each one knows."
+          },
+          {
+            "v": "ThdO9beHhpA",
+            "t": "IP Address - IPv4 vs IPv6 Tutorial",
+            "note": "How every device gets an address."
+          },
+          {
+            "v": "5WfiTHiU4x8",
+            "t": "what is an IP Address? // You SUCK at Subnetting",
+            "note": "Networks inside networks, and how to read addresses like 10.0.0.0/24."
+          },
+          {
+            "v": "FTUV0t6JaDA",
+            "t": "NAT Explained - Network Address Translation",
+            "note": "How a whole household shares one public address."
+          },
+          {
+            "v": "up3bcBLZS74",
+            "t": "Traceroute (tracert) Explained",
+            "note": "Watch your packets hop across the internet yourself."
+          }
+        ]
+      },
+      {
+        "title": "Protocols: TCP/IP",
+        "steps": [
+          {
+            "v": "CRdL1PcherM",
+            "t": "what is TCP/IP and OSI?",
+            "note": "The layer model that ties everything together."
+          },
+          {
+            "v": "uwoD5YsGACg",
+            "t": "TCP vs UDP Comparison",
+            "note": "Reliable delivery versus speed, and who uses which."
+          },
+          {
+            "a": "746fe7b5c5",
+            "t": "It's always TCP_NODELAY",
+            "note": "A taste of how TCP details still bite in real systems."
+          }
+        ]
+      },
+      {
+        "title": "Names: DNS",
+        "steps": [
+          {
+            "v": "mpQZVYPuDGU",
+            "t": "How a DNS Server (Domain Name System) works.",
+            "note": "How a name like github.com becomes an address."
+          },
+          {
+            "a": "46b9a2b589",
+            "t": "Mess with DNS",
+            "note": "Play with real DNS records in a safe sandbox."
+          },
+          {
+            "a": "e6c3dab6e1",
+            "t": "A toy DNS resolver",
+            "note": "Write a DNS resolver in about 200 lines and see there is no magic."
+          }
+        ]
+      },
+      {
+        "title": "The web on top: HTTP and TLS",
+        "steps": [
+          {
+            "v": "iYM2zFP3Zn0",
+            "t": "HTTP Crash Course & Exploration",
+            "note": "Requests, responses, headers and status codes, explored in the browser."
+          },
+          {
+            "v": "hExRDVZHhig",
+            "t": "SSL, TLS, HTTP, HTTPS Explained",
+            "note": "How the padlock works: encryption and certificates."
+          },
+          {
+            "a": "6ae9be02d8",
+            "t": "HTTP/3: from root to tip",
+            "note": "Why the newest HTTP runs over UDP."
+          }
+        ]
+      },
+      {
+        "title": "When it breaks",
+        "steps": [
+          {
+            "a": "81a022d49d",
+            "t": "How Verizon and a BGP Optimizer Knocked Large Parts of the Internet Offline Today",
+            "note": "How one routing mistake took down large parts of the internet."
+          },
+          {
+            "a": "1e37988bd1",
+            "t": "1.1.1.1: Fast, privacy-first consumer DNS service",
+            "note": "What it takes to run DNS for millions of people."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "how-computers-work",
+    "title": "How a computer works",
+    "level": "Beginner",
+    "blurb": "From a single switch to a working CPU: transistors, logic, machine code, memory and how chips are made.",
+    "sections": [
+      {
+        "title": "From switches to logic",
+        "steps": [
+          {
+            "v": "QZwneRb-zqA",
+            "t": "Exploring How Computers Work",
+            "note": "A playful start: build a computer from nothing but simple logic, in a simulator."
+          },
+          {
+            "v": "IcrBqCFLHIY",
+            "t": "How Does a Transistor Work?",
+            "note": "The one component everything is built from, and how it switches."
+          },
+          {
+            "v": "UvI-AMAtrvE",
+            "t": "AND OR NOT - Logic Gates Explained - Computerphile",
+            "note": "Combine switches into AND, OR and NOT: the vocabulary of every chip."
+          },
+          {
+            "v": "wvJc9CZcvBc",
+            "t": "Learn how computers add numbers and build a 4 bit adder circuit",
+            "note": "Logic gates doing arithmetic: build an adder on a breadboard."
+          }
+        ]
+      },
+      {
+        "title": "The CPU",
+        "steps": [
+          {
+            "v": "vqs_0W-MSB0",
+            "t": "How a CPU Works in 100 Seconds // Apple Silicon M1 vs Intel i9",
+            "note": "The whole CPU in 100 seconds, to hang the details on."
+          },
+          {
+            "v": "16zrEPOsIcI",
+            "t": "The Engineering that Runs the Digital World 🛠️⚙️💻 How do CPUs Work?",
+            "note": "A beautifully animated tour of what's inside a processor."
+          },
+          {
+            "v": "yl8vPW5hydQ",
+            "t": "How do CPUs read machine code? — 6502 part 2",
+            "note": "Watch a real 6502 CPU read and run machine code, signal by signal."
+          },
+          {
+            "v": "4gwYkEK0gOk",
+            "t": "Assembly Language in 100 Seconds",
+            "note": "The thin layer of text on top of machine code."
+          }
+        ]
+      },
+      {
+        "title": "Memory",
+        "steps": [
+          {
+            "v": "7J7X7aZvMXQ",
+            "t": "How does Computer Memory Work? 💻🛠",
+            "note": "How RAM stores bits, down to the capacitor."
+          },
+          {
+            "v": "6JpLD3PUAZk",
+            "t": "Why do CPUs Need Caches? - Computerphile",
+            "note": "Why memory is slow compared to the CPU, and how caches hide it."
+          },
+          {
+            "a": "9192b9666e",
+            "t": "Computers are fast",
+            "note": "How much a computer actually does in one second. The numbers will surprise you."
+          }
+        ]
+      },
+      {
+        "title": "Making chips",
+        "steps": [
+          {
+            "v": "dX9CGRZwD-w",
+            "t": "How are Microchips Made? 🖥️🛠️ CPU Manufacturing Process Steps",
+            "note": "How billions of transistors get printed onto silicon."
+          },
+          {
+            "v": "d86ws7mQYIg",
+            "t": "How does Computer Hardware Work?  💻🛠🔬  [3D Animated Teardown]",
+            "note": "A 3D teardown of the whole machine, part by part."
+          },
+          {
+            "a": "e5f508fdf1",
+            "t": "The tiny chip that powers Montreal subway tickets",
+            "note": "Ken Shirriff reverse-engineers a tiny real chip under the microscope."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "python",
+    "title": "Python from scratch",
+    "level": "Beginner",
+    "blurb": "Learn Python properly: the basics, functions, classes, the Pythonic features, then testing and concurrency. Code along with every video.",
+    "sections": [
+      {
+        "title": "First steps",
+        "steps": [
+          {
+            "v": "YYXdXT2l-Gg",
+            "t": "Python Tutorial for Beginners 1: Install and Setup for Mac and Windows",
+            "note": "Install Python and set up your editor. Do this one hands-on."
+          },
+          {
+            "v": "k9TUPpGqYTo",
+            "t": "Python Tutorial for Beginners 2: Strings - Working with Textual Data",
+            "note": "Working with text, the thing most programs do most."
+          },
+          {
+            "v": "khKv-8q7YmY",
+            "t": "Python Tutorial for Beginners 3: Integers and Floats - Working with Numeric Data",
+            "note": "Numbers and arithmetic."
+          },
+          {
+            "v": "W8KRzm-HUcc",
+            "t": "Python Tutorial for Beginners 4: Lists, Tuples, and Sets",
+            "note": "Lists, tuples and sets: storing many values."
+          },
+          {
+            "v": "daefaLgNkw0",
+            "t": "Python Tutorial for Beginners 5: Dictionaries - Working with Key-Value Pairs",
+            "note": "Dictionaries: Python's most useful data structure."
+          }
+        ]
+      },
+      {
+        "title": "Control flow and functions",
+        "steps": [
+          {
+            "v": "6iF8Xb7Z3wQ",
+            "t": "Python Tutorial for Beginners 7: Loops and Iterations - For/While Loops",
+            "note": "Loops: doing things many times."
+          },
+          {
+            "v": "9Os0o3wzS_I",
+            "t": "Python Tutorial for Beginners 8: Functions",
+            "note": "Functions: naming and reusing pieces of code."
+          },
+          {
+            "v": "CqvZ3vGoGs0",
+            "t": "Python Tutorial for Beginners 9: Import Modules and Exploring The Standard Library",
+            "note": "Modules and the standard library: code you don't have to write."
+          },
+          {
+            "v": "Kg1Yvry_Ydk",
+            "t": "Python Tutorial: VENV (Mac & Linux) - How to Use Virtual Environments with the Built-In venv Module",
+            "note": "Virtual environments, so every project gets its own packages."
+          }
+        ]
+      },
+      {
+        "title": "Classes and objects",
+        "steps": [
+          {
+            "v": "ZDa-Z5JzLYM",
+            "t": "Python OOP Tutorial 1: Classes and Instances",
+            "note": "Classes and instances: bundling data with behaviour."
+          },
+          {
+            "v": "BJ-VvGyQxho",
+            "t": "Python OOP Tutorial 2: Class Variables",
+            "note": "Class variables: data shared by every instance."
+          },
+          {
+            "v": "rq8cL2XMM5M",
+            "t": "Python OOP Tutorial 3: classmethods and staticmethods",
+            "note": "Class methods and static methods, and when to use which."
+          },
+          {
+            "v": "RSl87lqOXDE",
+            "t": "Python OOP Tutorial 4: Inheritance - Creating Subclasses",
+            "note": "Inheritance: building new classes on top of old ones."
+          }
+        ]
+      },
+      {
+        "title": "Writing Pythonic code",
+        "steps": [
+          {
+            "v": "FsAPt_9Bf3U",
+            "t": "Python Tutorial: Decorators - Dynamically Alter The Functionality Of Your Functions",
+            "note": "Decorators: functions that wrap other functions. Used everywhere in frameworks."
+          },
+          {
+            "v": "bD05uGo_sVI",
+            "t": "Python Tutorial: Generators - How to use them and the benefits you receive",
+            "note": "Generators: handle huge data one item at a time."
+          },
+          {
+            "v": "-aKFBoZpiqA",
+            "t": "Python Tutorial: Context Managers - Efficiently Managing Resources",
+            "note": "Context managers: the 'with' statement and clean-up done right."
+          }
+        ]
+      },
+      {
+        "title": "Real programs",
+        "steps": [
+          {
+            "v": "6tNS--WetLI",
+            "t": "Python Tutorial: Unit Testing Your Code with the unittest Module",
+            "note": "Test your code so you can change it without fear."
+          },
+          {
+            "v": "IEEhzQoKtQU",
+            "t": "Python Threading Tutorial: Run Code Concurrently Using the Threading Module",
+            "note": "Threads: doing several things at once."
+          },
+          {
+            "v": "t5Bo1Je9EmE",
+            "t": "Python Asynchronous Programming - AsyncIO & Async/Await",
+            "note": "Async and await: thousands of network calls without threads."
+          },
+          {
+            "a": "facdfa50c9",
+            "t": "A from-scratch tour of Bitcoin in Python",
+            "note": "A real project to read: Bitcoin from scratch in plain Python, by Karpathy."
+          },
+          {
+            "a": "2f7acdb3b1",
+            "t": "Some tiny personal programs I've written",
+            "note": "Ideas for small programs worth writing for yourself."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "git",
+    "title": "Git and GitHub",
+    "level": "Beginner",
+    "blurb": "Version control from the first commit to branching, rebasing and automation, with Julia Evans explaining what Git is really doing.",
+    "sections": [
+      {
+        "title": "What Git is",
+        "steps": [
+          {
+            "v": "2ReR1YJrNOM",
+            "t": "What is Git? Explained in 2 Minutes!",
+            "note": "Git in two minutes: why version control exists."
+          },
+          {
+            "v": "e9lnsKot_SQ",
+            "t": "How Git Works: Explained in 4 Minutes",
+            "note": "How Git stores your project: snapshots, commits and the staging area."
+          }
+        ]
+      },
+      {
+        "title": "The everyday workflow",
+        "steps": [
+          {
+            "v": "HVsySz-h9r4",
+            "t": "Git Tutorial for Beginners: Command-Line Fundamentals",
+            "note": "The core commands on the command line. Follow along in a test folder."
+          },
+          {
+            "v": "RGOj5yH7evk",
+            "t": "Git and GitHub for Beginners - Crash Course",
+            "note": "GitHub: remotes, pushing, pull requests and collaborating."
+          }
+        ]
+      },
+      {
+        "title": "Branches, merging and rebasing",
+        "steps": [
+          {
+            "a": "b08cf52ad2",
+            "t": "Git Branches: Intuition and Reality",
+            "note": "What a branch really is, compared to what it feels like."
+          },
+          {
+            "v": "0chZFIZLR_0",
+            "t": "Git MERGE vs REBASE: Everything You Need to Know",
+            "note": "Merge or rebase? The difference in four minutes."
+          },
+          {
+            "a": "96658fdf89",
+            "t": "Git rebase, what can go wrong",
+            "note": "What can go wrong with rebase, and how to get out of it."
+          },
+          {
+            "a": "15d7e84239",
+            "t": "How Git cherry-pick and revert use 3-way merge",
+            "note": "How cherry-pick and revert actually work under the hood."
+          }
+        ]
+      },
+      {
+        "title": "Like a pro",
+        "steps": [
+          {
+            "v": "Uszj_k0DGsg",
+            "t": "Git for Professionals Tutorial - Tools & Concepts for Mastering Version Control with Git",
+            "note": "Interactive staging, rebase, cherry-pick, reflog and more."
+          },
+          {
+            "a": "537ef76760",
+            "t": "Confusing Git Terminology",
+            "note": "The confusing parts of Git's vocabulary, finally explained."
+          },
+          {
+            "a": "1bea7e0f0b",
+            "t": "Popular Git config options",
+            "note": "Config options that make Git nicer to use every day."
+          },
+          {
+            "v": "R8_veQiYBjI",
+            "t": "GitHub Actions Tutorial - Basic Concepts and CI/CD Pipeline with Docker",
+            "note": "Automate tests and deployments on every push with GitHub Actions."
+          },
+          {
+            "a": "123dd41fca",
+            "t": "Git scraping: track changes over time by scraping to a Git repository",
+            "note": "A clever use of Git you'll want to try: tracking a website's changes over time."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "linux",
+    "title": "Linux and the command line",
+    "level": "Beginner",
+    "blurb": "Get comfortable in the terminal: commands, the file system, users, services, Bash scripting, and the tools that make it home.",
+    "sections": [
+      {
+        "title": "First steps",
+        "steps": [
+          {
+            "v": "VbEx7B_PTOE",
+            "t": "Linux for Hackers // EP 1 (FREE Linux course for beginners)",
+            "note": "Why learn Linux, and your first commands."
+          },
+          {
+            "v": "gd7BXuUQ91w",
+            "t": "60 Linux Commands you NEED to know (in 10 minutes)",
+            "note": "The 60 commands you'll use most, in ten minutes."
+          },
+          {
+            "v": "A3G-3hp88mo",
+            "t": "the Linux File System explained in 1,233 seconds // Linux for Hackers // EP 2",
+            "note": "Where everything lives: the Linux directory tree."
+          },
+          {
+            "v": "Y17KTiJLcyQ",
+            "t": "HELP!! (for when you suck at Linux) // Linux for Hackers // EP3",
+            "note": "How to help yourself: man pages, --help and friends."
+          }
+        ]
+      },
+      {
+        "title": "Running a system",
+        "steps": [
+          {
+            "v": "vX3krP6JmOY",
+            "t": "apt, dpkg, git, Python PiP (Linux Package Management) // Linux for Hackers // EP 5",
+            "note": "Installing software with package managers."
+          },
+          {
+            "v": "jwnvKOjmtEA",
+            "t": "sudo = POWER!! (managing users in Linux) // Linux for Hackers // EP4",
+            "note": "Users, groups, permissions and sudo."
+          },
+          {
+            "v": "wOWhfNB_r-0",
+            "t": "start, stop, restart Linux services (daemon HUNTING!!) // Linux for Hackers // EP 6",
+            "note": "Services: starting, stopping and inspecting background programs."
+          },
+          {
+            "v": "XpFsMB6FoOs",
+            "t": "How Does Linux Boot Process Work?",
+            "note": "What happens between pressing the power button and the login prompt."
+          },
+          {
+            "v": "ORcvSkgdA58",
+            "t": "How Secure Shell Works (SSH) - Computerphile",
+            "note": "How SSH lets you work on other machines securely."
+          }
+        ]
+      },
+      {
+        "title": "Bash scripting",
+        "steps": [
+          {
+            "v": "I4EWvMFj37g",
+            "t": "Bash in 100 Seconds",
+            "note": "Bash in 100 seconds, for orientation."
+          },
+          {
+            "v": "SPwyp2NG-bE",
+            "t": "you need to learn BASH Scripting RIGHT NOW!! // EP 1",
+            "note": "Your first scripts: automate what you just did by hand."
+          },
+          {
+            "v": "tK9Oc6AEnR4",
+            "t": "Bash Scripting Tutorial for Beginners",
+            "note": "A complete beginner course on Bash scripting."
+          }
+        ]
+      },
+      {
+        "title": "Living in the terminal",
+        "steps": [
+          {
+            "v": "nTqu6w2wc68",
+            "t": "you need to learn tmux RIGHT NOW!!",
+            "note": "tmux: windows, splits and sessions that survive disconnects."
+          },
+          {
+            "v": "-txKSRn0qeA",
+            "t": "Vim in 100 Seconds",
+            "note": "Vim in 100 seconds, so you're never stuck in it."
+          },
+          {
+            "a": "f8f8d6f9e4",
+            "t": "What happens when you press a key in your terminal?",
+            "note": "What actually happens when you press a key in your terminal."
+          },
+          {
+            "a": "12e6aef39f",
+            "t": "New(ish) command line tools",
+            "note": "Modern command line tools worth installing."
+          },
+          {
+            "a": "9ad5eb345c",
+            "t": "How is a binary executable organized? Let's explore it",
+            "note": "What's inside a program file, and how Linux runs it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "web",
+    "title": "Web development",
+    "level": "Beginner",
+    "blurb": "Build for the web from the ground up: HTML, CSS, JavaScript, React and a small backend, plus how browsers really work.",
+    "sections": [
+      {
+        "title": "The big picture",
+        "steps": [
+          {
+            "v": "erEgovG9WBs",
+            "t": "100+ Web Development Things you Should Know",
+            "note": "A fast map of the whole web development landscape."
+          },
+          {
+            "a": "cbe6a5fbbe",
+            "t": "The reckless, infinite scope of web browsers",
+            "note": "Why browsers are among the most complex programs ever written."
+          }
+        ]
+      },
+      {
+        "title": "HTML and CSS",
+        "steps": [
+          {
+            "v": "UB1O30fR-EE",
+            "t": "HTML Crash Course For Absolute Beginners",
+            "note": "HTML: the structure of every page. Code along."
+          },
+          {
+            "v": "1PnVor36_40",
+            "t": "Learn CSS in 20 Minutes",
+            "note": "CSS: colours, spacing, fonts and the box model."
+          },
+          {
+            "v": "rg7Fvvl3taU",
+            "t": "Learn CSS Grid the easy way",
+            "note": "CSS Grid: page layouts the easy way."
+          },
+          {
+            "a": "3627578022",
+            "t": "An Interactive Guide to CSS Grid",
+            "note": "An interactive guide to Grid: play with it until it clicks."
+          }
+        ]
+      },
+      {
+        "title": "JavaScript",
+        "steps": [
+          {
+            "v": "hdI2bqOjy3c",
+            "t": "JavaScript Crash Course For Beginners",
+            "note": "The language of the browser, from variables to functions."
+          },
+          {
+            "v": "y17RuWkWdn8",
+            "t": "Learn DOM Manipulation In 18 Minutes",
+            "note": "Changing the page from code: the DOM."
+          },
+          {
+            "v": "DHvZLI7Db8E",
+            "t": "JavaScript Promises In 10 Minutes",
+            "note": "Promises: handling things that finish later."
+          },
+          {
+            "v": "cuEtnrL9-H0",
+            "t": "Learn Fetch API In 6 Minutes",
+            "note": "Fetch: getting data from servers."
+          },
+          {
+            "a": "61d35d0025",
+            "t": "Explaining the browser's event loop, tasks, and microtasks",
+            "note": "How the browser schedules your code: the event loop, tasks and microtasks."
+          }
+        ]
+      },
+      {
+        "title": "React",
+        "steps": [
+          {
+            "v": "hQAHSlTtcmY",
+            "t": "Learn React In 30 Minutes",
+            "note": "Components and props: building UIs out of pieces."
+          },
+          {
+            "v": "O6P86uwfdR0",
+            "t": "Learn useState In 15 Minutes - React Hooks Explained",
+            "note": "State with useState: making components interactive."
+          },
+          {
+            "a": "3c860c11cd",
+            "t": "Why Do React Hooks Rely on Call Order?",
+            "note": "Why hooks work the way they do, from React's own Dan Abramov."
+          }
+        ]
+      },
+      {
+        "title": "A backend, and shipping it",
+        "steps": [
+          {
+            "v": "ENrzD9HAZK4",
+            "t": "Node.js Ultimate Beginner’s Guide in 7 Easy Steps",
+            "note": "JavaScript on the server with Node.js."
+          },
+          {
+            "v": "-MTSQjw5DrM",
+            "t": "RESTful APIs in 100 Seconds // Build an API from Scratch with Node.js Express",
+            "note": "Design and build a REST API."
+          },
+          {
+            "a": "7884ee2cb9",
+            "t": "How web bloat impacts users with slow devices",
+            "note": "Why heavy websites hurt real users, measured on real devices."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "databases",
+    "title": "Databases and SQL",
+    "level": "Intermediate",
+    "blurb": "Write SQL with confidence, pick the right database, and understand what happens inside one: indexes, B-trees and transactions.",
+    "sections": [
+      {
+        "title": "SQL",
+        "steps": [
+          {
+            "v": "zsjvFFKOm3c",
+            "t": "SQL Explained in 100 Seconds",
+            "note": "SQL in 100 seconds, for orientation."
+          },
+          {
+            "v": "p3qvj9hO_Bo",
+            "t": "Learn SQL In 60 Minutes",
+            "note": "The essential SQL in one hour. Practise every query."
+          },
+          {
+            "v": "9URM1_2S0ho",
+            "t": "Intermediate SQL Tutorial | Inner/Outer Joins | Use Cases",
+            "note": "Joins: combining tables, the part most people find hard."
+          },
+          {
+            "v": "BHwzDmr6d7s",
+            "t": "Secret To Optimizing SQL Queries - Understand The SQL Execution Order",
+            "note": "The order SQL actually runs your query in."
+          },
+          {
+            "a": "5f7de8bd3f",
+            "t": "SQL queries don't start with SELECT",
+            "note": "The same idea as a one-page comic, to make it stick."
+          }
+        ]
+      },
+      {
+        "title": "Choosing a database",
+        "steps": [
+          {
+            "v": "W2Z7fbCLSTw",
+            "t": "7 Database Paradigms",
+            "note": "Seven kinds of databases and what each is good at."
+          },
+          {
+            "v": "kkeFE6iRfMM",
+            "t": "How To Choose The Right Database?",
+            "note": "A practical guide to picking one."
+          },
+          {
+            "v": "OqCK95AS-YE",
+            "t": "Redis Crash Course - the What, Why and How to use Redis as your primary database",
+            "note": "Redis: the in-memory database behind most caches."
+          }
+        ]
+      },
+      {
+        "title": "Inside a database",
+        "steps": [
+          {
+            "a": "8f91647185",
+            "t": "How Does Sqlite Work?",
+            "note": "How SQLite works, explored step by step."
+          },
+          {
+            "a": "72ed61685c",
+            "t": "SQLite Internals: Pages and B-trees",
+            "note": "Pages and B-trees: how rows are stored on disk."
+          },
+          {
+            "a": "cc62346cba",
+            "t": "B-Trees and Database Indexes",
+            "note": "Why indexes make queries fast, and what they cost."
+          },
+          {
+            "a": "c9b5f1c659",
+            "t": "How Postgres Makes Transactions Atomic",
+            "note": "How Postgres makes transactions all-or-nothing."
+          }
+        ]
+      },
+      {
+        "title": "In production",
+        "steps": [
+          {
+            "a": "5681380d0a",
+            "t": "I'm all-in on server-side SQLite",
+            "note": "The case for running SQLite on the server."
+          },
+          {
+            "a": "75ec66de29",
+            "t": "Tracking down the 16-year-old WAL-reset SQLite bug",
+            "note": "A detective story: tracking down a 16-year-old SQLite bug."
+          },
+          {
+            "a": "3b6d2ffb38",
+            "t": "Jepsen: PostgreSQL 12.3",
+            "note": "What happens when a real database is tested for correctness."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "system-design",
+    "title": "System design",
+    "level": "Intermediate",
+    "blurb": "How large systems are put together: APIs, proxies, caches, queues, auth, and how to design one yourself.",
+    "sections": [
+      {
+        "title": "The building blocks",
+        "steps": [
+          {
+            "v": "BTjxUS_PylA",
+            "t": "8 Most Important System Design Concepts You Should Know",
+            "note": "The eight concepts that come up in every design."
+          },
+          {
+            "v": "-mN3VyJuCjM",
+            "t": "What Is REST API? Examples And How To Use It: Crash Course System Design #3",
+            "note": "REST APIs: how services talk to each other."
+          },
+          {
+            "v": "4vLxWqE94l4",
+            "t": "Top 6 Most Popular API Architecture Styles",
+            "note": "REST, GraphQL, gRPC, WebSockets and friends side by side."
+          },
+          {
+            "v": "4NB0NDtOwIQ",
+            "t": "Proxy vs Reverse Proxy (Real-world Examples)",
+            "note": "Proxies and reverse proxies: what sits in front of your servers."
+          }
+        ]
+      },
+      {
+        "title": "Scaling up",
+        "steps": [
+          {
+            "v": "dGAgxozNWFE",
+            "t": "Cache Systems Every Developer Should Know",
+            "note": "Caching at every layer, from browser to database."
+          },
+          {
+            "v": "lX4CrbXMsNQ",
+            "t": "10+ Key Memory & Storage Systems: Crash Course System Design #5",
+            "note": "Memory and storage systems and their trade-offs."
+          },
+          {
+            "v": "UNUz1-msbOM",
+            "t": "System Design: Why is Kafka fast?",
+            "note": "Why Kafka is fast: queues and logs at scale."
+          },
+          {
+            "v": "lTAcCNbJ7KE",
+            "t": "What Are Microservices Really All About? (And When Not To Use It)",
+            "note": "Microservices, and when not to use them."
+          },
+          {
+            "v": "gnchfOojMk4",
+            "t": "What is RPC? gRPC Introduction.",
+            "note": "RPC and gRPC: fast service-to-service calls."
+          }
+        ]
+      },
+      {
+        "title": "Identity and auth",
+        "steps": [
+          {
+            "v": "ZV5yTm4pT8g",
+            "t": "OAuth 2 Explained In Simple Terms",
+            "note": "OAuth 2: logging in with another account."
+          },
+          {
+            "v": "fyTxwIa-1U0",
+            "t": "Session Vs JWT: The Differences You May Not Know!",
+            "note": "Sessions versus JWTs."
+          },
+          {
+            "v": "O1cRJWYF-g4",
+            "t": "What Is Single Sign-on (SSO)? How It Works",
+            "note": "Single sign-on across many apps."
+          }
+        ]
+      },
+      {
+        "title": "Designing a system",
+        "steps": [
+          {
+            "v": "i7twT3x5yv8",
+            "t": "System Design Interview: A Step-By-Step Guide",
+            "note": "A step-by-step method for designing any system."
+          },
+          {
+            "v": "M4lR_Va97cQ",
+            "t": "FAANG System Design Interview: Design A Location Based Service (Yelp, Google Places)",
+            "note": "A full worked example: designing a Yelp-like service."
+          },
+          {
+            "a": "d446c40dc4",
+            "t": "Distributed architecture concepts I learned when building a large payment system",
+            "note": "Lessons from building a large payment system."
+          },
+          {
+            "a": "0fe6d58c53",
+            "t": "Building and operating a pretty big storage system called S3",
+            "note": "How Amazon S3 is built and run, from Amazon's CTO."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "distributed-systems",
+    "title": "Distributed systems",
+    "level": "Advanced",
+    "blurb": "Why things get hard when work is spread across machines, and the ideas that make it work: consistency, consensus and failure handling. Mostly reading.",
+    "sections": [
+      {
+        "title": "Why it's hard",
+        "steps": [
+          {
+            "a": "b445180055",
+            "t": "Learning to Build Distributed Systems",
+            "note": "A roadmap from Marc Brooker, who builds these at AWS."
+          },
+          {
+            "a": "6deee6099b",
+            "t": "Patterns of Distributed Systems",
+            "note": "Recurring patterns for problems every distributed system has."
+          }
+        ]
+      },
+      {
+        "title": "Consistency",
+        "steps": [
+          {
+            "a": "21fa20971e",
+            "t": "Consistency Models",
+            "note": "A map of consistency models, from strict to eventual."
+          },
+          {
+            "a": "6a0d35240e",
+            "t": "Linearizability: A correctness condition for concurrent objects",
+            "note": "Linearizability: the gold standard, explained."
+          },
+          {
+            "a": "17c5f45995",
+            "t": "Let's consign CAP to the cabinet of curiosities",
+            "note": "Why the CAP theorem is less useful than it sounds."
+          }
+        ]
+      },
+      {
+        "title": "Agreement",
+        "steps": [
+          {
+            "a": "f0dc5f042b",
+            "t": "Paxos",
+            "note": "Paxos: how machines agree on a value despite failures."
+          },
+          {
+            "a": "759a033fcd",
+            "t": "Implementing Raft: Part 2: Commands and Log Replication",
+            "note": "Implementing Raft, the more approachable consensus algorithm, in code."
+          }
+        ]
+      },
+      {
+        "title": "Failure",
+        "steps": [
+          {
+            "a": "42a0810aeb",
+            "t": "What Is Backoff For?",
+            "note": "What backoff is really for, and when it doesn't help."
+          },
+          {
+            "a": "f94eec5317",
+            "t": "Exactly-Once Delivery May Not Be What You Want",
+            "note": "Why exactly-once delivery is a trap."
+          },
+          {
+            "a": "3b6d2ffb38",
+            "t": "Jepsen: PostgreSQL 12.3",
+            "note": "Jepsen breaks a real database, and how they found it."
+          }
+        ]
+      },
+      {
+        "title": "At scale",
+        "steps": [
+          {
+            "a": "e78ed7b02e",
+            "t": "Operating a large distributed system in a reliable way: practices I learned",
+            "note": "Practices for operating a large distributed system reliably."
+          },
+          {
+            "a": "0fe6d58c53",
+            "t": "Building and operating a pretty big storage system called S3",
+            "note": "How S3 is built and run."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "security",
+    "title": "Security basics",
+    "level": "Beginner",
+    "blurb": "How attacks really work and how to defend against them: passwords, web attacks, cryptography, and famous real-world exploits.",
+    "sections": [
+      {
+        "title": "Thinking like an attacker",
+        "steps": [
+          {
+            "v": "2TofunAI6fU",
+            "t": "The Secret step-by-step Guide to learn Hacking",
+            "note": "How to start learning security, from someone who did it."
+          },
+          {
+            "v": "g-JgA1hvJzA",
+            "t": "Hacking into Google's Network for $133,337",
+            "note": "A real bug bounty story to show where this can lead."
+          }
+        ]
+      },
+      {
+        "title": "Passwords",
+        "steps": [
+          {
+            "v": "8ZtInClXe1Q",
+            "t": "How NOT to Store Passwords! - Computerphile",
+            "note": "How NOT to store passwords, and what to do instead."
+          },
+          {
+            "v": "7U-RbOKanYs",
+            "t": "Password Cracking - Computerphile",
+            "note": "How attackers crack the passwords they steal."
+          },
+          {
+            "a": "338d936017",
+            "t": "Facebook Stored Hundreds of Millions of User Passwords in Plain Text for Years",
+            "note": "When a giant gets it wrong: Facebook's plain-text passwords."
+          },
+          {
+            "a": "35f08027df",
+            "t": "Password Rules Are Bullshit",
+            "note": "Why most password rules make things worse."
+          }
+        ]
+      },
+      {
+        "title": "Web attacks",
+        "steps": [
+          {
+            "v": "_jKylhJtPmI",
+            "t": "Hacking Websites with SQL Injection - Computerphile",
+            "note": "SQL injection: the classic way websites get hacked."
+          },
+          {
+            "v": "zv0kZKC6GAM",
+            "t": "How The Self-Retweeting Tweet Worked: Cross-Site Scripting (XSS) and Twitter",
+            "note": "Cross-site scripting, told through a famous tweet."
+          },
+          {
+            "v": "u9dBGWVwMMA",
+            "t": "Phishing attacks are SCARY easy to do!! (let me show you!) // FREE Security+ // EP 2",
+            "note": "Phishing: attacking people instead of machines."
+          }
+        ]
+      },
+      {
+        "title": "Cryptography",
+        "steps": [
+          {
+            "v": "GSIDS_lvRv4",
+            "t": "Public Key Cryptography - Computerphile",
+            "note": "Public-key cryptography: secrets without sharing a secret."
+          },
+          {
+            "v": "j9QmMEWmcfo",
+            "t": "SSL, TLS, HTTPS Explained",
+            "note": "How TLS uses it to protect the web."
+          },
+          {
+            "a": "0750e3f4eb",
+            "t": "RSA: Theory and Implementation",
+            "note": "RSA in theory and in code."
+          },
+          {
+            "a": "8837306ca2",
+            "t": "RSA is a fragile cryptosystem",
+            "note": "Why RSA is easy to get wrong in practice."
+          },
+          {
+            "a": "e51fae5d4a",
+            "t": "The Strange Story of Dual_EC_DRBG – suspected NSA backdoor",
+            "note": "A suspected NSA backdoor in a random number generator."
+          }
+        ]
+      },
+      {
+        "title": "Real-world attacks",
+        "steps": [
+          {
+            "a": "c8d854821e",
+            "t": "This shouldn't have happened: A vulnerability postmortem",
+            "note": "A vulnerability post-mortem: how a serious bug slipped through."
+          },
+          {
+            "a": "a9161cd6bf",
+            "t": "A deep dive into an NSO zero-click iMessage exploit: Remote Code Execution",
+            "note": "A zero-click iPhone exploit, dissected."
+          },
+          {
+            "a": "be0c5be1a3",
+            "t": "The xz attack shell script",
+            "note": "The xz backdoor, and the script that hid it."
+          },
+          {
+            "a": "4d8e42111f",
+            "t": "Supply chain attacks are exploiting our assumptions",
+            "note": "Supply-chain attacks and the assumptions they exploit."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "performance",
+    "title": "Performance and the machine",
+    "level": "Advanced",
+    "blurb": "What really makes code fast or slow: caches, branch prediction, SIMD, and how the experts measure it. Mostly reading.",
+    "sections": [
+      {
+        "title": "Intuition",
+        "steps": [
+          {
+            "a": "9192b9666e",
+            "t": "Computers are fast",
+            "note": "How fast computers really are."
+          },
+          {
+            "v": "6JpLD3PUAZk",
+            "t": "Why do CPUs Need Caches? - Computerphile",
+            "note": "Why caches exist."
+          },
+          {
+            "a": "9b43d8cd10",
+            "t": "CPU Utilization is Wrong",
+            "note": "Why 'CPU utilization' doesn't mean what you think."
+          }
+        ]
+      },
+      {
+        "title": "Inside the CPU",
+        "steps": [
+          {
+            "a": "2573557765",
+            "t": "How many branches can your CPU predict?",
+            "note": "How many branches can a CPU predict? Measured."
+          },
+          {
+            "a": "ec11ec79be",
+            "t": "Branch predictor: How many “if”s are too many?",
+            "note": "When too many 'if's start to hurt."
+          },
+          {
+            "a": "596ed37f28",
+            "t": "Everyone should know SIMD",
+            "note": "SIMD: doing many operations in one instruction."
+          },
+          {
+            "a": "56e31eca21",
+            "t": "Why Intel Added Cache Partitioning",
+            "note": "Cache partitioning, and why Intel added it."
+          },
+          {
+            "a": "de64c51cbc",
+            "t": "Reading privileged memory with a side-channel",
+            "note": "Spectre: when speed tricks become a security hole."
+          }
+        ]
+      },
+      {
+        "title": "Measuring",
+        "steps": [
+          {
+            "v": "7ENFeb-J75k",
+            "t": "Multithreading Code - Computerphile",
+            "note": "Multithreaded code and why it's harder than it looks."
+          },
+          {
+            "a": "e34446987c",
+            "t": "Linux Performance Analysis: New Tools and Old Secrets",
+            "note": "Linux performance analysis tools, by the person who wrote many of them."
+          },
+          {
+            "a": "6bd2be95ee",
+            "t": "Linux tracing systems and how they fit together",
+            "note": "How the Linux tracing tools fit together."
+          },
+          {
+            "a": "08db0beaf9",
+            "t": "Analyzing a High Rate of Paging",
+            "note": "A real investigation: a system that's paging too much."
+          }
+        ]
+      },
+      {
+        "title": "Stories",
+        "steps": [
+          {
+            "a": "9d6c2943b9",
+            "t": "Saving 100 terabytes of memory by optimizing 1.1.1.1's DNS cache",
+            "note": "Saving 100 terabytes of memory in a DNS server."
+          },
+          {
+            "a": "bbd9771a49",
+            "t": "Reflections on Software Performance",
+            "note": "Reflections on software performance and why it matters."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "career",
+    "title": "Engineering career",
+    "level": "All levels",
+    "blurb": "Essays on doing great work, growing as an engineer, working in teams and building companies.",
+    "sections": [
+      {
+        "title": "Doing great work",
+        "steps": [
+          {
+            "a": "fedc86cb66",
+            "t": "How to Do Great Work",
+            "note": "Paul Graham on what great work takes."
+          },
+          {
+            "a": "ce6d4ba24a",
+            "t": "Qualities that I believe make the most difference in programmers’ productivity",
+            "note": "The qualities that make the biggest difference in programmers."
+          },
+          {
+            "a": "05ded877c8",
+            "t": "Your job is to deliver code you have proven to work",
+            "note": "Your job is to ship code that works, and prove it."
+          }
+        ]
+      },
+      {
+        "title": "Growing",
+        "steps": [
+          {
+            "a": "13bc879f96",
+            "t": "What's a senior engineer's job?",
+            "note": "What a senior engineer actually does."
+          },
+          {
+            "a": "fd9c1a16c6",
+            "t": "How to teach yourself hard things",
+            "note": "How to teach yourself hard things."
+          },
+          {
+            "a": "b15320aa75",
+            "t": "Undervalued Engineering Skills: Writing Well",
+            "note": "Why writing well is an undervalued engineering skill."
+          },
+          {
+            "a": "6551cfda7f",
+            "t": "When your coworker does great work, tell their manager",
+            "note": "A small habit that helps your colleagues' careers."
+          }
+        ]
+      },
+      {
+        "title": "Teams",
+        "steps": [
+          {
+            "a": "f47f4746a8",
+            "t": "The Joel Test: 12 Steps to Better Code (2000; Still relevant?)",
+            "note": "The Joel Test: twelve questions about a team's health."
+          },
+          {
+            "a": "34f3b0acc8",
+            "t": "Confessions of a programmer: I hate code review",
+            "note": "Code review, honestly."
+          },
+          {
+            "a": "0e4c15a140",
+            "t": "An Engineering Team Where Everyone Is a Leader",
+            "note": "A team where everyone leads."
+          },
+          {
+            "a": "193b0716c5",
+            "t": "Mistakes I've Made as an Engineering Manager",
+            "note": "Mistakes an engineering manager made, so you don't have to."
+          }
+        ]
+      },
+      {
+        "title": "The bigger picture",
+        "steps": [
+          {
+            "a": "85044d705b",
+            "t": "Dont call yourself a programmer",
+            "note": "Don't call yourself a programmer: how to think about your value."
+          },
+          {
+            "a": "846b32c06f",
+            "t": "Productivity",
+            "note": "Sam Altman on productivity."
+          },
+          {
+            "a": "e3b47bb844",
+            "t": "Things You Should Never Do, Part I",
+            "note": "The one thing you should never do: rewrite from scratch."
+          },
+          {
+            "a": "3abfaf84e2",
+            "t": "How to Get Startup Ideas",
+            "note": "How to get startup ideas."
+          }
+        ]
+      }
     ]
   }
 ]

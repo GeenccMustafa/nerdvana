@@ -417,5 +417,1193 @@
     ]
    }
   ]
+ },
+ {
+  "id": "how-computers-work",
+  "title": "How a computer works",
+  "level": "Beginner",
+  "blurb": "From a single switch to a working CPU: transistors, logic, machine code, memory and how chips are made.",
+  "sections": [
+   {
+    "title": "From switches to logic",
+    "steps": [
+     {
+      "k": "v",
+      "note": "A playful start: build a computer from nothing but simple logic, in a simulator.",
+      "id": "QZwneRb-zqA"
+     },
+     {
+      "k": "v",
+      "note": "The one component everything is built from, and how it switches.",
+      "id": "IcrBqCFLHIY"
+     },
+     {
+      "k": "v",
+      "note": "Combine switches into AND, OR and NOT: the vocabulary of every chip.",
+      "id": "UvI-AMAtrvE"
+     },
+     {
+      "k": "v",
+      "note": "Logic gates doing arithmetic: build an adder on a breadboard.",
+      "id": "wvJc9CZcvBc"
+     }
+    ]
+   },
+   {
+    "title": "The CPU",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The whole CPU in 100 seconds, to hang the details on.",
+      "id": "vqs_0W-MSB0"
+     },
+     {
+      "k": "v",
+      "note": "A beautifully animated tour of what's inside a processor.",
+      "id": "16zrEPOsIcI"
+     },
+     {
+      "k": "v",
+      "note": "Watch a real 6502 CPU read and run machine code, signal by signal.",
+      "id": "yl8vPW5hydQ"
+     },
+     {
+      "k": "v",
+      "note": "The thin layer of text on top of machine code.",
+      "id": "4gwYkEK0gOk"
+     }
+    ]
+   },
+   {
+    "title": "Memory",
+    "steps": [
+     {
+      "k": "v",
+      "note": "How RAM stores bits, down to the capacitor.",
+      "id": "7J7X7aZvMXQ"
+     },
+     {
+      "k": "v",
+      "note": "Why memory is slow compared to the CPU, and how caches hide it.",
+      "id": "6JpLD3PUAZk"
+     },
+     {
+      "k": "a",
+      "note": "How much a computer actually does in one second. The numbers will surprise you.",
+      "id": "9192b9666e"
+     }
+    ]
+   },
+   {
+    "title": "Making chips",
+    "steps": [
+     {
+      "k": "v",
+      "note": "How billions of transistors get printed onto silicon.",
+      "id": "dX9CGRZwD-w"
+     },
+     {
+      "k": "v",
+      "note": "A 3D teardown of the whole machine, part by part.",
+      "id": "d86ws7mQYIg"
+     },
+     {
+      "k": "a",
+      "note": "Ken Shirriff reverse-engineers a tiny real chip under the microscope.",
+      "id": "e5f508fdf1"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "python",
+  "title": "Python from scratch",
+  "level": "Beginner",
+  "blurb": "Learn Python properly: the basics, functions, classes, the Pythonic features, then testing and concurrency. Code along with every video.",
+  "sections": [
+   {
+    "title": "First steps",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Install Python and set up your editor. Do this one hands-on.",
+      "id": "YYXdXT2l-Gg"
+     },
+     {
+      "k": "v",
+      "note": "Working with text, the thing most programs do most.",
+      "id": "k9TUPpGqYTo"
+     },
+     {
+      "k": "v",
+      "note": "Numbers and arithmetic.",
+      "id": "khKv-8q7YmY"
+     },
+     {
+      "k": "v",
+      "note": "Lists, tuples and sets: storing many values.",
+      "id": "W8KRzm-HUcc"
+     },
+     {
+      "k": "v",
+      "note": "Dictionaries: Python's most useful data structure.",
+      "id": "daefaLgNkw0"
+     }
+    ]
+   },
+   {
+    "title": "Control flow and functions",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Loops: doing things many times.",
+      "id": "6iF8Xb7Z3wQ"
+     },
+     {
+      "k": "v",
+      "note": "Functions: naming and reusing pieces of code.",
+      "id": "9Os0o3wzS_I"
+     },
+     {
+      "k": "v",
+      "note": "Modules and the standard library: code you don't have to write.",
+      "id": "CqvZ3vGoGs0"
+     },
+     {
+      "k": "v",
+      "note": "Virtual environments, so every project gets its own packages.",
+      "id": "Kg1Yvry_Ydk"
+     }
+    ]
+   },
+   {
+    "title": "Classes and objects",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Classes and instances: bundling data with behaviour.",
+      "id": "ZDa-Z5JzLYM"
+     },
+     {
+      "k": "v",
+      "note": "Class variables: data shared by every instance.",
+      "id": "BJ-VvGyQxho"
+     },
+     {
+      "k": "v",
+      "note": "Class methods and static methods, and when to use which.",
+      "id": "rq8cL2XMM5M"
+     },
+     {
+      "k": "v",
+      "note": "Inheritance: building new classes on top of old ones.",
+      "id": "RSl87lqOXDE"
+     }
+    ]
+   },
+   {
+    "title": "Writing Pythonic code",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Decorators: functions that wrap other functions. Used everywhere in frameworks.",
+      "id": "FsAPt_9Bf3U"
+     },
+     {
+      "k": "v",
+      "note": "Generators: handle huge data one item at a time.",
+      "id": "bD05uGo_sVI"
+     },
+     {
+      "k": "v",
+      "note": "Context managers: the 'with' statement and clean-up done right.",
+      "id": "-aKFBoZpiqA"
+     }
+    ]
+   },
+   {
+    "title": "Real programs",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Test your code so you can change it without fear.",
+      "id": "6tNS--WetLI"
+     },
+     {
+      "k": "v",
+      "note": "Threads: doing several things at once.",
+      "id": "IEEhzQoKtQU"
+     },
+     {
+      "k": "v",
+      "note": "Async and await: thousands of network calls without threads.",
+      "id": "t5Bo1Je9EmE"
+     },
+     {
+      "k": "a",
+      "note": "A real project to read: Bitcoin from scratch in plain Python, by Karpathy.",
+      "id": "facdfa50c9"
+     },
+     {
+      "k": "a",
+      "note": "Ideas for small programs worth writing for yourself.",
+      "id": "2f7acdb3b1"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "git",
+  "title": "Git and GitHub",
+  "level": "Beginner",
+  "blurb": "Version control from the first commit to branching, rebasing and automation, with Julia Evans explaining what Git is really doing.",
+  "sections": [
+   {
+    "title": "What Git is",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Git in two minutes: why version control exists.",
+      "id": "2ReR1YJrNOM"
+     },
+     {
+      "k": "v",
+      "note": "How Git stores your project: snapshots, commits and the staging area.",
+      "id": "e9lnsKot_SQ"
+     }
+    ]
+   },
+   {
+    "title": "The everyday workflow",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The core commands on the command line. Follow along in a test folder.",
+      "id": "HVsySz-h9r4"
+     },
+     {
+      "k": "v",
+      "note": "GitHub: remotes, pushing, pull requests and collaborating.",
+      "id": "RGOj5yH7evk"
+     }
+    ]
+   },
+   {
+    "title": "Branches, merging and rebasing",
+    "steps": [
+     {
+      "k": "a",
+      "note": "What a branch really is, compared to what it feels like.",
+      "id": "b08cf52ad2"
+     },
+     {
+      "k": "v",
+      "note": "Merge or rebase? The difference in four minutes.",
+      "id": "0chZFIZLR_0"
+     },
+     {
+      "k": "a",
+      "note": "What can go wrong with rebase, and how to get out of it.",
+      "id": "96658fdf89"
+     },
+     {
+      "k": "a",
+      "note": "How cherry-pick and revert actually work under the hood.",
+      "id": "15d7e84239"
+     }
+    ]
+   },
+   {
+    "title": "Like a pro",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Interactive staging, rebase, cherry-pick, reflog and more.",
+      "id": "Uszj_k0DGsg"
+     },
+     {
+      "k": "a",
+      "note": "The confusing parts of Git's vocabulary, finally explained.",
+      "id": "537ef76760"
+     },
+     {
+      "k": "a",
+      "note": "Config options that make Git nicer to use every day.",
+      "id": "1bea7e0f0b"
+     },
+     {
+      "k": "v",
+      "note": "Automate tests and deployments on every push with GitHub Actions.",
+      "id": "R8_veQiYBjI"
+     },
+     {
+      "k": "a",
+      "note": "A clever use of Git you'll want to try: tracking a website's changes over time.",
+      "id": "123dd41fca"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "linux",
+  "title": "Linux and the command line",
+  "level": "Beginner",
+  "blurb": "Get comfortable in the terminal: commands, the file system, users, services, Bash scripting, and the tools that make it home.",
+  "sections": [
+   {
+    "title": "First steps",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Why learn Linux, and your first commands.",
+      "id": "VbEx7B_PTOE"
+     },
+     {
+      "k": "v",
+      "note": "The 60 commands you'll use most, in ten minutes.",
+      "id": "gd7BXuUQ91w"
+     },
+     {
+      "k": "v",
+      "note": "Where everything lives: the Linux directory tree.",
+      "id": "A3G-3hp88mo"
+     },
+     {
+      "k": "v",
+      "note": "How to help yourself: man pages, --help and friends.",
+      "id": "Y17KTiJLcyQ"
+     }
+    ]
+   },
+   {
+    "title": "Running a system",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Installing software with package managers.",
+      "id": "vX3krP6JmOY"
+     },
+     {
+      "k": "v",
+      "note": "Users, groups, permissions and sudo.",
+      "id": "jwnvKOjmtEA"
+     },
+     {
+      "k": "v",
+      "note": "Services: starting, stopping and inspecting background programs.",
+      "id": "wOWhfNB_r-0"
+     },
+     {
+      "k": "v",
+      "note": "What happens between pressing the power button and the login prompt.",
+      "id": "XpFsMB6FoOs"
+     },
+     {
+      "k": "v",
+      "note": "How SSH lets you work on other machines securely.",
+      "id": "ORcvSkgdA58"
+     }
+    ]
+   },
+   {
+    "title": "Bash scripting",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Bash in 100 seconds, for orientation.",
+      "id": "I4EWvMFj37g"
+     },
+     {
+      "k": "v",
+      "note": "Your first scripts: automate what you just did by hand.",
+      "id": "SPwyp2NG-bE"
+     },
+     {
+      "k": "v",
+      "note": "A complete beginner course on Bash scripting.",
+      "id": "tK9Oc6AEnR4"
+     }
+    ]
+   },
+   {
+    "title": "Living in the terminal",
+    "steps": [
+     {
+      "k": "v",
+      "note": "tmux: windows, splits and sessions that survive disconnects.",
+      "id": "nTqu6w2wc68"
+     },
+     {
+      "k": "v",
+      "note": "Vim in 100 seconds, so you're never stuck in it.",
+      "id": "-txKSRn0qeA"
+     },
+     {
+      "k": "a",
+      "note": "What actually happens when you press a key in your terminal.",
+      "id": "f8f8d6f9e4"
+     },
+     {
+      "k": "a",
+      "note": "Modern command line tools worth installing.",
+      "id": "12e6aef39f"
+     },
+     {
+      "k": "a",
+      "note": "What's inside a program file, and how Linux runs it.",
+      "id": "9ad5eb345c"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "web",
+  "title": "Web development",
+  "level": "Beginner",
+  "blurb": "Build for the web from the ground up: HTML, CSS, JavaScript, React and a small backend, plus how browsers really work.",
+  "sections": [
+   {
+    "title": "The big picture",
+    "steps": [
+     {
+      "k": "v",
+      "note": "A fast map of the whole web development landscape.",
+      "id": "erEgovG9WBs"
+     },
+     {
+      "k": "a",
+      "note": "Why browsers are among the most complex programs ever written.",
+      "id": "cbe6a5fbbe"
+     }
+    ]
+   },
+   {
+    "title": "HTML and CSS",
+    "steps": [
+     {
+      "k": "v",
+      "note": "HTML: the structure of every page. Code along.",
+      "id": "UB1O30fR-EE"
+     },
+     {
+      "k": "v",
+      "note": "CSS: colours, spacing, fonts and the box model.",
+      "id": "1PnVor36_40"
+     },
+     {
+      "k": "v",
+      "note": "CSS Grid: page layouts the easy way.",
+      "id": "rg7Fvvl3taU"
+     },
+     {
+      "k": "a",
+      "note": "An interactive guide to Grid: play with it until it clicks.",
+      "id": "3627578022"
+     }
+    ]
+   },
+   {
+    "title": "JavaScript",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The language of the browser, from variables to functions.",
+      "id": "hdI2bqOjy3c"
+     },
+     {
+      "k": "v",
+      "note": "Changing the page from code: the DOM.",
+      "id": "y17RuWkWdn8"
+     },
+     {
+      "k": "v",
+      "note": "Promises: handling things that finish later.",
+      "id": "DHvZLI7Db8E"
+     },
+     {
+      "k": "v",
+      "note": "Fetch: getting data from servers.",
+      "id": "cuEtnrL9-H0"
+     },
+     {
+      "k": "a",
+      "note": "How the browser schedules your code: the event loop, tasks and microtasks.",
+      "id": "61d35d0025"
+     }
+    ]
+   },
+   {
+    "title": "React",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Components and props: building UIs out of pieces.",
+      "id": "hQAHSlTtcmY"
+     },
+     {
+      "k": "v",
+      "note": "State with useState: making components interactive.",
+      "id": "O6P86uwfdR0"
+     },
+     {
+      "k": "a",
+      "note": "Why hooks work the way they do, from React's own Dan Abramov.",
+      "id": "3c860c11cd"
+     }
+    ]
+   },
+   {
+    "title": "A backend, and shipping it",
+    "steps": [
+     {
+      "k": "v",
+      "note": "JavaScript on the server with Node.js.",
+      "id": "ENrzD9HAZK4"
+     },
+     {
+      "k": "v",
+      "note": "Design and build a REST API.",
+      "id": "-MTSQjw5DrM"
+     },
+     {
+      "k": "a",
+      "note": "Why heavy websites hurt real users, measured on real devices.",
+      "id": "7884ee2cb9"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "databases",
+  "title": "Databases and SQL",
+  "level": "Intermediate",
+  "blurb": "Write SQL with confidence, pick the right database, and understand what happens inside one: indexes, B-trees and transactions.",
+  "sections": [
+   {
+    "title": "SQL",
+    "steps": [
+     {
+      "k": "v",
+      "note": "SQL in 100 seconds, for orientation.",
+      "id": "zsjvFFKOm3c"
+     },
+     {
+      "k": "v",
+      "note": "The essential SQL in one hour. Practise every query.",
+      "id": "p3qvj9hO_Bo"
+     },
+     {
+      "k": "v",
+      "note": "Joins: combining tables, the part most people find hard.",
+      "id": "9URM1_2S0ho"
+     },
+     {
+      "k": "v",
+      "note": "The order SQL actually runs your query in.",
+      "id": "BHwzDmr6d7s"
+     },
+     {
+      "k": "a",
+      "note": "The same idea as a one-page comic, to make it stick.",
+      "id": "5f7de8bd3f"
+     }
+    ]
+   },
+   {
+    "title": "Choosing a database",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Seven kinds of databases and what each is good at.",
+      "id": "W2Z7fbCLSTw"
+     },
+     {
+      "k": "v",
+      "note": "A practical guide to picking one.",
+      "id": "kkeFE6iRfMM"
+     },
+     {
+      "k": "v",
+      "note": "Redis: the in-memory database behind most caches.",
+      "id": "OqCK95AS-YE"
+     }
+    ]
+   },
+   {
+    "title": "Inside a database",
+    "steps": [
+     {
+      "k": "a",
+      "note": "How SQLite works, explored step by step.",
+      "id": "8f91647185"
+     },
+     {
+      "k": "a",
+      "note": "Pages and B-trees: how rows are stored on disk.",
+      "id": "72ed61685c"
+     },
+     {
+      "k": "a",
+      "note": "Why indexes make queries fast, and what they cost.",
+      "id": "cc62346cba"
+     },
+     {
+      "k": "a",
+      "note": "How Postgres makes transactions all-or-nothing.",
+      "id": "c9b5f1c659"
+     }
+    ]
+   },
+   {
+    "title": "In production",
+    "steps": [
+     {
+      "k": "a",
+      "note": "The case for running SQLite on the server.",
+      "id": "5681380d0a"
+     },
+     {
+      "k": "a",
+      "note": "A detective story: tracking down a 16-year-old SQLite bug.",
+      "id": "75ec66de29"
+     },
+     {
+      "k": "a",
+      "note": "What happens when a real database is tested for correctness.",
+      "id": "3b6d2ffb38"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "system-design",
+  "title": "System design",
+  "level": "Intermediate",
+  "blurb": "How large systems are put together: APIs, proxies, caches, queues, auth, and how to design one yourself.",
+  "sections": [
+   {
+    "title": "The building blocks",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The eight concepts that come up in every design.",
+      "id": "BTjxUS_PylA"
+     },
+     {
+      "k": "v",
+      "note": "REST APIs: how services talk to each other.",
+      "id": "-mN3VyJuCjM"
+     },
+     {
+      "k": "v",
+      "note": "REST, GraphQL, gRPC, WebSockets and friends side by side.",
+      "id": "4vLxWqE94l4"
+     },
+     {
+      "k": "v",
+      "note": "Proxies and reverse proxies: what sits in front of your servers.",
+      "id": "4NB0NDtOwIQ"
+     }
+    ]
+   },
+   {
+    "title": "Scaling up",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Caching at every layer, from browser to database.",
+      "id": "dGAgxozNWFE"
+     },
+     {
+      "k": "v",
+      "note": "Memory and storage systems and their trade-offs.",
+      "id": "lX4CrbXMsNQ"
+     },
+     {
+      "k": "v",
+      "note": "Why Kafka is fast: queues and logs at scale.",
+      "id": "UNUz1-msbOM"
+     },
+     {
+      "k": "v",
+      "note": "Microservices, and when not to use them.",
+      "id": "lTAcCNbJ7KE"
+     },
+     {
+      "k": "v",
+      "note": "RPC and gRPC: fast service-to-service calls.",
+      "id": "gnchfOojMk4"
+     }
+    ]
+   },
+   {
+    "title": "Identity and auth",
+    "steps": [
+     {
+      "k": "v",
+      "note": "OAuth 2: logging in with another account.",
+      "id": "ZV5yTm4pT8g"
+     },
+     {
+      "k": "v",
+      "note": "Sessions versus JWTs.",
+      "id": "fyTxwIa-1U0"
+     },
+     {
+      "k": "v",
+      "note": "Single sign-on across many apps.",
+      "id": "O1cRJWYF-g4"
+     }
+    ]
+   },
+   {
+    "title": "Designing a system",
+    "steps": [
+     {
+      "k": "v",
+      "note": "A step-by-step method for designing any system.",
+      "id": "i7twT3x5yv8"
+     },
+     {
+      "k": "v",
+      "note": "A full worked example: designing a Yelp-like service.",
+      "id": "M4lR_Va97cQ"
+     },
+     {
+      "k": "a",
+      "note": "Lessons from building a large payment system.",
+      "id": "d446c40dc4"
+     },
+     {
+      "k": "a",
+      "note": "How Amazon S3 is built and run, from Amazon's CTO.",
+      "id": "0fe6d58c53"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "distributed-systems",
+  "title": "Distributed systems",
+  "level": "Advanced",
+  "blurb": "Why things get hard when work is spread across machines, and the ideas that make it work: consistency, consensus and failure handling. Mostly reading.",
+  "sections": [
+   {
+    "title": "Why it's hard",
+    "steps": [
+     {
+      "k": "a",
+      "note": "A roadmap from Marc Brooker, who builds these at AWS.",
+      "id": "b445180055"
+     },
+     {
+      "k": "a",
+      "note": "Recurring patterns for problems every distributed system has.",
+      "id": "6deee6099b"
+     }
+    ]
+   },
+   {
+    "title": "Consistency",
+    "steps": [
+     {
+      "k": "a",
+      "note": "A map of consistency models, from strict to eventual.",
+      "id": "21fa20971e"
+     },
+     {
+      "k": "a",
+      "note": "Linearizability: the gold standard, explained.",
+      "id": "6a0d35240e"
+     },
+     {
+      "k": "a",
+      "note": "Why the CAP theorem is less useful than it sounds.",
+      "id": "17c5f45995"
+     }
+    ]
+   },
+   {
+    "title": "Agreement",
+    "steps": [
+     {
+      "k": "a",
+      "note": "Paxos: how machines agree on a value despite failures.",
+      "id": "f0dc5f042b"
+     },
+     {
+      "k": "a",
+      "note": "Implementing Raft, the more approachable consensus algorithm, in code.",
+      "id": "759a033fcd"
+     }
+    ]
+   },
+   {
+    "title": "Failure",
+    "steps": [
+     {
+      "k": "a",
+      "note": "What backoff is really for, and when it doesn't help.",
+      "id": "42a0810aeb"
+     },
+     {
+      "k": "a",
+      "note": "Why exactly-once delivery is a trap.",
+      "id": "f94eec5317"
+     },
+     {
+      "k": "a",
+      "note": "Jepsen breaks a real database, and how they found it.",
+      "id": "3b6d2ffb38"
+     }
+    ]
+   },
+   {
+    "title": "At scale",
+    "steps": [
+     {
+      "k": "a",
+      "note": "Practices for operating a large distributed system reliably.",
+      "id": "e78ed7b02e"
+     },
+     {
+      "k": "a",
+      "note": "How S3 is built and run.",
+      "id": "0fe6d58c53"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "security",
+  "title": "Security basics",
+  "level": "Beginner",
+  "blurb": "How attacks really work and how to defend against them: passwords, web attacks, cryptography, and famous real-world exploits.",
+  "sections": [
+   {
+    "title": "Thinking like an attacker",
+    "steps": [
+     {
+      "k": "v",
+      "note": "How to start learning security, from someone who did it.",
+      "id": "2TofunAI6fU"
+     },
+     {
+      "k": "v",
+      "note": "A real bug bounty story to show where this can lead.",
+      "id": "g-JgA1hvJzA"
+     }
+    ]
+   },
+   {
+    "title": "Passwords",
+    "steps": [
+     {
+      "k": "v",
+      "note": "How NOT to store passwords, and what to do instead.",
+      "id": "8ZtInClXe1Q"
+     },
+     {
+      "k": "v",
+      "note": "How attackers crack the passwords they steal.",
+      "id": "7U-RbOKanYs"
+     },
+     {
+      "k": "a",
+      "note": "When a giant gets it wrong: Facebook's plain-text passwords.",
+      "id": "338d936017"
+     },
+     {
+      "k": "a",
+      "note": "Why most password rules make things worse.",
+      "id": "35f08027df"
+     }
+    ]
+   },
+   {
+    "title": "Web attacks",
+    "steps": [
+     {
+      "k": "v",
+      "note": "SQL injection: the classic way websites get hacked.",
+      "id": "_jKylhJtPmI"
+     },
+     {
+      "k": "v",
+      "note": "Cross-site scripting, told through a famous tweet.",
+      "id": "zv0kZKC6GAM"
+     },
+     {
+      "k": "v",
+      "note": "Phishing: attacking people instead of machines.",
+      "id": "u9dBGWVwMMA"
+     }
+    ]
+   },
+   {
+    "title": "Cryptography",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Public-key cryptography: secrets without sharing a secret.",
+      "id": "GSIDS_lvRv4"
+     },
+     {
+      "k": "v",
+      "note": "How TLS uses it to protect the web.",
+      "id": "j9QmMEWmcfo"
+     },
+     {
+      "k": "a",
+      "note": "RSA in theory and in code.",
+      "id": "0750e3f4eb"
+     },
+     {
+      "k": "a",
+      "note": "Why RSA is easy to get wrong in practice.",
+      "id": "8837306ca2"
+     },
+     {
+      "k": "a",
+      "note": "A suspected NSA backdoor in a random number generator.",
+      "id": "e51fae5d4a"
+     }
+    ]
+   },
+   {
+    "title": "Real-world attacks",
+    "steps": [
+     {
+      "k": "a",
+      "note": "A vulnerability post-mortem: how a serious bug slipped through.",
+      "id": "c8d854821e"
+     },
+     {
+      "k": "a",
+      "note": "A zero-click iPhone exploit, dissected.",
+      "id": "a9161cd6bf"
+     },
+     {
+      "k": "a",
+      "note": "The xz backdoor, and the script that hid it.",
+      "id": "be0c5be1a3"
+     },
+     {
+      "k": "a",
+      "note": "Supply-chain attacks and the assumptions they exploit.",
+      "id": "4d8e42111f"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "performance",
+  "title": "Performance and the machine",
+  "level": "Advanced",
+  "blurb": "What really makes code fast or slow: caches, branch prediction, SIMD, and how the experts measure it. Mostly reading.",
+  "sections": [
+   {
+    "title": "Intuition",
+    "steps": [
+     {
+      "k": "a",
+      "note": "How fast computers really are.",
+      "id": "9192b9666e"
+     },
+     {
+      "k": "v",
+      "note": "Why caches exist.",
+      "id": "6JpLD3PUAZk"
+     },
+     {
+      "k": "a",
+      "note": "Why 'CPU utilization' doesn't mean what you think.",
+      "id": "9b43d8cd10"
+     }
+    ]
+   },
+   {
+    "title": "Inside the CPU",
+    "steps": [
+     {
+      "k": "a",
+      "note": "How many branches can a CPU predict? Measured.",
+      "id": "2573557765"
+     },
+     {
+      "k": "a",
+      "note": "When too many 'if's start to hurt.",
+      "id": "ec11ec79be"
+     },
+     {
+      "k": "a",
+      "note": "SIMD: doing many operations in one instruction.",
+      "id": "596ed37f28"
+     },
+     {
+      "k": "a",
+      "note": "Cache partitioning, and why Intel added it.",
+      "id": "56e31eca21"
+     },
+     {
+      "k": "a",
+      "note": "Spectre: when speed tricks become a security hole.",
+      "id": "de64c51cbc"
+     }
+    ]
+   },
+   {
+    "title": "Measuring",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Multithreaded code and why it's harder than it looks.",
+      "id": "7ENFeb-J75k"
+     },
+     {
+      "k": "a",
+      "note": "Linux performance analysis tools, by the person who wrote many of them.",
+      "id": "e34446987c"
+     },
+     {
+      "k": "a",
+      "note": "How the Linux tracing tools fit together.",
+      "id": "6bd2be95ee"
+     },
+     {
+      "k": "a",
+      "note": "A real investigation: a system that's paging too much.",
+      "id": "08db0beaf9"
+     }
+    ]
+   },
+   {
+    "title": "Stories",
+    "steps": [
+     {
+      "k": "a",
+      "note": "Saving 100 terabytes of memory in a DNS server.",
+      "id": "9d6c2943b9"
+     },
+     {
+      "k": "a",
+      "note": "Reflections on software performance and why it matters.",
+      "id": "bbd9771a49"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "career",
+  "title": "Engineering career",
+  "level": "All levels",
+  "blurb": "Essays on doing great work, growing as an engineer, working in teams and building companies.",
+  "sections": [
+   {
+    "title": "Doing great work",
+    "steps": [
+     {
+      "k": "a",
+      "note": "Paul Graham on what great work takes.",
+      "id": "fedc86cb66"
+     },
+     {
+      "k": "a",
+      "note": "The qualities that make the biggest difference in programmers.",
+      "id": "ce6d4ba24a"
+     },
+     {
+      "k": "a",
+      "note": "Your job is to ship code that works, and prove it.",
+      "id": "05ded877c8"
+     }
+    ]
+   },
+   {
+    "title": "Growing",
+    "steps": [
+     {
+      "k": "a",
+      "note": "What a senior engineer actually does.",
+      "id": "13bc879f96"
+     },
+     {
+      "k": "a",
+      "note": "How to teach yourself hard things.",
+      "id": "fd9c1a16c6"
+     },
+     {
+      "k": "a",
+      "note": "Why writing well is an undervalued engineering skill.",
+      "id": "b15320aa75"
+     },
+     {
+      "k": "a",
+      "note": "A small habit that helps your colleagues' careers.",
+      "id": "6551cfda7f"
+     }
+    ]
+   },
+   {
+    "title": "Teams",
+    "steps": [
+     {
+      "k": "a",
+      "note": "The Joel Test: twelve questions about a team's health.",
+      "id": "f47f4746a8"
+     },
+     {
+      "k": "a",
+      "note": "Code review, honestly.",
+      "id": "34f3b0acc8"
+     },
+     {
+      "k": "a",
+      "note": "A team where everyone leads.",
+      "id": "0e4c15a140"
+     },
+     {
+      "k": "a",
+      "note": "Mistakes an engineering manager made, so you don't have to.",
+      "id": "193b0716c5"
+     }
+    ]
+   },
+   {
+    "title": "The bigger picture",
+    "steps": [
+     {
+      "k": "a",
+      "note": "Don't call yourself a programmer: how to think about your value.",
+      "id": "85044d705b"
+     },
+     {
+      "k": "a",
+      "note": "Sam Altman on productivity.",
+      "id": "846b32c06f"
+     },
+     {
+      "k": "a",
+      "note": "The one thing you should never do: rewrite from scratch.",
+      "id": "e3b47bb844"
+     },
+     {
+      "k": "a",
+      "note": "How to get startup ideas.",
+      "id": "3abfaf84e2"
+     }
+    ]
+   }
+  ]
  }
 ]
