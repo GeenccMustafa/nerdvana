@@ -245,11 +245,14 @@ body[data-mode="articles"] #tvBtn { display: none; }
 .mini:hover { color: var(--fg); border-color: var(--fg2); }
 .av.fav { background: #fff; }
 .av.fav img { width: 72%; height: 72%; object-fit: contain; }
-.reads { margin-top: 14px; }
-.read-row { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 10px; color: inherit; text-decoration: none; border: 1px solid var(--line); margin-bottom: 8px; }
-.read-row:hover { border-color: var(--fg2); }
-.read-row b { font-weight: 600; }
-.read-row span { color: var(--fg2); font-size: 12.5px; }
+.reads { margin-bottom: 18px; padding: 12px; border-radius: 12px; background: var(--raise); }
+.reads h3 { margin: 0 0 10px; font: 700 16px var(--display); display: flex; align-items: baseline; gap: 8px; }
+.reads h3 small { font: 400 12px var(--body); color: var(--fg2); }
+.read-row { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; align-items: start; padding: 8px; border-radius: 8px; color: inherit; text-decoration: none; }
+.read-row:hover { background: var(--surface); }
+.read-row b { display: block; font-weight: 600; font-size: 13.5px; line-height: 1.3; }
+.read-row small { color: var(--fg2); font-size: 12px; }
+.mini.vids { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
 .context .lead { max-width: 760px; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
@@ -352,9 +355,9 @@ body[data-mode="articles"] #tvBtn { display: none; }
       </div>
       <div class="pstats" id="pStats"></div>
       <div class="pathnav" id="pathNav" hidden></div>
-      <div class="reads" id="reads" hidden></div>
     </section>
     <aside>
+      <div class="reads" id="reads" hidden></div>
       <div class="upnext-head"><h3>Up next</h3>
         <button class="switch" id="autoBtn" type="button" role="switch" aria-checked="true">Autoplay <i></i></button></div>
       <div class="up-label" id="simLabel" hidden>More like this</div>
@@ -562,6 +565,7 @@ function ensureArticles() {
     fetch("articles.json").then(r => r.json()),
     fetch("similar_articles.json").then(r => r.ok ? r.json() : null).catch(() => null),
     fetch("reading_paths.json").then(r => r.ok ? r.json() : []).catch(() => []),
+    ensureLinks(),
   ]).then(([d, s, paths]) => {
     const A = DS.articles;
     A.PATHS = paths;
@@ -736,15 +740,16 @@ function card(v, o = {}) {
 function artCard(a, o = {}) {
   const c = a.ch, el = document.createElement("div"), read = DS.articles.seen.has(a.id);
   el.className = "card art" + (read ? " seen" : ""); el.dataset.id = a.id;
+  const nv = linksOk() ? (LINKS.a2v[a.i] || []).length : 0;
   const badge = o.step ? `<span class="badge step">${o.step}</span>` : read ? `<span class="badge">READ</span>` : isNew(a) ? `<span class="badge new">NEW</span>` : "";
   el.innerHTML = `<a class="card-hit" href="${esc(a.url)}" target="_blank" rel="noopener">
       <div class="thumb"><span class="ph ${c.t}"><b>${esc(c.n)}</b></span>${a.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(a.img)}">` : ""}${badge}${a.d ? `<span class="dur">${readTime(a)}</span>` : ""}</div>
       <h3>${esc(a.t)}</h3>${a.desc ? `<p class="desc">${esc(a.desc)}</p>` : ""}
       <div class="meta"><span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span>${a.v ? `<span class="dot"></span><span class="num" title="Hacker News points">▲ ${fmtNum(a.v)}</span>` : ""}${a.ts ? `<span class="dot"></span><span class="num">${fmtAgo(a.ts)}</span>` : ""}</div></a>
-    <div class="art-acts">${SIM ? `<button type="button" class="mini" data-like>More like this</button>` : ""}${a.hn ? `<a class="mini" href="https://news.ycombinator.com/item?id=${a.hn}" target="_blank" rel="noopener" title="Discussion on Hacker News">💬 ${a.cm ? fmtNum(a.cm) : "HN"}</a>` : ""}</div>
+    <div class="art-acts">${SIM ? `<button type="button" class="mini" data-like>More like this</button>` : ""}${nv ? `<button type="button" class="mini vids" data-like title="Videos on this topic">▶ ${nv} video${nv > 1 ? "s" : ""}</button>` : ""}${a.hn ? `<a class="mini" href="https://news.ycombinator.com/item?id=${a.hn}" target="_blank" rel="noopener" title="Discussion on Hacker News">💬 ${a.cm ? fmtNum(a.cm) : "HN"}</a>` : ""}</div>
     <button type="button" class="later-btn" aria-pressed="${later.includes(a.id)}" aria-label="Read later" title="Read later">${ICON_SAVE}</button>`;
   el.querySelector(".card-hit").addEventListener("click", () => markRead(a));
-  el.querySelector("[data-like]")?.addEventListener("click", () => pick({ view: "like", like: a.id, tier: null, ch: null }));
+  el.querySelectorAll("[data-like]").forEach(b => b.addEventListener("click", () => pick({ view: "like", like: a.id, tier: null, ch: null })));
   el.querySelector(".later-btn").onclick = () => toggleLater(a.id);
   return el;
 }
@@ -907,8 +912,8 @@ function renderReads(v) {
     if (current !== v || !linksOk()) return;
     const arts = (LINKS.v2a[v.i] || []).map(i => DS.articles.V[i]).filter(Boolean);
     if (!arts.length) return;
-    box.innerHTML = `<div class="up-label">Read more about this</div>` + arts.map(a => `<a class="read-row" href="${esc(a.url)}" target="_blank" rel="noopener" data-id="${a.id}">
-      <b>${esc(a.t)}</b><span>${esc(a.ch.n)}${a.d ? " · " + readTime(a) : ""}${a.v ? " · ▲ " + fmtNum(a.v) : ""}</span></a>`).join("");
+    box.innerHTML = `<h3>Read about this <small>from the Articles tab</small></h3>` + arts.map(a => `<a class="read-row" href="${esc(a.url)}" target="_blank" rel="noopener" data-id="${a.id}">
+      ${avatar(a.ch)}<span><b>${esc(a.t)}</b><small>${esc(a.ch.n)}${a.d ? " · " + readTime(a) : ""}${a.v ? " · ▲ " + fmtNum(a.v) : ""}</small></span></a>`).join("");
     box.querySelectorAll("a").forEach(el => el.onclick = () => markRead(DS.articles.byId.get(el.dataset.id)));
     box.hidden = false;
   }).catch(() => {});
