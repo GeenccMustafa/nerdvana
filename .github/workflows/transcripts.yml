@@ -1,55 +1,60 @@
 name: Refresh transcripts
 
 # Weekly: download subtitles for new videos from the Essential channels and rebuild search.json.
-# The transcripts/ folder (~40 MB) lives in the "transcripts-data" release instead of git history.
+# The transcripts themselves stay in the (private) Actions cache, shared with the nightly job,
+# which keeps the cache fresh. Only the compact word index, search.json, is committed.
 on:
   schedule:
     - cron: "41 4 * * 0"   # Sundays at 04:41 UTC, after the nightly refresh
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      max_new:
+        description: "Most transcripts to download in this run"
+        default: "600"
 
 permissions:
   contents: write
 
 concurrency:
-  group: refresh            # never at the same time as the nightly job, both commit to main
+  group: refresh            # never at the same time as the nightly job: both commit to main and share the cache
   cancel-in-progress: false
 
 jobs:
   transcripts:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     env:
-      GH_TOKEN: ${{ github.token }}
+      TRANSCRIPTS_DIR: .cache/transcripts
     steps:
       - uses: actions/checkout@v4
 
       - uses: astral-sh/setup-uv@v6
 
-      - name: Restore the transcripts collected so far
-        run: |
-          gh release download transcripts-data --pattern transcripts.tar.gz --dir /tmp
-          tar xzf /tmp/transcripts.tar.gz
-          echo "transcripts on hand: $(ls transcripts | wc -l)"
-          cp search.json /tmp/search.prev.json
+      - uses: actions/cache@v4
+        with:
+          path: .cache
+          key: nerdvana-${{ github.run_id }}
+          restore-keys: nerdvana-
 
       - name: Download new transcripts and rebuild search.json
-        run: MAX_NEW=600 python3 transcripts.py
+        run: |
+          mkdir -p "$TRANSCRIPTS_DIR"
+          echo "transcripts on hand: $(ls "$TRANSCRIPTS_DIR" | wc -l)"
+          cp search.json /tmp/search.prev.json
+          MAX_NEW="${{ inputs.max_new || '600' }}" python3 transcripts.py
 
-      # If YouTube blocked the runner nothing new comes in; never publish a smaller index
+      # If YouTube blocked the runner (or the cache was lost) the index could shrink: keep the live one.
+      # The job still succeeds, so whatever was downloaded is cached and the next run builds on it.
       - name: Sanity check
         run: |
           python3 - <<'PY'
-          import json, sys
+          import json, shutil
           old, new = json.load(open("/tmp/search.prev.json")), json.load(open("search.json"))
           print(f"transcripts in the index: {len(old['docs'])} -> {len(new['docs'])}")
           if len(new["docs"]) < len(old["docs"]):
-              sys.exit("The new index is smaller than the live one; keeping the live version.")
+              print("::warning::The new index is smaller than the live one; keeping the live version.")
+              shutil.copy("/tmp/search.prev.json", "search.json")
           PY
-
-      - name: Save the transcripts for next week
-        run: |
-          tar czf /tmp/transcripts.tar.gz transcripts
-          gh release upload transcripts-data /tmp/transcripts.tar.gz --clobber
 
       - name: Commit if anything changed
         run: |

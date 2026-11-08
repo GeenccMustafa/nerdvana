@@ -62,7 +62,7 @@ Only an article's title, a short description (the author's own summary or openin
 
 A GitHub Action ([`refresh.yml`](.github/workflows/refresh.yml)) runs nightly at 03:17 UTC: it re-fetches every channel and every blog (new posts and fresh HN points), rebuilds the similarity files, and commits the result, which redeploys the site. If a dataset comes back much smaller than the live one (e.g. YouTube blocks the runner), it keeps the live version of that file. You can also start it by hand from the Actions tab.
 
-A second Action ([`transcripts.yml`](.github/workflows/transcripts.yml)) runs every Sunday: it downloads subtitles for new videos from the Essential channels and rebuilds `search.json`. The transcripts themselves (~40 MB) are kept as an asset of the [`transcripts-data`](https://github.com/GeenccMustafa/nerdvana/releases/tag/transcripts-data) release rather than in git. If YouTube blocks the runner, nothing is lost: the index only ever grows, and the next run tries again.
+A second Action ([`transcripts.yml`](.github/workflows/transcripts.yml)) runs every Sunday: it downloads subtitles for new videos from the Essential channels and rebuilds `search.json`. The transcripts themselves (~40 MB) stay in the private Actions cache; only the compact word index is published. If YouTube blocks the runner, nothing is lost: the index never shrinks, and the next run picks up where this one stopped.
 
 Locally you need Python 3 and [uv](https://docs.astral.sh/uv/):
 

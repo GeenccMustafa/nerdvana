@@ -4,8 +4,8 @@ Usage:
   python3 transcripts.py            # download missing transcripts, then build search.json
   python3 transcripts.py --build    # only rebuild search.json from transcripts/
 
-A weekly GitHub Action (transcripts.yml) runs this for new videos; the transcripts/ folder itself is
-kept as a release asset, not in git. It is resumable: already-downloaded videos are skipped, and videos
+A weekly GitHub Action (transcripts.yml) runs this for new videos; it keeps the transcripts in the
+Actions cache (TRANSCRIPTS_DIR=.cache/transcripts), never in git or anywhere public. It is resumable: already-downloaded videos are skipped, and videos
 from the last 14 days that had no subtitles yet are tried again (auto-captions can take a while).
 If YouTube starts refusing requests ("confirm you're not a bot"), it stops and keeps what it has.
 
@@ -20,7 +20,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "transcripts"
+OUT = Path(os.environ.get("TRANSCRIPTS_DIR", ROOT / "transcripts"))   # the weekly job keeps them in .cache/
 YTDLP = ["uvx", "--from", "yt-dlp@latest", "yt-dlp"]
 TOP_BY_VIEWS, NEWEST = 120, 20
 WORKERS, BATCH = 4, 40
