@@ -1,0 +1,64 @@
+<!doctype html>
+<!-- Source of og.png, the link preview image (1200x630). Rebuild with:
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --hide-scrollbars \
+       --window-size=1200,630 --screenshot=og.png assets/og.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body { background: #10141d; color: #eceff5; font-family: "IBM Plex Sans", sans-serif; position: relative; }
+  body::before { content: ""; position: absolute; inset: 0;
+    background: radial-gradient(900px 500px at 92% 10%, rgba(242,169,59,.18), transparent 60%),
+                radial-gradient(700px 500px at 0% 100%, rgba(92,205,180,.10), transparent 60%); }
+  .left { position: absolute; left: 72px; top: 70px; width: 600px; }
+  .logo { display: flex; align-items: center; gap: 18px; }
+  .logo svg { width: 64px; height: 64px; }
+  h1 { margin: 0; font: 800 92px/1 "Bricolage Grotesque", sans-serif; letter-spacing: -.03em; }
+  h1 span { color: #f2a93b; }
+  .tag { margin: 30px 0 0; font: 500 33px/1.25 "IBM Plex Sans", sans-serif; color: #eceff5; }
+  .tag b { color: #f2a93b; font-weight: 600; }
+  .stats { position: absolute; left: 72px; bottom: 64px; display: flex; gap: 14px; }
+  .stat { padding: 14px 20px; border-radius: 14px; background: #171c27; border: 1px solid #2b3343; }
+  .stat b { display: block; font: 800 34px/1 "Bricolage Grotesque", sans-serif; }
+  .stat small { font: 500 15px "IBM Plex Mono", monospace; color: #96a0b4; letter-spacing: .02em; }
+  /* right side: a stylised feed of cards */
+  .feed { position: absolute; right: -40px; top: 46px; width: 470px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; transform: rotate(-6deg); }
+  .card { border-radius: 14px; background: #171c27; border: 1px solid #2b3343; padding: 10px; }
+  .thumb { height: 104px; border-radius: 9px; position: relative; overflow: hidden; display: grid; place-items: center;
+    font: 800 20px "Bricolage Grotesque", sans-serif; color: #fff; text-align: center; padding: 8px; }
+  .thumb::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 20% 15%, rgba(255,255,255,.25), transparent 55%); }
+  .S { background: #ff7a85; } .A { background: #f2a93b; } .B { background: #5ccdb4; }
+  .kind { position: absolute; left: 8px; top: 8px; z-index: 1; font: 500 11px "IBM Plex Mono", monospace; padding: 2px 6px; border-radius: 4px; background: rgba(0,0,0,.55); }
+  .line { height: 10px; border-radius: 5px; background: #2b3343; margin-top: 10px; }
+  .line.short { width: 60%; margin-top: 7px; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="4.5" rx="6" ry="2" fill="none" stroke="#f2a93b" stroke-width="1.6"/><rect x="3" y="8" width="18" height="13" rx="4" fill="#f2a93b"/><path d="M10 11.5v6l5-3z" fill="#121722"/></svg>
+      <h1>Nerd<span>vana</span></h1>
+    </div>
+    <p class="tag">The best of tech YouTube and tech blogs, in one fast page. With <b>learning paths</b> from zero to solid.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>29K</b><small>VIDEOS</small></div>
+    <div class="stat"><b>9.7K</b><small>ARTICLES</small></div>
+    <div class="stat"><b>222</b><small>SOURCES</small></div>
+    <div class="stat"><b>14</b><small>PATHS</small></div>
+  </div>
+  <div class="feed">
+    <div class="card"><div class="thumb S"><span class="kind">VIDEO</span>Neural networks</div><div class="line"></div><div class="line short"></div></div>
+    <div class="card"><div class="thumb A"><span class="kind">ARTICLE</span>Distributed systems</div><div class="line"></div><div class="line short"></div></div>
+    <div class="card"><div class="thumb B"><span class="kind">VIDEO</span>Kubernetes</div><div class="line"></div><div class="line short"></div></div>
+    <div class="card"><div class="thumb S"><span class="kind">ARTICLE</span>How DNS works</div><div class="line"></div><div class="line short"></div></div>
+    <div class="card"><div class="thumb A"><span class="kind">VIDEO</span>Python</div><div class="line"></div><div class="line short"></div></div>
+    <div class="card"><div class="thumb B"><span class="kind">ARTICLE</span>Performance</div><div class="line"></div><div class="line short"></div></div>
+    <div class="card"><div class="thumb A"><span class="kind">VIDEO</span>Security</div><div class="line"></div><div class="line short"></div></div>
+    <div class="card"><div class="thumb S"><span class="kind">ARTICLE</span>System design</div><div class="line"></div><div class="line short"></div></div>
+  </div>
+</body>
+</html>
