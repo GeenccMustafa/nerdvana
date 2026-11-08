@@ -1,0 +1,52 @@
+name: Refresh videos
+
+on:
+  schedule:
+    - cron: "17 3 * * *"   # every night at 03:17 UTC
+  workflow_dispatch: {}      # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Keep the current dataset for comparison
+        run: cp videos.json /tmp/videos.prev.json
+
+      - name: Fetch all channels and rebuild videos.json
+        run: python3 fetch.py --force
+
+      # If YouTube blocks the runner, many channels come back empty and the site would shrink.
+      # Refuse to publish unless the new data is about as complete as what is live now.
+      - name: Sanity check
+        run: |
+          python3 - <<'EOF'
+          import json, sys
+          old = json.load(open("/tmp/videos.prev.json"))
+          new = json.load(open("videos.json"))
+          oc, nc = len(old["channels"]), len(new["channels"])
+          ov, nv = len(old["videos"]), len(new["videos"])
+          print(f"channels {oc} -> {nc}, videos {ov} -> {nv}")
+          if nc < min(95, oc) or nv < 0.9 * ov:
+              sys.exit("New data looks incomplete (YouTube may be blocking the runner); keeping the live version.")
+          EOF
+
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet videos.json; then echo "No changes."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add videos.json
+          git commit -m "Refresh videos ($(date -u +%Y-%m-%d))"
+          git push

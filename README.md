@@ -34,7 +34,9 @@ So that prolific channels (daily uploaders, conference archives) can't drown out
 
 ## Update the data
 
-Requires Python 3 and [uv](https://docs.astral.sh/uv/).
+A GitHub Action ([`refresh.yml`](.github/workflows/refresh.yml)) re-fetches every channel nightly at 03:17 UTC and commits the new `videos.json`, which redeploys the site. It refuses to publish if fewer than 95 channels or less than 90% of the previous videos come back (e.g. if YouTube blocks the runner). You can also start it by hand from the Actions tab.
+
+To update locally instead you need Python 3 and [uv](https://docs.astral.sh/uv/):
 
 ```bash
 python3 fetch.py           # fetch new channels, rebuild videos.json
