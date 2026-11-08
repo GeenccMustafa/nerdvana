@@ -38,12 +38,11 @@ Watched, read, saved and in-progress items are stored only in your browser. Ligh
 |---|---|
 | `channels.json` | The channel list: handle, tier and topic. This is the part to edit. |
 | `fetch.py` | Pulls every channel's uploads with [yt-dlp](https://github.com/yt-dlp/yt-dlp) (no API key) and writes `videos.json`. |
-| `enrich.py` | Embeds every title with [bge-small](https://huggingface.co/BAAI/bge-small-en-v1.5) and writes `similar.json` (More like this) and `paths.json` (learning paths from `paths_def.json`); with articles it also writes `similar_articles.json` and `links.json` (videos ↔ articles on the same topic). |
+| `enrich.py` | Embeds every title with [bge-small](https://huggingface.co/BAAI/bge-small-en-v1.5) and writes `similar.json` (More like this); with articles it also writes `similar_articles.json`, `links.json` (videos ↔ articles on the same topic) and `courses.json` (the learning paths, resolved from `curated_paths.json`). |
 | `transcripts.py` | Downloads English subtitles for the Essential channels and writes `search.json`, a compact word index with timestamps. |
 | `sources.json` | The blog list: name, URL, tier and topic (optionally the feed URL). |
 | `articles.py` | Collects each blog's posts from [Hacker News](https://hn.algolia.com/api) (all-time popular, with points) and its RSS/Atom feed (newest), fetches each new page once for its description, cover image and length, and writes `articles.json`. |
 | `curated_paths.json` | The curated paths: sections and hand-picked steps (a video or article id, its title and a one-line note). If a step's item disappears, the nightly job swaps in the closest match and newer, better-fitting items are listed in `path_candidates.json`. Once a month these are reviewed and proposed as a pull request. |
-| `reading_paths_def.json` | The reading paths: a title and steps per path (a search phrase, or `title:` to pin a specific post). |
 | `feed.py` | Writes `feed.xml`, the weekly top-20 Atom feed. |
 | `index.html` | The whole site: one file, no build step, no dependencies. |
 
