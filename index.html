@@ -109,6 +109,8 @@ select.chip { padding-right: 8px; }
 .later-btn { position: absolute; top: 6px; right: 6px; z-index: 1; width: 32px; height: 32px; border-radius: 8px; border: 0; background: rgba(0,0,0,.72); color: #fff; display: grid; place-items: center; opacity: 0; transition: opacity .15s; }
 .card:hover .later-btn, .later-btn:focus-visible, .later-btn[aria-pressed="true"] { opacity: 1; }
 .later-btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); }
+.rm-btn { position: absolute; top: 6px; right: 44px; z-index: 1; width: 32px; height: 32px; border-radius: 8px; border: 0; background: rgba(0,0,0,.72); color: #fff; font-size: 15px; display: grid; place-items: center; }
+.rm-btn:hover { background: var(--tS); }
 @media (hover: none) { .later-btn { opacity: .9; } }
 .prog { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.35); }
 .prog i { display: block; height: 100%; background: var(--accent); }
@@ -647,7 +649,8 @@ function renderContext() {
     html = A ? `<div class="txt"><h2>Top picks</h2><p>The 15 most-upvoted posts of each Essential source, mixed · ${n} articles</p></div>`
       : `<div class="txt"><h2>Top picks</h2><p>The 15 most-viewed videos of each Essential channel, mixed · ${n} videos</p></div>`;
   } else if (state.view === "history") {
-    html = `<div class="txt"><h2>History</h2><p>${seen.size ? `${n} ${l.seen} ${list.length === 1 ? l.one : l.many}, newest first` : A ? "Articles you open show up here." : "Videos you finish or mark as watched show up here."}</p></div>`;
+    html = `<div class="txt"><h2>History</h2><p>${seen.size ? `${n} ${l.seen} ${list.length === 1 ? l.one : l.many}, newest first · ✕ removes one` : A ? "Articles you open show up here." : "Videos you finish or mark as watched show up here."}</p></div>
+      ${seen.size ? `<button class="btn" data-act="clearhist">Clear history</button>` : ""}`;
   } else if (state.view === "later") {
     html = `<div class="txt"><h2>${l.later}</h2><p>${list.length ? `${n} saved ${list.length === 1 ? l.one : l.many} · ${fmtMin(total)}${A ? " of reading" : ""}` : "Nothing saved yet."}</p></div>
       ${list.length && !A ? `<button class="btn primary" data-act="playall">Play all in TV mode</button>` : ""}`;
@@ -684,6 +687,13 @@ $("#context").addEventListener("click", e => {
   else if (a === "reroll") apply();
   else if (a === "playall") startTV([...list]);
   else if (a === "allpaths") pick({ view: "paths" });
+  else if (a === "clearhist") {
+    const what = mode === "videos" ? "watch history and in-progress videos" : "reading history";
+    if (!confirm(`Clear your ${what} (${seen.size.toLocaleString("en-US")} ${L().many})? This can't be undone.`)) return;
+    seen.clear(); saveSeen();
+    if (mode === "videos") { progress = {}; saveProgress(); }
+    apply(); updateCounts(); toast("History cleared");
+  }
   else if (a === "cstart") { const c = COURSES.find(x => x.id === state.course), items = courseItems(c);
     const k = Math.max(0, items.findIndex(x => !isDone(x))); openStep(c, items, k); }
   else if (a === "start") { const v = list.find(x => !seen.has(x.id)) || list[0];
@@ -767,13 +777,16 @@ function card(v, o = {}) {
     <h3>${esc(v.t)}</h3>
     <div class="meta"><span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span>
     <span class="dot"></span><span class="num">${fmtNum(v.v)}</span><span class="dot"></span><span class="num">${fmtAgo(v.ts)}</span></div></button>
-    ${own ? `<button type="button" class="later-btn" aria-pressed="${later.includes(v.id)}" aria-label="Watch later" title="Watch later">${ICON_SAVE}</button>` : ""}`;
+    ${own ? `<button type="button" class="later-btn" aria-pressed="${later.includes(v.id)}" aria-label="Watch later" title="Watch later">${ICON_SAVE}</button>` : ""}${own ? rmBtn() : ""}`;
   // transcript hits start 3 s before the mention, so the sentence isn't cut off
   // keepHash: the player pushes its own entry, so Back returns to the article page this came from
   el.querySelector(".card-hit").onclick = () => { setMode("videos", { keepHash: true }); openPlayer(v, { start: o.at != null ? Math.max(0, o.at - 3) : p?.t ?? 0 }); };
   el.querySelector(".later-btn")?.addEventListener("click", () => toggleLater(v.id));
   return el;
 }
+const rmBtn = () => state.view === "history" ? `<button type="button" class="rm-btn" aria-label="Remove from history" title="Remove from history">✕</button>` : "";
+function forget(id) { seen.delete(id); saveSeen(); delete progress[id]; saveProgress(); apply(); updateCounts(); }
+document.addEventListener("click", e => { const b = e.target.closest(".rm-btn"); if (b) forget(b.closest(".card").dataset.id); });
 function artCard(a, o = {}) {
   const c = a.ch, el = document.createElement("div"), read = DS.articles.seen.has(a.id);
   el.className = "card art" + (read ? " seen" : ""); el.dataset.id = a.id;
@@ -784,7 +797,7 @@ function artCard(a, o = {}) {
       <h3>${esc(a.t)}</h3>${a.desc ? `<p class="desc">${esc(a.desc)}</p>` : ""}
       <div class="meta"><span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span>${a.v ? `<span class="dot"></span><span class="num" title="Hacker News points">▲ ${fmtNum(a.v)}</span>` : ""}${a.ts ? `<span class="dot"></span><span class="num">${fmtAgo(a.ts)}</span>` : ""}</div></a>
     <div class="art-acts">${SIM ? `<button type="button" class="mini" data-like>More like this</button>` : ""}${nv ? `<button type="button" class="mini vids" data-like title="Videos on this topic">▶ ${nv} video${nv > 1 ? "s" : ""}</button>` : ""}${a.hn ? `<a class="mini" href="https://news.ycombinator.com/item?id=${a.hn}" target="_blank" rel="noopener" title="Discussion on Hacker News">💬 ${a.cm ? fmtNum(a.cm) : "HN"}</a>` : ""}</div>
-    <button type="button" class="later-btn" aria-pressed="${later.includes(a.id)}" aria-label="Read later" title="Read later">${ICON_SAVE}</button>`;
+    <button type="button" class="later-btn" aria-pressed="${later.includes(a.id)}" aria-label="Read later" title="Read later">${ICON_SAVE}</button>${rmBtn()}`;
   el.querySelector(".card-hit").addEventListener("click", () => markRead(a));
   el.querySelectorAll("[data-like]").forEach(b => b.addEventListener("click", () => pick({ view: "like", like: a.id, tier: null, ch: null })));
   el.querySelector(".later-btn").onclick = () => toggleLater(a.id);
