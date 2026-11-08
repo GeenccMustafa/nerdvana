@@ -617,8 +617,10 @@ function ensureArticles() {
     A.PATHS = paths;
     A.CH = d.sources.map(c => { const host = new URL(c.u).hostname;
       return { ...c, h: slugify(c.n), host, a: `https://www.google.com/s2/favicons?domain=${host}&sz=64` }; });
+    // links and images come from other people's sites: allow plain http(s) only, never javascript: or data:
+    const web = u => /^https?:\/\//i.test(u || "");
     A.V = d.articles.map(([id, t, c, w, pts, ts, url, desc, img, hn, cm], i) => ({ i, id, t, c, ch: A.CH[c], art: 1,
-      d: w ? Math.max(1, Math.round(w / 230)) * 60 : 0, v: pts, ts, url, desc, img, hn, cm, s: norm(t + " " + desc + " " + A.CH[c].n) }));
+      d: w ? Math.max(1, Math.round(w / 230)) * 60 : 0, v: pts, ts, url: web(url) ? url : "#", desc, img: web(img) ? img : "", hn, cm, s: norm(t + " " + desc + " " + A.CH[c].n) }));
     A.byId = new Map(A.V.map(a => [a.id, a]));
     if (s && s.n === A.V.length && s.first === A.V[0]?.id) A.SIM = s.sim;
   }).catch(e => { DS.articles.ready = null; throw e; });

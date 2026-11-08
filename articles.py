@@ -307,7 +307,8 @@ def build(srcs, cache):
         for r in per_src[si]:
             h, f, p = r["hn"], r["rss"], cache.get(r["url"]) or {}
             title = clean_title(h.get("title") or f.get("title") or p.get("title") or "")
-            if not title:
+            # only plain web links: a feed could carry javascript: or data: URLs
+            if not title or not re.match(r"https?://", r["url"] or ""):
                 continue
             desc = p.get("desc") or ""
             if generic[si][desc] > 1 or len(desc) < 40 or desc.lower().startswith(title.lower()[:40]) and len(desc) < len(title) + 20:
@@ -321,7 +322,7 @@ def build(srcs, cache):
             if words and words < 80:      # paywall stubs, link pages, redirects
                 words = 0
             rows.append([aid, title, remap[si], words, h.get("points", 0), ts or 0, r["url"], shorten(desc),
-                         (p.get("img") or "") if generic_img[si][p.get("img")] <= 2 else "", h.get("hn", 0), h.get("comments", 0)])
+                         (p.get("img") or "") if generic_img[si][p.get("img")] <= 2 and re.match(r"https?://", p.get("img") or "") else "", h.get("hn", 0), h.get("comments", 0)])
     out = {"sources": sources, "articles": rows}
     (ROOT / "articles.json").write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")))
     n_desc = sum(bool(r[7]) for r in rows)
