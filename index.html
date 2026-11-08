@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nerdvana</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><ellipse cx='12' cy='4.5' rx='6' ry='2' fill='none' stroke='%23f2a93b' stroke-width='1.6'/><rect x='3' y='8' width='18' height='13' rx='4' fill='%23f2a93b'/><path d='M10 11.5v6l5-3z' fill='%23121722'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky control bar (search + filter chips) over an auto-fill thumbnail grid; player and TV mode are full-screen overlays. */
+:root {
+  --bg: #f4f5f8; --surface: #ffffff; --raise: #e8ebf1; --line: #d5dae4;
+  --fg: #141a26; --fg2: #5a6478; --accent: #c9761a; --accent-fg: #ffffff;
+  --tS: #c43d4b; --tA: #c9761a; --tB: #2f7d6d;
+  --shade: rgba(10, 14, 22, .55);
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --r: 10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #10141d; --surface: #171c27; --raise: #212836; --line: #2b3343;
+  --fg: #eceff5; --fg2: #96a0b4; --accent: #f2a93b; --accent-fg: #171107;
+  --tS: #ff7a85; --tA: #f2a93b; --tB: #5ccdb4; --shade: rgba(0,0,0,.7); color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #10141d; --surface: #171c27; --raise: #212836; --line: #2b3343;
+  --fg: #eceff5; --fg2: #96a0b4; --accent: #f2a93b; --accent-fg: #171107;
+  --tS: #ff7a85; --tA: #f2a93b; --tB: #5ccdb4; --shade: rgba(0,0,0,.7); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--fg); font: 14px/1.45 var(--body); }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 1680px; margin: 0 auto; }
+
+header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top { display: flex; align-items: center; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
+.brand { display: flex; align-items: baseline; gap: 10px; margin-right: auto; }
+.brand h1 { font: 800 26px/1 var(--display); letter-spacing: -.02em; margin: 0; }
+.brand h1 span { color: var(--accent); }
+.brand small { font: 12px var(--mono); color: var(--fg2); font-variant-numeric: tabular-nums; }
+.search { flex: 1 1 280px; max-width: 520px; display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 0 14px; }
+.search input { border: 0; background: transparent; outline: none; height: 38px; width: 100%; min-width: 0; }
+.search kbd { font: 11px var(--mono); color: var(--fg2); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.actions { display: flex; gap: 8px; }
+.btn { height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.btn:hover { border-color: var(--fg2); }
+.btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; }
+.icon-btn { width: 38px; padding: 0; justify-content: center; }
+
+.filters { display: flex; gap: 6px 14px; flex-wrap: wrap; align-items: center; padding-block: 0 12px; }
+.group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.group > b { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--fg2); margin-right: 2px; }
+.chip { height: 28px; padding: 0 11px; border-radius: 999px; border: 1px solid var(--line); background: transparent; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+.chip:hover { background: var(--raise); }
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.chip .n { font: 11px var(--mono); opacity: .65; font-variant-numeric: tabular-nums; }
+.tier { font: 600 11px var(--mono); width: 18px; height: 18px; border-radius: 5px; display: inline-grid; place-items: center; color: #fff; flex: none; }
+.tier.S { background: var(--tS); } .tier.A { background: var(--tA); } .tier.B { background: var(--tB); }
+select.chip { padding-right: 8px; }
+.channels { display: flex; gap: 6px; overflow-x: auto; padding-block: 0 12px; scrollbar-width: thin; }
+.channels .chip { flex: none; }
+
+main { padding-block: 20px 60px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px 16px; }
+.card { display: flex; flex-direction: column; gap: 8px; text-align: left; background: none; border: 0; padding: 0; min-width: 0; }
+.thumb { position: relative; aspect-ratio: 16/9; max-width: 100%; border-radius: var(--r); overflow: hidden; background: var(--raise); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s ease; }
+.card:hover .thumb img { transform: scale(1.04); }
+.dur { position: absolute; right: 6px; bottom: 6px; background: rgba(0,0,0,.8); color: #fff; font: 500 11px var(--mono); padding: 2px 5px; border-radius: 4px; font-variant-numeric: tabular-nums; }
+.seen-badge { position: absolute; left: 6px; top: 6px; background: rgba(0,0,0,.75); color: #fff; font: 500 11px var(--mono); padding: 2px 6px; border-radius: 4px; }
+.card.seen .thumb img { opacity: .4; }
+.card h3 { margin: 0; font-weight: 600; font-size: 14.5px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.meta { display: flex; gap: 6px; align-items: center; color: var(--fg2); font-size: 12.5px; min-width: 0; }
+.meta .ch { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.meta .dot::before { content: "·"; }
+.meta .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.empty { padding: 60px 0; text-align: center; color: var(--fg2); }
+.sentinel { height: 1px; }
+
+/* Player overlay */
+.overlay { position: fixed; inset: 0; z-index: 50; background: var(--shade); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.player { width: min(1100px, 100%); background: var(--surface); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.frame { aspect-ratio: 16/9; background: #000; width: 100%; }
+.frame iframe, .frame > div { width: 100%; height: 100%; border: 0; display: block; }
+.pinfo { display: flex; gap: 12px; align-items: center; padding: 14px 16px; flex-wrap: wrap; }
+.pinfo .txt { flex: 1 1 300px; min-width: 0; }
+.pinfo h2 { margin: 0 0 3px; font: 600 17px/1.3 var(--body); }
+
+/* TV mode */
+.tv { position: fixed; inset: 0; z-index: 60; background: #000; color: #fff; }
+.tv .frame { position: absolute; inset: 0; aspect-ratio: auto; }
+/* The HUD sits at the TOP so YouTube's own control bar (captions, settings, quality) at the bottom stays clickable. */
+.tv .hot { position: absolute; left: 0; right: 0; top: 0; height: 96px; z-index: 1; }
+.tv .hud { position: absolute; left: 0; right: 0; top: 0; z-index: 2; padding: max(18px, env(safe-area-inset-top, 0px)) max(24px, env(safe-area-inset-right, 0px)) 56px max(24px, env(safe-area-inset-left, 0px)); background: linear-gradient(rgba(0,0,0,.85), transparent); display: flex; align-items: start; gap: 10px 16px; transition: opacity .4s; flex-wrap: wrap; pointer-events: none; }
+.tv .hud > * { pointer-events: auto; }
+.tv.idle .hud { opacity: 0; }
+.tv.idle .hud > * { pointer-events: none; }
+.tv .hud .txt { flex: 1 1 300px; min-width: 0; }
+.tv .hud .label { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: #f2a93b; }
+.tv .hud h2 { margin: 4px 0 2px; font: 800 clamp(18px, 2.4vw, 30px)/1.15 var(--display); text-wrap: balance; }
+.tv .hud p { margin: 0; color: #c7cdd8; }
+.tv .hud .next { margin-top: 6px; font: 12px var(--mono); color: #9aa3b5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tv .hud .ctrls { display: flex; gap: 8px; flex-wrap: wrap; }
+.tv .btn { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.25); color: #fff; }
+.tv .btn:hover { background: rgba(255,255,255,.22); }
+.tv .btn[aria-pressed="true"] { background: #f2a93b; border-color: #f2a93b; color: #171107; }
+
+@media (max-width: 640px) {
+  .brand h1 { font-size: 22px; }
+  .search kbd { display: none; }
+  .grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand"><h1>Nerd<span>vana</span></h1><small id="count">loading…</small></div>
+      <label class="search" for="q">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Kubernetes, RAG, Terraform…" autocomplete="off">
+        <kbd>/</kbd>
+      </label>
+      <div class="actions">
+        <button class="btn primary" id="tvBtn" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m8 2 4 3 4-3"/></svg>TV mode</button>
+        <button class="btn icon-btn" id="themeBtn" type="button" aria-label="Toggle theme" title="Theme">◐</button>
+      </div>
+    </div>
+    <div class="filters">
+      <div class="group" id="tiers"><b>Tier</b></div>
+      <div class="group" id="topics"><b>Topic</b></div>
+      <div class="group" id="durs"><b>Length</b></div>
+      <div class="group"><b>Sort</b>
+        <select class="chip" id="sort" aria-label="Sort order">
+          <option value="mix">Mix (all channels)</option>
+          <option value="new">Newest</option>
+          <option value="views">Most viewed</option>
+          <option value="long">Longest</option>
+          <option value="random">Shuffle</option>
+        </select>
+        <button class="chip" id="hideSeen" type="button" aria-pressed="false">Hide watched</button>
+      </div>
+    </div>
+    <div class="channels" id="channels"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>No videos match these filters.</div>
+  <div class="sentinel" id="sentinel"></div>
+</main>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="player" role="dialog" aria-modal="true" aria-labelledby="pTitle">
+    <div class="frame" id="pFrame"></div>
+    <div class="pinfo">
+      <div class="txt"><h2 id="pTitle"></h2><div class="meta" id="pMeta"></div></div>
+      <button class="btn" id="pSeen" type="button">Mark watched</button>
+      <a class="btn" id="pYt" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      <button class="btn icon-btn" id="pClose" type="button" aria-label="Close">✕</button>
+    </div>
+  </div>
+</div>
+
+<div class="tv" id="tv" hidden>
+  <div class="frame"><div id="tvPlayer"></div></div>
+  <div class="hot" id="tvHot"></div>
+  <div class="hud">
+    <div class="txt"><div class="label" id="tvLabel">TV mode</div><h2 id="tvTitle"></h2><p id="tvMeta"></p><div class="next" id="tvNext"></div></div>
+    <div class="ctrls">
+      <button class="btn" id="tvCC" type="button" aria-pressed="false" title="Subtitles (C)">CC Subtitles</button>
+      <button class="btn" id="tvPrev" type="button">← Previous</button>
+      <button class="btn" id="tvSkip" type="button">Next →</button>
+      <button class="btn" id="tvExit" type="button">Exit (Esc)</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+const theme = store.get("theme", null);
+if (theme) document.documentElement.dataset.theme = theme;
+$("#themeBtn").onclick = () => {
+  const dark = document.documentElement.dataset.theme
+    ? document.documentElement.dataset.theme === "dark"
+    : matchMedia("(prefers-color-scheme: dark)").matches;
+  const next = dark ? "light" : "dark";
+  document.documentElement.dataset.theme = next; store.set("theme", next);
+};
+
+let CH = [], V = [], list = [], shown = 0;
+const seen = new Set(store.get("seen", []));
+const saveSeen = () => store.set("seen", [...seen]);
+const state = { q: "", tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false };
+const DURS = [["<10 min", 0, 600], ["10–30 min", 600, 1800], ["30–60 min", 1800, 3600], ["1 h+", 3600, 1e9]];
+
+const fmtDur = s => { const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), ss = s % 60;
+  return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(ss).padStart(2, "0"); };
+const fmtNum = n => n >= 1e9 ? (n / 1e9).toFixed(1) + "B" : n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 1) + "M" : n >= 1e3 ? Math.round(n / 1e3) + "K" : String(n);
+const fmtAgo = ts => { if (!ts) return ""; const d = (Date.now() / 1000 - ts) / 86400;
+  const ago = (n, u) => `${n} ${u}${n === 1 ? "" : "s"} ago`;
+  if (d < 1) return "today"; if (d < 30) return ago(Math.round(d), "day");
+  if (d < 365) return ago(Math.max(1, Math.round(d / 30)), "month"); return ago(Math.round(d / 365), "year"); };
+const thumb = id => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+
+function chip(label, pressed, onclick, extra = "") {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed", pressed);
+  b.innerHTML = extra + esc(label); b.onclick = onclick; return b;
+}
+function toggle(key, val) { state[key] = state[key] === val ? null : val; renderFilters(); apply(); }
+
+function renderFilters() {
+  const base = V.filter(v => (!state.q || v.s.includes(state.q)) && (!state.hideSeen || !seen.has(v.id)));
+  const count = (fn) => base.filter(fn).length;
+  for (const id of ["tiers", "topics", "durs"]) [...$("#" + id).querySelectorAll(".chip")].forEach(n => n.remove());
+  for (const t of ["S", "A", "B"]) $("#tiers").append(chip("", state.tier === t, () => toggle("tier", t), `<span class="tier ${t}">${t}</span>`));
+  for (const t of [...new Set(CH.map(c => c.topic))]) $("#topics").append(chip(t, state.topic === t, () => toggle("topic", t)));
+  DURS.forEach(([l], i) => $("#durs").append(chip(l, state.dur === i, () => toggle("dur", i))));
+  const box = $("#channels"); box.innerHTML = "";
+  CH.map((c, i) => [c, i]).filter(([c]) => (!state.tier || c.t === state.tier) && (!state.topic || c.topic === state.topic))
+    .forEach(([c, i]) => {
+      const b = chip(c.n, state.ch === i, () => toggle("ch", i), `<span class="tier ${c.t}">${c.t}</span>`);
+      b.insertAdjacentHTML("beforeend", ` <span class="n">${count(v => v.c === i).toLocaleString("en-US")}</span>`);
+      box.append(b);
+    });
+}
+
+function apply() {
+  list = V.filter(v => {
+    const c = CH[v.c];
+    if (state.tier && c.t !== state.tier) return false;
+    if (state.topic && c.topic !== state.topic) return false;
+    if (state.ch != null && v.c !== state.ch) return false;
+    if (state.dur != null) { const [, lo, hi] = DURS[state.dur]; if (v.d < lo || v.d >= hi) return false; }
+    if (state.hideSeen && seen.has(v.id)) return false;
+    return !state.q || v.s.includes(state.q);
+  });
+  const by = { new: (a, b) => b.ts - a.ts, views: (a, b) => b.v - a.v, long: (a, b) => b.d - a.d };
+  if (state.sort === "random") shuffle(list); else if (state.sort === "mix") list = mix(list); else list.sort(by[state.sort]);
+  $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} videos · ${CH.length} channels`;
+  $("#grid").innerHTML = ""; shown = 0; more();
+  $("#empty").hidden = list.length > 0;
+}
+/* Channel-balanced shuffle: deal one video per channel per round, so a channel with 400 videos
+   shows up as often as one with 40 until the smaller one runs out. */
+function mix(arr) {
+  const groups = new Map();
+  for (const v of arr) { if (!groups.has(v.c)) groups.set(v.c, []); groups.get(v.c).push(v); }
+  const decks = shuffle([...groups.values()].map(g => shuffle(g))), out = [];
+  for (let round = 0; out.length < arr.length; round++)
+    for (const d of shuffle(decks.filter(d => d.length > round))) out.push(d[round]);
+  return out;
+}
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+function card(v) {
+  const c = CH[v.c], b = document.createElement("button");
+  b.type = "button"; b.className = "card" + (seen.has(v.id) ? " seen" : ""); b.dataset.id = v.id;
+  b.innerHTML = `<div class="thumb"><img loading="lazy" alt="" src="${thumb(v.id)}">
+    ${v.d ? `<span class="dur">${fmtDur(v.d)}</span>` : ""}${seen.has(v.id) ? `<span class="seen-badge">WATCHED</span>` : ""}</div>
+    <h3>${esc(v.t)}</h3>
+    <div class="meta"><span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span>
+    <span class="dot"></span><span class="num">${fmtNum(v.v)}</span><span class="dot"></span><span class="num">${fmtAgo(v.ts)}</span></div>`;
+  b.onclick = () => openPlayer(v);
+  return b;
+}
+function more() {
+  const frag = document.createDocumentFragment();
+  for (const v of list.slice(shown, shown + 60)) frag.append(card(v));
+  shown += 60; $("#grid").append(frag);
+}
+new IntersectionObserver(e => { if (e[0].isIntersecting && shown < list.length) more(); }, { rootMargin: "1200px" }).observe($("#sentinel"));
+
+/* Player */
+let current = null;
+function metaHTML(v) { const c = CH[v.c];
+  return `<span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span><span class="dot"></span><span class="num">${fmtNum(v.v)} views</span><span class="dot"></span><span class="num">${fmtAgo(v.ts)}</span>`; }
+function openPlayer(v) {
+  current = v;
+  $("#pFrame").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="${esc(v.t)}"></iframe>`;
+  $("#pTitle").textContent = v.t; $("#pMeta").innerHTML = metaHTML(v);
+  $("#pYt").href = `https://www.youtube.com/watch?v=${v.id}`;
+  $("#pSeen").textContent = seen.has(v.id) ? "Mark unwatched" : "Mark watched";
+  $("#overlay").hidden = false;
+}
+function closePlayer() { $("#overlay").hidden = true; $("#pFrame").innerHTML = ""; current = null; }
+function markSeen(id, on) {
+  on ? seen.add(id) : seen.delete(id); saveSeen();
+  const el = document.querySelector(`.card[data-id="${id}"]`); if (el) el.replaceWith(card(V.find(v => v.id === id)));
+}
+$("#pClose").onclick = closePlayer;
+$("#overlay").onclick = e => { if (e.target.id === "overlay") closePlayer(); };
+$("#pSeen").onclick = () => { if (!current) return; const on = !seen.has(current.id); markSeen(current.id, on); $("#pSeen").textContent = on ? "Mark unwatched" : "Mark watched"; };
+
+/* TV mode: plays the current filtered list as a channel-balanced mix, unwatched first */
+let yt = null, ytReady = null, queue = [], qi = 0, idleT;
+function loadYT() {
+  if (ytReady) return ytReady;
+  ytReady = new Promise(res => { window.onYouTubeIframeAPIReady = res; });
+  const s = document.createElement("script"); s.src = "https://www.youtube.com/iframe_api"; document.head.append(s);
+  return ytReady;
+}
+async function startTV() {
+  const pool = list.length ? list : V;
+  const fresh = pool.filter(v => !seen.has(v.id)), old = pool.filter(v => seen.has(v.id));
+  queue = [...mix(fresh), ...mix(old)]; qi = 0;
+  if (!queue.length) return;
+  $("#tv").hidden = false; document.documentElement.requestFullscreen?.().catch(() => {});
+  $("#tvLabel").textContent = `TV mode · ${queue.length.toLocaleString("en-US")} videos queued`;
+  await loadYT();
+  if (!yt) yt = new YT.Player("tvPlayer", { videoId: queue[0].id,
+    playerVars: { autoplay: 1, rel: 0, modestbranding: 1, cc_load_policy: cc ? 1 : 0, cc_lang_pref: "en" },
+    events: { onReady: e => e.target.playVideo(),
+              onStateChange: e => {
+                if (e.data === YT.PlayerState.PLAYING) applyCC();
+                if (e.data === YT.PlayerState.ENDED) { markSeen(queue[qi].id, true); step(1); } },
+              onError: () => step(1) } });
+  else yt.loadVideoById(queue[0].id);
+  hud(); poke();
+}
+function step(d) { qi = Math.max(0, Math.min(queue.length - 1, qi + d)); yt?.loadVideoById(queue[qi].id); hud(); poke(); }
+function hud() {
+  const v = queue[qi], c = CH[v.c], n = queue[qi + 1];
+  $("#tvTitle").textContent = v.t;
+  $("#tvMeta").textContent = `${c.n} · ${fmtDur(v.d)} · ${fmtNum(v.v)} views`;
+  $("#tvNext").textContent = n ? `Up next: ${n.t}` : "End of queue";
+}
+function stopTV() { $("#tv").hidden = true; yt?.stopVideo(); if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); }
+function poke() { $("#tv").classList.remove("idle"); clearTimeout(idleT); idleT = setTimeout(() => $("#tv").classList.add("idle"), 3000); }
+/* Captions: off by default, choice remembered. Re-applied on every video since YouTube may turn them back on. */
+let cc = store.get("cc", false);
+function applyCC() {
+  if (!yt?.loadModule) return;
+  try { if (cc) { yt.loadModule("captions"); yt.setOption("captions", "track", { languageCode: "en" }); }
+        else { yt.setOption("captions", "track", {}); yt.unloadModule("captions"); } } catch {}
+}
+function renderCC() { $("#tvCC").setAttribute("aria-pressed", cc); $("#tvCC").textContent = cc ? "CC Subtitles: On" : "CC Subtitles: Off"; }
+function toggleCC() { cc = !cc; store.set("cc", cc); renderCC(); applyCC(); }
+renderCC();
+$("#tvCC").onclick = toggleCC;
+$("#tvBtn").onclick = startTV; $("#tvExit").onclick = stopTV;
+$("#tvSkip").onclick = () => step(1); $("#tvPrev").onclick = () => step(-1);
+$("#tv").addEventListener("mousemove", poke);
+$("#tvHot").addEventListener("mousemove", poke);
+
+document.addEventListener("keydown", e => {
+  if (!$("#tv").hidden) {
+    if (e.key === "Escape") stopTV(); else if (e.key === "ArrowRight" || e.key === "n") step(1); else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "c") toggleCC();
+    poke(); return;
+  }
+  if (!$("#overlay").hidden && e.key === "Escape") return closePlayer();
+  if (e.key === "/" && document.activeElement !== $("#q")) { e.preventDefault(); $("#q").focus(); }
+});
+
+let qt; $("#q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { state.q = norm(e.target.value.trim()); renderFilters(); apply(); }, 120); });
+$("#sort").onchange = e => { state.sort = e.target.value; apply(); };
+$("#hideSeen").onclick = e => { state.hideSeen = !state.hideSeen; e.currentTarget.setAttribute("aria-pressed", state.hideSeen); renderFilters(); apply(); };
+
+fetch("videos.json").then(r => r.json()).then(d => {
+  CH = d.channels;
+  V = d.videos.map(([id, t, c, dur, v, ts]) => ({ id, t, c, d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
+  renderFilters(); apply();
+}).catch(() => { $("#count").textContent = "Couldn't load videos.json"; });
+</script>
+</body>
+</html>
