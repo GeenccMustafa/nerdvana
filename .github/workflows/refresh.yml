@@ -70,4 +70,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add $FILES
           git commit -m "Refresh videos and articles ($(date -u +%Y-%m-%d))"
+          git pull --rebase   # someone (or the morning transcripts run) may have pushed meanwhile
           git push
