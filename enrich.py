@@ -9,6 +9,11 @@ so re-runs only embed new videos.
 similar.json  {"n": video count, "first": first video id, "sim": [[video index, ...] x 8 per video]}
               aligned with the order of videos.json; the page checks n/first before using it
 paths.json    [{id, title, blurb, videos: [video id, ...]}] resolved from paths_def.json
+
+If articles.json exists, articles (title + description) are embedded the same way:
+similar_articles.json  {"n", "first", "sim": [[article index, ...] x 8]}  aligned with articles.json
+links.json             videos <-> articles on the same topic:
+                       {"vn", "vfirst", "an", "afirst", "v2a": [[article index, ...]], "a2v": [[video index, ...]]}
 """
 import json, math
 from pathlib import Path
@@ -21,24 +26,43 @@ CACHE = ROOT / ".cache" / "emb.npz"
 MODEL = "BAAI/bge-small-en-v1.5"
 SIMILAR = 8
 MAX_SAME_CHANNEL = 3
+LINK_THRESHOLD = 0.8
+
+
+def embed(texts, model, cache_file):
+    """texts: {id: text}. Returns normalized vectors in the order of texts; caches by id."""
+    cached = {}
+    if cache_file.exists():
+        z = np.load(cache_file)
+        cached = dict(zip(z["ids"].tolist(), z["vecs"]))
+    todo = [i for i in texts if i not in cached]
+    if todo:
+        print(f"embedding {len(todo)} new texts…", flush=True)
+        for i, vec in zip(todo, model.embed([texts[i] for i in todo], batch_size=256)):
+            cached[i] = vec.astype(np.float32)
+    cache_file.parent.mkdir(exist_ok=True)
+    ids = list(texts)
+    E = np.stack([cached[i] for i in ids])
+    np.savez(cache_file, ids=np.array(ids), vecs=E)
+    return E / np.linalg.norm(E, axis=1, keepdims=True)
 
 
 def embed_titles(videos, channels, model):
-    cached = {}
-    if CACHE.exists():
-        z = np.load(CACHE)
-        cached = dict(zip(z["ids"].tolist(), z["vecs"]))
-    texts = {v[0]: f"{v[1]} ({channels[v[2]]['topic']})" for v in videos}
-    todo = [i for i in texts if i not in cached]
-    if todo:
-        print(f"embedding {len(todo)} new titles…", flush=True)
-        for i, vec in zip(todo, model.embed([texts[i] for i in todo], batch_size=256)):
-            cached[i] = vec.astype(np.float32)
-    CACHE.parent.mkdir(exist_ok=True)
-    ids = [v[0] for v in videos]
-    E = np.stack([cached[i] for i in ids])
-    np.savez(CACHE, ids=np.array(ids), vecs=E)
-    return E / np.linalg.norm(E, axis=1, keepdims=True)
+    return embed({v[0]: f"{v[1]} ({channels[v[2]]['topic']})" for v in videos}, model, CACHE)
+
+
+def cross_links(A, B, k, threshold, allowed=None):
+    """For each row of A, up to k rows of B that are about the same thing (cosine >= threshold)."""
+    out = []
+    for start in range(0, len(A), 2048):
+        S = A[start:start + 2048] @ B.T
+        if allowed is not None:
+            S[:, ~allowed] = -1
+        top = np.argpartition(-S, k, axis=1)[:, :k]
+        for r in range(S.shape[0]):
+            cand = top[r][np.argsort(-S[r, top[r]])]
+            out.append([int(j) for j in cand if S[r, j] >= threshold])
+    return out
 
 
 def build_similar(E, videos):
@@ -99,3 +123,18 @@ if __name__ == "__main__":
     paths = build_paths(E, videos, channels, model)
     (ROOT / "paths.json").write_text(json.dumps(paths, ensure_ascii=False, indent=1))
     print(f"paths.json: {len(paths)} paths")
+
+    if (ROOT / "articles.json").exists():
+        ad = json.loads((ROOT / "articles.json").read_text())
+        arts, srcs = ad["articles"], ad["sources"]
+        A = embed({a[0]: f"{a[1]}. {a[7]} ({srcs[a[2]]['topic']})" for a in arts}, model, ROOT / ".cache" / "emb_articles.npz")
+        sa = build_similar(A, arts)
+        (ROOT / "similar_articles.json").write_text(json.dumps(sa, separators=(",", ":")))
+        print(f"similar_articles.json: {len(sa['sim'])} articles")
+        # only link to videos worth a detour: Essential/Great channels with some views
+        good_v = np.array([channels[v[2]]["t"] in ("S", "A") and v[4] >= 20_000 and v[3] >= 120 for v in videos])
+        links = {"vn": len(videos), "vfirst": videos[0][0], "an": len(arts), "afirst": arts[0][0],
+                 "v2a": cross_links(E, A, 3, LINK_THRESHOLD), "a2v": cross_links(A, E, 4, LINK_THRESHOLD, good_v)}
+        (ROOT / "links.json").write_text(json.dumps(links, separators=(",", ":")))
+        print(f"links.json: {sum(map(bool, links['v2a']))} videos with articles, "
+              f"{sum(map(bool, links['a2v']))} articles with videos, {(ROOT / 'links.json').stat().st_size / 1e6:.1f} MB")

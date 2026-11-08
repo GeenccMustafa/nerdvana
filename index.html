@@ -218,9 +218,37 @@ main { padding-block: 20px 60px; min-width: 0; }
   #surprise .lbl { display: none; }
   #surprise { width: 38px; padding: 0; justify-content: center; }
   .brand h1 { font-size: 22px; }
+  .brand small { display: none; }
+  .tabs button { padding: 0 11px; }
   .search kbd { display: none; }
   .grid { grid-template-columns: 1fr; }
 }
+/* Videos | Articles tabs */
+.tabs { display: inline-flex; align-self: center; gap: 2px; padding: 3px; border-radius: 999px; background: var(--raise); }
+.tabs button { height: 30px; padding: 0 14px; border: 0; border-radius: 999px; background: none; font-weight: 600; font-size: 13px; color: var(--fg2); }
+.tabs button[aria-selected="true"] { background: var(--surface); color: var(--fg); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+body[data-mode="articles"] #tvBtn, body[data-mode="articles"] #navPaths { display: none; }
+
+/* Article cards: cover image (or a tile with the source name), title, short description */
+.card-hit { color: inherit; text-decoration: none; }
+.ph { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center; color: #fff;
+  background: radial-gradient(circle at 20% 15%, rgba(255,255,255,.22), transparent 55%), var(--tB); }
+.ph.S { background-color: var(--tS); } .ph.A { background-color: var(--tA); }
+.ph b { font: 800 clamp(18px, 2vw, 24px)/1.1 var(--display); letter-spacing: -.01em; text-wrap: balance; text-shadow: 0 1px 8px rgba(0,0,0,.2); }
+.thumb img { position: relative; }
+.card .desc { margin: 0; color: var(--fg2); font-size: 13px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.art-acts { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+.mini { height: 26px; padding: 0 10px; border-radius: 999px; border: 1px solid var(--line); background: none; font-size: 12px; color: var(--fg2); text-decoration: none; display: inline-flex; align-items: center; }
+.mini:hover { color: var(--fg); border-color: var(--fg2); }
+.av.fav { background: #fff; }
+.av.fav img { width: 72%; height: 72%; object-fit: contain; }
+.reads { margin-top: 14px; }
+.read-row { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 10px; color: inherit; text-decoration: none; border: 1px solid var(--line); margin-bottom: 8px; }
+.read-row:hover { border-color: var(--fg2); }
+.read-row b { font-weight: 600; }
+.read-row span { color: var(--fg2); font-size: 12.5px; }
+.context .lead { max-width: 760px; }
+
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -230,7 +258,9 @@ main { padding-block: 20px 60px; min-width: 0; }
     <div class="top">
       <button class="btn icon-btn menu-btn" id="menuBtn" type="button" aria-label="Channels menu" aria-controls="side" aria-expanded="false">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-      <div class="brand"><h1>Nerd<span>vana</span></h1><small id="count">loading…</small></div>
+      <div class="brand"><h1>Nerd<span>vana</span></h1>
+        <div class="tabs" role="tablist" aria-label="Content type"><button type="button" role="tab" data-mode="videos" aria-selected="true">Videos</button><button type="button" role="tab" data-mode="articles" aria-selected="false">Articles</button></div>
+        <small id="count">loading…</small></div>
       <label class="search" for="q">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <input id="q" type="search" placeholder="Kubernetes, RAG, Terraform…" autocomplete="off">
@@ -269,13 +299,13 @@ main { padding-block: 20px 60px; min-width: 0; }
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>Top picks</button>
     <button class="nav-item" type="button" data-view="new">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>New this week<span class="n" id="newN"></span></button>
-    <button class="nav-item" type="button" data-view="paths">
+    <button class="nav-item" type="button" data-view="paths" id="navPaths">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h12"/><path d="M9 7h6M9 11h4"/></svg>Learning paths</button>
     <button class="nav-item" type="button" data-view="time">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>I have X minutes</button>
     <hr>
     <button class="nav-item" type="button" data-view="later">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Watch later<span class="n" id="laterN"></span></button>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span id="laterLbl">Watch later</span><span class="n" id="laterN"></span></button>
     <button class="nav-item" type="button" data-view="history">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>History<span class="n" id="histN"></span></button>
     <hr>
@@ -318,6 +348,7 @@ main { padding-block: 20px 60px; min-width: 0; }
       </div>
       <div class="pstats" id="pStats"></div>
       <div class="pathnav" id="pathNav" hidden></div>
+      <div class="reads" id="reads" hidden></div>
     </section>
     <aside>
       <div class="upnext-head"><h3>Up next</h3>
@@ -364,15 +395,27 @@ $("#themeBtn").onclick = () => {
 
 let CH = [], V = [], byId = new Map(), list = [], shown = 0;
 let SIM = null, PATHS = [], SEARCH = null, searchLoading = null;
-const seen = new Set(store.get("seen", []));
-const saveSeen = () => store.set("seen", [...seen]);
-let later = store.get("later", []);          // saved video ids, newest first
-const saveLater = () => store.set("later", later);
+/* Two data sets share one UI. The globals (CH, V, byId, SIM, seen, later) point at the active one. */
+let mode = "videos", LINKS = null, linksLoading = null;
+const DS = {
+  videos:   { CH: [], V: [], byId: new Map(), SIM: null, seen: new Set(store.get("seen", [])), later: store.get("later", []), seenKey: "seen", laterKey: "later", ready: null },
+  articles: { CH: [], V: [], byId: new Map(), SIM: null, seen: new Set(store.get("read", [])), later: store.get("readLater", []), seenKey: "read", laterKey: "readLater", ready: null },
+};
+let seen = DS.videos.seen, later = DS.videos.later;   // watched/read ids; saved ids, newest first
+const saveSeen = () => store.set(DS[mode].seenKey, [...seen]);
+const saveLater = () => { DS[mode].later = later; store.set(DS[mode].laterKey, later); };
+const LBL = {
+  videos:   { one: "video", many: "videos", src: "channels", seen: "watched", later: "Watch later", hide: "Hide watched", q: "Kubernetes, RAG, Terraform…" },
+  articles: { one: "article", many: "articles", src: "sources", seen: "read", later: "Read later", hide: "Hide read", q: "Distributed systems, Rust, LLMs…" },
+};
+const L = () => LBL[mode];
 let progress = store.get("progress", {});    // id -> { t: seconds watched, at: last watched (ms) }
 const saveProgress = () => store.set("progress", progress);
-const state = { q: "", view: "home", path: null, budget: 15, tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false };
+const state = { q: "", view: "home", path: null, like: null, budget: 15, tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false };
 const TIERS = [["S", "Essential"], ["A", "Great"], ["B", "Worth a look"]];
 const DURS = [["<10 min", 0, 600], ["10–30 min", 600, 1800], ["30–60 min", 1800, 3600], ["1 h+", 3600, 1e9]];
+const ADURS = [["<5 min", 0, 300], ["5–15 min", 300, 900], ["15–30 min", 900, 1800], ["30 min+", 1800, 1e9]];
+const durs = () => mode === "articles" ? ADURS : DURS;
 const BUDGETS = [5, 10, 15, 20, 30, 45, 60];
 const NOW = Date.now() / 1000, WEEK = 7 * 86400;
 const isNew = v => v.ts && NOW - v.ts <= WEEK;
@@ -403,17 +446,19 @@ function toggle(key, val) { state[key] = state[key] === val ? null : val; render
 function renderFilters() {
   for (const id of ["topics", "durs"]) [...$("#" + id).querySelectorAll(".chip")].forEach(n => n.remove());
   for (const t of [...new Set(CH.map(c => c.topic))].sort()) $("#topics").append(chip(t, state.topic === t, () => toggle("topic", t)));
-  DURS.forEach(([l], i) => $("#durs").append(chip(l, state.dur === i, () => toggle("dur", i))));
+  durs().forEach(([l], i) => $("#durs").append(chip(l, state.dur === i, () => toggle("dur", i))));
   renderSide();
 }
 
 const initials = n => n.replace(/[^\p{L}\p{N} ]/gu, "").split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase() || "?";
 function avatar(c) {
-  return `<span class="av ${c.t}" data-i="${esc(initials(c.n))}">${c.a ? `<img loading="lazy" referrerpolicy="no-referrer" alt="" src="${esc(c.a)}">` : esc(initials(c.n))}</span>`;
+  return `<span class="av ${c.t}${c.host ? " fav" : ""}" data-i="${esc(initials(c.n))}">${c.a ? `<img loading="lazy" referrerpolicy="no-referrer" alt="" src="${esc(c.a)}">` : esc(initials(c.n))}</span>`;
 }
 // Broken avatar URL -> fall back to the channel's initials
 document.addEventListener("error", e => {
-  const img = e.target; if (img.tagName === "IMG" && img.parentElement?.classList.contains("av")) img.parentElement.textContent = img.parentElement.dataset.i;
+  const img = e.target; if (img.tagName !== "IMG") return;
+  if (img.parentElement?.classList.contains("av")) { img.parentElement.classList.remove("fav"); img.parentElement.textContent = img.parentElement.dataset.i; }
+  else if (img.closest(".card.art")) img.remove();   // broken cover image -> the source tile underneath shows
 }, true);
 
 function updateCounts() {
@@ -437,9 +482,9 @@ function renderSide() {
     box.append(head);
     for (const [c, i] of chans) {
       const b = document.createElement("button");
-      b.type = "button"; b.className = "ch-item"; b.title = `${c.n} · ${fmtNum(c.subs)} subscribers`;
+      b.type = "button"; b.className = "ch-item"; b.title = c.subs != null ? `${c.n} · ${fmtNum(c.subs)} subscribers` : `${c.n} · ${c.host}`;
       b.setAttribute("aria-current", state.ch === i);
-      b.innerHTML = `${avatar(c)}<span class="nm">${esc(c.n)}</span><span class="n">${fmtNum(c.subs)}</span>`;
+      b.innerHTML = `${avatar(c)}<span class="nm">${esc(c.n)}</span><span class="n">${c.subs != null ? fmtNum(c.subs) : ""}</span>`;
       b.onclick = () => pick({ ch: state.ch === i ? null : i, tier: null });
       box.append(b);
     }
@@ -447,18 +492,23 @@ function renderSide() {
 }
 // Sidebar selection: set view/tier/channel, refresh, close the drawer on phones, jump to top
 function pick(p) {
-  Object.assign(state, { view: "home", path: null }, p);
+  Object.assign(state, { view: "home", path: null, like: null }, p);
   renderFilters(); apply(); setDrawer(false); scrollTo({ top: 0 }); syncHash();
 }
 document.querySelectorAll(".nav-item").forEach(b => b.onclick = () => pick({ view: b.dataset.view, tier: null, ch: null }));
 
 /* ---------- Shareable links: #v=ID&t=SEC, #c=handle, #tier=S, #path=id, #time=15, #picks, #new, #paths, #later, #history ---------- */
+// Articles views carry a leading "read": #read, #read&new, #read&c=dan-luu, #read&like=ID
 function hashFor() {
-  if (state.ch != null) return `#c=${encodeURIComponent(CH[state.ch].h)}`;
-  if (state.tier) return `#tier=${state.tier}`;
-  if (state.view === "path") return `#path=${encodeURIComponent(state.path)}`;
-  if (state.view === "time") return `#time=${state.budget}`;
-  return state.view === "home" ? "" : `#${state.view}`;
+  let h = "";
+  if (state.ch != null) h = `c=${encodeURIComponent(CH[state.ch].h)}`;
+  else if (state.tier) h = `tier=${state.tier}`;
+  else if (state.view === "path") h = `path=${encodeURIComponent(state.path)}`;
+  else if (state.view === "like") h = `like=${state.like}`;
+  else if (state.view === "time") h = `time=${state.budget}`;
+  else if (state.view !== "home") h = state.view;
+  const parts = [mode === "articles" ? "read" : "", h].filter(Boolean);
+  return parts.length ? "#" + parts.join("&") : "";
 }
 function syncHash() {
   if (!$("#watch").hidden) return;
@@ -467,36 +517,99 @@ function syncHash() {
 }
 function route() {
   const p = new URLSearchParams(location.hash.slice(1));
-  const v = byId.get(p.get("v") || "");
-  if (v) { openPlayer(v, { start: +p.get("t") || 0, fromRoute: true }); return; }
+  const v = DS.videos.byId.get(p.get("v") || "");
+  if (v) { setMode("videos"); openPlayer(v, { start: +p.get("t") || 0, fromRoute: true }); return; }
   if (!$("#watch").hidden) closePlayer(true);
-  const next = { view: "home", path: null, tier: null, ch: null };
+  if (p.has("read")) { ensureArticles().then(() => { setMode("articles", { quiet: true }); routeView(p); }).catch(() => toast("Couldn't load articles")); return; }
+  setMode("videos", { quiet: true }); routeView(p);
+}
+function routeView(p) {
+  const next = { view: "home", path: null, like: null, tier: null, ch: null };
   if (p.get("c")) { const i = CH.findIndex(c => c.h.toLowerCase() === p.get("c").toLowerCase()); if (i >= 0) next.ch = i; }
   else if (p.get("tier") && TIERS.some(t => t[0] === p.get("tier").toUpperCase())) next.tier = p.get("tier").toUpperCase();
   else if (p.get("path")) Object.assign(next, { view: "path", path: p.get("path") });
+  else if (p.get("like") && byId.has(p.get("like"))) Object.assign(next, { view: "like", like: p.get("like") });
   else if (p.has("time")) { next.view = "time"; state.budget = BUDGETS.includes(+p.get("time")) ? +p.get("time") : 15; }
   else for (const k of ["picks", "new", "paths", "later", "history"]) if (p.has(k)) next.view = k;
   Object.assign(state, next); renderFilters(); apply();
 }
+
+/* ---------- Videos | Articles ---------- */
+function setMode(m, { quiet = false, keepHash = false } = {}) {
+  if (m === mode) return;
+  DS[mode].later = later;
+  mode = m; ({ CH, V, byId, SIM } = DS[m]); seen = DS[m].seen; later = DS[m].later;
+  Object.assign(state, { view: "home", path: null, like: null, tier: null, ch: null, topic: null, dur: null });
+  document.body.dataset.mode = m;
+  document.querySelectorAll(".tabs [data-mode]").forEach(b => b.setAttribute("aria-selected", b.dataset.mode === m));
+  $("#laterLbl").textContent = L().later; $("#hideSeen").textContent = L().hide; $("#q").placeholder = L().q;
+  $("#sort option[value=mix]").textContent = m === "articles" ? "Mix (all sources)" : "Mix (all channels)";
+  $("#sort option[value=views]").textContent = m === "articles" ? "Most upvoted" : "Most viewed";
+  $("#sort option[value=long]").textContent = m === "articles" ? "Longest read" : "Longest";
+  if (!quiet) { renderFilters(); apply(); if (!keepHash) syncHash(); scrollTo({ top: 0 }); }
+}
+const slugify = s => norm(s).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+function ensureArticles() {
+  return DS.articles.ready ||= Promise.all([
+    fetch("articles.json").then(r => r.json()),
+    fetch("similar_articles.json").then(r => r.ok ? r.json() : null).catch(() => null),
+  ]).then(([d, s]) => {
+    const A = DS.articles;
+    A.CH = d.sources.map(c => { const host = new URL(c.u).hostname;
+      return { ...c, h: slugify(c.n), host, a: `https://www.google.com/s2/favicons?domain=${host}&sz=64` }; });
+    A.V = d.articles.map(([id, t, c, w, pts, ts, url, desc, img, hn, cm], i) => ({ i, id, t, c, ch: A.CH[c], art: 1,
+      d: w ? Math.max(1, Math.round(w / 230)) * 60 : 0, v: pts, ts, url, desc, img, hn, cm, s: norm(t + " " + desc + " " + A.CH[c].n) }));
+    A.byId = new Map(A.V.map(a => [a.id, a]));
+    if (s && s.n === A.V.length && s.first === A.V[0]?.id) A.SIM = s.sim;
+  }).catch(e => { DS.articles.ready = null; throw e; });
+}
+// links.json connects videos and articles on the same topic; only valid for the exact data it was built from
+function ensureLinks() {
+  return linksLoading ||= fetch("links.json").then(r => r.ok ? r.json() : null).then(d => { LINKS = d; }).catch(() => {});
+}
+const linksOk = () => LINKS && LINKS.vn === DS.videos.V.length && LINKS.vfirst === DS.videos.V[0]?.id
+  && LINKS.an === DS.articles.V.length && LINKS.afirst === DS.articles.V[0]?.id;
+function markRead(a) {
+  const S = DS.articles.seen; if (S.has(a.id)) return;
+  S.add(a.id); store.set("read", [...S]);
+  document.querySelectorAll(`.card.art[data-id="${a.id}"]`).forEach(el => el.classList.add("seen"));
+  if (mode === "articles") updateCounts();
+}
+const readTime = a => a.d ? `${Math.round(a.d / 60)} min read` : "";
+document.querySelectorAll(".tabs [data-mode]").forEach(b => b.onclick = () => {
+  const m = b.dataset.mode;
+  if (m === mode) return pick({ view: "home", tier: null, ch: null });
+  if (m === "videos") return setMode("videos");
+  $("#count").textContent = "loading articles…";
+  ensureArticles().then(() => setMode("articles")).catch(() => { $("#count").textContent = "Couldn't load articles.json"; });
+});
 window.addEventListener("popstate", route);
 
 function renderContext() {
   const el = $("#context"), n = list.length.toLocaleString("en-US"), total = list.reduce((s, v) => s + v.d, 0);
+  const A = mode === "articles", l = L();
   let html = "";
-  if (state.ch != null) { const c = CH[state.ch];
+  if (A && state.ch != null) { const c = CH[state.ch];
+    html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${c.topic} · ${n} posts: the most upvoted on Hacker News plus the newest</p></div>
+      <a class="btn" href="${esc(c.u)}" target="_blank" rel="noopener">${esc(c.host)} ↗</a>`;
+  } else if (A && state.view === "like") { const a = byId.get(state.like);
+    html = a ? `<div class="txt lead"><p>More like</p><h2>${esc(a.t)}</h2><p>${esc(a.ch.n)}${a.d ? " · " + readTime(a) : ""}${a.v ? ` · ▲ ${fmtNum(a.v)} on Hacker News` : ""}</p>${a.desc ? `<p style="margin-top:6px">${esc(a.desc)}</p>` : ""}</div>
+      <a class="btn primary" href="${esc(a.url)}" target="_blank" rel="noopener" data-read="${a.id}">Read ↗</a>` : "";
+  } else if (state.ch != null) { const c = CH[state.ch];
     html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${fmtNum(c.subs)} subscribers · ${c.topic} · showing ${n} of ${(c.total || 0).toLocaleString("en-US")} uploads</p></div>
       <a class="btn" href="https://www.youtube.com/@${encodeURIComponent(c.h)}" target="_blank" rel="noopener">Channel ↗</a>`;
   } else if (state.tier) { const [t, label] = TIERS.find(x => x[0] === state.tier);
-    html = `<span class="tier ${t}" style="width:40px;height:40px;font-size:18px;border-radius:10px">${t}</span><div class="txt"><h2>${label}</h2><p>${CH.filter(c => c.t === t).length} channels · ${n} videos</p></div>`;
+    html = `<span class="tier ${t}" style="width:40px;height:40px;font-size:18px;border-radius:10px">${t}</span><div class="txt"><h2>${label}</h2><p>${CH.filter(c => c.t === t).length} ${l.src} · ${n} ${l.many}</p></div>`;
   } else if (state.view === "picks") {
-    html = `<div class="txt"><h2>Top picks</h2><p>The 15 most-viewed videos of each Essential channel, mixed · ${n} videos</p></div>`;
+    html = A ? `<div class="txt"><h2>Top picks</h2><p>The 15 most-upvoted posts of each Essential source, mixed · ${n} articles</p></div>`
+      : `<div class="txt"><h2>Top picks</h2><p>The 15 most-viewed videos of each Essential channel, mixed · ${n} videos</p></div>`;
   } else if (state.view === "history") {
-    html = `<div class="txt"><h2>History</h2><p>${seen.size ? `${n} watched video${list.length === 1 ? "" : "s"}, newest first` : "Videos you finish or mark as watched show up here."}</p></div>`;
+    html = `<div class="txt"><h2>History</h2><p>${seen.size ? `${n} ${l.seen} ${list.length === 1 ? l.one : l.many}, newest first` : A ? "Articles you open show up here." : "Videos you finish or mark as watched show up here."}</p></div>`;
   } else if (state.view === "later") {
-    html = `<div class="txt"><h2>Watch later</h2><p>${list.length ? `${n} saved video${list.length === 1 ? "" : "s"} · ${fmtMin(total)}` : "Nothing saved yet."}</p></div>
-      ${list.length ? `<button class="btn primary" data-act="playall">Play all in TV mode</button>` : ""}`;
+    html = `<div class="txt"><h2>${l.later}</h2><p>${list.length ? `${n} saved ${list.length === 1 ? l.one : l.many} · ${fmtMin(total)}${A ? " of reading" : ""}` : "Nothing saved yet."}</p></div>
+      ${list.length && !A ? `<button class="btn primary" data-act="playall">Play all in TV mode</button>` : ""}`;
   } else if (state.view === "new") {
-    html = `<div class="txt"><h2>New this week</h2><p>${n} videos uploaded in the last 7 days across all 100 channels, newest first</p></div>`;
+    html = `<div class="txt"><h2>New this week</h2><p>${n} ${l.many} ${A ? "published" : "uploaded"} in the last 7 days across all ${CH.length} ${l.src}, newest first</p></div>`;
   } else if (state.view === "paths") {
     html = `<div class="txt"><h2>Learning paths</h2><p>Short, ordered playlists that take one topic from zero to solid, picked from the Essential and Great channels.</p></div>`;
   } else if (state.view === "path") { const p = PATHS.find(x => x.id === state.path);
@@ -506,14 +619,15 @@ function renderContext() {
       <button class="btn primary" data-act="start">${done ? (done === list.length ? "Watch again" : "Continue") : "Start"}</button>`
       : `<div class="txt"><h2>Path not found</h2><p>This learning path doesn't exist anymore.</p></div><button class="btn" data-act="allpaths">All paths</button>`;
   } else if (state.view === "time") {
-    html = `<div class="txt"><h2>I have ${state.budget} minutes</h2><p>${list.length ? `${list.length} unwatched video${list.length > 1 ? "s" : ""} from the Essential and Great channels · ${fmtMin(total)} in total` : "Nothing fits. Try more time or clear the filters."}</p>
+    html = `<div class="txt"><h2>I have ${state.budget} minutes</h2><p>${list.length ? `${list.length} un${l.seen} ${list.length > 1 ? l.many : l.one} from the Essential and Great ${l.src} · ${fmtMin(total)} ${A ? "of reading" : "in total"}` : "Nothing fits. Try more time or clear the filters."}</p>
       <div class="group" style="margin-top:10px">${BUDGETS.map(m => `<button class="chip" data-act="budget" data-m="${m}" aria-pressed="${m === state.budget}">${m} min</button>`).join("")}</div></div>
       <button class="btn" data-act="reroll">Shuffle</button>
-      ${list.length ? `<button class="btn primary" data-act="playall">Play all</button>` : ""}`;
+      ${list.length && !A ? `<button class="btn primary" data-act="playall">Play all</button>` : ""}`;
   }
   el.innerHTML = html; el.hidden = !html;
 }
 $("#context").addEventListener("click", e => {
+  const r = e.target.closest("[data-read]"); if (r) return markRead(byId.get(r.dataset.read));
   const b = e.target.closest("[data-act]"); if (!b) return;
   const a = b.dataset.act;
   if (a === "budget") { state.budget = +b.dataset.m; apply(); syncHash(); }
@@ -535,14 +649,14 @@ function passes(v, { ignoreSeen = false, ignoreQ = false } = {}) {
   if (state.tier && c.t !== state.tier) return false;
   if (state.topic && c.topic !== state.topic) return false;
   if (state.ch != null && v.c !== state.ch) return false;
-  if (state.dur != null) { const [, lo, hi] = DURS[state.dur]; if (v.d < lo || v.d >= hi) return false; }
+  if (state.dur != null) { const [, lo, hi] = durs()[state.dur]; if (!v.d || v.d < lo || v.d >= hi) return false; }
   if (!ignoreSeen && state.hideSeen && seen.has(v.id)) return false;
   return ignoreQ || !state.q || v.s.includes(state.q);
 }
 // "I have X minutes": pack unwatched S/A videos (in a channel-balanced order) into the time budget
 function packBudget() {
   const cap = state.budget * 60;
-  const pool = mix(V.filter(v => passes(v) && !seen.has(v.id) && "SA".includes(CH[v.c].t) && v.d >= 60 && v.d <= cap && v.v >= 20000));
+  const pool = mix(V.filter(v => passes(v) && !seen.has(v.id) && "SA".includes(CH[v.c].t) && v.d >= 60 && v.d <= cap && v.v >= (mode === "articles" ? 20 : 20000)));
   const out = []; let left = cap;
   for (const v of pool) { if (v.d <= left) { out.push(v); left -= v.d; } if (left < 90 || out.length >= 12) break; }
   return out;
@@ -556,6 +670,7 @@ function apply() {
   else if (view === "later") list = later.map(id => byId.get(id)).filter(v => v && passes(v, { ignoreSeen: true }));
   else if (view === "path") list = (PATHS.find(p => p.id === state.path)?.videos || []).map(id => byId.get(id)).filter(Boolean);
   else if (view === "paths") list = [];
+  else if (view === "like") { const a = byId.get(state.like); list = a ? (SIM?.[a.i] || []).map(i => V[i]).filter(x => x && passes(x, { ignoreQ: true })) : []; }
   else if (view === "time") list = packBudget();
   else if (view === "new") { list = V.filter(v => isNew(v) && passes(v)); list.sort(by.new); }
   else if (view === "picks") {
@@ -566,11 +681,12 @@ function apply() {
   }
   else { list = V.filter(v => passes(v)); sortList(); }
   renderContext(); renderPaths(); renderShelf();
-  $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} videos · ${CH.length} channels`;
+  $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} ${L().many} · ${CH.length} ${L().src}`;
   $("#grid").innerHTML = ""; shown = 0; more();
-  const empty = { later: "Nothing saved yet. Use the bookmark button on any video to keep it for later.",
-                  history: "", new: "No new uploads in the last 7 days match these filters.", time: "", paths: "", path: "" }[view];
-  $("#empty").textContent = empty ?? "No videos match these filters.";
+  const empty = { later: `Nothing saved yet. Use the bookmark button on any ${L().one} to keep it for later.`,
+                  history: "", new: `Nothing new in the last 7 days matches these filters.`, time: "", paths: "", path: "",
+                  like: SIM ? "No similar articles match these filters." : "Similar articles aren't available yet." }[view];
+  $("#empty").textContent = empty ?? `No ${L().many} match these filters.`;
   $("#empty").hidden = list.length > 0 || !$("#empty").textContent;
 }
 /* Channel-balanced shuffle: deal one video per channel per round, so a channel with 400 videos
@@ -586,7 +702,9 @@ function mix(arr) {
 function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
 function card(v, o = {}) {
-  const c = CH[v.c], el = document.createElement("div");
+  if (v.art) return artCard(v);
+  // video cards can also show up on the Articles side ("Watch on this topic"), so use the video data set explicitly
+  const c = v.ch, el = document.createElement("div"), seen = DS.videos.seen, own = mode === "videos";
   el.className = "card" + (seen.has(v.id) ? " seen" : ""); el.dataset.id = v.id;
   const p = progress[v.id], pct = p && v.d ? Math.min(100, p.t / v.d * 100) : 0;
   const badge = o.step ? `<span class="badge step">${o.step}</span>` : seen.has(v.id) ? `<span class="badge">WATCHED</span>` : isNew(v) ? `<span class="badge new">NEW</span>` : "";
@@ -596,10 +714,26 @@ function card(v, o = {}) {
     <h3>${esc(v.t)}</h3>
     <div class="meta"><span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span>
     <span class="dot"></span><span class="num">${fmtNum(v.v)}</span><span class="dot"></span><span class="num">${fmtAgo(v.ts)}</span></div></button>
-    <button type="button" class="later-btn" aria-pressed="${later.includes(v.id)}" aria-label="Watch later" title="Watch later">${ICON_SAVE}</button>`;
+    ${own ? `<button type="button" class="later-btn" aria-pressed="${later.includes(v.id)}" aria-label="Watch later" title="Watch later">${ICON_SAVE}</button>` : ""}`;
   // transcript hits start 3 s before the mention, so the sentence isn't cut off
-  el.querySelector(".card-hit").onclick = () => openPlayer(v, { start: o.at != null ? Math.max(0, o.at - 3) : p?.t ?? 0 });
-  el.querySelector(".later-btn").onclick = () => toggleLater(v.id);
+  // keepHash: the player pushes its own entry, so Back returns to the article page this came from
+  el.querySelector(".card-hit").onclick = () => { setMode("videos", { keepHash: true }); openPlayer(v, { start: o.at != null ? Math.max(0, o.at - 3) : p?.t ?? 0 }); };
+  el.querySelector(".later-btn")?.addEventListener("click", () => toggleLater(v.id));
+  return el;
+}
+function artCard(a) {
+  const c = a.ch, el = document.createElement("div"), read = DS.articles.seen.has(a.id);
+  el.className = "card art" + (read ? " seen" : ""); el.dataset.id = a.id;
+  const badge = read ? `<span class="badge">READ</span>` : isNew(a) ? `<span class="badge new">NEW</span>` : "";
+  el.innerHTML = `<a class="card-hit" href="${esc(a.url)}" target="_blank" rel="noopener">
+      <div class="thumb"><span class="ph ${c.t}"><b>${esc(c.n)}</b></span>${a.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(a.img)}">` : ""}${badge}${a.d ? `<span class="dur">${readTime(a)}</span>` : ""}</div>
+      <h3>${esc(a.t)}</h3>${a.desc ? `<p class="desc">${esc(a.desc)}</p>` : ""}
+      <div class="meta"><span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span>${a.v ? `<span class="dot"></span><span class="num" title="Hacker News points">▲ ${fmtNum(a.v)}</span>` : ""}${a.ts ? `<span class="dot"></span><span class="num">${fmtAgo(a.ts)}</span>` : ""}</div></a>
+    <div class="art-acts">${SIM ? `<button type="button" class="mini" data-like>More like this</button>` : ""}${a.hn ? `<a class="mini" href="https://news.ycombinator.com/item?id=${a.hn}" target="_blank" rel="noopener" title="Discussion on Hacker News">💬 ${a.cm ? fmtNum(a.cm) : "HN"}</a>` : ""}</div>
+    <button type="button" class="later-btn" aria-pressed="${later.includes(a.id)}" aria-label="Read later" title="Read later">${ICON_SAVE}</button>`;
+  el.querySelector(".card-hit").addEventListener("click", () => markRead(a));
+  el.querySelector("[data-like]")?.addEventListener("click", () => pick({ view: "like", like: a.id, tier: null, ch: null }));
+  el.querySelector(".later-btn").onclick = () => toggleLater(a.id);
   return el;
 }
 function more() {
@@ -615,10 +749,10 @@ function toggleLater(id) {
   later = on ? [id, ...later] : later.filter(x => x !== id); saveLater();
   document.querySelectorAll(`.card[data-id="${id}"] .later-btn`).forEach(b => b.setAttribute("aria-pressed", on));
   if (current?.id === id) renderLaterBtn();
-  updateCounts(); toast(on ? "Saved to Watch later" : "Removed from Watch later");
+  updateCounts(); toast(on ? `Saved to ${L().later}` : `Removed from ${L().later}`);
   if (state.view === "later") apply();
 }
-function renderLaterBtn() { const on = later.includes(current.id); $("#pLater").setAttribute("aria-pressed", on); $("#pLater").textContent = on ? "Saved" : "Save"; }
+function renderLaterBtn() { if (mode !== "videos") return; const on = later.includes(current.id); $("#pLater").setAttribute("aria-pressed", on); $("#pLater").textContent = on ? "Saved" : "Save"; }
 
 /* ---------- Learning paths ---------- */
 function renderPaths() {
@@ -651,6 +785,14 @@ function renderShelf() {
     $("#shelfTitle").innerHTML = title;
     for (const [v, at] of items) $("#shelfRow").append(card(v, at != null ? { at } : {}));
   };
+  if (mode === "articles") {
+    const a = state.view === "like" && byId.get(state.like);
+    if (!a) return show("", []);
+    box.hidden = true;
+    ensureLinks().then(() => show(`Watch on this topic <small>videos from Nerdvana</small>`,
+      linksOk() ? (LINKS.a2v[a.i] || []).map(i => [DS.videos.V[i], null]).filter(([v]) => v) : []));
+    return;
+  }
   if (state.q.length >= 3 && !["paths", "path", "time"].includes(state.view)) {
     box.hidden = true;
     ensureSearch().then(() => show(`Mentioned in transcripts <small>spoken in the video, jumps to the moment</small>`, transcriptHits(state.q)));
@@ -722,6 +864,7 @@ function openPlayer(v, o = {}) {
     pn.innerHTML = `<div class="txt">Step <b>${idx + 1} of ${list.length}</b> in <b>${esc(p.title)}</b></div>${feed[0] ? `<button class="btn primary" type="button" id="pathNext">Next step →</button>` : `<span class="txt"><b>Last step 🎉</b></span>`}`;
     $("#pathNext")?.addEventListener("click", () => openPlayer(feed[0]));
   }
+  renderReads(v);
   $("#simLabel").hidden = !sim.length || inPath; $("#simList").innerHTML = "";
   if (!inPath) sim.forEach(u => $("#simList").append(upItem(u)));
   $("#upLabel").hidden = !sim.length || inPath; $("#upLabel").textContent = "From your feed";
@@ -742,6 +885,19 @@ function openPlayer(v, o = {}) {
       events: { onReady: e => e.target.playVideo(),
                 onStateChange: e => { if (e.data === YT.PlayerState.ENDED && current) { finish(current.id); if (autoplay && nextUp) openPlayer(nextUp); } } } });
   });
+}
+// "Read more about this": articles on the same topic (loads the article data the first time)
+function renderReads(v) {
+  const box = $("#reads"); box.hidden = true; box.innerHTML = "";
+  Promise.all([ensureArticles(), ensureLinks()]).then(() => {
+    if (current !== v || !linksOk()) return;
+    const arts = (LINKS.v2a[v.i] || []).map(i => DS.articles.V[i]).filter(Boolean);
+    if (!arts.length) return;
+    box.innerHTML = `<div class="up-label">Read more about this</div>` + arts.map(a => `<a class="read-row" href="${esc(a.url)}" target="_blank" rel="noopener" data-id="${a.id}">
+      <b>${esc(a.t)}</b><span>${esc(a.ch.n)}${a.d ? " · " + readTime(a) : ""}${a.v ? " · ▲ " + fmtNum(a.v) : ""}</span></a>`).join("");
+    box.querySelectorAll("a").forEach(el => el.onclick = () => markRead(DS.articles.byId.get(el.dataset.id)));
+    box.hidden = false;
+  }).catch(() => {});
 }
 function closePlayer(fromPop) {
   saveCurrentProgress();
@@ -783,7 +939,9 @@ renderAuto();
 function surprise() {
   const pool = (list.length ? list : V).filter(v => !seen.has(v.id));
   const from = pool.length ? pool : (list.length ? list : V);
-  openPlayer(from[Math.random() * from.length | 0]);
+  const v = from[Math.random() * from.length | 0];
+  if (!v) return;
+  if (v.art) { markRead(v); window.open(v.url, "_blank", "noopener"); } else openPlayer(v);
 }
 
 /* TV mode: plays the current filtered list as a channel-balanced mix, unwatched first (or a given queue in order) */
@@ -855,17 +1013,22 @@ let qt; $("#q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeo
 $("#sort").onchange = e => { state.sort = e.target.value; apply(); };
 $("#hideSeen").onclick = e => { state.hideSeen = !state.hideSeen; e.currentTarget.setAttribute("aria-pressed", state.hideSeen); renderFilters(); apply(); };
 
+// A shared #read link: start loading the articles right away and don't flash the video feed first
+const startOnArticles = /^#read\b/.test(location.hash);
+if (startOnArticles) { $("#count").textContent = "loading articles…"; ensureArticles().catch(() => {}); }
 Promise.all([
   fetch("videos.json").then(r => r.json()),
   fetch("paths.json").then(r => r.ok ? r.json() : []).catch(() => []),
 ]).then(([d, paths]) => {
   CH = d.channels; PATHS = paths;
-  V = d.videos.map(([id, t, c, dur, v, ts], i) => ({ i, id, t, c, d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
+  V = d.videos.map(([id, t, c, dur, v, ts], i) => ({ i, id, t, c, ch: CH[c], d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
   byId = new Map(V.map(v => [v.id, v]));
-  renderFilters(); apply(); route();
+  Object.assign(DS.videos, { CH, V, byId });
+  if (!startOnArticles) { renderFilters(); apply(); }
+  route();
   // "More like this" data is only valid for the exact videos.json it was built from
   fetch("similar.json").then(r => r.ok ? r.json() : null)
-    .then(s => { if (s && s.n === V.length && s.first === V[0].id) { SIM = s.sim; if (current) openPlayer(current, { fromRoute: true, keepPlayer: true }); } })
+    .then(s => { if (s && s.n === DS.videos.V.length && s.first === DS.videos.V[0].id) { DS.videos.SIM = s.sim; if (mode === "videos") SIM = s.sim; if (current) openPlayer(current, { fromRoute: true, keepPlayer: true }); } })
     .catch(() => {});
 }).catch(() => { $("#count").textContent = "Couldn't load videos.json"; });
 </script>

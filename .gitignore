@@ -5,3 +5,4 @@ __pycache__/
 .DS_Store
 transcripts/
 .cache/
+raw_articles/

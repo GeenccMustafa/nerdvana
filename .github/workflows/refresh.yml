@@ -1,4 +1,4 @@
-name: Refresh videos
+name: Refresh videos and articles
 
 on:
   schedule:
@@ -15,48 +15,56 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
 
       - uses: astral-sh/setup-uv@v6
 
-      - name: Keep the current dataset for comparison
-        run: cp videos.json /tmp/videos.prev.json
+      # Embeddings and fetched article pages are cached between runs, so only new items are processed
+      - uses: actions/cache@v4
+        with:
+          path: .cache
+          key: nerdvana-${{ github.run_id }}
+          restore-keys: |
+            nerdvana-
+            embeddings-
+
+      - name: Keep the current data for comparison
+        run: cp videos.json /tmp/videos.prev.json && cp articles.json /tmp/articles.prev.json
 
       - name: Fetch all channels and rebuild videos.json
         run: python3 fetch.py --force
 
-      # If YouTube blocks the runner, many channels come back empty and the site would shrink.
-      # Refuse to publish unless the new data is about as complete as what is live now.
+      - name: Fetch all article sources and rebuild articles.json
+        run: python3 articles.py
+
+      # If a source blocks the runner (YouTube often does), much of the data comes back empty.
+      # Keep the live version of that file instead of publishing a shrunken one.
       - name: Sanity check
         run: |
-          python3 - <<'EOF'
-          import json, sys
-          old = json.load(open("/tmp/videos.prev.json"))
-          new = json.load(open("videos.json"))
-          oc, nc = len(old["channels"]), len(new["channels"])
-          ov, nv = len(old["videos"]), len(new["videos"])
-          print(f"channels {oc} -> {nc}, videos {ov} -> {nv}")
-          if nc < min(95, oc) or nv < 0.9 * ov:
-              sys.exit("New data looks incomplete (YouTube may be blocking the runner); keeping the live version.")
-          EOF
+          python3 - <<'PY'
+          import json, subprocess
+          def check(path, prev, groups, items, min_groups):
+              old, new = json.load(open(prev)), json.load(open(path))
+              og, ng, oi, ni = len(old[groups]), len(new[groups]), len(old[items]), len(new[items])
+              print(f"{path}: {groups} {og} -> {ng}, {items} {oi} -> {ni}")
+              if ng < min(min_groups, og) or ni < 0.9 * oi:
+                  print(f"::warning::{path} looks incomplete (a source may be blocking the runner); keeping the live version.")
+                  subprocess.run(["cp", prev, path], check=True)
+          check("videos.json", "/tmp/videos.prev.json", "channels", "videos", 95)
+          check("articles.json", "/tmp/articles.prev.json", "sources", "articles", 90)
+          PY
 
-      # Title embeddings are cached between runs so only new videos get embedded
-      - uses: actions/cache@v4
-        with:
-          path: .cache
-          key: embeddings-${{ github.run_id }}
-          restore-keys: embeddings-
-
-      - name: Rebuild "More like this" and learning paths
+      - name: Rebuild "More like this", learning paths and video/article links
         run: uv run --no-project --python 3.12 --with fastembed --with numpy python enrich.py
 
       - name: Commit if anything changed
         run: |
-          if git diff --quiet videos.json similar.json paths.json; then echo "No changes."; exit 0; fi
+          FILES="videos.json similar.json paths.json articles.json similar_articles.json links.json"
+          if git diff --quiet $FILES; then echo "No changes."; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add videos.json similar.json paths.json
-          git commit -m "Refresh videos ($(date -u +%Y-%m-%d))"
+          git add $FILES
+          git commit -m "Refresh videos and articles ($(date -u +%Y-%m-%d))"
           git push
