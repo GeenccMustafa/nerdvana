@@ -13,7 +13,7 @@ For every picked article the page itself is fetched once (then cached) for its d
 (og:description, or the first paragraph), cover image, publish date and word count (reading time).
 Only short descriptions are stored; the full text is never kept or shown.
 
-Balancing, like the videos: at most 100 sources, each keeping its 100 most-upvoted + 30 newest posts.
+Balancing, like the videos: at most 150 sources, each keeping its 100 most-upvoted + 30 newest posts.
 
 articles.json  {"sources": [{n, u, t, topic, total}],
                 "articles": [[id, title, source, words, points, ts, url, desc, img, hn_id, comments], ...]}
@@ -31,7 +31,7 @@ RAW = ROOT / "raw_articles"
 CACHE = ROOT / ".cache" / "pages.json"
 UA = "Mozilla/5.0 (compatible; NerdvanaBot/1.0; +https://github.com/GeenccMustafa/nerdvana)"
 TIER_ORDER = {"S": 0, "A": 1, "B": 2}
-MAX_SOURCES, TOP_BY_POINTS, NEWEST = 100, 100, 30
+MAX_SOURCES, TOP_BY_POINTS, NEWEST = 150, 100, 30
 MIN_POINTS, MIN_ARTICLES = 5, 8
 DESC_LEN = 220
 PAGE_BUDGET = int(os.environ.get("PAGE_BUDGET", 15 * 60))  # seconds; pages not fetched in time are tried again on the next run

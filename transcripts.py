@@ -4,13 +4,17 @@ Usage:
   python3 transcripts.py            # download missing transcripts, then build search.json
   python3 transcripts.py --build    # only rebuild search.json from transcripts/
 
-This is run by hand, not in the nightly job: fetching thousands of subtitle files from a
-CI runner gets rate-limited quickly. It is resumable; already-downloaded videos are skipped.
+A weekly GitHub Action (transcripts.yml) runs this for new videos; the transcripts/ folder itself is
+kept as a release asset, not in git. It is resumable: already-downloaded videos are skipped, and videos
+from the last 14 days that had no subtitles yet are tried again (auto-captions can take a while).
+If YouTube starts refusing requests ("confirm you're not a bot"), it stops and keeps what it has.
+
+  MAX_NEW=500 python3 transcripts.py   # fetch at most 500 transcripts this run
 
 transcripts/<id>.json  compact transcript: [[start_seconds, "text"], ...] in ~20 s chunks (not committed)
 search.json            inverted index: {"docs": [video ids], "terms": {term: [[doc, second], ...]}}
 """
-import json, math, re, subprocess, sys, tempfile
+import json, math, os, re, subprocess, sys, tempfile, time
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -32,6 +36,10 @@ we well were what when where which while who why will with would yeah yes you yo
 mean need pretty probably quite sort stuff sure basically going gonna wanna gotta also already always another back
 come comes doesnt dont didnt isnt wasnt cant wont youre were theyre ive weve youve lets thats heres theres whats
 music applause laughter""".split())
+
+
+RETRY_DAYS = 14
+BLOCKED = "confirm you" + "’" + "re not a bot"
 
 
 def wanted_ids():
@@ -73,26 +81,39 @@ def fetch_batch(ids):
         cmd = YTDLP + ["--skip-download", "--write-subs", "--write-auto-subs", "--sub-langs", "en,en-orig",
                        "--sub-format", "json3", "--sleep-requests", "0.5", "--ignore-errors",
                        "-o", f"{tmp}/%(id)s.%(ext)s"] + [f"https://www.youtube.com/watch?v={i}" for i in ids]
-        subprocess.run(cmd, capture_output=True, text=True)
+        res = subprocess.run(cmd, capture_output=True, text=True)
+        blocked = BLOCKED in res.stderr or "confirm you're not a bot" in res.stderr
         got = 0
         for i in ids:
             f = next((Path(tmp) / f"{i}.{lang}.json3" for lang in ("en", "en-orig") if (Path(tmp) / f"{i}.{lang}.json3").exists()), None)
             data = compact(f) if f else []
+            if not data and blocked:
+                continue          # don't record "no subtitles" for a video we were refused
             (OUT / f"{i}.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
             got += bool(data)
-        return got, len(ids)
+        return got, len(ids), blocked
 
 
 def download():
     OUT.mkdir(exist_ok=True)
-    todo = [i for i in wanted_ids() if not (OUT / f"{i}.json").exists()]
+    ts = {v[0]: v[5] for v in json.loads((ROOT / "videos.json").read_text())["videos"]}
+    recent = time.time() - RETRY_DAYS * 86400
+
+    def needed(i):
+        f = OUT / f"{i}.json"
+        return not f.exists() or (f.stat().st_size <= 2 and (ts.get(i) or 0) > recent)
+
+    todo = [i for i in wanted_ids() if needed(i)]
+    todo.sort(key=lambda i: -(ts.get(i) or 0))       # newest first
+    todo = todo[:int(os.environ.get("MAX_NEW", len(todo)))]
     print(f"{len(todo)} transcripts to fetch", flush=True)
     batches = [todo[k:k + BATCH] for k in range(0, len(todo), BATCH)]
-    done = 0
+    done, got_all = 0, 0
     with ThreadPoolExecutor(WORKERS) as ex:
-        for got, n in ex.map(fetch_batch, batches):
-            done += n
-            print(f"  {done}/{len(todo)} (+{got} with subtitles)", flush=True)
+        for got, n, blocked in ex.map(fetch_batch, batches):
+            done += n; got_all += got
+            print(f"  {done}/{len(todo)} (+{got} with subtitles){'  BLOCKED by YouTube' if blocked else ''}", flush=True)
+    print(f"downloaded {got_all} new transcripts", flush=True)
 
 
 def build():

@@ -53,15 +53,18 @@ jobs:
                   print(f"::warning::{path} looks incomplete (a source may be blocking the runner); keeping the live version.")
                   subprocess.run(["cp", prev, path], check=True)
           check("videos.json", "/tmp/videos.prev.json", "channels", "videos", 95)
-          check("articles.json", "/tmp/articles.prev.json", "sources", "articles", 90)
+          check("articles.json", "/tmp/articles.prev.json", "sources", "articles", 110)
           PY
 
-      - name: Rebuild "More like this", learning paths and video/article links
+      - name: Rebuild "More like this", learning and reading paths, and video/article links
         run: uv run --no-project --python 3.12 --with fastembed --with numpy python enrich.py
+
+      - name: Write feed.xml (this week's top videos and articles)
+        run: python3 feed.py
 
       - name: Commit if anything changed
         run: |
-          FILES="videos.json similar.json paths.json articles.json similar_articles.json links.json"
+          FILES="videos.json similar.json paths.json articles.json similar_articles.json links.json reading_paths.json feed.xml"
           if git diff --quiet $FILES; then echo "No changes."; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

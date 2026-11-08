@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nerdvana</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><ellipse cx='12' cy='4.5' rx='6' ry='2' fill='none' stroke='%23f2a93b' stroke-width='1.6'/><rect x='3' y='8' width='18' height='13' rx='4' fill='%23f2a93b'/><path d='M10 11.5v6l5-3z' fill='%23121722'/></svg>">
+<link rel="alternate" type="application/atom+xml" title="Nerdvana: this week's top videos and articles" href="feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -227,7 +228,9 @@ main { padding-block: 20px 60px; min-width: 0; }
 .tabs { display: inline-flex; align-self: center; gap: 2px; padding: 3px; border-radius: 999px; background: var(--raise); }
 .tabs button { height: 30px; padding: 0 14px; border: 0; border-radius: 999px; background: none; font-weight: 600; font-size: 13px; color: var(--fg2); }
 .tabs button[aria-selected="true"] { background: var(--surface); color: var(--fg); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
-body[data-mode="articles"] #tvBtn, body[data-mode="articles"] #navPaths { display: none; }
+body[data-mode="articles"] #tvBtn { display: none; }
+.path-card .mosaic .ph { position: static; padding: 6px; }
+.path-card .mosaic .ph b { font-size: 13px; }
 
 /* Article cards: cover image (or a tile with the source name), title, short description */
 .card-hit { color: inherit; text-decoration: none; }
@@ -300,7 +303,7 @@ body[data-mode="articles"] #tvBtn, body[data-mode="articles"] #navPaths { displa
     <button class="nav-item" type="button" data-view="new">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>New this week<span class="n" id="newN"></span></button>
     <button class="nav-item" type="button" data-view="paths" id="navPaths">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h12"/><path d="M9 7h6M9 11h4"/></svg>Learning paths</button>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h12"/><path d="M9 7h6M9 11h4"/></svg><span id="pathsLbl">Learning paths</span></button>
     <button class="nav-item" type="button" data-view="time">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>I have X minutes</button>
     <hr>
@@ -312,7 +315,8 @@ body[data-mode="articles"] #tvBtn, body[data-mode="articles"] #navPaths { displa
     <div id="tierList"></div>
     <hr>
     <div class="side-foot">
-      <a href="https://github.com/GeenccMustafa/nerdvana/issues/new?template=suggest-channel.yml" target="_blank" rel="noopener">＋ Suggest a channel</a>
+      <a id="suggestLink" href="https://github.com/GeenccMustafa/nerdvana/issues/new?template=suggest-channel.yml" target="_blank" rel="noopener">＋ Suggest a channel</a>
+      <a href="feed.xml" target="_blank" rel="noopener" title="This week's top videos and articles, in your feed reader">RSS feed</a>
       <a href="https://github.com/GeenccMustafa/nerdvana" target="_blank" rel="noopener">Source on GitHub</a>
     </div>
   </nav>
@@ -398,15 +402,17 @@ let SIM = null, PATHS = [], SEARCH = null, searchLoading = null;
 /* Two data sets share one UI. The globals (CH, V, byId, SIM, seen, later) point at the active one. */
 let mode = "videos", LINKS = null, linksLoading = null;
 const DS = {
-  videos:   { CH: [], V: [], byId: new Map(), SIM: null, seen: new Set(store.get("seen", [])), later: store.get("later", []), seenKey: "seen", laterKey: "later", ready: null },
-  articles: { CH: [], V: [], byId: new Map(), SIM: null, seen: new Set(store.get("read", [])), later: store.get("readLater", []), seenKey: "read", laterKey: "readLater", ready: null },
+  videos:   { CH: [], V: [], byId: new Map(), SIM: null, PATHS: [], seen: new Set(store.get("seen", [])), later: store.get("later", []), seenKey: "seen", laterKey: "later", ready: null },
+  articles: { CH: [], V: [], byId: new Map(), SIM: null, PATHS: [], seen: new Set(store.get("read", [])), later: store.get("readLater", []), seenKey: "read", laterKey: "readLater", ready: null },
 };
 let seen = DS.videos.seen, later = DS.videos.later;   // watched/read ids; saved ids, newest first
 const saveSeen = () => store.set(DS[mode].seenKey, [...seen]);
 const saveLater = () => { DS[mode].later = later; store.set(DS[mode].laterKey, later); };
 const LBL = {
-  videos:   { one: "video", many: "videos", src: "channels", seen: "watched", later: "Watch later", hide: "Hide watched", q: "Kubernetes, RAG, Terraform…" },
-  articles: { one: "article", many: "articles", src: "sources", seen: "read", later: "Read later", hide: "Hide read", q: "Distributed systems, Rust, LLMs…" },
+  videos:   { one: "video", many: "videos", src: "channels", seen: "watched", later: "Watch later", hide: "Hide watched", q: "Kubernetes, RAG, Terraform…",
+              paths: "Learning paths", suggest: ["＋ Suggest a channel", "suggest-channel.yml"] },
+  articles: { one: "article", many: "articles", src: "sources", seen: "read", later: "Read later", hide: "Hide read", q: "Distributed systems, Rust, LLMs…",
+              paths: "Reading paths", suggest: ["＋ Suggest a blog", "suggest-blog.yml"] },
 };
 const L = () => LBL[mode];
 let progress = store.get("progress", {});    // id -> { t: seconds watched, at: last watched (ms) }
@@ -458,7 +464,7 @@ function avatar(c) {
 document.addEventListener("error", e => {
   const img = e.target; if (img.tagName !== "IMG") return;
   if (img.parentElement?.classList.contains("av")) { img.parentElement.classList.remove("fav"); img.parentElement.textContent = img.parentElement.dataset.i; }
-  else if (img.closest(".card.art")) img.remove();   // broken cover image -> the source tile underneath shows
+  else if (img.closest(".card.art, .mosaic")) img.remove();   // broken cover image -> the source tile underneath shows
 }, true);
 
 function updateCounts() {
@@ -538,11 +544,13 @@ function routeView(p) {
 function setMode(m, { quiet = false, keepHash = false } = {}) {
   if (m === mode) return;
   DS[mode].later = later;
-  mode = m; ({ CH, V, byId, SIM } = DS[m]); seen = DS[m].seen; later = DS[m].later;
+  mode = m; ({ CH, V, byId, SIM, PATHS } = DS[m]); seen = DS[m].seen; later = DS[m].later;
   Object.assign(state, { view: "home", path: null, like: null, tier: null, ch: null, topic: null, dur: null });
   document.body.dataset.mode = m;
   document.querySelectorAll(".tabs [data-mode]").forEach(b => b.setAttribute("aria-selected", b.dataset.mode === m));
-  $("#laterLbl").textContent = L().later; $("#hideSeen").textContent = L().hide; $("#q").placeholder = L().q;
+  $("#laterLbl").textContent = L().later; $("#pathsLbl").textContent = L().paths;
+  $("#suggestLink").textContent = L().suggest[0];
+  $("#suggestLink").href = `https://github.com/GeenccMustafa/nerdvana/issues/new?template=${L().suggest[1]}`; $("#hideSeen").textContent = L().hide; $("#q").placeholder = L().q;
   $("#sort option[value=mix]").textContent = m === "articles" ? "Mix (all sources)" : "Mix (all channels)";
   $("#sort option[value=views]").textContent = m === "articles" ? "Most upvoted" : "Most viewed";
   $("#sort option[value=long]").textContent = m === "articles" ? "Longest read" : "Longest";
@@ -553,8 +561,10 @@ function ensureArticles() {
   return DS.articles.ready ||= Promise.all([
     fetch("articles.json").then(r => r.json()),
     fetch("similar_articles.json").then(r => r.ok ? r.json() : null).catch(() => null),
-  ]).then(([d, s]) => {
+    fetch("reading_paths.json").then(r => r.ok ? r.json() : []).catch(() => []),
+  ]).then(([d, s, paths]) => {
     const A = DS.articles;
+    A.PATHS = paths;
     A.CH = d.sources.map(c => { const host = new URL(c.u).hostname;
       return { ...c, h: slugify(c.n), host, a: `https://www.google.com/s2/favicons?domain=${host}&sz=64` }; });
     A.V = d.articles.map(([id, t, c, w, pts, ts, url, desc, img, hn, cm], i) => ({ i, id, t, c, ch: A.CH[c], art: 1,
@@ -611,13 +621,14 @@ function renderContext() {
   } else if (state.view === "new") {
     html = `<div class="txt"><h2>New this week</h2><p>${n} ${l.many} ${A ? "published" : "uploaded"} in the last 7 days across all ${CH.length} ${l.src}, newest first</p></div>`;
   } else if (state.view === "paths") {
-    html = `<div class="txt"><h2>Learning paths</h2><p>Short, ordered playlists that take one topic from zero to solid, picked from the Essential and Great channels.</p></div>`;
+    html = A ? `<div class="txt"><h2>Reading paths</h2><p>Short, ordered reading lists that take one topic from zero to solid, from the Essential and Great sources.</p></div>`
+      : `<div class="txt"><h2>Learning paths</h2><p>Short, ordered playlists that take one topic from zero to solid, picked from the Essential and Great channels.</p></div>`;
   } else if (state.view === "path") { const p = PATHS.find(x => x.id === state.path);
     const done = list.filter(v => seen.has(v.id)).length;
-    html = p ? `<div class="txt"><h2>${esc(p.title)}</h2><p>${esc(p.blurb)} · ${list.length} videos · ${fmtMin(total)} · ${done} of ${list.length} watched</p></div>
+    html = p ? `<div class="txt"><h2>${esc(p.title)}</h2><p>${esc(p.blurb)} · ${list.length} ${l.many} · ${fmtMin(total)}${A ? " of reading" : ""} · ${done} of ${list.length} ${l.seen}</p></div>
       <button class="btn" data-act="allpaths">All paths</button>
       <button class="btn primary" data-act="start">${done ? (done === list.length ? "Watch again" : "Continue") : "Start"}</button>`
-      : `<div class="txt"><h2>Path not found</h2><p>This learning path doesn't exist anymore.</p></div><button class="btn" data-act="allpaths">All paths</button>`;
+      : `<div class="txt"><h2>Path not found</h2><p>This path doesn't exist anymore.</p></div><button class="btn" data-act="allpaths">All paths</button>`;
   } else if (state.view === "time") {
     html = `<div class="txt"><h2>I have ${state.budget} minutes</h2><p>${list.length ? `${list.length} un${l.seen} ${list.length > 1 ? l.many : l.one} from the Essential and Great ${l.src} · ${fmtMin(total)} ${A ? "of reading" : "in total"}` : "Nothing fits. Try more time or clear the filters."}</p>
       <div class="group" style="margin-top:10px">${BUDGETS.map(m => `<button class="chip" data-act="budget" data-m="${m}" aria-pressed="${m === state.budget}">${m} min</button>`).join("")}</div></div>
@@ -634,7 +645,8 @@ $("#context").addEventListener("click", e => {
   else if (a === "reroll") apply();
   else if (a === "playall") startTV([...list]);
   else if (a === "allpaths") pick({ view: "paths" });
-  else if (a === "start") { const v = list.find(x => !seen.has(x.id)) || list[0]; if (v) openPlayer(v); }
+  else if (a === "start") { const v = list.find(x => !seen.has(x.id)) || list[0];
+    if (v?.art) { markRead(v); window.open(v.url, "_blank", "noopener"); apply(); } else if (v) openPlayer(v); }
 });
 
 /* Drawer (below 1000px) */
@@ -668,7 +680,7 @@ function apply() {
   const view = state.view;
   if (view === "history") { const order = [...seen]; list = V.filter(v => seen.has(v.id) && passes(v, { ignoreSeen: true })); list.sort((a, b) => order.lastIndexOf(b.id) - order.lastIndexOf(a.id)); }
   else if (view === "later") list = later.map(id => byId.get(id)).filter(v => v && passes(v, { ignoreSeen: true }));
-  else if (view === "path") list = (PATHS.find(p => p.id === state.path)?.videos || []).map(id => byId.get(id)).filter(Boolean);
+  else if (view === "path") { const p = PATHS.find(p => p.id === state.path); list = (p?.videos || p?.articles || []).map(id => byId.get(id)).filter(Boolean); }
   else if (view === "paths") list = [];
   else if (view === "like") { const a = byId.get(state.like); list = a ? (SIM?.[a.i] || []).map(i => V[i]).filter(x => x && passes(x, { ignoreQ: true })) : []; }
   else if (view === "time") list = packBudget();
@@ -702,7 +714,7 @@ function mix(arr) {
 function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
 function card(v, o = {}) {
-  if (v.art) return artCard(v);
+  if (v.art) return artCard(v, o);
   // video cards can also show up on the Articles side ("Watch on this topic"), so use the video data set explicitly
   const c = v.ch, el = document.createElement("div"), seen = DS.videos.seen, own = mode === "videos";
   el.className = "card" + (seen.has(v.id) ? " seen" : ""); el.dataset.id = v.id;
@@ -721,10 +733,10 @@ function card(v, o = {}) {
   el.querySelector(".later-btn")?.addEventListener("click", () => toggleLater(v.id));
   return el;
 }
-function artCard(a) {
+function artCard(a, o = {}) {
   const c = a.ch, el = document.createElement("div"), read = DS.articles.seen.has(a.id);
   el.className = "card art" + (read ? " seen" : ""); el.dataset.id = a.id;
-  const badge = read ? `<span class="badge">READ</span>` : isNew(a) ? `<span class="badge new">NEW</span>` : "";
+  const badge = o.step ? `<span class="badge step">${o.step}</span>` : read ? `<span class="badge">READ</span>` : isNew(a) ? `<span class="badge new">NEW</span>` : "";
   el.innerHTML = `<a class="card-hit" href="${esc(a.url)}" target="_blank" rel="noopener">
       <div class="thumb"><span class="ph ${c.t}"><b>${esc(c.n)}</b></span>${a.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(a.img)}">` : ""}${badge}${a.d ? `<span class="dur">${readTime(a)}</span>` : ""}</div>
       <h3>${esc(a.t)}</h3>${a.desc ? `<p class="desc">${esc(a.desc)}</p>` : ""}
@@ -761,14 +773,16 @@ function renderPaths() {
   if (box.hidden) return;
   box.innerHTML = "";
   for (const p of PATHS) {
-    const vids = p.videos.map(id => byId.get(id)).filter(Boolean);
+    const vids = (p.videos || p.articles || []).map(id => byId.get(id)).filter(Boolean);
     const done = vids.filter(v => seen.has(v.id)).length, total = vids.reduce((s, v) => s + v.d, 0);
     const b = document.createElement("button");
     b.type = "button"; b.className = "path-card";
-    b.innerHTML = `<div class="mosaic">${vids.slice(0, 4).map(v => `<img loading="lazy" alt="" src="${thumb(v.id)}">`).join("")}</div>
+    const tile = v => v.art ? (v.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(v.img)}">` : `<span class="ph ${v.ch.t}"><b>${esc(v.ch.n)}</b></span>`)
+      : `<img loading="lazy" alt="" src="${thumb(v.id)}">`;
+    b.innerHTML = `<div class="mosaic">${vids.slice(0, 4).map(tile).join("")}</div>
       <h3>${esc(p.title)}</h3><p>${esc(p.blurb)}</p>
       <div class="bar"><i style="width:${vids.length ? done / vids.length * 100 : 0}%"></i></div>
-      <div class="foot"><span>${vids.length} videos · ${fmtMin(total)}</span><span>${done}/${vids.length} watched</span></div>`;
+      <div class="foot"><span>${vids.length} ${L().many} · ${fmtMin(total)}</span><span>${done}/${vids.length} ${L().seen}</span></div>`;
     b.onclick = () => pick({ view: "path", path: p.id });
     box.append(b);
   }
@@ -1020,7 +1034,7 @@ Promise.all([
   fetch("videos.json").then(r => r.json()),
   fetch("paths.json").then(r => r.ok ? r.json() : []).catch(() => []),
 ]).then(([d, paths]) => {
-  CH = d.channels; PATHS = paths;
+  CH = d.channels; PATHS = paths; DS.videos.PATHS = paths;
   V = d.videos.map(([id, t, c, dur, v, ts], i) => ({ i, id, t, c, ch: CH[c], d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
   byId = new Map(V.map(v => [v.id, v]));
   Object.assign(DS.videos, { CH, V, byId });

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "distributed-systems",
+    "title": "Distributed systems",
+    "blurb": "Why distributed systems are hard, and the ideas that make them work",
+    "steps": [
+      "title:Learning to Build Distributed Systems",
+      "title:Patterns of Distributed Systems",
+      "title:Distributed architecture concepts I learned",
+      "title:Let's consign CAP to the cabinet",
+      "title:Paxos",
+      "title:Jepsen: PostgreSQL 12.3",
+      "title:What Is Backoff For?",
+      "title:Operating a large distributed system in a reliable way"
+    ]
+  },
+  {
+    "id": "llms",
+    "title": "How LLMs work",
+    "blurb": "From neural networks to transformers to today's language models",
+    "steps": [
+      "title:A Visual and Interactive Guide to the Basics of Neural Networks",
+      "title:The Unreasonable Effectiveness of Recurrent Neural Networks",
+      "title:Understanding LSTM Networks",
+      "title:The Illustrated Transformer",
+      "title:The Illustrated GPT-2",
+      "title:Microgpt",
+      "title:Building LLMs from the Ground Up",
+      "title:Understanding Reasoning LLMs"
+    ]
+  },
+  {
+    "id": "performance",
+    "title": "Performance and the machine",
+    "blurb": "What really happens in the CPU, memory and kernel when code runs",
+    "steps": [
+      "title:How many branches can your CPU predict?",
+      "title:Why Intel Added Cache Partitioning",
+      "title:Reading privileged memory with a side-channel",
+      "title:Everyone should know SIMD",
+      "title:Linux Performance Analysis: New Tools and Old Secrets",
+      "title:Linux tracing systems and how they fit together",
+      "title:Analyzing a High Rate of Paging",
+      "title:Saving 100 terabytes of memory"
+    ]
+  },
+  {
+    "id": "security",
+    "title": "Security and cryptography",
+    "blurb": "How attacks work and how cryptography actually protects us",
+    "steps": [
+      "how public key cryptography and TLS work",
+      "password hashing, salts and storing passwords safely",
+      "how HTTPS certificates and certificate authorities work",
+      "anatomy of a data breach and leaked passwords",
+      "memory corruption exploits and buffer overflows explained",
+      "a deep dive into a zero-click exploit chain",
+      "supply chain attacks on open source software",
+      "end-to-end encryption in messaging apps explained"
+    ]
+  },
+  {
+    "id": "web",
+    "title": "How the web works",
+    "blurb": "Browsers, JavaScript and the platform underneath every website",
+    "steps": [
+      "title:The reckless, infinite scope of web browsers",
+      "title:A toy DNS resolver",
+      "title:HTTP/3: from root to tip",
+      "title:Why Static Websites Need HTTPS",
+      "title:Explaining the browser's event loop",
+      "title:An Interactive Guide to CSS Grid",
+      "title:Why Do React Hooks Rely on Call Order?",
+      "title:How web bloat impacts users"
+    ]
+  },
+  {
+    "id": "career",
+    "title": "Engineering career",
+    "blurb": "Essays on doing great work, growing as an engineer and building companies",
+    "steps": [
+      "how to do great work",
+      "things I wish I had known as a junior software engineer",
+      "how to become a senior or staff engineer",
+      "how to give and get good code reviews",
+      "the joel test: steps to better code and engineering teams",
+      "how engineering managers should run teams",
+      "how to start a startup",
+      "don't call yourself a programmer, career advice"
+    ]
+  }
+]

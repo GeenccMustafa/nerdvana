@@ -1,0 +1,46 @@
+name: Suggest a blog
+description: Recommend a blog, newsletter or engineering blog for Nerdvana's Articles tab
+title: "Blog suggestion: "
+labels: ["blog suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion! The Articles tab lists English-language tech, science and engineering blogs whose posts regularly get discussed on Hacker News. Personal blogs, company engineering blogs and Substack newsletters all count.
+  - type: input
+    id: url
+    attributes:
+      label: Blog link
+      description: The blog's home page
+      placeholder: https://jvns.ca
+    validations:
+      required: true
+  - type: input
+    id: feed
+    attributes:
+      label: RSS or Atom feed (optional)
+      description: Only needed if the home page doesn't link to it
+      placeholder: https://jvns.ca/atom.xml
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      options:
+        - AI & ML
+        - Hardware
+        - Programming
+        - Science & Math
+        - Security
+        - Startups & Career
+        - Systems
+        - Web Dev
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it belongs here
+      description: What makes this blog great? A favourite post helps.
+    validations:
+      required: true

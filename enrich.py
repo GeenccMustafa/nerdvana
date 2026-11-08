@@ -12,6 +12,7 @@ paths.json    [{id, title, blurb, videos: [video id, ...]}] resolved from paths_
 
 If articles.json exists, articles (title + description) are embedded the same way:
 similar_articles.json  {"n", "first", "sim": [[article index, ...] x 8]}  aligned with articles.json
+reading_paths.json     [{id, title, blurb, articles: [article id, ...]}] resolved from reading_paths_def.json
 links.json             videos <-> articles on the same topic:
                        {"vn", "vfirst", "an", "afirst", "v2a": [[article index, ...]], "a2v": [[video index, ...]]}
 """
@@ -90,27 +91,48 @@ def build_similar(E, videos):
     return {"n": n, "first": videos[0][0], "sim": out}
 
 
-def build_paths(E, videos, channels, model):
-    defs = json.loads((ROOT / "paths_def.json").read_text())
-    ok = np.array([channels[v[2]]["t"] in ("S", "A") and v[4] >= 50_000 and 120 <= v[3] <= 10800 for v in videos])
-    boost = np.array([0.025 * math.log10(max(v[4], 1)) for v in videos])
+def resolve_paths(defs, E, rows, src_col, ok, boost, model, key):
+    """Each step of each path: the best-matching row (by meaning, plus a popularity boost),
+    never reusing a row and nudging away from sources already in the path."""
     out = []
     for p in defs:
-        Q = np.stack(list(model.embed([f"Represent this sentence for searching relevant passages: {s}" for s in p["steps"]])))
+        Q = np.stack(list(model.embed([f"Represent this sentence for searching relevant passages: {s.removeprefix('title:')}" for s in p["steps"]])))
         Q /= np.linalg.norm(Q, axis=1, keepdims=True)
-        used, per_ch, picked = set(), {}, []
-        for q in Q:
-            score = E @ q + boost - np.array([0.04 * per_ch.get(v[2], 0) for v in videos])
+        used, per_src, picked = set(), {}, []
+        for step, q in zip(p["steps"], Q):
+            # "title:Some Title" pins a specific item (case-insensitive title prefix, most popular match)
+            if step.startswith("title:"):
+                t = step[6:].strip().lower()
+                hits = sorted((j for j, r in enumerate(rows) if r[1].lower().startswith(t) and j not in used), key=lambda j: -rows[j][4])
+                if hits:
+                    j = hits[0]; used.add(j); per_src[rows[j][src_col]] = per_src.get(rows[j][src_col], 0) + 1
+                    picked.append(j); continue
+                print(f"  ! no item titled {step[6:]!r}, searching by meaning instead")
+            score = E @ q + boost - np.array([0.04 * per_src.get(r[src_col], 0) for r in rows])
             score[~ok] = -9
             for j in np.argsort(-score)[:50]:
                 j = int(j)
                 if j not in used:
-                    used.add(j); per_ch[videos[j][2]] = per_ch.get(videos[j][2], 0) + 1
-                    picked.append(videos[j][0]); break
-        out.append({"id": p["id"], "title": p["title"], "blurb": p["blurb"], "videos": picked})
-        print(f"  path {p['title']}: " + " | ".join(videos[[v[0] for v in videos].index(x)][1][:40] for x in picked))
+                    used.add(j); per_src[rows[j][src_col]] = per_src.get(rows[j][src_col], 0) + 1
+                    picked.append(j); break
+        out.append({"id": p["id"], "title": p["title"], "blurb": p["blurb"], key: [rows[j][0] for j in picked]})
+        print(f"  path {p['title']}: " + " | ".join(rows[j][1][:40] for j in picked))
     return out
 
+
+def build_paths(E, videos, channels, model):
+    defs = json.loads((ROOT / "paths_def.json").read_text())
+    ok = np.array([channels[v[2]]["t"] in ("S", "A") and v[4] >= 50_000 and 120 <= v[3] <= 10800 for v in videos])
+    boost = np.array([0.025 * math.log10(max(v[4], 1)) for v in videos])
+    return resolve_paths(defs, E, videos, 2, ok, boost, model, "videos")
+
+
+def build_reading_paths(A, arts, srcs, model):
+    """Reading paths from reading_paths_def.json: well-received posts from Essential/Great sources."""
+    defs = json.loads((ROOT / "reading_paths_def.json").read_text())
+    ok = np.array([srcs[a[2]]["t"] in ("S", "A") and a[4] >= 30 and (a[3] == 0 or 300 <= a[3] <= 15000) for a in arts])
+    boost = np.array([0.025 * math.log10(max(a[4], 1)) for a in arts])
+    return resolve_paths(defs, A, arts, 2, ok, boost, model, "articles")
 
 if __name__ == "__main__":
     data = json.loads((ROOT / "videos.json").read_text())
@@ -135,6 +157,9 @@ if __name__ == "__main__":
         good_v = np.array([channels[v[2]]["t"] in ("S", "A") and v[4] >= 20_000 and v[3] >= 120 for v in videos])
         links = {"vn": len(videos), "vfirst": videos[0][0], "an": len(arts), "afirst": arts[0][0],
                  "v2a": cross_links(E, A, 3, LINK_THRESHOLD), "a2v": cross_links(A, E, 4, LINK_THRESHOLD, good_v)}
+        rp = build_reading_paths(A, arts, srcs, model)
+        (ROOT / "reading_paths.json").write_text(json.dumps(rp, ensure_ascii=False, indent=1))
+        print(f"reading_paths.json: {len(rp)} paths")
         (ROOT / "links.json").write_text(json.dumps(links, separators=(",", ":")))
         print(f"links.json: {sum(map(bool, links['v2a']))} videos with articles, "
               f"{sum(map(bool, links['a2v']))} articles with videos, {(ROOT / 'links.json').stat().st_size / 1e6:.1f} MB")

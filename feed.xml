@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://geenccmustafa.github.io/nerdvana/</id>
+  <title>Nerdvana: this week's top videos and articles</title>
+  <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
+  <link href="https://geenccmustafa.github.io/nerdvana/"/>
+  <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
+  <updated>2026-11-08T19:17:10Z</updated>
+  <author><name>Nerdvana</name></author>
+  <entry>
+    <id>tag:nerdvana,2026:video:_x58r9TBois</id>
+    <title>▶ Meta VR Glasses: What Vision Pro 2 COULD Have Been!</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=_x58r9TBois"/>
+    <updated>2026-11-08T00:00:00Z</updated>
+    <summary>Video · Marques Brownlee · 4.2M views · 8 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:28d8f037ea</id>
+    <title>Asahi Linux Progress Linux 7.3</title>
+    <link href="https://asahilinux.org/2026/11/progress-report-7-3/"/>
+    <updated>2026-11-07T04:30:00Z</updated>
+    <summary>Article · Asahi Linux · ▲ 405 on Hacker News · 14 min read
+
+Well here we are again. Linux 7.3 is out and it’s been an eventful few months, so let’s get stuck in to another Asahi Linux progress report!</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:iw9SZgyahqg</id>
+    <title>▶ The one thing holding theoretical CS together just broke... kinda</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=iw9SZgyahqg"/>
+    <updated>2026-11-07T00:00:00Z</updated>
+    <summary>Video · Fireship · 1.6M views · 6 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:Ao9IQyaH0fk</id>
+    <title>▶ “Tesla Hater” Finally Tries Full Self Driving</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=Ao9IQyaH0fk"/>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <summary>Video · Linus Tech Tips · 1.4M views · 33 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:92c14fee04</id>
+    <title>Libghostty 1.0</title>
+    <link href="https://mitchellh.com/writing/libghostty-1-0"/>
+    <updated>2026-11-06T00:00:00Z</updated>
+    <summary>Article · Mitchell Hashimoto · ▲ 1064 on Hacker News · 8 min read
+
+libghostty-vt 1.0 is here. libghostty is a portable, high-performance C library for terminal emulation, extracted directly from the core of Ghostty. The 1.0 release means both the library itself and the C ABI are now…</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:c78ecd89b3</id>
+    <title>GitHub's new Git storage architecture</title>
+    <link href="https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/"/>
+    <updated>2026-11-05T20:23:21Z</updated>
+    <summary>Article · GitHub Blog · ▲ 232 on Hacker News
+
+GitHub's new Git storage architecture is built so thousands of agents can push to a single repository at once. Here's how it works.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:KfODG5REyss</id>
+    <title>▶ I finally saw quantum mechanics with my own eyes... (It's spookier than I expected)</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=KfODG5REyss"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Video · Veritasium · 12.0M views · 66 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:Yg2t5w8vj5Q</id>
+    <title>▶ I Tested Every Viral 3D Printed Tech!</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=Yg2t5w8vj5Q"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Video · Mrwhosetheboss · 5.0M views · 21 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:k2ruCf_z75I</id>
+    <title>▶ North Korea stole $6.3 billion... and that’s not even the worst part</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=k2ruCf_z75I"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Video · Fireship · 2.0M views · 6 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:d094672a40</id>
+    <title>A thousand fewer paths to root</title>
+    <link href="https://openai.com/index/a-thousand-fewer-paths-to-root/"/>
+    <updated>2026-11-04T08:00:00Z</updated>
+    <summary>Article · OpenAI · ▲ 488 on Hacker News
+
+OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:g6Die8gVFn0</id>
+    <title>▶ OLED iPad Mini is The Most Apple Product They've Ever Appled</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=g6Die8gVFn0"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Video · Marques Brownlee · 11.0M views · 13 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:3c3f85267b</id>
+    <title>A new Go API for JSON</title>
+    <link href="https://go.dev/blog/jsonv2"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Article · The Go Blog · ▲ 395 on Hacker News · 14 min read
+
+Go 1.27 introduces new encoding/json/v2 and encoding/json/jsontext packages.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:06128555e5</id>
+    <title>Images 2.6</title>
+    <link href="https://openai.com/index/introducing-images-2-6/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Article · OpenAI · ▲ 384 on Hacker News
+
+Images 2.6 brings faster image generation, GIF creation, more precise editing, and new API controls across ChatGPT, Codex, and the API.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:ef1ab26cae</id>
+    <title>Safari introduces Adaptive Dark Mode in 27.3</title>
+    <link href="https://webkit.org/blog/18541/introducing-adaptive-dark-mode/"/>
+    <updated>2026-11-03T18:00:35Z</updated>
+    <summary>Article · WebKit Blog · ▲ 516 on Hacker News · 5 min read
+
+We’re excited to announce Adaptive Dark Mode in Safari 27.3 beta.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:fdf1822c9e</id>
+    <title>Qwen 3.8 27B on my laptop can interpret model weights, too</title>
+    <link href="https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/"/>
+    <updated>2026-11-03T16:29:48Z</updated>
+    <summary>Article · Simon Willison · ▲ 739 on Hacker News · 7 min read
+
+Yesterday’s hot paper was Sparks of Weight-Space Programming: LLMs can natively read &amp;amp; write neural network weights by Rikiya Takehi, Jayden Teoh, Alex Zhang, and Omar Khattab. The paper (OK, …</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:vDmjw-c_R2k</id>
+    <title>▶ My F-You To Sam Altman</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=vDmjw-c_R2k"/>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Video · Linus Tech Tips · 6.1M views · 31 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:NBXu6Z9Fw_M</id>
+    <title>▶ It's getting harder to balance the power grid. Here's why.</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=NBXu6Z9Fw_M"/>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Video · Tom Scott · 2.4M views · 16 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:5a6e43445e</id>
+    <title>Egoless Mathematics in the AI Era</title>
+    <link href="https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/"/>
+    <updated>2026-11-02T18:54:00Z</updated>
+    <summary>Article · Terence Tao · ▲ 185 on Hacker News · 43 min read
+
+[This is a guest post by Karthik C. S., Amit Sahai, and Jie Xue. This blog post was initially written in a different file format and converted using AI. — T.] This is a good time for mathemat…</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:7838772372</id>
+    <title>We halved DNS build delay and cut memory use by 85%</title>
+    <link href="https://blog.cloudflare.com/dns-targeted-zone-builds/"/>
+    <updated>2026-11-02T14:00:00Z</updated>
+    <summary>Article · Cloudflare Blog · ▲ 200 on Hacker News · 17 min read
+
+Zone setting changes used to rebuild entire DNS zones, even ones with tens of millions of records. Here is how we built a planner that picks the smallest safe build, cutting full builds by 40%, peak memory by 85%, and…</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:BuRyQYf03xA</id>
+    <title>▶ My dog won't stay out of mud so I made this...</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=BuRyQYf03xA"/>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>Video · Stuff Made Here · 1.9M views · 22 min</summary>
+  </entry>
+</feed>

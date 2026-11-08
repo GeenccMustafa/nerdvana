@@ -1,6 +1,6 @@
 # Nerdvana
 
-~30,000 nerdy videos from 100 popular tech YouTube channels and ~10,000 of the best articles from ~100 tech blogs — programming, AI, hardware, security, science and engineering — in one fast, searchable page. Plus a **TV mode** for laid-back watching.
+~30,000 nerdy videos from 100 popular tech YouTube channels and ~10,000 of the best articles from 122 tech blogs — programming, AI, hardware, security, science and engineering — in one fast, searchable page. Plus a **TV mode** for laid-back watching.
 
 **Live:** https://geenccmustafa.github.io/nerdvana/
 
@@ -23,10 +23,13 @@ Inspired by Andrej Karpathy's [TristanTube](https://karpathy.ai/tristan-tube/).
 - **Shareable links** for every video (optionally at a timestamp), channel, path and view, e.g. `#v=VIDEO_ID&t=90`, `#c=veritasium`, `#path=kubernetes`
 
 **Read** (the Articles tab)
-- Articles from ~100 personal and engineering blogs (Paul Graham, Dan Luu, Julia Evans, Simon Willison, Cloudflare, Netflix…), each source's **most-upvoted posts on Hacker News plus its newest**
+- Articles from 122 personal and engineering blogs (Paul Graham, Dan Luu, Julia Evans, Simon Willison, Cloudflare, Netflix…), each source's **most-upvoted posts on Hacker News plus its newest**
 - Every card shows a short description, reading time, HN points and a link to the HN discussion; the article itself opens on its own site
+- **Reading paths**: ordered reading lists (distributed systems, how LLMs work, performance, security, the web, engineering career)
 - **More like this**, **Read later**, **I have X minutes** (by reading time), **New this week**, and search across titles and descriptions
 - Videos and articles are linked: the watch page shows **Read more about this**, and an article's "More like this" page shows **Watch on this topic**
+
+**Follow along**: [`feed.xml`](https://geenccmustafa.github.io/nerdvana/feed.xml) is an Atom feed of the week's 10 most-viewed new videos and 10 most-upvoted new articles, rebuilt every night. Add it to any feed reader.
 
 Watched, read, saved and in-progress items are stored only in your browser. Light and dark themes.
 
@@ -40,6 +43,8 @@ Watched, read, saved and in-progress items are stored only in your browser. Ligh
 | `transcripts.py` | Downloads English subtitles for the Essential channels and writes `search.json`, a compact word index with timestamps. |
 | `sources.json` | The blog list: name, URL, tier and topic (optionally the feed URL). |
 | `articles.py` | Collects each blog's posts from [Hacker News](https://hn.algolia.com/api) (all-time popular, with points) and its RSS/Atom feed (newest), fetches each new page once for its description, cover image and length, and writes `articles.json`. |
+| `reading_paths_def.json` | The reading paths: a title and steps per path (a search phrase, or `title:` to pin a specific post). |
+| `feed.py` | Writes `feed.xml`, the weekly top-20 Atom feed. |
 | `index.html` | The whole site: one file, no build step, no dependencies. |
 
 ### Balancing rules
@@ -49,7 +54,7 @@ So that prolific channels (daily uploaders, conference archives) can't drown out
 - only channels with **≥ 250K subscribers**, at most **100** of them (picked by tier, then subscribers)
 - each channel keeps at most its **300 most-viewed + 100 newest** videos
 - Shorts (≤ 60 s) are dropped
-- articles: at most **100** sources, each keeping its **100 most-upvoted + 30 newest** posts
+- articles: at most **150** sources, each keeping its **100 most-upvoted + 30 newest** posts
 
 Only an article's title, a short description (the author's own summary or opening line) and its cover image link are stored. The full text stays on the author's site.
 
@@ -57,14 +62,15 @@ Only an article's title, a short description (the author's own summary or openin
 
 A GitHub Action ([`refresh.yml`](.github/workflows/refresh.yml)) runs nightly at 03:17 UTC: it re-fetches every channel and every blog (new posts and fresh HN points), rebuilds the similarity files, and commits the result, which redeploys the site. If a dataset comes back much smaller than the live one (e.g. YouTube blocks the runner), it keeps the live version of that file. You can also start it by hand from the Actions tab.
 
-Transcripts are refreshed by hand, because downloading thousands of subtitle files from a CI runner gets rate-limited.
+A second Action ([`transcripts.yml`](.github/workflows/transcripts.yml)) runs every Sunday: it downloads subtitles for new videos from the Essential channels and rebuilds `search.json`. The transcripts themselves (~40 MB) are kept as an asset of the [`transcripts-data`](https://github.com/GeenccMustafa/nerdvana/releases/tag/transcripts-data) release rather than in git. If YouTube blocks the runner, nothing is lost: the index only ever grows, and the next run tries again.
 
 Locally you need Python 3 and [uv](https://docs.astral.sh/uv/):
 
 ```bash
 python3 fetch.py           # fetch new channels, rebuild videos.json
 python3 fetch.py --force   # re-fetch every channel (picks up new uploads)
-uv run --python 3.12 --with fastembed --with numpy python enrich.py   # similar.json + paths.json
+uv run --python 3.12 --with fastembed --with numpy python enrich.py   # similarity, paths, video/article links
+python3 feed.py            # feed.xml
 python3 transcripts.py     # download missing transcripts, rebuild search.json
 python3 articles.py        # refresh every blog, fetch new pages, rebuild articles.json
 ```
@@ -75,8 +81,8 @@ Run locally:
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
-## Suggest a channel
+## Suggest a channel or blog
 
-Know a great channel that's missing? [Open a suggestion](https://github.com/GeenccMustafa/nerdvana/issues/new?template=suggest-channel.yml).
+Know a great channel or blog that's missing? Suggest a [channel](https://github.com/GeenccMustafa/nerdvana/issues/new?template=suggest-channel.yml) or a [blog](https://github.com/GeenccMustafa/nerdvana/issues/new?template=suggest-blog.yml).
 
 Tiers are one person's opinion. Fork it and make your own.
