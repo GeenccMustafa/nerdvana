@@ -5,14 +5,14 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-08T19:17:10Z</updated>
+  <updated>2026-11-08T19:39:53Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
     <id>tag:nerdvana,2026:video:_x58r9TBois</id>
     <title>▶ Meta VR Glasses: What Vision Pro 2 COULD Have Been!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=_x58r9TBois"/>
     <updated>2026-11-08T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 4.2M views · 8 min</summary>
+    <summary>Video · Marques Brownlee · 4.3M views · 8 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:28d8f037ea</id>
@@ -25,7 +25,7 @@ Well here we are again. Linux 7.3 is out and it’s been an eventful few months,
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:iw9SZgyahqg</id>
-    <title>▶ The one thing holding theoretical CS together just broke... kinda</title>
+    <title>▶ OpenAI just made cryptographers very nervous...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=iw9SZgyahqg"/>
     <updated>2026-11-07T00:00:00Z</updated>
     <summary>Video · Fireship · 1.6M views · 6 min</summary>
@@ -42,7 +42,7 @@ Well here we are again. Linux 7.3 is out and it’s been an eventful few months,
     <title>Libghostty 1.0</title>
     <link href="https://mitchellh.com/writing/libghostty-1-0"/>
     <updated>2026-11-06T00:00:00Z</updated>
-    <summary>Article · Mitchell Hashimoto · ▲ 1064 on Hacker News · 8 min read
+    <summary>Article · Mitchell Hashimoto · ▲ 1065 on Hacker News · 8 min read
 
 libghostty-vt 1.0 is here. libghostty is a portable, high-performance C library for terminal emulation, extracted directly from the core of Ghostty. The 1.0 release means both the library itself and the C ABI are now…</summary>
   </entry>
@@ -67,7 +67,7 @@ GitHub's new Git storage architecture is built so thousands of agents can push t
     <title>▶ I Tested Every Viral 3D Printed Tech!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=Yg2t5w8vj5Q"/>
     <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 5.0M views · 21 min</summary>
+    <summary>Video · Mrwhosetheboss · 5.1M views · 21 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:k2ruCf_z75I</id>
