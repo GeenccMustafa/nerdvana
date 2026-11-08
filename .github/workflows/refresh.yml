@@ -42,11 +42,21 @@ jobs:
               sys.exit("New data looks incomplete (YouTube may be blocking the runner); keeping the live version.")
           EOF
 
+      # Title embeddings are cached between runs so only new videos get embedded
+      - uses: actions/cache@v4
+        with:
+          path: .cache
+          key: embeddings-${{ github.run_id }}
+          restore-keys: embeddings-
+
+      - name: Rebuild "More like this" and learning paths
+        run: uv run --no-project --python 3.12 --with fastembed --with numpy python enrich.py
+
       - name: Commit if anything changed
         run: |
-          if git diff --quiet videos.json; then echo "No changes."; exit 0; fi
+          if git diff --quiet videos.json similar.json paths.json; then echo "No changes."; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add videos.json
+          git add videos.json similar.json paths.json
           git commit -m "Refresh videos ($(date -u +%Y-%m-%d))"
           git push

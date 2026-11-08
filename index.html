@@ -96,6 +96,51 @@ select.chip { padding-right: 8px; }
 .context p { margin: 2px 0 0; color: var(--fg2); font-size: 13px; }
 .context .txt { flex: 1 1 200px; min-width: 0; }
 
+.side-foot { display: flex; flex-direction: column; gap: 2px; padding: 0 4px; }
+.side-foot a { color: var(--fg2); text-decoration: none; font-size: 13px; padding: 8px 8px; border-radius: 8px; }
+.side-foot a:hover { background: var(--raise); color: var(--fg); }
+.side-foot a:first-child { color: var(--accent); font-weight: 600; }
+
+/* Cards: a clickable body plus a separate "save" button over the thumbnail */
+.card { position: relative; min-width: 0; }
+.card-hit { display: flex; flex-direction: column; gap: 8px; width: 100%; text-align: left; background: none; border: 0; padding: 0; min-width: 0; }
+.card:hover .thumb img { transform: scale(1.04); }
+.later-btn { position: absolute; top: 6px; right: 6px; z-index: 1; width: 32px; height: 32px; border-radius: 8px; border: 0; background: rgba(0,0,0,.72); color: #fff; display: grid; place-items: center; opacity: 0; transition: opacity .15s; }
+.card:hover .later-btn, .later-btn:focus-visible, .later-btn[aria-pressed="true"] { opacity: 1; }
+.later-btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); }
+@media (hover: none) { .later-btn { opacity: .9; } }
+.prog { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.35); }
+.prog i { display: block; height: 100%; background: var(--accent); }
+.badge { position: absolute; left: 6px; top: 6px; font: 600 10.5px var(--mono); letter-spacing: .05em; padding: 2px 6px; border-radius: 4px; background: rgba(0,0,0,.75); color: #fff; }
+.badge.new { background: var(--accent); color: var(--accent-fg); }
+.badge.ts { top: auto; bottom: 6px; background: var(--accent); color: var(--accent-fg); }
+.badge.step { background: var(--fg); color: var(--bg); font-size: 12px; }
+
+/* Shelf: a horizontal row above the grid (Continue watching, transcript matches) */
+.shelf { margin-bottom: 26px; }
+.shelf h3 { margin: 0 0 12px; font: 700 17px var(--display); display: flex; align-items: baseline; gap: 10px; }
+.shelf h3 small { font: 400 12px var(--body); color: var(--fg2); }
+.shelf-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 260px); gap: 14px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: thin; }
+
+/* Learning paths */
+.paths { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-bottom: 26px; }
+.path-card { display: flex; flex-direction: column; gap: 10px; text-align: left; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; padding: 12px; min-width: 0; }
+.path-card:hover { border-color: var(--fg2); }
+.path-card .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; border-radius: 9px; overflow: hidden; aspect-ratio: 16/9; }
+.path-card .mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.path-card h3 { margin: 2px 0 0; font: 700 18px var(--display); }
+.path-card p { margin: 0; color: var(--fg2); font-size: 13px; }
+.path-card .bar { height: 5px; border-radius: 99px; background: var(--raise); overflow: hidden; }
+.path-card .bar i { display: block; height: 100%; background: var(--accent); }
+.path-card .foot { display: flex; justify-content: space-between; font: 12px var(--mono); color: var(--fg2); font-variant-numeric: tabular-nums; }
+.pathnav { margin-top: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.pathnav .txt { flex: 1 1 200px; min-width: 0; font-size: 13px; color: var(--fg2); }
+.pathnav b { color: var(--fg); }
+.up-label { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--fg2); margin: 4px 4px 8px; }
+#upLabel { margin-top: 14px; }
+
+.toast { position: fixed; left: 50%; bottom: max(24px, env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 70; background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-weight: 500; box-shadow: 0 8px 30px rgba(0,0,0,.25); }
+
 main { padding-block: 20px 60px; min-width: 0; }
 .layout > main { margin: 0; max-width: none; }
 @media (max-width: 999px) {
@@ -106,10 +151,8 @@ main { padding-block: 20px 60px; min-width: 0; }
   body.drawer .scrim { display: block; position: fixed; inset: 0; z-index: 39; background: var(--shade); }
 }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px 16px; }
-.card { display: flex; flex-direction: column; gap: 8px; text-align: left; background: none; border: 0; padding: 0; min-width: 0; }
 .thumb { position: relative; aspect-ratio: 16/9; max-width: 100%; border-radius: var(--r); overflow: hidden; background: var(--raise); }
 .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s ease; }
-.card:hover .thumb img { transform: scale(1.04); }
 .dur { position: absolute; right: 6px; bottom: 6px; background: rgba(0,0,0,.8); color: #fff; font: 500 11px var(--mono); padding: 2px 5px; border-radius: 4px; font-variant-numeric: tabular-nums; }
 .seen-badge { position: absolute; left: 6px; top: 6px; background: rgba(0,0,0,.75); color: #fff; font: 500 11px var(--mono); padding: 2px 6px; border-radius: 4px; }
 .card.seen .thumb img { opacity: .4; }
@@ -224,15 +267,31 @@ main { padding-block: 20px 60px; min-width: 0; }
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</button>
     <button class="nav-item" type="button" data-view="picks">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>Top picks</button>
+    <button class="nav-item" type="button" data-view="new">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>New this week<span class="n" id="newN"></span></button>
+    <button class="nav-item" type="button" data-view="paths">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h12"/><path d="M9 7h6M9 11h4"/></svg>Learning paths</button>
+    <button class="nav-item" type="button" data-view="time">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>I have X minutes</button>
+    <hr>
+    <button class="nav-item" type="button" data-view="later">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Watch later<span class="n" id="laterN"></span></button>
     <button class="nav-item" type="button" data-view="history">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>History<span class="n" id="histN"></span></button>
     <hr>
     <div id="tierList"></div>
+    <hr>
+    <div class="side-foot">
+      <a href="https://github.com/GeenccMustafa/nerdvana/issues/new?template=suggest-channel.yml" target="_blank" rel="noopener">＋ Suggest a channel</a>
+      <a href="https://github.com/GeenccMustafa/nerdvana" target="_blank" rel="noopener">Source on GitHub</a>
+    </div>
   </nav>
   <div class="scrim" id="scrim"></div>
 
   <main class="wrap">
     <div class="context" id="context" hidden></div>
+    <section class="shelf" id="shelf" hidden><h3 id="shelfTitle"></h3><div class="shelf-row" id="shelfRow"></div></section>
+    <div class="paths" id="pathsGrid" hidden></div>
     <div class="grid" id="grid"></div>
     <div class="empty" id="empty" hidden>No videos match these filters.</div>
     <div class="sentinel" id="sentinel"></div>
@@ -252,18 +311,26 @@ main { padding-block: 20px 60px; min-width: 0; }
       <h2 id="pTitle"></h2>
       <div class="prow">
         <button class="who" id="pWho" type="button" title="Show this channel"></button>
+        <button class="btn" id="pLater" type="button" aria-pressed="false">Save</button>
+        <button class="btn" id="pShare" type="button">Share</button>
         <button class="btn" id="pSeen" type="button">Mark watched</button>
-        <a class="btn" id="pYt" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        <a class="btn" id="pYt" target="_blank" rel="noopener">YouTube ↗</a>
       </div>
       <div class="pstats" id="pStats"></div>
+      <div class="pathnav" id="pathNav" hidden></div>
     </section>
     <aside>
       <div class="upnext-head"><h3>Up next</h3>
         <button class="switch" id="autoBtn" type="button" role="switch" aria-checked="true">Autoplay <i></i></button></div>
+      <div class="up-label" id="simLabel" hidden>More like this</div>
+      <div id="simList"></div>
+      <div class="up-label" id="upLabel" hidden>From your feed</div>
       <div id="upList"></div>
     </aside>
   </div>
 </div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <div class="tv" id="tv" hidden>
   <div class="frame"><div id="tvPlayer"></div></div>
@@ -295,23 +362,36 @@ $("#themeBtn").onclick = () => {
   document.documentElement.dataset.theme = next; store.set("theme", next);
 };
 
-let CH = [], V = [], list = [], shown = 0;
+let CH = [], V = [], byId = new Map(), list = [], shown = 0;
+let SIM = null, PATHS = [], SEARCH = null, searchLoading = null;
 const seen = new Set(store.get("seen", []));
 const saveSeen = () => store.set("seen", [...seen]);
-const state = { q: "", view: "home", tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false };
+let later = store.get("later", []);          // saved video ids, newest first
+const saveLater = () => store.set("later", later);
+let progress = store.get("progress", {});    // id -> { t: seconds watched, at: last watched (ms) }
+const saveProgress = () => store.set("progress", progress);
+const state = { q: "", view: "home", path: null, budget: 15, tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false };
 const TIERS = [["S", "Essential"], ["A", "Great"], ["B", "Worth a look"]];
 const DURS = [["<10 min", 0, 600], ["10–30 min", 600, 1800], ["30–60 min", 1800, 3600], ["1 h+", 3600, 1e9]];
+const BUDGETS = [5, 10, 15, 20, 30, 45, 60];
+const NOW = Date.now() / 1000, WEEK = 7 * 86400;
+const isNew = v => v.ts && NOW - v.ts <= WEEK;
 
-const fmtDur = s => { const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), ss = s % 60;
+const fmtDur = s => { s = Math.floor(s); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), ss = s % 60;
   return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(ss).padStart(2, "0"); };
+const fmtMin = s => { const m = Math.round(s / 60); return m >= 60 ? `${Math.floor(m / 60)} h ${m % 60} min` : `${m} min`; };
 const fmtNum = n => n >= 1e9 ? (n / 1e9).toFixed(1) + "B" : n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 1) + "M" : n >= 1e3 ? Math.round(n / 1e3) + "K" : String(n);
 const fmtAgo = ts => { if (!ts) return ""; const d = (Date.now() / 1000 - ts) / 86400;
   const ago = (n, u) => `${n} ${u}${n === 1 ? "" : "s"} ago`;
   if (d < 1) return "today"; if (d < 30) return ago(Math.round(d), "day");
   if (d < 365) return ago(Math.max(1, Math.round(d / 30)), "month"); return ago(Math.round(d / 365), "year"); };
 const thumb = id => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
-const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const ICON_SAVE = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>`;
+
+let toastT;
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => t.hidden = true, 2200); }
 
 function chip(label, pressed, onclick, extra = "") {
   const b = document.createElement("button");
@@ -336,9 +416,16 @@ document.addEventListener("error", e => {
   const img = e.target; if (img.tagName === "IMG" && img.parentElement?.classList.contains("av")) img.parentElement.textContent = img.parentElement.dataset.i;
 }, true);
 
+function updateCounts() {
+  const n = x => x ? x.toLocaleString("en-US") : "";
+  $("#histN").textContent = n(seen.size);
+  $("#laterN").textContent = n(later.filter(id => byId.has(id)).length);
+  $("#newN").textContent = n(V.filter(isNew).length);
+}
 function renderSide() {
-  document.querySelectorAll(".nav-item").forEach(b => b.setAttribute("aria-current", state.view === b.dataset.view && state.ch == null && !state.tier));
-  $("#histN").textContent = seen.size ? seen.size.toLocaleString("en-US") : "";
+  const cur = state.view === "path" ? "paths" : state.view;
+  document.querySelectorAll(".nav-item").forEach(b => b.setAttribute("aria-current", cur === b.dataset.view && state.ch == null && !state.tier));
+  updateCounts();
   const box = $("#tierList"); box.innerHTML = "";
   for (const [t, label] of TIERS) {
     const chans = CH.map((c, i) => [c, i]).filter(([c]) => c.t === t && (!state.topic || c.topic === state.topic));
@@ -360,13 +447,41 @@ function renderSide() {
 }
 // Sidebar selection: set view/tier/channel, refresh, close the drawer on phones, jump to top
 function pick(p) {
-  Object.assign(state, { view: "home" }, p);
-  renderFilters(); apply(); setDrawer(false); scrollTo({ top: 0 });
+  Object.assign(state, { view: "home", path: null }, p);
+  renderFilters(); apply(); setDrawer(false); scrollTo({ top: 0 }); syncHash();
 }
 document.querySelectorAll(".nav-item").forEach(b => b.onclick = () => pick({ view: b.dataset.view, tier: null, ch: null }));
 
+/* ---------- Shareable links: #v=ID&t=SEC, #c=handle, #tier=S, #path=id, #time=15, #picks, #new, #paths, #later, #history ---------- */
+function hashFor() {
+  if (state.ch != null) return `#c=${encodeURIComponent(CH[state.ch].h)}`;
+  if (state.tier) return `#tier=${state.tier}`;
+  if (state.view === "path") return `#path=${encodeURIComponent(state.path)}`;
+  if (state.view === "time") return `#time=${state.budget}`;
+  return state.view === "home" ? "" : `#${state.view}`;
+}
+function syncHash() {
+  if (!$("#watch").hidden) return;
+  const h = hashFor();
+  if (location.hash !== h) history.replaceState(null, "", h || location.pathname + location.search);
+}
+function route() {
+  const p = new URLSearchParams(location.hash.slice(1));
+  const v = byId.get(p.get("v") || "");
+  if (v) { openPlayer(v, { start: +p.get("t") || 0, fromRoute: true }); return; }
+  if (!$("#watch").hidden) closePlayer(true);
+  const next = { view: "home", path: null, tier: null, ch: null };
+  if (p.get("c")) { const i = CH.findIndex(c => c.h.toLowerCase() === p.get("c").toLowerCase()); if (i >= 0) next.ch = i; }
+  else if (p.get("tier") && TIERS.some(t => t[0] === p.get("tier").toUpperCase())) next.tier = p.get("tier").toUpperCase();
+  else if (p.get("path")) Object.assign(next, { view: "path", path: p.get("path") });
+  else if (p.has("time")) { next.view = "time"; state.budget = BUDGETS.includes(+p.get("time")) ? +p.get("time") : 15; }
+  else for (const k of ["picks", "new", "paths", "later", "history"]) if (p.has(k)) next.view = k;
+  Object.assign(state, next); renderFilters(); apply();
+}
+window.addEventListener("popstate", route);
+
 function renderContext() {
-  const el = $("#context"), n = list.length.toLocaleString("en-US");
+  const el = $("#context"), n = list.length.toLocaleString("en-US"), total = list.reduce((s, v) => s + v.d, 0);
   let html = "";
   if (state.ch != null) { const c = CH[state.ch];
     html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${fmtNum(c.subs)} subscribers · ${c.topic} · showing ${n} of ${(c.total || 0).toLocaleString("en-US")} uploads</p></div>
@@ -376,10 +491,37 @@ function renderContext() {
   } else if (state.view === "picks") {
     html = `<div class="txt"><h2>Top picks</h2><p>The 15 most-viewed videos of each Essential channel, mixed · ${n} videos</p></div>`;
   } else if (state.view === "history") {
-    html = `<div class="txt"><h2>History</h2><p>${seen.size ? `${n} watched videos, newest first` : "Videos you watch or mark as watched show up here."}</p></div>`;
+    html = `<div class="txt"><h2>History</h2><p>${seen.size ? `${n} watched video${list.length === 1 ? "" : "s"}, newest first` : "Videos you finish or mark as watched show up here."}</p></div>`;
+  } else if (state.view === "later") {
+    html = `<div class="txt"><h2>Watch later</h2><p>${list.length ? `${n} saved video${list.length === 1 ? "" : "s"} · ${fmtMin(total)}` : "Nothing saved yet."}</p></div>
+      ${list.length ? `<button class="btn primary" data-act="playall">Play all in TV mode</button>` : ""}`;
+  } else if (state.view === "new") {
+    html = `<div class="txt"><h2>New this week</h2><p>${n} videos uploaded in the last 7 days across all 100 channels, newest first</p></div>`;
+  } else if (state.view === "paths") {
+    html = `<div class="txt"><h2>Learning paths</h2><p>Short, ordered playlists that take one topic from zero to solid, picked from the Essential and Great channels.</p></div>`;
+  } else if (state.view === "path") { const p = PATHS.find(x => x.id === state.path);
+    const done = list.filter(v => seen.has(v.id)).length;
+    html = p ? `<div class="txt"><h2>${esc(p.title)}</h2><p>${esc(p.blurb)} · ${list.length} videos · ${fmtMin(total)} · ${done} of ${list.length} watched</p></div>
+      <button class="btn" data-act="allpaths">All paths</button>
+      <button class="btn primary" data-act="start">${done ? (done === list.length ? "Watch again" : "Continue") : "Start"}</button>`
+      : `<div class="txt"><h2>Path not found</h2><p>This learning path doesn't exist anymore.</p></div><button class="btn" data-act="allpaths">All paths</button>`;
+  } else if (state.view === "time") {
+    html = `<div class="txt"><h2>I have ${state.budget} minutes</h2><p>${list.length ? `${list.length} unwatched video${list.length > 1 ? "s" : ""} from the Essential and Great channels · ${fmtMin(total)} in total` : "Nothing fits. Try more time or clear the filters."}</p>
+      <div class="group" style="margin-top:10px">${BUDGETS.map(m => `<button class="chip" data-act="budget" data-m="${m}" aria-pressed="${m === state.budget}">${m} min</button>`).join("")}</div></div>
+      <button class="btn" data-act="reroll">Shuffle</button>
+      ${list.length ? `<button class="btn primary" data-act="playall">Play all</button>` : ""}`;
   }
   el.innerHTML = html; el.hidden = !html;
 }
+$("#context").addEventListener("click", e => {
+  const b = e.target.closest("[data-act]"); if (!b) return;
+  const a = b.dataset.act;
+  if (a === "budget") { state.budget = +b.dataset.m; apply(); syncHash(); }
+  else if (a === "reroll") apply();
+  else if (a === "playall") startTV([...list]);
+  else if (a === "allpaths") pick({ view: "paths" });
+  else if (a === "start") { const v = list.find(x => !seen.has(x.id)) || list[0]; if (v) openPlayer(v); }
+});
 
 /* Drawer (below 1000px) */
 function setDrawer(open) { document.body.classList.toggle("drawer", open); $("#menuBtn").setAttribute("aria-expanded", open); }
@@ -388,31 +530,48 @@ $("#scrim").onclick = () => setDrawer(false);
 // Keep the sticky sidebar exactly below the header, whatever its height
 new ResizeObserver(() => document.documentElement.style.setProperty("--hh", $("header").offsetHeight + "px")).observe($("header"));
 
+function passes(v, { ignoreSeen = false, ignoreQ = false } = {}) {
+  const c = CH[v.c];
+  if (state.tier && c.t !== state.tier) return false;
+  if (state.topic && c.topic !== state.topic) return false;
+  if (state.ch != null && v.c !== state.ch) return false;
+  if (state.dur != null) { const [, lo, hi] = DURS[state.dur]; if (v.d < lo || v.d >= hi) return false; }
+  if (!ignoreSeen && state.hideSeen && seen.has(v.id)) return false;
+  return ignoreQ || !state.q || v.s.includes(state.q);
+}
+// "I have X minutes": pack unwatched S/A videos (in a channel-balanced order) into the time budget
+function packBudget() {
+  const cap = state.budget * 60;
+  const pool = mix(V.filter(v => passes(v) && !seen.has(v.id) && "SA".includes(CH[v.c].t) && v.d >= 60 && v.d <= cap && v.v >= 20000));
+  const out = []; let left = cap;
+  for (const v of pool) { if (v.d <= left) { out.push(v); left -= v.d; } if (left < 90 || out.length >= 12) break; }
+  return out;
+}
+
 function apply() {
-  list = V.filter(v => {
-    const c = CH[v.c];
-    if (state.tier && c.t !== state.tier) return false;
-    if (state.topic && c.topic !== state.topic) return false;
-    if (state.ch != null && v.c !== state.ch) return false;
-    if (state.dur != null) { const [, lo, hi] = DURS[state.dur]; if (v.d < lo || v.d >= hi) return false; }
-    if (state.view === "picks" && c.t !== "S") return false;
-    if (state.view === "history" ? !seen.has(v.id) : (state.hideSeen && seen.has(v.id))) return false;
-    return !state.q || v.s.includes(state.q);
-  });
   const by = { new: (a, b) => b.ts - a.ts, views: (a, b) => b.v - a.v, long: (a, b) => b.d - a.d };
-  if (state.view === "history") { const order = [...seen]; list.sort((a, b) => order.lastIndexOf(b.id) - order.lastIndexOf(a.id)); }
-  else if (state.view === "picks") {
+  const sortList = () => { if (state.sort === "random") shuffle(list); else if (state.sort === "mix") list = mix(list); else list.sort(by[state.sort]); };
+  const view = state.view;
+  if (view === "history") { const order = [...seen]; list = V.filter(v => seen.has(v.id) && passes(v, { ignoreSeen: true })); list.sort((a, b) => order.lastIndexOf(b.id) - order.lastIndexOf(a.id)); }
+  else if (view === "later") list = later.map(id => byId.get(id)).filter(v => v && passes(v, { ignoreSeen: true }));
+  else if (view === "path") list = (PATHS.find(p => p.id === state.path)?.videos || []).map(id => byId.get(id)).filter(Boolean);
+  else if (view === "paths") list = [];
+  else if (view === "time") list = packBudget();
+  else if (view === "new") { list = V.filter(v => isNew(v) && passes(v)); list.sort(by.new); }
+  else if (view === "picks") {
     // Each Essential channel's 15 most-viewed videos, dealt out evenly so no channel dominates
     const per = new Map();
-    for (const v of list.sort(by.views)) { const a = per.get(v.c) || []; if (a.length < 15) { a.push(v); per.set(v.c, a); } }
-    list = [...per.values()].flat();
-    list = state.sort === "mix" ? mix(list) : state.sort === "random" ? shuffle(list) : list.sort(by[state.sort]);
+    for (const v of V.filter(v => CH[v.c].t === "S" && passes(v)).sort(by.views)) { const a = per.get(v.c) || []; if (a.length < 15) { a.push(v); per.set(v.c, a); } }
+    list = [...per.values()].flat(); sortList();
   }
-  else if (state.sort === "random") shuffle(list); else if (state.sort === "mix") list = mix(list); else list.sort(by[state.sort]);
-  renderContext();
+  else { list = V.filter(v => passes(v)); sortList(); }
+  renderContext(); renderPaths(); renderShelf();
   $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} videos · ${CH.length} channels`;
   $("#grid").innerHTML = ""; shown = 0; more();
-  $("#empty").hidden = list.length > 0;
+  const empty = { later: "Nothing saved yet. Use the bookmark button on any video to keep it for later.",
+                  history: "", new: "No new uploads in the last 7 days match these filters.", time: "", paths: "", path: "" }[view];
+  $("#empty").textContent = empty ?? "No videos match these filters.";
+  $("#empty").hidden = list.length > 0 || !$("#empty").textContent;
 }
 /* Channel-balanced shuffle: deal one video per channel per round, so a channel with 400 videos
    shows up as often as one with 40 until the smaller one runs out. */
@@ -426,67 +585,196 @@ function mix(arr) {
 }
 function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
-function card(v) {
-  const c = CH[v.c], b = document.createElement("button");
-  b.type = "button"; b.className = "card" + (seen.has(v.id) ? " seen" : ""); b.dataset.id = v.id;
-  b.innerHTML = `<div class="thumb"><img loading="lazy" alt="" src="${thumb(v.id)}">
-    ${v.d ? `<span class="dur">${fmtDur(v.d)}</span>` : ""}${seen.has(v.id) ? `<span class="seen-badge">WATCHED</span>` : ""}</div>
+function card(v, o = {}) {
+  const c = CH[v.c], el = document.createElement("div");
+  el.className = "card" + (seen.has(v.id) ? " seen" : ""); el.dataset.id = v.id;
+  const p = progress[v.id], pct = p && v.d ? Math.min(100, p.t / v.d * 100) : 0;
+  const badge = o.step ? `<span class="badge step">${o.step}</span>` : seen.has(v.id) ? `<span class="badge">WATCHED</span>` : isNew(v) ? `<span class="badge new">NEW</span>` : "";
+  el.innerHTML = `<button type="button" class="card-hit"><div class="thumb"><img loading="lazy" alt="" src="${thumb(v.id)}">${badge}
+      ${o.at != null ? `<span class="badge ts">▶ ${fmtDur(o.at)}</span>` : v.d ? `<span class="dur">${fmtDur(v.d)}</span>` : ""}
+      ${pct ? `<span class="prog"><i style="width:${pct.toFixed(1)}%"></i></span>` : ""}</div>
     <h3>${esc(v.t)}</h3>
     <div class="meta"><span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span>
-    <span class="dot"></span><span class="num">${fmtNum(v.v)}</span><span class="dot"></span><span class="num">${fmtAgo(v.ts)}</span></div>`;
-  b.onclick = () => openPlayer(v);
-  return b;
+    <span class="dot"></span><span class="num">${fmtNum(v.v)}</span><span class="dot"></span><span class="num">${fmtAgo(v.ts)}</span></div></button>
+    <button type="button" class="later-btn" aria-pressed="${later.includes(v.id)}" aria-label="Watch later" title="Watch later">${ICON_SAVE}</button>`;
+  // transcript hits start 3 s before the mention, so the sentence isn't cut off
+  el.querySelector(".card-hit").onclick = () => openPlayer(v, { start: o.at != null ? Math.max(0, o.at - 3) : p?.t ?? 0 });
+  el.querySelector(".later-btn").onclick = () => toggleLater(v.id);
+  return el;
 }
 function more() {
   const frag = document.createDocumentFragment();
-  for (const v of list.slice(shown, shown + 60)) frag.append(card(v));
+  list.slice(shown, shown + 60).forEach((v, k) => frag.append(card(v, { step: state.view === "path" ? shown + k + 1 : 0 })));
   shown += 60; $("#grid").append(frag);
 }
 new IntersectionObserver(e => { if (e[0].isIntersecting && shown < list.length) more(); }, { rootMargin: "1200px" }).observe($("#sentinel"));
 
-/* Watch view */
-let current = null, upNext = [], wp = null, autoplay = store.get("autoplay", true);
-function openPlayer(v) {
+/* ---------- Watch later ---------- */
+function toggleLater(id) {
+  const on = !later.includes(id);
+  later = on ? [id, ...later] : later.filter(x => x !== id); saveLater();
+  document.querySelectorAll(`.card[data-id="${id}"] .later-btn`).forEach(b => b.setAttribute("aria-pressed", on));
+  if (current?.id === id) renderLaterBtn();
+  updateCounts(); toast(on ? "Saved to Watch later" : "Removed from Watch later");
+  if (state.view === "later") apply();
+}
+function renderLaterBtn() { const on = later.includes(current.id); $("#pLater").setAttribute("aria-pressed", on); $("#pLater").textContent = on ? "Saved" : "Save"; }
+
+/* ---------- Learning paths ---------- */
+function renderPaths() {
+  const box = $("#pathsGrid");
+  box.hidden = state.view !== "paths";
+  if (box.hidden) return;
+  box.innerHTML = "";
+  for (const p of PATHS) {
+    const vids = p.videos.map(id => byId.get(id)).filter(Boolean);
+    const done = vids.filter(v => seen.has(v.id)).length, total = vids.reduce((s, v) => s + v.d, 0);
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "path-card";
+    b.innerHTML = `<div class="mosaic">${vids.slice(0, 4).map(v => `<img loading="lazy" alt="" src="${thumb(v.id)}">`).join("")}</div>
+      <h3>${esc(p.title)}</h3><p>${esc(p.blurb)}</p>
+      <div class="bar"><i style="width:${vids.length ? done / vids.length * 100 : 0}%"></i></div>
+      <div class="foot"><span>${vids.length} videos · ${fmtMin(total)}</span><span>${done}/${vids.length} watched</span></div>`;
+    b.onclick = () => pick({ view: "path", path: p.id });
+    box.append(b);
+  }
+}
+
+/* ---------- Shelf: "Continue watching" on the home feed, transcript matches while searching ---------- */
+let shelfToken = 0;
+function renderShelf() {
+  const token = ++shelfToken, box = $("#shelf");
+  const show = (title, items) => {
+    if (token !== shelfToken) return;
+    $("#shelfRow").innerHTML = "";
+    box.hidden = !items.length; if (!items.length) return;
+    $("#shelfTitle").innerHTML = title;
+    for (const [v, at] of items) $("#shelfRow").append(card(v, at != null ? { at } : {}));
+  };
+  if (state.q.length >= 3 && !["paths", "path", "time"].includes(state.view)) {
+    box.hidden = true;
+    ensureSearch().then(() => show(`Mentioned in transcripts <small>spoken in the video, jumps to the moment</small>`, transcriptHits(state.q)));
+    return;
+  }
+  const home = state.view === "home" && state.ch == null && !state.tier && !state.topic && state.dur == null;
+  if (home) {
+    const items = Object.entries(progress).sort((a, b) => b[1].at - a[1].at).map(([id, p]) => [byId.get(id), null]).filter(([v]) => v && !seen.has(v.id)).slice(0, 12);
+    return show(`Continue watching <small>picks up where you left off</small>`, items);
+  }
+  show("", []);
+}
+function ensureSearch() {
+  return searchLoading ||= fetch("search.json").then(r => r.ok ? r.json() : null)
+    .then(d => { if (d) { SEARCH = d; SEARCH.keys = Object.keys(d.terms); } }).catch(() => {});
+}
+// Videos whose transcript mentions the query words, best first: most words matched, then most viewed.
+// Exact word first, otherwise any indexed word starting with it ("kube" -> "kubernetes"). Short/common words are ignored.
+const QSTOP = new Set("the and for with what how why who are was this that from into you your about does not can its".split(" "));
+function transcriptHits(q) {
+  const words = [...new Set(q.split(/[^a-z0-9+#.-]+/).filter(w => w.length >= 3 && !QSTOP.has(w)))];
+  if (!SEARCH || !words.length) return [];
+  const docs = new Map();   // doc -> { n: words matched, s: second where the first matched word is spoken }
+  for (const w of words) {
+    let posts = SEARCH.terms[w];
+    if (!posts) { posts = []; for (const k of SEARCH.keys) if (k.length > w.length && k.startsWith(w)) posts = posts.concat(SEARCH.terms[k]); }
+    const m = new Map();
+    for (const [d, s] of posts) if (!m.has(d) || s < m.get(d)) m.set(d, s);
+    for (const [d, s] of m) { const e = docs.get(d); docs.set(d, e ? { n: e.n + 1, s: Math.min(e.s, s) } : { n: 1, s }); }
+  }
+  const need = words.length > 2 ? words.length - 1 : words.length;   // allow one missing word in longer queries
+  return [...docs].filter(([, e]) => e.n >= need).map(([d, e]) => [byId.get(SEARCH.docs[d]), e.s, e.n])
+    .filter(([v]) => v && passes(v, { ignoreQ: true })).sort((a, b) => b[2] - a[2] || b[0].v - a[0].v).slice(0, 30).map(([v, s]) => [v, s]);
+}
+
+/* ---------- Watch view ---------- */
+let current = null, nextUp = null, wp = null, autoplay = store.get("autoplay", true);
+function upItem(u) {
+  const uc = CH[u.c], b = document.createElement("button");
+  b.type = "button"; b.className = "up";
+  b.innerHTML = `<div class="thumb"><img loading="lazy" alt="" src="${thumb(u.id)}">${u.d ? `<span class="dur">${fmtDur(u.d)}</span>` : ""}${seen.has(u.id) ? `<span class="badge">WATCHED</span>` : ""}</div>
+    <div class="m"><h4>${esc(u.t)}</h4><span>${esc(uc.n)} <span class="tier ${uc.t}">${uc.t}</span></span><span>${fmtNum(u.v)} views</span></div>`;
+  b.onclick = () => openPlayer(u, { start: progress[u.id]?.t || 0 });
+  return b;
+}
+function openPlayer(v, o = {}) {
+  saveCurrentProgress();
   current = v;
-  // Up next: what follows this video in the current list; if it isn't in the list, a fresh channel-balanced mix
+  const inPath = state.view === "path" && list.includes(v);
+  // More like this: nearest titles by meaning (precomputed), skipping this video
+  const sim = (SIM?.[v.i] || []).map(i => V[i]).filter(x => x && x !== v).slice(0, 8);
+  // From your feed: what follows this video in the current list, else a fresh channel-balanced mix
   const idx = list.indexOf(v);
-  const pool = idx >= 0 ? [...list.slice(idx + 1), ...list.slice(0, idx)] : mix(list.length ? [...list] : [...V]);
-  upNext = pool.filter(x => x !== v && !seen.has(x.id)).slice(0, 20);
-  if (upNext.length < 20) upNext.push(...pool.filter(x => x !== v && seen.has(x.id)).slice(0, 20 - upNext.length));
+  const pool = idx >= 0 ? [...list.slice(idx + 1), ...(inPath ? [] : list.slice(0, idx))] : mix(list.length ? [...list] : [...V]);
+  const simSet = new Set(sim);
+  let feed = pool.filter(x => x !== v && !simSet.has(x) && (inPath || !seen.has(x.id))).slice(0, inPath ? 20 : 12);
+  if (!inPath && feed.length < 12) feed.push(...pool.filter(x => x !== v && !simSet.has(x) && seen.has(x.id)).slice(0, 12 - feed.length));
+  nextUp = inPath ? feed[0] : ([...sim, ...feed].find(x => !seen.has(x.id)) || feed[0] || sim[0]);
+
   const c = CH[v.c];
   $("#pTitle").textContent = v.t;
   $("#pWho").innerHTML = `${avatar(c)}<span><b>${esc(c.n)}</b><small>${fmtNum(c.subs)} subscribers</small></span>`;
   $("#pStats").textContent = `${v.v.toLocaleString("en-US")} views · ${fmtAgo(v.ts)} · ${fmtDur(v.d)} · ${TIERS.find(x => x[0] === c.t)[1]} tier · ${c.topic}`;
   $("#pYt").href = `https://www.youtube.com/watch?v=${v.id}`;
   $("#pSeen").textContent = seen.has(v.id) ? "Mark unwatched" : "Mark watched";
-  $("#upList").innerHTML = "";
-  for (const u of upNext) {
-    const uc = CH[u.c], b = document.createElement("button");
-    b.type = "button"; b.className = "up";
-    b.innerHTML = `<div class="thumb"><img loading="lazy" alt="" src="${thumb(u.id)}">${u.d ? `<span class="dur">${fmtDur(u.d)}</span>` : ""}</div>
-      <div class="m"><h4>${esc(u.t)}</h4><span>${esc(uc.n)} <span class="tier ${uc.t}">${uc.t}</span></span><span>${fmtNum(u.v)} views</span></div>`;
-    b.onclick = () => openPlayer(u);
-    $("#upList").append(b);
+  renderLaterBtn();
+  const pn = $("#pathNav"); pn.hidden = !inPath;
+  if (inPath) { const p = PATHS.find(x => x.id === state.path);
+    pn.innerHTML = `<div class="txt">Step <b>${idx + 1} of ${list.length}</b> in <b>${esc(p.title)}</b></div>${feed[0] ? `<button class="btn primary" type="button" id="pathNext">Next step →</button>` : `<span class="txt"><b>Last step 🎉</b></span>`}`;
+    $("#pathNext")?.addEventListener("click", () => openPlayer(feed[0]));
   }
+  $("#simLabel").hidden = !sim.length || inPath; $("#simList").innerHTML = "";
+  if (!inPath) sim.forEach(u => $("#simList").append(upItem(u)));
+  $("#upLabel").hidden = !sim.length || inPath; $("#upLabel").textContent = "From your feed";
+  $("#upList").innerHTML = ""; feed.forEach(u => $("#upList").append(upItem(u)));
+
   const wasHidden = $("#watch").hidden;
   $("#watch").hidden = false; document.body.style.overflow = "hidden";
   if (!wasHidden) $("#watch").scrollTo({ top: 0 });
+  const h = `#v=${v.id}`;
+  if (o.fromRoute || !wasHidden) history.replaceState({ watch: 1 }, "", h); else history.pushState({ watch: 1 }, "", h);
+
+  if (o.keepPlayer) return;
+  let start = Math.floor(o.start || 0); if (start > v.d - 20) start = 0;
   loadYT().then(() => {
     if (current !== v) return;
-    if (wp) wp.loadVideoById(v.id);
-    else wp = new YT.Player("wPlayer", { videoId: v.id, playerVars: { autoplay: 1, rel: 0, modestbranding: 1 },
+    if (wp) wp.loadVideoById({ videoId: v.id, startSeconds: start });
+    else wp = new YT.Player("wPlayer", { videoId: v.id, playerVars: { autoplay: 1, rel: 0, modestbranding: 1, start },
       events: { onReady: e => e.target.playVideo(),
-                onStateChange: e => { if (e.data === YT.PlayerState.ENDED && current) { markSeen(current.id, true); if (autoplay && upNext[0]) openPlayer(upNext[0]); } } } });
+                onStateChange: e => { if (e.data === YT.PlayerState.ENDED && current) { finish(current.id); if (autoplay && nextUp) openPlayer(nextUp); } } } });
   });
 }
-function closePlayer() { $("#watch").hidden = true; document.body.style.overflow = ""; wp?.stopVideo?.(); current = null; renderSide(); }
+function closePlayer(fromPop) {
+  saveCurrentProgress();
+  $("#watch").hidden = true; document.body.style.overflow = ""; wp?.stopVideo?.(); current = null;
+  renderSide(); renderShelf();
+  if (fromPop !== true) { if (history.state?.watch) history.back(); else syncHash(); }
+}
 function markSeen(id, on) {
   on ? seen.add(id) : seen.delete(id); saveSeen();
-  const el = document.querySelector(`.card[data-id="${id}"]`); if (el) el.replaceWith(card(V.find(v => v.id === id)));
+  if (on) { delete progress[id]; saveProgress(); }
+  document.querySelectorAll(`.card[data-id="${id}"]`).forEach(el => el.classList.toggle("seen", on));
+  updateCounts();
 }
-$("#pClose").onclick = closePlayer;
-$("#pWho").onclick = () => { if (!current) return; const i = current.c; closePlayer(); pick({ ch: i, tier: null }); };
+function finish(id) { markSeen(id, true); }
+// Remember the playback position every few seconds, so "Continue watching" can resume it
+function saveCurrentProgress() {
+  if (!current || !wp?.getCurrentTime) return;
+  const t = Math.floor(wp.getCurrentTime() || 0), id = current.id;
+  if (t >= current.d * 0.92 && current.d) { if (!seen.has(id)) markSeen(id, true); return; }
+  if (t > 15) { progress[id] = { t, at: Date.now() }; saveProgress(); }
+}
+setInterval(() => { if (current && wp?.getPlayerState?.() === 1) saveCurrentProgress(); }, 5000);
+$("#pClose").onclick = () => closePlayer();
+$("#pWho").onclick = () => { if (!current) return; const i = current.c; closePlayer(true); pick({ ch: i, tier: null }); };
 $("#pSeen").onclick = () => { if (!current) return; const on = !seen.has(current.id); markSeen(current.id, on); $("#pSeen").textContent = on ? "Mark unwatched" : "Mark watched"; };
+$("#pLater").onclick = () => current && toggleLater(current.id);
+$("#pShare").onclick = async () => {
+  if (!current) return;
+  const t = Math.floor(wp?.getCurrentTime?.() || 0);
+  const url = `${location.origin}${location.pathname}#v=${current.id}${t > 5 ? `&t=${t}` : ""}`;
+  try { await navigator.clipboard.writeText(url); toast(t > 5 ? `Link copied, starts at ${fmtDur(t)}` : "Link copied"); }
+  catch { toast(url); }
+};
 function renderAuto() { $("#autoBtn").setAttribute("aria-checked", autoplay); }
 $("#autoBtn").onclick = () => { autoplay = !autoplay; store.set("autoplay", autoplay); renderAuto(); };
 renderAuto();
@@ -498,7 +786,7 @@ function surprise() {
   openPlayer(from[Math.random() * from.length | 0]);
 }
 
-/* TV mode: plays the current filtered list as a channel-balanced mix, unwatched first */
+/* TV mode: plays the current filtered list as a channel-balanced mix, unwatched first (or a given queue in order) */
 let yt = null, ytReady = null, queue = [], qi = 0, idleT;
 function loadYT() {
   if (ytReady) return ytReady;
@@ -506,11 +794,13 @@ function loadYT() {
   const s = document.createElement("script"); s.src = "https://www.youtube.com/iframe_api"; document.head.append(s);
   return ytReady;
 }
-async function startTV() {
-  const pool = list.length ? list : V;
-  const fresh = pool.filter(v => !seen.has(v.id)), old = pool.filter(v => seen.has(v.id));
-  queue = [...mix(fresh), ...mix(old)]; qi = 0;
+async function startTV(fixed) {
+  if (Array.isArray(fixed)) queue = fixed;
+  else { const pool = list.length ? list : V;
+    queue = [...mix(pool.filter(v => !seen.has(v.id))), ...mix(pool.filter(v => seen.has(v.id)))]; }
+  qi = 0;
   if (!queue.length) return;
+  if (!$("#watch").hidden) closePlayer();
   $("#tv").hidden = false; document.documentElement.requestFullscreen?.().catch(() => {});
   $("#tvLabel").textContent = `TV mode · ${queue.length.toLocaleString("en-US")} videos queued`;
   await loadYT();
@@ -544,7 +834,7 @@ function renderCC() { $("#tvCC").setAttribute("aria-pressed", cc); $("#tvCC").te
 function toggleCC() { cc = !cc; store.set("cc", cc); renderCC(); applyCC(); }
 renderCC();
 $("#tvCC").onclick = toggleCC;
-$("#tvBtn").onclick = startTV; $("#surprise").onclick = surprise; $("#surprise2").onclick = surprise; $("#tvExit").onclick = stopTV;
+$("#tvBtn").onclick = () => startTV(); $("#surprise").onclick = surprise; $("#surprise2").onclick = surprise; $("#tvExit").onclick = stopTV;
 $("#tvSkip").onclick = () => step(1); $("#tvPrev").onclick = () => step(-1);
 $("#tv").addEventListener("mousemove", poke);
 $("#tvHot").addEventListener("mousemove", poke);
@@ -559,15 +849,24 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape" && document.body.classList.contains("drawer")) return setDrawer(false);
   if (e.key === "/" && document.activeElement !== $("#q")) { e.preventDefault(); $("#q").focus(); }
 });
+window.addEventListener("pagehide", saveCurrentProgress);
 
-let qt; $("#q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { state.q = norm(e.target.value.trim()); renderFilters(); apply(); }, 120); });
+let qt; $("#q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { state.q = norm(e.target.value.trim()); renderFilters(); apply(); }, 150); });
 $("#sort").onchange = e => { state.sort = e.target.value; apply(); };
 $("#hideSeen").onclick = e => { state.hideSeen = !state.hideSeen; e.currentTarget.setAttribute("aria-pressed", state.hideSeen); renderFilters(); apply(); };
 
-fetch("videos.json").then(r => r.json()).then(d => {
-  CH = d.channels;
-  V = d.videos.map(([id, t, c, dur, v, ts]) => ({ id, t, c, d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
-  renderFilters(); apply();
+Promise.all([
+  fetch("videos.json").then(r => r.json()),
+  fetch("paths.json").then(r => r.ok ? r.json() : []).catch(() => []),
+]).then(([d, paths]) => {
+  CH = d.channels; PATHS = paths;
+  V = d.videos.map(([id, t, c, dur, v, ts], i) => ({ i, id, t, c, d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
+  byId = new Map(V.map(v => [v.id, v]));
+  renderFilters(); apply(); route();
+  // "More like this" data is only valid for the exact videos.json it was built from
+  fetch("similar.json").then(r => r.ok ? r.json() : null)
+    .then(s => { if (s && s.n === V.length && s.first === V[0].id) { SIM = s.sim; if (current) openPlayer(current, { fromRoute: true, keepPlayer: true }); } })
+    .catch(() => {});
 }).catch(() => { $("#count").textContent = "Couldn't load videos.json"; });
 </script>
 </body>

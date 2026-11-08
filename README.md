@@ -8,14 +8,21 @@ Inspired by Andrej Karpathy's [TristanTube](https://karpathy.ai/tristan-tube/).
 
 ## Features
 
-- **Sidebar** with Home, Top picks and History, plus every channel (with its avatar) grouped by tier: Essential, Great, Worth a look
-- **Watch page** with an "Up next" list and autoplay, and a **Surprise me** button for a random unwatched video
-- Search across every title, filter by topic and length
+**Find something to watch**
+- **Sidebar**: Home, Top picks, New this week, Learning paths, I have X minutes, Watch later and History, plus every channel (with its avatar) grouped by tier: Essential, Great, Worth a look
+- **Search titles and transcripts**: matches in what is *said* in a video show up with a timestamp and jump straight to that moment (Essential channels)
+- **Learning paths**: short, ordered playlists that take one topic from zero to solid (Kubernetes, how computers work, neural networks to LLMs, system design, networking, security)
+- **I have X minutes**: pick 5–60 minutes and get unwatched videos that fit, ready to play back to back
+- **New this week**: the latest uploads from all channels
 - **Mix** sort (default): a channel-balanced shuffle, so no single channel floods the feed
-- **TV mode**: full-screen, auto-advancing playback of whatever you have filtered, unwatched first
-  - `→` next, `←` previous, `C` subtitles on/off, `Esc` exit
-- Watched videos are remembered in your browser; hide them with one click
-- Light and dark themes
+
+**Watch**
+- **Watch page** with **More like this** (videos on the same topic from other channels) and an Up next list with autoplay
+- **Continue watching**: picks up where you left off
+- **Watch later** list, **Surprise me** button, and **TV mode** (full screen, auto-advancing; `→` next, `←` previous, `C` subtitles, `Esc` exit)
+- **Shareable links** for every video (optionally at a timestamp), channel, path and view, e.g. `#v=VIDEO_ID&t=90`, `#c=veritasium`, `#path=kubernetes`
+
+Watched, saved and in-progress videos are stored only in your browser. Light and dark themes.
 
 ## How it works
 
@@ -23,7 +30,8 @@ Inspired by Andrej Karpathy's [TristanTube](https://karpathy.ai/tristan-tube/).
 |---|---|
 | `channels.json` | The channel list: handle, tier and topic. This is the part to edit. |
 | `fetch.py` | Pulls every channel's uploads with [yt-dlp](https://github.com/yt-dlp/yt-dlp) (no API key) and writes `videos.json`. |
-| `videos.json` | The generated dataset the page loads. |
+| `enrich.py` | Embeds every title with [bge-small](https://huggingface.co/BAAI/bge-small-en-v1.5) and writes `similar.json` (More like this) and `paths.json` (learning paths from `paths_def.json`). |
+| `transcripts.py` | Downloads English subtitles for the Essential channels and writes `search.json`, a compact word index with timestamps. |
 | `index.html` | The whole site: one file, no build step, no dependencies. |
 
 ### Balancing rules
@@ -36,14 +44,17 @@ So that prolific channels (daily uploaders, conference archives) can't drown out
 
 ## Update the data
 
-A GitHub Action ([`refresh.yml`](.github/workflows/refresh.yml)) re-fetches every channel nightly at 03:17 UTC and commits the new `videos.json`, which redeploys the site. It refuses to publish if fewer than 95 channels or less than 90% of the previous videos come back (e.g. if YouTube blocks the runner). You can also start it by hand from the Actions tab.
+A GitHub Action ([`refresh.yml`](.github/workflows/refresh.yml)) runs nightly at 03:17 UTC: it re-fetches every channel, rebuilds `similar.json` and `paths.json`, and commits the result, which redeploys the site. It refuses to publish if fewer than 95 channels or less than 90% of the previous videos come back (e.g. if YouTube blocks the runner). You can also start it by hand from the Actions tab.
 
-To update locally instead you need Python 3 and [uv](https://docs.astral.sh/uv/):
+Transcripts are refreshed by hand, because downloading thousands of subtitle files from a CI runner gets rate-limited.
+
+Locally you need Python 3 and [uv](https://docs.astral.sh/uv/):
 
 ```bash
 python3 fetch.py           # fetch new channels, rebuild videos.json
 python3 fetch.py --force   # re-fetch every channel (picks up new uploads)
-python3 fetch.py --build   # rebuild videos.json from the cached raw/ data only
+uv run --python 3.12 --with fastembed --with numpy python enrich.py   # similar.json + paths.json
+python3 transcripts.py     # download missing transcripts, rebuild search.json
 ```
 
 Run locally:
@@ -51,5 +62,9 @@ Run locally:
 ```bash
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
+
+## Suggest a channel
+
+Know a great channel that's missing? [Open a suggestion](https://github.com/GeenccMustafa/nerdvana/issues/new?template=suggest-channel.yml).
 
 Tiers are one person's opinion. Fork it and make your own.

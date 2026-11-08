@@ -1,0 +1,45 @@
+name: Suggest a channel
+description: Recommend a YouTube channel for Nerdvana
+title: "Channel suggestion: "
+labels: ["channel suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion! Nerdvana lists English-language tech, science and engineering channels with at least 250K subscribers.
+  - type: input
+    id: url
+    attributes:
+      label: Channel link
+      description: The channel's YouTube address
+      placeholder: https://www.youtube.com/@veritasium
+    validations:
+      required: true
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      options:
+        - AI & ML
+        - Cloud & DevOps
+        - Consumer Tech
+        - Data
+        - Hardware
+        - Linux
+        - Math
+        - Networking
+        - Programming
+        - Science & Eng
+        - Security
+        - Tech News
+        - Web Dev
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it belongs here
+      description: What makes this channel great? A favourite video helps.
+    validations:
+      required: true

@@ -3,3 +3,5 @@ raw/
 __pycache__/
 *.part
 .DS_Store
+transcripts/
+.cache/
