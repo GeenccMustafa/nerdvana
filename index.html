@@ -255,6 +255,28 @@ body[data-mode="articles"] #tvBtn { display: none; }
 .mini.vids { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
 .context .lead { max-width: 760px; }
 
+/* Curated paths: a course page with sections and annotated steps */
+.paths-head { grid-column: 1 / -1; margin: 6px 0 -4px; font: 700 17px var(--display); display: flex; align-items: baseline; gap: 10px; }
+.paths-head small { font: 400 12px var(--body); color: var(--fg2); }
+.path-card .lvl, .context .lvl { align-self: flex-start; font: 600 10.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 5px; background: var(--fg); color: var(--bg); }
+.course { max-width: 980px; }
+.course-sec { margin: 0 0 26px; }
+.course-sec h3 { margin: 0 0 10px; font: 700 18px var(--display); display: flex; align-items: baseline; gap: 10px; }
+.course-sec h3 small { font: 400 12px var(--mono); color: var(--fg2); }
+.step { display: grid; grid-template-columns: 30px 176px minmax(0, 1fr); gap: 14px; align-items: start; width: 100%; padding: 10px; border: 0; border-radius: 12px; background: none; text-align: left; color: inherit; text-decoration: none; }
+.step:hover { background: var(--raise); }
+.step .num { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font: 600 12px var(--mono); border: 1px solid var(--line); margin-top: 4px; }
+.step.done .num { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+.step .thumb { border-radius: 8px; }
+.step .ph b { font-size: 14px; }
+.step.done .thumb img { opacity: .45; }
+.step h4 { margin: 2px 0 4px; font-size: 15px; font-weight: 600; line-height: 1.3; }
+.step .why { margin: 0 0 6px; font-size: 13.5px; }
+.step .m { color: var(--fg2); font-size: 12.5px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.kind { font: 600 10.5px var(--mono); letter-spacing: .05em; padding: 1px 6px; border-radius: 4px; background: var(--raise); color: var(--fg2); }
+.step:hover .kind { background: var(--surface); }
+@media (max-width: 640px) { .step { grid-template-columns: 26px 110px minmax(0, 1fr); gap: 10px; } .step .why { display: none; } }
+
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -329,6 +351,7 @@ body[data-mode="articles"] #tvBtn { display: none; }
     <div class="context" id="context" hidden></div>
     <section class="shelf" id="shelf" hidden><h3 id="shelfTitle"></h3><div class="shelf-row" id="shelfRow"></div></section>
     <div class="paths" id="pathsGrid" hidden></div>
+    <div class="course" id="courseBox" hidden></div>
     <div class="grid" id="grid"></div>
     <div class="empty" id="empty" hidden>No videos match these filters.</div>
     <div class="sentinel" id="sentinel"></div>
@@ -403,7 +426,7 @@ $("#themeBtn").onclick = () => {
 let CH = [], V = [], byId = new Map(), list = [], shown = 0;
 let SIM = null, PATHS = [], SEARCH = null, searchLoading = null;
 /* Two data sets share one UI. The globals (CH, V, byId, SIM, seen, later) point at the active one. */
-let mode = "videos", LINKS = null, linksLoading = null;
+let mode = "videos", LINKS = null, linksLoading = null, COURSES = [], courseCtx = null;
 const DS = {
   videos:   { CH: [], V: [], byId: new Map(), SIM: null, PATHS: [], seen: new Set(store.get("seen", [])), later: store.get("later", []), seenKey: "seen", laterKey: "later", ready: null },
   articles: { CH: [], V: [], byId: new Map(), SIM: null, PATHS: [], seen: new Set(store.get("read", [])), later: store.get("readLater", []), seenKey: "read", laterKey: "readLater", ready: null },
@@ -477,7 +500,7 @@ function updateCounts() {
   $("#newN").textContent = n(V.filter(isNew).length);
 }
 function renderSide() {
-  const cur = state.view === "path" ? "paths" : state.view;
+  const cur = state.view === "path" || state.view === "course" ? "paths" : state.view;
   document.querySelectorAll(".nav-item").forEach(b => b.setAttribute("aria-current", cur === b.dataset.view && state.ch == null && !state.tier));
   updateCounts();
   const box = $("#tierList"); box.innerHTML = "";
@@ -501,7 +524,7 @@ function renderSide() {
 }
 // Sidebar selection: set view/tier/channel, refresh, close the drawer on phones, jump to top
 function pick(p) {
-  Object.assign(state, { view: "home", path: null, like: null }, p);
+  Object.assign(state, { view: "home", path: null, like: null, course: null }, p);
   renderFilters(); apply(); setDrawer(false); scrollTo({ top: 0 }); syncHash();
 }
 document.querySelectorAll(".nav-item").forEach(b => b.onclick = () => pick({ view: b.dataset.view, tier: null, ch: null }));
@@ -514,6 +537,7 @@ function hashFor() {
   else if (state.tier) h = `tier=${state.tier}`;
   else if (state.view === "path") h = `path=${encodeURIComponent(state.path)}`;
   else if (state.view === "like") h = `like=${state.like}`;
+  else if (state.view === "course") h = `course=${encodeURIComponent(state.course)}`;
   else if (state.view === "time") h = `time=${state.budget}`;
   else if (state.view !== "home") h = state.view;
   const parts = [mode === "articles" ? "read" : "", h].filter(Boolean);
@@ -538,6 +562,7 @@ function routeView(p) {
   else if (p.get("tier") && TIERS.some(t => t[0] === p.get("tier").toUpperCase())) next.tier = p.get("tier").toUpperCase();
   else if (p.get("path")) Object.assign(next, { view: "path", path: p.get("path") });
   else if (p.get("like") && byId.has(p.get("like"))) Object.assign(next, { view: "like", like: p.get("like") });
+  else if (p.get("course")) Object.assign(next, { view: "course", course: p.get("course") });
   else if (p.has("time")) { next.view = "time"; state.budget = BUDGETS.includes(+p.get("time")) ? +p.get("time") : 15; }
   else for (const k of ["picks", "new", "paths", "later", "history"]) if (p.has(k)) next.view = k;
   Object.assign(state, next); renderFilters(); apply();
@@ -627,6 +652,13 @@ function renderContext() {
   } else if (state.view === "paths") {
     html = A ? `<div class="txt"><h2>Reading paths</h2><p>Short, ordered reading lists that take one topic from zero to solid, from the Essential and Great sources.</p></div>`
       : `<div class="txt"><h2>Learning paths</h2><p>Short, ordered playlists that take one topic from zero to solid, picked from the Essential and Great channels.</p></div>`;
+  } else if (state.view === "course") { const c = COURSES.find(x => x.id === state.course), items = c ? courseItems(c) : [];
+    const done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0), nv = items.filter(x => !x.art).length;
+    html = c ? `<div class="txt lead"><span class="lvl">${esc(c.level)}</span><h2 style="margin-top:8px">${esc(c.title)}</h2><p>${esc(c.blurb)}</p>
+      <p style="margin-top:6px">${items.length} steps · ${nv} videos, ${items.length - nv} articles · about ${fmtMin(mins)} · ${done} of ${items.length} done</p></div>
+      <button class="btn" data-act="allpaths">All paths</button>
+      ${items.length ? `<button class="btn primary" data-act="cstart">${done ? (done === items.length ? "Start again" : "Continue") : "Start"}</button>` : ""}`
+      : `<div class="txt"><h2>Path not found</h2><p>This path doesn't exist anymore.</p></div><button class="btn" data-act="allpaths">All paths</button>`;
   } else if (state.view === "path") { const p = PATHS.find(x => x.id === state.path);
     const done = list.filter(v => seen.has(v.id)).length;
     html = p ? `<div class="txt"><h2>${esc(p.title)}</h2><p>${esc(p.blurb)} · ${list.length} ${l.many} · ${fmtMin(total)}${A ? " of reading" : ""} · ${done} of ${list.length} ${l.seen}</p></div>
@@ -649,6 +681,8 @@ $("#context").addEventListener("click", e => {
   else if (a === "reroll") apply();
   else if (a === "playall") startTV([...list]);
   else if (a === "allpaths") pick({ view: "paths" });
+  else if (a === "cstart") { const c = COURSES.find(x => x.id === state.course), items = courseItems(c);
+    const k = Math.max(0, items.findIndex(x => !isDone(x))); openStep(c, items, k); }
   else if (a === "start") { const v = list.find(x => !seen.has(x.id)) || list[0];
     if (v?.art) { markRead(v); window.open(v.url, "_blank", "noopener"); apply(); } else if (v) openPlayer(v); }
 });
@@ -685,7 +719,7 @@ function apply() {
   if (view === "history") { const order = [...seen]; list = V.filter(v => seen.has(v.id) && passes(v, { ignoreSeen: true })); list.sort((a, b) => order.lastIndexOf(b.id) - order.lastIndexOf(a.id)); }
   else if (view === "later") list = later.map(id => byId.get(id)).filter(v => v && passes(v, { ignoreSeen: true }));
   else if (view === "path") { const p = PATHS.find(p => p.id === state.path); list = (p?.videos || p?.articles || []).map(id => byId.get(id)).filter(Boolean); }
-  else if (view === "paths") list = [];
+  else if (view === "paths" || view === "course") list = [];
   else if (view === "like") { const a = byId.get(state.like); list = a ? (SIM?.[a.i] || []).map(i => V[i]).filter(x => x && passes(x, { ignoreQ: true })) : []; }
   else if (view === "time") list = packBudget();
   else if (view === "new") { list = V.filter(v => isNew(v) && passes(v)); list.sort(by.new); }
@@ -696,11 +730,11 @@ function apply() {
     list = [...per.values()].flat(); sortList();
   }
   else { list = V.filter(v => passes(v)); sortList(); }
-  renderContext(); renderPaths(); renderShelf();
+  renderContext(); renderPaths(); renderCourse(); renderShelf();
   $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} ${L().many} · ${CH.length} ${L().src}`;
   $("#grid").innerHTML = ""; shown = 0; more();
   const empty = { later: `Nothing saved yet. Use the bookmark button on any ${L().one} to keep it for later.`,
-                  history: "", new: `Nothing new in the last 7 days matches these filters.`, time: "", paths: "", path: "",
+                  history: "", course: "", new: `Nothing new in the last 7 days matches these filters.`, time: "", paths: "", path: "",
                   like: SIM ? "No similar articles match these filters." : "Similar articles aren't available yet." }[view];
   $("#empty").textContent = empty ?? `No ${L().many} match these filters.`;
   $("#empty").hidden = list.length > 0 || !$("#empty").textContent;
@@ -777,13 +811,27 @@ function renderPaths() {
   box.hidden = state.view !== "paths";
   if (box.hidden) return;
   box.innerHTML = "";
+  if (COURSES.length && !DS.articles.V.length) { ensureArticles().then(() => state.view === "paths" && renderPaths()).catch(() => {}); }
+  const tile = v => v.art ? (v.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(v.img)}">` : `<span class="ph ${v.ch.t}"><b>${esc(v.ch.n)}</b></span>`)
+    : `<img loading="lazy" alt="" src="${thumb(v.id)}">`;
+  if (COURSES.length) box.insertAdjacentHTML("beforeend", `<div class="paths-head">Curated paths <small>hand-picked videos and articles, step by step</small></div>`);
+  for (const c of COURSES) {
+    const items = courseItems(c), done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0);
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "path-card";
+    b.innerHTML = `<div class="mosaic">${items.filter(x => !x.art).slice(0, 4).map(tile).join("")}</div>
+      <span class="lvl">${esc(c.level)}</span><h3>${esc(c.title)}</h3><p>${esc(c.blurb)}</p>
+      <div class="bar"><i style="width:${items.length ? done / items.length * 100 : 0}%"></i></div>
+      <div class="foot"><span>${items.length} steps · ${fmtMin(mins)}</span><span>${done}/${items.length} done</span></div>`;
+    b.onclick = () => pick({ view: "course", course: c.id });
+    box.append(b);
+  }
+  if (COURSES.length && PATHS.length) box.insertAdjacentHTML("beforeend", `<div class="paths-head">More paths <small>picked automatically, being replaced by curated ones</small></div>`);
   for (const p of PATHS) {
     const vids = (p.videos || p.articles || []).map(id => byId.get(id)).filter(Boolean);
     const done = vids.filter(v => seen.has(v.id)).length, total = vids.reduce((s, v) => s + v.d, 0);
     const b = document.createElement("button");
     b.type = "button"; b.className = "path-card";
-    const tile = v => v.art ? (v.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(v.img)}">` : `<span class="ph ${v.ch.t}"><b>${esc(v.ch.n)}</b></span>`)
-      : `<img loading="lazy" alt="" src="${thumb(v.id)}">`;
     b.innerHTML = `<div class="mosaic">${vids.slice(0, 4).map(tile).join("")}</div>
       <h3>${esc(p.title)}</h3><p>${esc(p.blurb)}</p>
       <div class="bar"><i style="width:${vids.length ? done / vids.length * 100 : 0}%"></i></div>
@@ -791,6 +839,42 @@ function renderPaths() {
     b.onclick = () => pick({ view: "path", path: p.id });
     box.append(b);
   }
+}
+
+/* ---------- Curated paths ---------- */
+// Steps point into both data sets; article steps resolve once the article data is loaded
+const courseItems = c => !c ? [] : c.sections.flatMap(sec => sec.steps.map(st => (st.k === "v" ? DS.videos.byId : DS.articles.byId).get(st.id)).filter(Boolean));
+const isDone = x => (x.art ? DS.articles.seen : DS.videos.seen).has(x.id);
+function openStep(c, items, k) {
+  const x = items[k]; if (!x) return;
+  courseCtx = { c, items, i: k };
+  if (x.art) { markRead(x); window.open(x.url, "_blank", "noopener"); apply(); }
+  else { setMode("videos", { keepHash: true }); openPlayer(x, { course: courseCtx }); }
+}
+function renderCourse() {
+  const box = $("#courseBox");
+  box.hidden = state.view !== "course";
+  if (box.hidden) return;
+  const c = COURSES.find(x => x.id === state.course);
+  if (!c) { box.innerHTML = ""; return; }
+  if (!DS.articles.V.length) { box.innerHTML = `<p class="empty">Loading…</p>`; ensureArticles().then(apply).catch(() => {}); return; }
+  const items = courseItems(c);
+  let n = 0;
+  box.innerHTML = c.sections.map(sec => {
+    const rows = sec.steps.map(st => {
+      const x = (st.k === "v" ? DS.videos.byId : DS.articles.byId).get(st.id); if (!x) return "";
+      const k = n++, done = isDone(x);
+      const th = x.art ? `<span class="ph ${x.ch.t}"><b>${esc(x.ch.n)}</b></span>${x.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(x.img)}">` : ""}`
+        : `<img loading="lazy" alt="" src="${thumb(x.id)}"><span class="dur">${fmtDur(x.d)}</span>`;
+      const meta = x.art ? `<span class="kind">ARTICLE</span>${esc(x.ch.n)}${x.d ? " · " + readTime(x) : ""}${x.v ? ` · ▲ ${fmtNum(x.v)}` : ""}`
+        : `<span class="kind">VIDEO</span>${esc(x.ch.n)} · ${fmtNum(x.v)} views`;
+      return `<button type="button" class="step${done ? " done" : ""}" data-k="${k}"><span class="num">${done ? "✓" : k + 1}</span>
+        <div class="thumb">${th}</div><div><h4>${esc(x.t)}</h4><p class="why">${esc(st.note)}</p><div class="m">${meta}</div></div></button>`;
+    }).join("");
+    const mins = sec.steps.reduce((s, st) => s + ((st.k === "v" ? DS.videos.byId : DS.articles.byId).get(st.id)?.d || 0), 0);
+    return `<section class="course-sec"><h3>${esc(sec.title)} <small>${fmtMin(mins)}</small></h3>${rows}</section>`;
+  }).join("");
+  box.querySelectorAll(".step").forEach(b => b.onclick = () => openStep(c, items, +b.dataset.k));
 }
 
 /* ---------- Shelf: "Continue watching" on the home feed, transcript matches while searching ---------- */
@@ -883,6 +967,10 @@ function openPlayer(v, o = {}) {
     pn.innerHTML = `<div class="txt">Step <b>${idx + 1} of ${list.length}</b> in <b>${esc(p.title)}</b></div>${feed[0] ? `<button class="btn primary" type="button" id="pathNext">Next step →</button>` : `<span class="txt"><b>Last step 🎉</b></span>`}`;
     $("#pathNext")?.addEventListener("click", () => openPlayer(feed[0]));
   }
+  // Curated path: keep the context while moving through its steps, drop it otherwise
+  if (o.course) courseCtx = o.course;
+  if (courseCtx) { const k = courseCtx.items.indexOf(v); if (k >= 0) courseCtx.i = k; else courseCtx = null; }
+  if (courseCtx) { const nx = courseCtx.items[courseCtx.i + 1]; if (nx && !nx.art) nextUp = nx; renderCourseNav(); }
   renderReads(v);
   $("#simLabel").hidden = !sim.length || inPath; $("#simList").innerHTML = "";
   if (!inPath) sim.forEach(u => $("#simList").append(upItem(u)));
@@ -917,6 +1005,17 @@ function renderReads(v) {
     box.querySelectorAll("a").forEach(el => el.onclick = () => markRead(DS.articles.byId.get(el.dataset.id)));
     box.hidden = false;
   }).catch(() => {});
+}
+function renderCourseNav() {
+  const pn = $("#pathNav"), { c, items, i } = courseCtx, nx = items[i + 1];
+  pn.hidden = false;
+  pn.innerHTML = `<div class="txt">Step <b>${i + 1} of ${items.length}</b> in <b>${esc(c.title)}</b>${nx ? ` · next: ${nx.art ? "read" : "watch"} <b>${esc(nx.t)}</b>` : ""}</div>
+    ${nx ? (nx.art ? `<a class="btn primary" id="courseNext" href="${esc(nx.url)}" target="_blank" rel="noopener">Read next step ↗</a>` : `<button class="btn primary" type="button" id="courseNext">Next step →</button>`)
+         : `<span class="txt"><b>Last step 🎉</b></span>`}`;
+  $("#courseNext")?.addEventListener("click", () => {
+    if (nx.art) { markRead(nx); courseCtx.i++; renderCourseNav(); }   // after reading, offer the step after it
+    else openPlayer(nx);
+  });
 }
 function closePlayer(fromPop) {
   saveCurrentProgress();
@@ -1038,7 +1137,9 @@ if (startOnArticles) { $("#count").textContent = "loading articles…"; ensureAr
 Promise.all([
   fetch("videos.json").then(r => r.json()),
   fetch("paths.json").then(r => r.ok ? r.json() : []).catch(() => []),
-]).then(([d, paths]) => {
+  fetch("courses.json").then(r => r.ok ? r.json() : []).catch(() => []),
+]).then(([d, paths, courses]) => {
+  COURSES = courses;
   CH = d.channels; PATHS = paths; DS.videos.PATHS = paths;
   V = d.videos.map(([id, t, c, dur, v, ts], i) => ({ i, id, t, c, ch: CH[c], d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
   byId = new Map(V.map(v => [v.id, v]));

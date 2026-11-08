@@ -15,21 +15,6 @@
     ]
   },
   {
-    "id": "llms",
-    "title": "How LLMs work",
-    "blurb": "From neural networks to transformers to today's language models",
-    "steps": [
-      "title:A Visual and Interactive Guide to the Basics of Neural Networks",
-      "title:The Unreasonable Effectiveness of Recurrent Neural Networks",
-      "title:Understanding LSTM Networks",
-      "title:The Illustrated Transformer",
-      "title:The Illustrated GPT-2",
-      "title:Microgpt",
-      "title:Building LLMs from the Ground Up",
-      "title:Understanding Reasoning LLMs"
-    ]
-  },
-  {
     "id": "performance",
     "title": "Performance and the machine",
     "blurb": "What really happens in the CPU, memory and kernel when code runs",

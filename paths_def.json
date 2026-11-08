@@ -1,20 +1,5 @@
 [
   {
-    "id": "kubernetes",
-    "title": "Kubernetes from zero",
-    "blurb": "From what a container is to running real workloads on a cluster.",
-    "steps": [
-      "what is a container, containers vs virtual machines explained",
-      "Docker tutorial for beginners, Dockerfile and images",
-      "Kubernetes explained simply, what is Kubernetes",
-      "Kubernetes architecture: pods, nodes, control plane",
-      "Kubernetes deployments, services and ingress",
-      "Helm charts explained",
-      "Kubernetes networking: services, DNS and CNI explained",
-      "Kubernetes security best practices"
-    ]
-  },
-  {
     "id": "how-computers-work",
     "title": "How a computer actually works",
     "blurb": "Transistors, logic gates, CPUs and memory, built up one layer at a time.",
@@ -26,21 +11,6 @@
       "how a CPU cache works",
       "how computer chips are made, semiconductor manufacturing",
       "how operating systems work: kernel, processes and scheduling"
-    ]
-  },
-  {
-    "id": "neural-networks",
-    "title": "Neural networks to LLMs",
-    "blurb": "The math and intuition behind deep learning, ending at large language models.",
-    "steps": [
-      "but what is a neural network",
-      "gradient descent, how neural networks learn",
-      "backpropagation explained",
-      "neural networks from scratch in code",
-      "attention and transformers explained",
-      "how large language models like GPT work",
-      "let's build GPT from scratch in code, spelled out",
-      "how LLMs are trained, fine-tuning and RLHF"
     ]
   },
   {
@@ -56,20 +26,6 @@
       "message queues and Kafka explained",
       "microservices architecture explained",
       "API design REST vs GraphQL vs gRPC"
-    ]
-  },
-  {
-    "id": "networking",
-    "title": "How the internet works",
-    "blurb": "Packets, addresses and protocols, from your Wi-Fi to a web server.",
-    "steps": [
-      "how does the internet work",
-      "OSI model explained",
-      "IP addresses and subnetting explained",
-      "TCP vs UDP explained",
-      "how DNS works",
-      "how HTTPS and TLS work",
-      "what is a VPN and how it works"
     ]
   },
   {

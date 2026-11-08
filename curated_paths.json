@@ -1,0 +1,122 @@
+[
+  {
+    "id": "llms",
+    "title": "Neural networks to LLMs",
+    "level": "Intermediate",
+    "blurb": "From a single neuron to how ChatGPT-style models are built, trained and tuned. Light on math, heavy on intuition, with two build-it-yourself detours.",
+    "sections": [
+      {"title": "What a neural network is", "steps": [
+        {"v": "aircAruvnKk", "t": "But what is a neural network?", "note": "The clearest picture there is: layers of numbers, weights and a lot of tiny decisions."},
+        {"v": "IHZwWFHWa-w", "t": "Gradient descent, how neural networks learn", "note": "How a network learns: measure how wrong it is, then nudge every weight downhill."},
+        {"v": "Ilg3gGewQ5U", "t": "Backpropagation, intuitively", "note": "The trick that makes learning fast: blame flows backwards through the network."},
+        {"v": "tIeHLnjs5U8", "t": "Backpropagation calculus", "note": "The math behind the last video. Skip it if calculus is rusty; nothing later depends on it."},
+        {"a": "3f5e48ef53", "t": "Hacker's Guide to Neural Networks", "note": "The same ideas once more, as code instead of equations."}
+      ]},
+      {"title": "Build one yourself", "steps": [
+        {"v": "VMj-3S1tku0", "t": "The spelled-out intro to neural networks and backpropagation: building micrograd", "note": "Write a tiny autograd engine and train a net with it in plain Python. Long, and the best investment on this path."},
+        {"a": "21e3e719f6", "t": "A Recipe for Training Neural Networks", "note": "Practical habits for when training doesn't work, which is most of the time."}
+      ]},
+      {"title": "Language: from words to sequences", "steps": [
+        {"v": "viZrOnJclY0", "t": "Word Embedding and Word2Vec, Clearly Explained!!!", "note": "How words become vectors whose distances mean something."},
+        {"a": "7d1cbec3ff", "t": "Embeddings: What they are and why they matter", "note": "What embeddings are good for in practice: search, clustering, recommendations."},
+        {"v": "PaCmpygFfXo", "t": "The spelled-out intro to language modeling: building makemore", "note": "Your first language model: predicting the next character, from counting to a neural net."},
+        {"a": "ce3e63aa26", "t": "The Unreasonable Effectiveness of Recurrent Neural Networks", "note": "The 2015 post that showed how much a simple next-character model can learn."},
+        {"a": "012c93ab19", "t": "Understanding LSTM Networks", "note": "How networks got a memory, and why that wasn't enough."}
+      ]},
+      {"title": "Attention and transformers", "steps": [
+        {"a": "44a3403b7c", "t": "Attention and Augmented Recurrent Neural Networks", "note": "Where the idea of attention came from, with beautiful interactive diagrams."},
+        {"v": "wjZofJX0v4M", "t": "Transformers, the tech behind LLMs", "note": "The transformer as a whole: tokens in, probabilities out."},
+        {"v": "eMlx5fFNoYc", "t": "Attention in transformers, step-by-step", "note": "The heart of it: how every token looks at every other token."},
+        {"a": "62b795f374", "t": "The Illustrated Transformer", "note": "The classic visual walkthrough. Read it right after the videos; it will click."},
+        {"v": "9-Jl0dxWQs8", "t": "How might LLMs store facts", "note": "What the other half of the transformer, the MLP layers, seems to be doing."}
+      ]},
+      {"title": "Build GPT", "steps": [
+        {"v": "kCc8FmEb1nY", "t": "Let's build GPT: from scratch, in code, spelled out.", "note": "Put it all together and train a small GPT on Shakespeare."},
+        {"v": "zduSFxRajkE", "t": "Let's build the GPT Tokenizer", "note": "Why models see text as tokens, and why that explains many of their quirks."},
+        {"a": "50e6fa3c83", "t": "The Illustrated GPT-2", "note": "A visual recap of what you just built, at real scale."}
+      ]},
+      {"title": "Today's LLMs", "steps": [
+        {"v": "zjkBMFhNj_g", "t": "[1hr Talk] Intro to Large Language Models", "note": "The big picture: pretraining, fine-tuning, tools, and where this is all going."},
+        {"v": "qPN_XZcJf_s", "t": "Reinforcement Learning with Human Feedback (RLHF), Clearly Explained!!!", "note": "How a text predictor is turned into a helpful assistant."},
+        {"a": "1959c5806d", "t": "Understanding Reasoning LLMs", "note": "How the newest models are trained to think before they answer."}
+      ]}
+    ]
+  },
+  {
+    "id": "kubernetes",
+    "title": "Docker to Kubernetes",
+    "level": "Beginner",
+    "blurb": "Containers from first principles, then running them at scale: from your first Dockerfile to Helm charts and operating a real cluster.",
+    "sections": [
+      {"title": "Why containers", "steps": [
+        {"v": "eyNBf1sqdBQ", "t": "Virtual Machines vs Containers", "note": "Start here: what a container actually is, and how it differs from a virtual machine."},
+        {"v": "gAkwW2tuIqE", "t": "Learn Docker in 7 Easy Steps", "note": "A quick tour of the whole Docker workflow, so the rest has context."},
+        {"a": "e06dd46d31", "t": "How Containers Work: Overlayfs", "note": "A peek under the hood: how image layers stack into one filesystem."}
+      ]},
+      {"title": "Docker in practice", "steps": [
+        {"v": "pg19Z8LL06w", "t": "Docker Crash Course for Absolute Beginners", "note": "Hands-on: images, containers, ports and volumes. Follow along on your machine."},
+        {"v": "WmcdMiyqfZs", "t": "Dockerfile Tutorial", "note": "Package your own app as an image."},
+        {"v": "DM65_JyGxCo", "t": "Docker Compose will BLOW your MIND!!", "note": "Run several containers together with one file."},
+        {"v": "bKFMS5C4CG0", "t": "Docker networking is CRAZY!!", "note": "How containers talk to each other and to the outside world."}
+      ]},
+      {"title": "Kubernetes concepts", "steps": [
+        {"v": "TlHvYWVUZyc", "t": "Kubernetes Explained in 6 Minutes", "note": "The architecture on one page: control plane, nodes, pods."},
+        {"v": "Krpb44XR0bk", "t": "Kubernetes Components explained!", "note": "The building blocks you'll use every day: Pods, Services, ConfigMaps, Secrets, Deployments."},
+        {"v": "s_o8dwzRlu4", "t": "Kubernetes Crash Course for Absolute Beginners", "note": "Hands-on: run a local cluster and deploy a real app to it."},
+        {"v": "qmDzcu5uY1I", "t": "Kubernetes YAML File Explained", "note": "How to read and write the manifests you'll be living in."}
+      ]},
+      {"title": "Networking and storage", "steps": [
+        {"v": "T4Z7visMM4E", "t": "Kubernetes Services explained", "note": "ClusterIP, NodePort, LoadBalancer: how traffic finds your pods."},
+        {"v": "80Ew_fsV4rM", "t": "Kubernetes Ingress Tutorial for Beginners", "note": "One entry point and routing rules for all your services."},
+        {"v": "0swOh5C3OVM", "t": "Kubernetes Volumes explained", "note": "Keeping data alive when pods come and go."},
+        {"v": "pPQKAR1pA9U", "t": "Kubernetes StatefulSet simply explained", "note": "Why databases need different treatment than stateless apps."}
+      ]},
+      {"title": "Running it for real", "steps": [
+        {"v": "-ykwb1d0DXU", "t": "What is Helm in Kubernetes?", "note": "Package and version whole applications instead of piles of YAML."},
+        {"v": "ha3LjlD6g7g", "t": "Kubernetes Operator simply explained", "note": "Teaching Kubernetes to run complex software for you."},
+        {"a": "3d81ccac36", "t": "Learning to operate Kubernetes reliably", "note": "What Stripe learned running Kubernetes in production."},
+        {"a": "d396344a08", "t": "Everything I know about Kubernetes I learned from a cluster of Raspberry Pis", "note": "Want to practise on real hardware? This is how."}
+      ]}
+    ]
+  },
+  {
+    "id": "internet",
+    "title": "How the internet works",
+    "level": "Beginner",
+    "blurb": "What happens between typing a URL and seeing a page: cables, addresses, routing, DNS, HTTP and encryption, plus a few stories of it breaking.",
+    "sections": [
+      {"title": "The physical internet", "steps": [
+        {"v": "KjD3KANH-xc", "t": "How Does the Internet Work? | Data Packets", "note": "The core idea in five minutes: everything travels in small packets."},
+        {"v": "G1Ke-H8I1uk", "t": "How Does LIGHT Carry Data? - Fiber Optics Explained", "note": "Most of those packets travel as pulses of light."},
+        {"v": "AFt9le2ytW0", "t": "The Hazardous Life of an Undersea Cable", "note": "The cables on the ocean floor that carry almost all intercontinental traffic."},
+        {"v": "vvKbMueRzrI", "t": "How WiFi Works - Computerphile", "note": "The last few metres: how data gets to your laptop through the air."}
+      ]},
+      {"title": "Addresses and routing", "steps": [
+        {"v": "1z0ULvg_pW8", "t": "Hub, Switch, & Router Explained", "note": "The boxes that move packets around, and what each one knows."},
+        {"v": "ThdO9beHhpA", "t": "IP Address - IPv4 vs IPv6 Tutorial", "note": "How every device gets an address."},
+        {"v": "5WfiTHiU4x8", "t": "what is an IP Address? // You SUCK at Subnetting", "note": "Networks inside networks, and how to read addresses like 10.0.0.0/24."},
+        {"v": "FTUV0t6JaDA", "t": "NAT Explained - Network Address Translation", "note": "How a whole household shares one public address."},
+        {"v": "up3bcBLZS74", "t": "Traceroute (tracert) Explained", "note": "Watch your packets hop across the internet yourself."}
+      ]},
+      {"title": "Protocols: TCP/IP", "steps": [
+        {"v": "CRdL1PcherM", "t": "what is TCP/IP and OSI?", "note": "The layer model that ties everything together."},
+        {"v": "uwoD5YsGACg", "t": "TCP vs UDP Comparison", "note": "Reliable delivery versus speed, and who uses which."},
+        {"a": "746fe7b5c5", "t": "It's always TCP_NODELAY", "note": "A taste of how TCP details still bite in real systems."}
+      ]},
+      {"title": "Names: DNS", "steps": [
+        {"v": "mpQZVYPuDGU", "t": "How a DNS Server (Domain Name System) works.", "note": "How a name like github.com becomes an address."},
+        {"a": "46b9a2b589", "t": "Mess with DNS", "note": "Play with real DNS records in a safe sandbox."},
+        {"a": "e6c3dab6e1", "t": "A toy DNS resolver", "note": "Write a DNS resolver in about 200 lines and see there is no magic."}
+      ]},
+      {"title": "The web on top: HTTP and TLS", "steps": [
+        {"v": "iYM2zFP3Zn0", "t": "HTTP Crash Course & Exploration", "note": "Requests, responses, headers and status codes, explored in the browser."},
+        {"v": "hExRDVZHhig", "t": "SSL, TLS, HTTP, HTTPS Explained", "note": "How the padlock works: encryption and certificates."},
+        {"a": "6ae9be02d8", "t": "HTTP/3: from root to tip", "note": "Why the newest HTTP runs over UDP."}
+      ]},
+      {"title": "When it breaks", "steps": [
+        {"a": "81a022d49d", "t": "How Verizon and a BGP Optimizer Knocked Large Parts of the Internet Offline Today", "note": "How one routing mistake took down large parts of the internet."},
+        {"a": "1e37988bd1", "t": "1.1.1.1: Fast, privacy-first consumer DNS service", "note": "What it takes to run DNS for millions of people."}
+      ]}
+    ]
+  }
+]

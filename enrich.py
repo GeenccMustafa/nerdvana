@@ -12,11 +12,13 @@ paths.json    [{id, title, blurb, videos: [video id, ...]}] resolved from paths_
 
 If articles.json exists, articles (title + description) are embedded the same way:
 similar_articles.json  {"n", "first", "sim": [[article index, ...] x 8]}  aligned with articles.json
+courses.json           curated paths from curated_paths.json: [{id, title, level, blurb, sections: [{title, steps: [{k, id, note}]}]}]
+path_candidates.json   newer items that may fit a curated step better (for the monthly review)
 reading_paths.json     [{id, title, blurb, articles: [article id, ...]}] resolved from reading_paths_def.json
 links.json             videos <-> articles on the same topic:
                        {"vn", "vfirst", "an", "afirst", "v2a": [[article index, ...]], "a2v": [[video index, ...]]}
 """
-import json, math
+import json, math, time
 from pathlib import Path
 
 import numpy as np
@@ -134,6 +136,51 @@ def build_reading_paths(A, arts, srcs, model):
     boost = np.array([0.025 * math.log10(max(a[4], 1)) for a in arts])
     return resolve_paths(defs, A, arts, 2, ok, boost, model, "articles")
 
+def build_courses(E, videos, A, arts, model):
+    """Curated paths (curated_paths.json): every step is pinned by hand. If a pinned item disappears
+    from the data, it is replaced by the closest match of the same kind and marked ("swap").
+    New items that fit a step clearly better than its current pick are written to
+    path_candidates.json for the monthly review; they never change a path on their own."""
+    defs = json.loads((ROOT / "curated_paths.json").read_text())
+    pools = {"v": (E, videos, np.array([v[4] >= 20_000 for v in videos])),
+             "a": (A, arts, np.array([a[4] >= 10 for a in arts]))}
+    index = {k: {r[0]: i for i, r in enumerate(rows)} for k, (_, rows, _) in pools.items()}
+    now, recent = time.time(), 60 * 86400
+    out, candidates = [], []
+    for p in defs:
+        used = {k: set() for k in pools}
+        texts = [f"Represent this sentence for searching relevant passages: {st['t']}. {st['note']}"
+                 for sec in p["sections"] for st in sec["steps"]]
+        Q = np.stack(list(model.embed(texts))); Q /= np.linalg.norm(Q, axis=1, keepdims=True)
+        qi, sections = 0, []
+        for sec in p["sections"]:
+            steps = []
+            for st in sec["steps"]:
+                k = "v" if "v" in st else "a"
+                M, rows, ok = pools[k]
+                score = M @ Q[qi]; qi += 1
+                j = index[k].get(st[k])
+                step = {"k": k, "note": st["note"]}
+                if j is None or j in used[k]:
+                    s2 = score.copy(); s2[~ok] = -9
+                    for u in used[k]:
+                        s2[u] = -9
+                    j = int(np.argmax(s2))
+                    step["swap"] = st["t"]
+                    print(f"  ! {p['id']}: {st['t'][:50]!r} is gone, using {rows[j][1][:50]!r}")
+                used[k].add(j); step["id"] = rows[j][0]; steps.append(step)
+                # newer items that fit this step better than the current pick
+                ts_col = 5
+                for c in np.argsort(-score)[:20]:
+                    c = int(c)
+                    if c != j and ok[c] and rows[c][ts_col] and now - rows[c][ts_col] <= recent and score[c] >= score[j] + 0.02:
+                        candidates.append({"path": p["id"], "step": st["t"], "current": rows[j][1], "kind": k,
+                                           "candidate": rows[c][0], "title": rows[c][1], "gain": round(float(score[c] - score[j]), 3)})
+            sections.append({"title": sec["title"], "steps": steps})
+        out.append({"id": p["id"], "title": p["title"], "level": p["level"], "blurb": p["blurb"], "sections": sections})
+    return out, candidates
+
+
 if __name__ == "__main__":
     data = json.loads((ROOT / "videos.json").read_text())
     videos, channels = data["videos"], data["channels"]
@@ -157,6 +204,10 @@ if __name__ == "__main__":
         good_v = np.array([channels[v[2]]["t"] in ("S", "A") and v[4] >= 20_000 and v[3] >= 120 for v in videos])
         links = {"vn": len(videos), "vfirst": videos[0][0], "an": len(arts), "afirst": arts[0][0],
                  "v2a": cross_links(E, A, 3, LINK_THRESHOLD), "a2v": cross_links(A, E, 4, LINK_THRESHOLD, good_v)}
+        courses, cands = build_courses(E, videos, A, arts, model)
+        (ROOT / "courses.json").write_text(json.dumps(courses, ensure_ascii=False, indent=1))
+        (ROOT / "path_candidates.json").write_text(json.dumps(cands, ensure_ascii=False, indent=1))
+        print(f"courses.json: {len(courses)} curated paths, {len(cands)} candidate improvements")
         rp = build_reading_paths(A, arts, srcs, model)
         (ROOT / "reading_paths.json").write_text(json.dumps(rp, ensure_ascii=False, indent=1))
         print(f"reading_paths.json: {len(rp)} paths")

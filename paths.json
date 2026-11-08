@@ -1,20 +1,5 @@
 [
  {
-  "id": "kubernetes",
-  "title": "Kubernetes from zero",
-  "blurb": "From what a container is to running real workloads on a cluster.",
-  "videos": [
-   "eyNBf1sqdBQ",
-   "pTFZFxd4hOI",
-   "VnvRFRk_51k",
-   "VQUZF6k6g88",
-   "GhZi4DxaxxE",
-   "-ykwb1d0DXU",
-   "aSrqRSk43lY",
-   "oBf5lrmquYI"
-  ]
- },
- {
   "id": "how-computers-work",
   "title": "How a computer actually works",
   "blurb": "Transistors, logic gates, CPUs and memory, built up one layer at a time.",
@@ -26,21 +11,6 @@
    "SAk-6gVkio0",
    "CkNn98WE5_k",
    "juGNPLdjLH4"
-  ]
- },
- {
-  "id": "neural-networks",
-  "title": "Neural networks to LLMs",
-  "blurb": "The math and intuition behind deep learning, ending at large language models.",
-  "videos": [
-   "aircAruvnKk",
-   "IHZwWFHWa-w",
-   "GKZoOHXGcLo",
-   "Wo5dMEP_BbI",
-   "eMlx5fFNoYc",
-   "_8yVOC4ciXc",
-   "kCc8FmEb1nY",
-   "pCX_3p40Efc"
   ]
  },
  {
@@ -56,20 +26,6 @@
    "xErwDaOc-Gs",
    "rv4LlmLmVWk",
    "7ccdWqGgHaM"
-  ]
- },
- {
-  "id": "networking",
-  "title": "How the internet works",
-  "blurb": "Packets, addresses and protocols, from your Wi-Fi to a web server.",
-  "videos": [
-   "KjD3KANH-xc",
-   "0y6FtKsg6J4",
-   "5WfiTHiU4x8",
-   "uwoD5YsGACg",
-   "uOfonONtIuk",
-   "j9QmMEWmcfo",
-   "R-JUOpCgTZc"
   ]
  },
  {

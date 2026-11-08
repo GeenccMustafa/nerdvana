@@ -1,0 +1,421 @@
+[
+ {
+  "id": "llms",
+  "title": "Neural networks to LLMs",
+  "level": "Intermediate",
+  "blurb": "From a single neuron to how ChatGPT-style models are built, trained and tuned. Light on math, heavy on intuition, with two build-it-yourself detours.",
+  "sections": [
+   {
+    "title": "What a neural network is",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The clearest picture there is: layers of numbers, weights and a lot of tiny decisions.",
+      "id": "aircAruvnKk"
+     },
+     {
+      "k": "v",
+      "note": "How a network learns: measure how wrong it is, then nudge every weight downhill.",
+      "id": "IHZwWFHWa-w"
+     },
+     {
+      "k": "v",
+      "note": "The trick that makes learning fast: blame flows backwards through the network.",
+      "id": "Ilg3gGewQ5U"
+     },
+     {
+      "k": "v",
+      "note": "The math behind the last video. Skip it if calculus is rusty; nothing later depends on it.",
+      "id": "tIeHLnjs5U8"
+     },
+     {
+      "k": "a",
+      "note": "The same ideas once more, as code instead of equations.",
+      "id": "3f5e48ef53"
+     }
+    ]
+   },
+   {
+    "title": "Build one yourself",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Write a tiny autograd engine and train a net with it in plain Python. Long, and the best investment on this path.",
+      "id": "VMj-3S1tku0"
+     },
+     {
+      "k": "a",
+      "note": "Practical habits for when training doesn't work, which is most of the time.",
+      "id": "21e3e719f6"
+     }
+    ]
+   },
+   {
+    "title": "Language: from words to sequences",
+    "steps": [
+     {
+      "k": "v",
+      "note": "How words become vectors whose distances mean something.",
+      "id": "viZrOnJclY0"
+     },
+     {
+      "k": "a",
+      "note": "What embeddings are good for in practice: search, clustering, recommendations.",
+      "id": "7d1cbec3ff"
+     },
+     {
+      "k": "v",
+      "note": "Your first language model: predicting the next character, from counting to a neural net.",
+      "id": "PaCmpygFfXo"
+     },
+     {
+      "k": "a",
+      "note": "The 2015 post that showed how much a simple next-character model can learn.",
+      "id": "ce3e63aa26"
+     },
+     {
+      "k": "a",
+      "note": "How networks got a memory, and why that wasn't enough.",
+      "id": "012c93ab19"
+     }
+    ]
+   },
+   {
+    "title": "Attention and transformers",
+    "steps": [
+     {
+      "k": "a",
+      "note": "Where the idea of attention came from, with beautiful interactive diagrams.",
+      "id": "44a3403b7c"
+     },
+     {
+      "k": "v",
+      "note": "The transformer as a whole: tokens in, probabilities out.",
+      "id": "wjZofJX0v4M"
+     },
+     {
+      "k": "v",
+      "note": "The heart of it: how every token looks at every other token.",
+      "id": "eMlx5fFNoYc"
+     },
+     {
+      "k": "a",
+      "note": "The classic visual walkthrough. Read it right after the videos; it will click.",
+      "id": "62b795f374"
+     },
+     {
+      "k": "v",
+      "note": "What the other half of the transformer, the MLP layers, seems to be doing.",
+      "id": "9-Jl0dxWQs8"
+     }
+    ]
+   },
+   {
+    "title": "Build GPT",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Put it all together and train a small GPT on Shakespeare.",
+      "id": "kCc8FmEb1nY"
+     },
+     {
+      "k": "v",
+      "note": "Why models see text as tokens, and why that explains many of their quirks.",
+      "id": "zduSFxRajkE"
+     },
+     {
+      "k": "a",
+      "note": "A visual recap of what you just built, at real scale.",
+      "id": "50e6fa3c83"
+     }
+    ]
+   },
+   {
+    "title": "Today's LLMs",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The big picture: pretraining, fine-tuning, tools, and where this is all going.",
+      "id": "zjkBMFhNj_g"
+     },
+     {
+      "k": "v",
+      "note": "How a text predictor is turned into a helpful assistant.",
+      "id": "qPN_XZcJf_s"
+     },
+     {
+      "k": "a",
+      "note": "How the newest models are trained to think before they answer.",
+      "id": "1959c5806d"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "kubernetes",
+  "title": "Docker to Kubernetes",
+  "level": "Beginner",
+  "blurb": "Containers from first principles, then running them at scale: from your first Dockerfile to Helm charts and operating a real cluster.",
+  "sections": [
+   {
+    "title": "Why containers",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Start here: what a container actually is, and how it differs from a virtual machine.",
+      "id": "eyNBf1sqdBQ"
+     },
+     {
+      "k": "v",
+      "note": "A quick tour of the whole Docker workflow, so the rest has context.",
+      "id": "gAkwW2tuIqE"
+     },
+     {
+      "k": "a",
+      "note": "A peek under the hood: how image layers stack into one filesystem.",
+      "id": "e06dd46d31"
+     }
+    ]
+   },
+   {
+    "title": "Docker in practice",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Hands-on: images, containers, ports and volumes. Follow along on your machine.",
+      "id": "pg19Z8LL06w"
+     },
+     {
+      "k": "v",
+      "note": "Package your own app as an image.",
+      "id": "WmcdMiyqfZs"
+     },
+     {
+      "k": "v",
+      "note": "Run several containers together with one file.",
+      "id": "DM65_JyGxCo"
+     },
+     {
+      "k": "v",
+      "note": "How containers talk to each other and to the outside world.",
+      "id": "bKFMS5C4CG0"
+     }
+    ]
+   },
+   {
+    "title": "Kubernetes concepts",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The architecture on one page: control plane, nodes, pods.",
+      "id": "TlHvYWVUZyc"
+     },
+     {
+      "k": "v",
+      "note": "The building blocks you'll use every day: Pods, Services, ConfigMaps, Secrets, Deployments.",
+      "id": "Krpb44XR0bk"
+     },
+     {
+      "k": "v",
+      "note": "Hands-on: run a local cluster and deploy a real app to it.",
+      "id": "s_o8dwzRlu4"
+     },
+     {
+      "k": "v",
+      "note": "How to read and write the manifests you'll be living in.",
+      "id": "qmDzcu5uY1I"
+     }
+    ]
+   },
+   {
+    "title": "Networking and storage",
+    "steps": [
+     {
+      "k": "v",
+      "note": "ClusterIP, NodePort, LoadBalancer: how traffic finds your pods.",
+      "id": "T4Z7visMM4E"
+     },
+     {
+      "k": "v",
+      "note": "One entry point and routing rules for all your services.",
+      "id": "80Ew_fsV4rM"
+     },
+     {
+      "k": "v",
+      "note": "Keeping data alive when pods come and go.",
+      "id": "0swOh5C3OVM"
+     },
+     {
+      "k": "v",
+      "note": "Why databases need different treatment than stateless apps.",
+      "id": "pPQKAR1pA9U"
+     }
+    ]
+   },
+   {
+    "title": "Running it for real",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Package and version whole applications instead of piles of YAML.",
+      "id": "-ykwb1d0DXU"
+     },
+     {
+      "k": "v",
+      "note": "Teaching Kubernetes to run complex software for you.",
+      "id": "ha3LjlD6g7g"
+     },
+     {
+      "k": "a",
+      "note": "What Stripe learned running Kubernetes in production.",
+      "id": "3d81ccac36"
+     },
+     {
+      "k": "a",
+      "note": "Want to practise on real hardware? This is how.",
+      "id": "d396344a08"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "internet",
+  "title": "How the internet works",
+  "level": "Beginner",
+  "blurb": "What happens between typing a URL and seeing a page: cables, addresses, routing, DNS, HTTP and encryption, plus a few stories of it breaking.",
+  "sections": [
+   {
+    "title": "The physical internet",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The core idea in five minutes: everything travels in small packets.",
+      "id": "KjD3KANH-xc"
+     },
+     {
+      "k": "v",
+      "note": "Most of those packets travel as pulses of light.",
+      "id": "G1Ke-H8I1uk"
+     },
+     {
+      "k": "v",
+      "note": "The cables on the ocean floor that carry almost all intercontinental traffic.",
+      "id": "AFt9le2ytW0"
+     },
+     {
+      "k": "v",
+      "note": "The last few metres: how data gets to your laptop through the air.",
+      "id": "vvKbMueRzrI"
+     }
+    ]
+   },
+   {
+    "title": "Addresses and routing",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The boxes that move packets around, and what each one knows.",
+      "id": "1z0ULvg_pW8"
+     },
+     {
+      "k": "v",
+      "note": "How every device gets an address.",
+      "id": "ThdO9beHhpA"
+     },
+     {
+      "k": "v",
+      "note": "Networks inside networks, and how to read addresses like 10.0.0.0/24.",
+      "id": "5WfiTHiU4x8"
+     },
+     {
+      "k": "v",
+      "note": "How a whole household shares one public address.",
+      "id": "FTUV0t6JaDA"
+     },
+     {
+      "k": "v",
+      "note": "Watch your packets hop across the internet yourself.",
+      "id": "up3bcBLZS74"
+     }
+    ]
+   },
+   {
+    "title": "Protocols: TCP/IP",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The layer model that ties everything together.",
+      "id": "CRdL1PcherM"
+     },
+     {
+      "k": "v",
+      "note": "Reliable delivery versus speed, and who uses which.",
+      "id": "uwoD5YsGACg"
+     },
+     {
+      "k": "a",
+      "note": "A taste of how TCP details still bite in real systems.",
+      "id": "746fe7b5c5"
+     }
+    ]
+   },
+   {
+    "title": "Names: DNS",
+    "steps": [
+     {
+      "k": "v",
+      "note": "How a name like github.com becomes an address.",
+      "id": "mpQZVYPuDGU"
+     },
+     {
+      "k": "a",
+      "note": "Play with real DNS records in a safe sandbox.",
+      "id": "46b9a2b589"
+     },
+     {
+      "k": "a",
+      "note": "Write a DNS resolver in about 200 lines and see there is no magic.",
+      "id": "e6c3dab6e1"
+     }
+    ]
+   },
+   {
+    "title": "The web on top: HTTP and TLS",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Requests, responses, headers and status codes, explored in the browser.",
+      "id": "iYM2zFP3Zn0"
+     },
+     {
+      "k": "v",
+      "note": "How the padlock works: encryption and certificates.",
+      "id": "hExRDVZHhig"
+     },
+     {
+      "k": "a",
+      "note": "Why the newest HTTP runs over UDP.",
+      "id": "6ae9be02d8"
+     }
+    ]
+   },
+   {
+    "title": "When it breaks",
+    "steps": [
+     {
+      "k": "a",
+      "note": "How one routing mistake took down large parts of the internet.",
+      "id": "81a022d49d"
+     },
+     {
+      "k": "a",
+      "note": "What it takes to run DNS for millions of people.",
+      "id": "1e37988bd1"
+     }
+    ]
+   }
+  ]
+ }
+]

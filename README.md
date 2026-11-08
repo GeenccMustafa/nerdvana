@@ -11,7 +11,8 @@ Inspired by Andrej Karpathy's [TristanTube](https://karpathy.ai/tristan-tube/).
 **Find something to watch**
 - **Sidebar**: Home, Top picks, New this week, Learning paths, I have X minutes, Watch later and History, plus every channel (with its avatar) grouped by tier: Essential, Great, Worth a look
 - **Search titles and transcripts**: matches in what is *said* in a video show up with a timestamp and jump straight to that moment (Essential channels)
-- **Learning paths**: short, ordered playlists that take one topic from zero to solid (Kubernetes, how computers work, neural networks to LLMs, system design, networking, security)
+- **Curated paths**: hand-picked courses that mix videos and articles, in sections, with a note on why each step is there and your progress (Neural networks to LLMs, Docker to Kubernetes, How the internet works). Step through them from the watch page with *Next step*
+- **Learning paths**: shorter, automatically picked playlists for the topics that don't have a curated path yet
 - **I have X minutes**: pick 5–60 minutes and get unwatched videos that fit, ready to play back to back
 - **New this week**: the latest uploads from all channels
 - **Mix** sort (default): a channel-balanced shuffle, so no single channel floods the feed
@@ -43,6 +44,7 @@ Watched, read, saved and in-progress items are stored only in your browser. Ligh
 | `transcripts.py` | Downloads English subtitles for the Essential channels and writes `search.json`, a compact word index with timestamps. |
 | `sources.json` | The blog list: name, URL, tier and topic (optionally the feed URL). |
 | `articles.py` | Collects each blog's posts from [Hacker News](https://hn.algolia.com/api) (all-time popular, with points) and its RSS/Atom feed (newest), fetches each new page once for its description, cover image and length, and writes `articles.json`. |
+| `curated_paths.json` | The curated paths: sections and hand-picked steps (a video or article id, its title and a one-line note). If a step's item disappears, the nightly job swaps in the closest match and newer, better-fitting items are listed in `path_candidates.json` for review. |
 | `reading_paths_def.json` | The reading paths: a title and steps per path (a search phrase, or `title:` to pin a specific post). |
 | `feed.py` | Writes `feed.xml`, the weekly top-20 Atom feed. |
 | `index.html` | The whole site: one file, no build step, no dependencies. |

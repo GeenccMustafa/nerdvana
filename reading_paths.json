@@ -15,21 +15,6 @@
   ]
  },
  {
-  "id": "llms",
-  "title": "How LLMs work",
-  "blurb": "From neural networks to transformers to today's language models",
-  "articles": [
-   "0f73b78fb1",
-   "ce3e63aa26",
-   "012c93ab19",
-   "62b795f374",
-   "50e6fa3c83",
-   "2dfe87d54a",
-   "372ee7c525",
-   "1959c5806d"
-  ]
- },
- {
   "id": "performance",
   "title": "Performance and the machine",
   "blurb": "What really happens in the CPU, memory and kernel when code runs",
@@ -50,13 +35,13 @@
   "blurb": "How attacks work and how cryptography actually protects us",
   "articles": [
    "0750e3f4eb",
-   "9a0a1d7fd1",
-   "25ea2e3336",
+   "e51fae5d4a",
+   "9b73604925",
    "92bfe4111a",
    "9b45d368bc",
    "be0c5be1a3",
    "4d8e42111f",
-   "8ec499111a"
+   "c73726e2c8"
   ]
  },
  {
@@ -86,7 +71,7 @@
    "f47f4746a8",
    "0e4c15a140",
    "3abfaf84e2",
-   "477e021d7d"
+   "85044d705b"
   ]
  }
 ]
