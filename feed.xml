@@ -5,7 +5,7 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-09T10:57:47Z</updated>
+  <updated>2026-11-09T11:52:24Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
     <id>tag:nerdvana,2026:video:7hlTu95nOCw</id>
@@ -19,7 +19,7 @@
     <title>Writing as a thinking tool</title>
     <link href="http://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html"/>
     <updated>2026-11-07T08:22:00Z</updated>
-    <summary>Article · Murat Demirbas · ▲ 371 on Hacker News · 8 min read
+    <summary>Article · Murat Demirbas · ▲ 379 on Hacker News · 8 min read
 
 In middle school I could not get through long passages no matter how hard I tried. I would read an entire page and find that nothing had reg...</summary>
   </entry>
@@ -28,7 +28,7 @@ In middle school I could not get through long passages no matter how hard I trie
     <title>Asahi Linux Progress Linux 7.3</title>
     <link href="https://asahilinux.org/2026/11/progress-report-7-3/"/>
     <updated>2026-11-07T04:30:00Z</updated>
-    <summary>Article · Asahi Linux · ▲ 420 on Hacker News · 14 min read
+    <summary>Article · Asahi Linux · ▲ 422 on Hacker News · 14 min read
 
 Well here we are again. Linux 7.3 is out and it’s been an eventful few months, so let’s get stuck in to another Asahi Linux progress report!</summary>
   </entry>
@@ -37,11 +37,11 @@ Well here we are again. Linux 7.3 is out and it’s been an eventful few months,
     <title>▶ Meta VR Glasses: What Vision Pro 2 COULD Have Been!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=_x58r9TBois"/>
     <updated>2026-11-07T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 5.1M views · 8 min</summary>
+    <summary>Video · Marques Brownlee · 5.2M views · 8 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:iw9SZgyahqg</id>
-    <title>▶ OpenAI just made cryptographers very nervous...</title>
+    <title>▶ The one thing holding theoretical CS together just broke... kinda</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=iw9SZgyahqg"/>
     <updated>2026-11-07T00:00:00Z</updated>
     <summary>Video · Fireship · 1.8M views · 6 min</summary>
@@ -72,13 +72,6 @@ GitHub's new Git storage architecture is built so thousands of agents can push t
     <summary>Video · Veritasium · 14.0M views · 66 min</summary>
   </entry>
   <entry>
-    <id>tag:nerdvana,2026:video:Yg2t5w8vj5Q</id>
-    <title>▶ I Tested Every Viral 3D Printed Tech!</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=Yg2t5w8vj5Q"/>
-    <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 5.3M views · 21 min</summary>
-  </entry>
-  <entry>
     <id>tag:nerdvana,2026:article:d094672a40</id>
     <title>A thousand fewer paths to root</title>
     <link href="https://openai.com/index/a-thousand-fewer-paths-to-root/"/>
@@ -95,8 +88,15 @@ OpenAI built an autonomous pipeline that found, validated, and generated patches
     <summary>Video · Marques Brownlee · 11.0M views · 13 min</summary>
   </entry>
   <entry>
+    <id>tag:nerdvana,2026:video:Yg2t5w8vj5Q</id>
+    <title>▶ I Tested Every Viral 3D Printed Tech!</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=Yg2t5w8vj5Q"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Video · Mrwhosetheboss · 5.3M views · 21 min</summary>
+  </entry>
+  <entry>
     <id>tag:nerdvana,2026:video:k2ruCf_z75I</id>
-    <title>▶ The largest theft in human history just happened...</title>
+    <title>▶ North Korea stole $6.3 billion... and that’s not even the worst part</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=k2ruCf_z75I"/>
     <updated>2026-11-04T00:00:00Z</updated>
     <summary>Video · Fireship · 2.0M views · 6 min</summary>
@@ -113,7 +113,7 @@ OpenAI built an autonomous pipeline that found, validated, and generated patches
     <title>A new Go API for JSON</title>
     <link href="https://go.dev/blog/jsonv2"/>
     <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Article · The Go Blog · ▲ 395 on Hacker News · 14 min read
+    <summary>Article · The Go Blog · ▲ 396 on Hacker News · 14 min read
 
 Go 1.27 introduces new encoding/json/v2 and encoding/json/jsontext packages.</summary>
   </entry>
