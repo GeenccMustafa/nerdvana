@@ -2,19 +2,39 @@ name: Refresh videos and articles
 
 on:
   schedule:
-    - cron: "17 3 * * *"   # every night at 03:17 UTC
-    - cron: "47 6 * * *"   # backup: GitHub sometimes skips scheduled runs; a second run is harmless
+    # GitHub often delays or drops scheduled runs, so try every hour from 03:17 to 12:17 UTC.
+    # The "check" job below skips the work once a run has already succeeded today.
+    - cron: "17 3-12 * * *"
   workflow_dispatch: {}      # "Run workflow" button in the Actions tab
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: refresh
   cancel-in-progress: false
 
 jobs:
+  # Scheduled runs only: skip if this workflow already succeeded today (UTC). Manual runs always go ahead.
+  check:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    outputs:
+      done: ${{ steps.today.outputs.done }}
+    steps:
+      - id: today
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh run list -R "$GITHUB_REPOSITORY" --workflow refresh.yml --status success \
+                --created ">=$(date -u +%F)" --json databaseId --jq length)
+          echo "Successful runs today: $n"
+          if [ "$n" -gt 0 ]; then echo "done=true" >> "$GITHUB_OUTPUT"; else echo "done=false" >> "$GITHUB_OUTPUT"; fi
+
   refresh:
+    needs: check
+    if: always() && needs.check.outputs.done != 'true' && needs.check.result != 'failure'
     runs-on: ubuntu-latest
     timeout-minutes: 75
     steps:
