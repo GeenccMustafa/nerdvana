@@ -5,44 +5,92 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-10T09:16:49Z</updated>
+  <updated>2026-11-11T08:15:21Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
-    <id>tag:nerdvana,2026:article:ebf57632b4</id>
-    <title>Locating the source of a mysterious beep</title>
-    <link href="https://simonwillison.net/2026/Nov/9/mysterious-beeps/"/>
-    <updated>2026-11-09T23:57:21Z</updated>
-    <summary>Article · Simon Willison · ▲ 170 on Hacker News · 9 min read
+    <id>tag:nerdvana,2026:article:1223e6f131</id>
+    <title>Synaptics patent claims stop work on DisplayLink drivers</title>
+    <link href="https://lwn.net/SubscriberLink/1102549/acbc92e00cee3a3f/"/>
+    <updated>2026-11-10T18:02:02Z</updated>
+    <summary>Article · LWN.net · ▲ 380 on Hacker News · 18 min read
 
-Our house has a box room, full of boxes that we still haven’t unpacked from our last move. A couple of weeks ago something in that room started intermittently beeping. …</summary>
+Mike Lothian owns a docking station (or dock) that uses a DisplayLink chipset that had, at leas [...]</summary>
   </entry>
   <entry>
-    <id>tag:nerdvana,2026:video:Gro5z03a_Qw</id>
-    <title>▶ Almost literally EVERYONE is wrong about the iPhone Duo</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=Gro5z03a_Qw"/>
-    <updated>2026-11-09T19:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 1.7M views · 18 min</summary>
+    <id>tag:nerdvana,2026:article:9832b40699</id>
+    <title>AMD's Zen 6 Family: Feeding the Beast</title>
+    <link href="https://chipsandcheese.com/p/amds-zen-6-family-feeding-the-beast"/>
+    <updated>2026-11-10T17:00:10Z</updated>
+    <summary>Article · Chips and Cheese · ▲ 223 on Hacker News · 10 min read
+
+Today we’re looking at AMD’s next-generation Zen 6 CPU core family. We’ll explore the changes from Zen 5 and what the differences between Zen 6 and Zen 6c tell us about AMD’s approach to microarchitecture.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:fEjvSbI_PT4</id>
+    <title>▶ What Actually Happens When You Die?</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=fEjvSbI_PT4"/>
+    <updated>2026-11-10T15:00:00Z</updated>
+    <summary>Video · Kurzgesagt – In a Nutshell · 1.8M views · 14 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:4133c672fa</id>
+    <title>AlphaProof Code</title>
+    <link href="https://deepmind.google/blog/introducing-alphaproof-code/"/>
+    <updated>2026-11-10T12:00:00Z</updated>
+    <summary>Article · Google DeepMind · ▲ 619 on Hacker News
+
+AlphaProof Code agents wrote three million lines of proofs in Lean to verify Signal’s core encryption.</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:HVLUtJWlcJY</id>
     <title>▶ I Tested 42 Years of Phones!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=HVLUtJWlcJY"/>
-    <updated>2026-11-09T13:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 2.6M views · 37 min</summary>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <summary>Video · Mrwhosetheboss · 4.2M views · 37 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:Gro5z03a_Qw</id>
+    <title>▶ Almost literally EVERYONE is wrong about the iPhone Duo</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=Gro5z03a_Qw"/>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <summary>Video · Linus Tech Tips · 2.7M views · 18 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:0V-4lQYNugA</id>
+    <title>▶ Why you can't touch Stonehenge any more</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=0V-4lQYNugA"/>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <summary>Video · Tom Scott · 1.7M views · 26 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:pf5tXJZM1Rw</id>
+    <title>▶ OpenAI just found 948 ways to root your Linux box...</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=pf5tXJZM1Rw"/>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <summary>Video · Fireship · 1.5M views · 6 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:ebf57632b4</id>
+    <title>Locating the source of a mysterious beep</title>
+    <link href="https://simonwillison.net/2026/Nov/9/mysterious-beeps/"/>
+    <updated>2026-11-09T23:57:21Z</updated>
+    <summary>Article · Simon Willison · ▲ 323 on Hacker News · 9 min read
+
+Our house has a box room, full of boxes that we still haven’t unpacked from our last move. A couple of weeks ago something in that room started intermittently beeping. …</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:CrO0Timw2z4</id>
     <title>▶ I Let My Staff Upgrade the Office (They Almost Ruined It)</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=CrO0Timw2z4"/>
     <updated>2026-11-09T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 1.7M views · 18 min</summary>
+    <summary>Video · Linus Tech Tips · 1.9M views · 18 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:df66397688</id>
     <title>Writing as a thinking tool</title>
     <link href="http://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html"/>
     <updated>2026-11-07T08:22:00Z</updated>
-    <summary>Article · Murat Demirbas · ▲ 463 on Hacker News · 8 min read
+    <summary>Article · Murat Demirbas · ▲ 468 on Hacker News · 8 min read
 
 In middle school I could not get through long passages no matter how hard I tried. I would read an entire page and find that nothing had reg...</summary>
   </entry>
@@ -51,7 +99,7 @@ In middle school I could not get through long passages no matter how hard I trie
     <title>Asahi Linux Progress Linux 7.3</title>
     <link href="https://asahilinux.org/2026/11/progress-report-7-3/"/>
     <updated>2026-11-07T04:30:00Z</updated>
-    <summary>Article · Asahi Linux · ▲ 431 on Hacker News · 14 min read
+    <summary>Article · Asahi Linux · ▲ 434 on Hacker News · 14 min read
 
 Well here we are again. Linux 7.3 is out and it’s been an eventful few months, so let’s get stuck in to another Asahi Linux progress report!</summary>
   </entry>
@@ -60,21 +108,21 @@ Well here we are again. Linux 7.3 is out and it’s been an eventful few months,
     <title>▶ Meta VR Glasses: What Vision Pro 2 COULD Have Been!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=_x58r9TBois"/>
     <updated>2026-11-07T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 6.0M views · 8 min</summary>
+    <summary>Video · Marques Brownlee · 6.5M views · 8 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:iw9SZgyahqg</id>
-    <title>▶ OpenAI just made cryptographers very nervous...</title>
+    <title>▶ The one thing holding theoretical CS together just broke... kinda</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=iw9SZgyahqg"/>
     <updated>2026-11-07T00:00:00Z</updated>
-    <summary>Video · Fireship · 1.9M views · 6 min</summary>
+    <summary>Video · Fireship · 2.0M views · 6 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:92c14fee04</id>
     <title>Libghostty 1.0</title>
     <link href="https://mitchellh.com/writing/libghostty-1-0"/>
     <updated>2026-11-06T00:00:00Z</updated>
-    <summary>Article · Mitchell Hashimoto · ▲ 1087 on Hacker News · 8 min read
+    <summary>Article · Mitchell Hashimoto · ▲ 1090 on Hacker News · 8 min read
 
 libghostty-vt 1.0 is here. libghostty is a portable, high-performance C library for terminal emulation, extracted directly from the core of Ghostty. The 1.0 release means both the library itself and the C ABI are now…</summary>
   </entry>
@@ -83,88 +131,40 @@ libghostty-vt 1.0 is here. libghostty is a portable, high-performance C library 
     <title>GitHub's new Git storage architecture</title>
     <link href="https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/"/>
     <updated>2026-11-05T20:23:21Z</updated>
-    <summary>Article · GitHub Blog · ▲ 238 on Hacker News
+    <summary>Article · GitHub Blog · ▲ 240 on Hacker News
 
 GitHub's new Git storage architecture is built so thousands of agents can push to a single repository at once. Here's how it works.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:21f274e958</id>
+    <title>Want to Rent an Internet Address at the White House?</title>
+    <link href="https://krebsonsecurity.com/2026/11/want-to-rent-an-internet-address-at-the-white-house/"/>
+    <updated>2026-11-05T04:36:17Z</updated>
+    <summary>Article · Krebs on Security · ▲ 71 on Hacker News · 3 min read
+
+Several staffers at the White House are using computers or mobile devices equipped with residential proxy services that render their internet address available for others to rent, security experts warned today. One of…</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:KfODG5REyss</id>
     <title>▶ I finally saw quantum mechanics with my own eyes... (It's spookier than I expected)</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=KfODG5REyss"/>
     <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Video · Veritasium · 15.0M views · 66 min</summary>
+    <summary>Video · Veritasium · 17.0M views · 66 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:Yg2t5w8vj5Q</id>
     <title>▶ I Tested the Most Downloaded 3D Printed Tech!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=Yg2t5w8vj5Q"/>
     <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 5.6M views · 21 min</summary>
+    <summary>Video · Mrwhosetheboss · 5.8M views · 21 min</summary>
   </entry>
   <entry>
-    <id>tag:nerdvana,2026:article:d094672a40</id>
-    <title>A thousand fewer paths to root</title>
-    <link href="https://openai.com/index/a-thousand-fewer-paths-to-root/"/>
-    <updated>2026-11-04T08:00:00Z</updated>
-    <summary>Article · OpenAI · ▲ 488 on Hacker News
+    <id>tag:nerdvana,2026:article:f04b9dbfe8</id>
+    <title>OpenAI to acquire Pierre Computer Company</title>
+    <link href="https://openai.com/index/openai-to-acquire-pierre/"/>
+    <updated>2026-11-04T14:30:00Z</updated>
+    <summary>Article · OpenAI · ▲ 265 on Hacker News · 2 min read
 
-OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel.</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:g6Die8gVFn0</id>
-    <title>▶ OLED iPad Mini is The Most Apple Product They've Ever Appled</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=g6Die8gVFn0"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 11.0M views · 13 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:k2ruCf_z75I</id>
-    <title>▶ The worst week in cybersecurity history... so far</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=k2ruCf_z75I"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Video · Fireship · 2.1M views · 6 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:qh44Mo3mRzg</id>
-    <title>▶ Why does a loose gas cap turn on the check engine light?</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=qh44Mo3mRzg"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Video · Technology Connections · 1.1M views · 23 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:3c3f85267b</id>
-    <title>A new Go API for JSON</title>
-    <link href="https://go.dev/blog/jsonv2"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Article · The Go Blog · ▲ 397 on Hacker News · 14 min read
-
-Go 1.27 introduces new encoding/json/v2 and encoding/json/jsontext packages.</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:06128555e5</id>
-    <title>Images 2.6</title>
-    <link href="https://openai.com/index/introducing-images-2-6/"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Article · OpenAI · ▲ 384 on Hacker News
-
-Images 2.6 brings faster image generation, GIF creation, more precise editing, and new API controls across ChatGPT, Codex, and the API.</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:ef1ab26cae</id>
-    <title>Safari introduces Adaptive Dark Mode in 27.3</title>
-    <link href="https://webkit.org/blog/18541/introducing-adaptive-dark-mode/"/>
-    <updated>2026-11-03T18:00:35Z</updated>
-    <summary>Article · WebKit Blog · ▲ 517 on Hacker News · 5 min read
-
-We’re excited to announce Adaptive Dark Mode in Safari 27.3 beta.</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:fdf1822c9e</id>
-    <title>Qwen 3.8 27B on my laptop can interpret model weights, too</title>
-    <link href="https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/"/>
-    <updated>2026-11-03T16:29:48Z</updated>
-    <summary>Article · Simon Willison · ▲ 740 on Hacker News · 7 min read
-
-Yesterday’s hot paper was Sparks of Weight-Space Programming: LLMs can natively read &amp;amp; write neural network weights by Rikiya Takehi, Jayden Teoh, Alex Zhang, and Omar Khattab. The paper (OK, …</summary>
+OpenAI will acquire Pierre Computer Company, expanding Codex’s tools for building, understanding, and reviewing code.</summary>
   </entry>
 </feed>
