@@ -5,13 +5,13 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-12T08:18:36Z</updated>
+  <updated>2026-11-12T08:38:28Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
     <id>tag:nerdvana,2026:video:hdMszZ2ah5Q</id>
     <title>▶ Macbook PROLED Review: It's Not About That</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=hdMszZ2ah5Q"/>
-    <updated>2026-11-11T19:00:00Z</updated>
+    <updated>2026-11-11T20:00:00Z</updated>
     <summary>Video · Marques Brownlee · 2.4M views · 15 min</summary>
   </entry>
   <entry>
@@ -44,7 +44,7 @@ Mike Lothian owns a docking station (or dock) that uses a DisplayLink chipset th
     <title>AMD's Zen 6 Family: Feeding the Beast</title>
     <link href="https://chipsandcheese.com/p/amds-zen-6-family-feeding-the-beast"/>
     <updated>2026-11-10T17:00:10Z</updated>
-    <summary>Article · Chips and Cheese · ▲ 265 on Hacker News · 10 min read
+    <summary>Article · Chips and Cheese · ▲ 266 on Hacker News · 10 min read
 
 Today we’re looking at AMD’s next-generation Zen 6 CPU core family. We’ll explore the changes from Zen 5 and what the differences between Zen 6 and Zen 6c tell us about AMD’s approach to microarchitecture.</summary>
   </entry>
@@ -73,14 +73,14 @@ AlphaProof Code agents wrote three million lines of proofs in Lean to verify Sig
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:0V-4lQYNugA</id>
-    <title>▶ Why you can't touch Stonehenge any more</title>
+    <title>▶ This is why you can't touch Stonehenge any more.</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=0V-4lQYNugA"/>
     <updated>2026-11-10T00:00:00Z</updated>
     <summary>Video · Tom Scott · 2.2M views · 26 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:pf5tXJZM1Rw</id>
-    <title>▶ Is Linux cooked? OpenAI's agent swarm just found 948 root exploits</title>
+    <title>▶ OpenAI just found 948 ways to root your Linux box...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=pf5tXJZM1Rw"/>
     <updated>2026-11-10T00:00:00Z</updated>
     <summary>Video · Fireship · 1.7M views · 6 min</summary>
@@ -128,14 +128,14 @@ Well here we are again. Linux 7.3 is out and it’s been an eventful few months,
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:iw9SZgyahqg</id>
-    <title>▶ OpenAI just made cryptographers very nervous...</title>
+    <title>▶ The one thing holding theoretical CS together just broke... kinda</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=iw9SZgyahqg"/>
     <updated>2026-11-07T00:00:00Z</updated>
     <summary>Video · Fireship · 2.0M views · 6 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:ErB1SRcksDc</id>
-    <title>▶ SSH situation is insane</title>
+    <title>▶ Major Vuln Found in SSH</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=ErB1SRcksDc"/>
     <updated>2026-11-07T00:00:00Z</updated>
     <summary>Video · Low Level · 1.1M views · 13 min</summary>
