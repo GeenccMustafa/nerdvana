@@ -6,8 +6,10 @@ on:
     # The "check" job below skips the work once a run has already succeeded today.
     - cron: "17 3-12 * * *"
   workflow_dispatch: {}      # "Run workflow" button in the Actions tab
-  repository_dispatch:       # started by the nightly cloud routine (needs only contents permission)
-    types: [refresh]
+  # The nightly cloud routine starts the job by pushing to this branch: its GitHub app may push
+  # to claude/* branches but gets 403 on workflow_dispatch and repository_dispatch.
+  push:
+    branches: [claude/refresh-trigger]
 
 permissions:
   contents: write
@@ -18,9 +20,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Scheduled runs only: skip if this workflow already succeeded today (UTC). Manual runs always go ahead.
+  # Scheduled and routine (push) runs: skip if this workflow already succeeded today (UTC). Manual runs always go ahead.
   check:
-    if: github.event_name == 'schedule'
+    if: github.event_name == 'schedule' || github.event_name == 'push'
     runs-on: ubuntu-latest
     outputs:
       done: ${{ steps.today.outputs.done }}
@@ -41,6 +43,8 @@ jobs:
     timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # a push run starts on claude/refresh-trigger, but the data lives on main
 
       - uses: astral-sh/setup-uv@v6
 
