@@ -6,6 +6,8 @@ on:
     # The "check" job below skips the work once a run has already succeeded today.
     - cron: "17 3-12 * * *"
   workflow_dispatch: {}      # "Run workflow" button in the Actions tab
+  repository_dispatch:       # started by the nightly cloud routine (needs only contents permission)
+    types: [refresh]
 
 permissions:
   contents: write
