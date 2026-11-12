@@ -6,10 +6,11 @@ on:
     # The "check" job below skips the work once a run has already succeeded today.
     - cron: "17 3-12 * * *"
   workflow_dispatch: {}      # "Run workflow" button in the Actions tab
-  # The nightly cloud routine starts the job by pushing to this branch: its GitHub app may push
-  # to claude/* branches but gets 403 on workflow_dispatch and repository_dispatch.
+  # The nightly cloud routine starts the job by pushing a new claude/refresh-YYYY-MM-DD branch: its
+  # GitHub app may push claude/* branches but gets 403 on workflow_dispatch and repository_dispatch.
+  # The "cleanup" job deletes that branch again.
   push:
-    branches: [claude/refresh-trigger]
+    branches: ["claude/refresh-*"]
 
 permissions:
   contents: write
@@ -44,7 +45,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main   # a push run starts on claude/refresh-trigger, but the data lives on main
+          ref: main   # a push run starts on a claude/refresh-* branch, but the data lives on main
 
       - uses: astral-sh/setup-uv@v6
 
@@ -99,3 +100,13 @@ jobs:
           git commit -m "Refresh videos and articles ($(date -u +%Y-%m-%d))"
           git pull --rebase   # someone (or the morning transcripts run) may have pushed meanwhile
           git push
+
+  # Delete the trigger branch the cloud routine pushed, whether or not the refresh ran.
+  cleanup:
+    needs: [check, refresh]
+    if: always() && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$GITHUB_REF_NAME"
