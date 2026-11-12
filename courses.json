@@ -1178,7 +1178,8 @@
      {
       "k": "a",
       "note": "Lessons from building a large payment system.",
-      "id": "d446c40dc4"
+      "swap": "Distributed architecture concepts I learned when building a large payment system",
+      "id": "e78ed7b02e"
      },
      {
       "k": "a",
@@ -1545,7 +1546,8 @@
      {
       "k": "a",
       "note": "Why writing well is an undervalued engineering skill.",
-      "id": "b15320aa75"
+      "swap": "Undervalued Engineering Skills: Writing Well",
+      "id": "16fa42cbb5"
      },
      {
       "k": "a",
