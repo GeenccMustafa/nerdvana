@@ -10,15 +10,17 @@ similar.json  {"n": video count, "first": first video id, "sim": [[video index, 
               aligned with the order of videos.json; the page checks n/first before using it
 paths.json    [{id, title, blurb, videos: [video id, ...]}] resolved from paths_def.json
 
-If articles.json exists, articles (title + description) are embedded the same way:
-similar_articles.json  {"n", "first", "sim": [[article index, ...] x 8]}  aligned with articles.json
+If articles.json exists, articles (title + description) are embedded the same way, for links, courses
+and reading paths. "More like this" for articles uses a larger model (ART_MODEL) on title + description +
+the start of the text (kept in .cache/pages.json by articles.py), and only lists matches above ART_MIN_SIM:
+similar_articles.json  {"n", "first", "sim": [[article index, ...] x up to 8]}  aligned with articles.json
 courses.json           curated paths from curated_paths.json: [{id, title, level, blurb, sections: [{title, steps: [{k, id, note}]}]}]
 path_candidates.json   newer items that may fit a curated step better (for the monthly review)
 reading_paths.json     [{id, title, blurb, articles: [article id, ...]}] resolved from reading_paths_def.json
 links.json             videos <-> articles on the same topic:
                        {"vn", "vfirst", "an", "afirst", "v2a": [[article index, ...]], "a2v": [[video index, ...]]}
 """
-import json, math, time
+import hashlib, json, math, time
 from pathlib import Path
 
 import numpy as np
@@ -30,18 +32,35 @@ MODEL = "BAAI/bge-small-en-v1.5"
 SIMILAR = 8
 MAX_SAME_CHANNEL = 3
 LINK_THRESHOLD = 0.8
+ART_MODEL = "BAAI/bge-base-en-v1.5"
+ART_TEXT_LEN = 1800     # characters of article text embedded (the model reads ~512 tokens)
+ART_MIN_SIM = 0.66      # below this, bge-base matches on this data are mostly unrelated
+ART_REEMBED_PER_RUN = 1500  # articles whose text changed (body text arrived) re-embedded per run; the rest next run
 
 
-def embed(texts, model, cache_file):
-    """texts: {id: text}. Returns normalized vectors in the order of texts; caches by id."""
+def embed(texts, model, cache_file, by_text=False, max_changed=None):
+    """texts: {id: text}. Returns normalized vectors in the order of texts; caches by id
+    (by_text: by id + text hash, so an item is re-embedded when its text changes).
+    max_changed: at most this many items that already have a vector for an older text are
+    re-embedded; the others keep their old vector until a later run (keeps each run short)."""
     cached = {}
     if cache_file.exists():
         z = np.load(cache_file)
         cached = dict(zip(z["ids"].tolist(), z["vecs"]))
+    if by_text:
+        texts = {f"{i}:{hashlib.sha1(t.encode()).hexdigest()[:10]}": t for i, t in texts.items()}
     todo = [i for i in texts if i not in cached]
+    if by_text and max_changed is not None:
+        old = {k.split(":")[0]: k for k in cached}
+        changed = [k for k in todo if k.split(":")[0] in old]
+        if len(changed) > max_changed:
+            later = set(changed[max_changed:])
+            print(f"re-embedding {max_changed} changed texts now, {len(later)} on later runs", flush=True)
+            texts = {(old[k.split(":")[0]] if k in later else k): t for k, t in texts.items()}
+            todo = [k for k in todo if k not in later]
     if todo:
         print(f"embedding {len(todo)} new texts…", flush=True)
-        for i, vec in zip(todo, model.embed([texts[i] for i in todo], batch_size=256)):
+        for i, vec in zip(todo, model.embed([texts[i] for i in todo], batch_size=64 if by_text else 256)):
             cached[i] = vec.astype(np.float32)
     cache_file.parent.mkdir(exist_ok=True)
     ids = list(texts)
@@ -68,7 +87,17 @@ def cross_links(A, B, k, threshold, allowed=None):
     return out
 
 
-def build_similar(E, videos):
+def article_texts(arts, cache_file):
+    """Title, description and the start of the article text (when articles.py has fetched it)."""
+    pages = json.loads(cache_file.read_text()) if cache_file.exists() else {}
+    out = {}
+    for a in arts:
+        body = (pages.get(a[6]) or {}).get("body") or ""
+        out[a[0]] = f"{a[1]}. {a[7]} {body}"[:ART_TEXT_LEN]
+    return out
+
+
+def build_similar(E, videos, min_sim=None):
     n, ch = len(videos), np.array([v[2] for v in videos])
     titles = [v[1].lower() for v in videos]
     out = []
@@ -81,6 +110,8 @@ def build_similar(E, videos):
             picked, per = [], {}
             for j in cand:
                 j = int(j)
+                if min_sim is not None and S[r, j] < min_sim:
+                    break   # sorted: nothing after this is close enough either
                 if j == i or titles[j] == titles[i]:
                     continue
                 if per.get(ch[j], 0) >= MAX_SAME_CHANNEL:
@@ -197,9 +228,14 @@ if __name__ == "__main__":
         ad = json.loads((ROOT / "articles.json").read_text())
         arts, srcs = ad["articles"], ad["sources"]
         A = embed({a[0]: f"{a[1]}. {a[7]} ({srcs[a[2]]['topic']})" for a in arts}, model, ROOT / ".cache" / "emb_articles.npz")
-        sa = build_similar(A, arts)
+        art_model = TextEmbedding(ART_MODEL)
+        AS = embed(article_texts(arts, ROOT / ".cache" / "pages.json"), art_model,
+                   ROOT / ".cache" / "emb_articles_base.npz", by_text=True, max_changed=ART_REEMBED_PER_RUN)
+        sa = build_similar(AS, arts, ART_MIN_SIM)
         (ROOT / "similar_articles.json").write_text(json.dumps(sa, separators=(",", ":")))
-        print(f"similar_articles.json: {len(sa['sim'])} articles")
+        counts = [len(x) for x in sa["sim"]]
+        print(f"similar_articles.json: {len(counts)} articles, {sum(counts) / len(counts):.1f} matches on average, "
+              f"{counts.count(0)} with none")
         # only link to videos worth a detour: Essential/Great channels with some views
         good_v = np.array([channels[v[2]]["t"] in ("S", "A") and v[4] >= 20_000 and v[3] >= 120 for v in videos])
         links = {"vn": len(videos), "vfirst": videos[0][0], "an": len(arts), "afirst": arts[0][0],
