@@ -11,7 +11,9 @@ Where the articles come from:
 
 For every picked article the page itself is fetched once (then cached) for its description
 (og:description, or the first paragraph), cover image, publish date and word count (reading time).
-Only short descriptions are stored; the full text is never kept or shown.
+Only short descriptions are published. The first BODY_LEN characters of the text are kept in the
+private page cache (.cache/, never committed or shown) so enrich.py can match articles by what they say.
+Pages cached before that was added are refetched, BODY_BACKFILL per run.
 
 Balancing, like the videos: at most 150 sources, each keeping its 100 most-upvoted + 30 newest posts.
 
@@ -34,6 +36,8 @@ TIER_ORDER = {"S": 0, "A": 1, "B": 2}
 MAX_SOURCES, TOP_BY_POINTS, NEWEST = 150, 100, 30
 MIN_POINTS, MIN_ARTICLES = 5, 8
 DESC_LEN = 220
+BODY_LEN = 2000
+BODY_BACKFILL = int(os.environ.get("BODY_BACKFILL", 1500))  # cached pages without body text, refetched per run
 PAGE_BUDGET = int(os.environ.get("PAGE_BUDGET", 15 * 60))  # seconds; pages not fetched in time are tried again on the next run
 
 
@@ -177,7 +181,7 @@ def meta(body, *names):
 def page_info(url):
     body, ctype, final = get(url, timeout=12)
     if "html" not in ctype and "<html" not in body[:2000].lower():
-        return {"ok": 1}
+        return {"ok": 1, "body": ""}
     head = body[:200_000]
     info = {"ok": 1, "title": meta(head, "og:title", "twitter:title"),
             "desc": meta(head, "og:description", "twitter:description", "description"),
@@ -191,7 +195,9 @@ def page_info(url):
     text = re.sub(r"(?is)<(script|style|noscript|svg|nav|header|footer|aside|form)\b.*?</\1>", " ", body)
     arts = re.findall(r"(?is)<article\b.*?</article>", text)
     main = max(arts, key=len) if arts else (re.search(r"(?is)<main\b.*?</main>", text) or re.search(r"(?is)<body\b.*", text) or [text])[0]
-    info["words"] = len(re.findall(r"\w+", strip_tags(main)))
+    plain = strip_tags(main)
+    info["words"] = len(re.findall(r"\w+", plain))
+    info["body"] = plain[:BODY_LEN]
     for p in re.findall(r"(?is)<p\b[^>]*>(.*?)</p>", main):
         t = strip_tags(p)
         if len(t) >= 80:
@@ -213,7 +219,10 @@ def fetch_pages(urls, cache):
             try:
                 cache[u] = page_info(u)
             except Exception as e:
-                cache[u] = {"ok": 0, "err": type(e).__name__}
+                if (cache.get(u) or {}).get("ok"):   # body backfill failed: keep what we had, don't retry forever
+                    cache[u]["body"] = ""
+                else:
+                    cache[u] = {"ok": 0, "err": type(e).__name__}
             done[0] += 1
             if done[0] % 250 == 0:
                 print(f"  pages {done[0]}/{len(urls)}", flush=True)
@@ -339,8 +348,11 @@ if __name__ == "__main__":
             for name, nh, nr, err in ex.map(refresh_source, srcs):
                 print(f"  {name:28} hn={nh:4} rss={nr:3} {' | '.join(err)}", flush=True)
     cache = load_cache()
-    todo = [r["url"] for _, r in pick(srcs) if r["url"] not in cache]
-    if todo and "--build" not in sys.argv:   # --pages: skip the source refresh, only fetch missing pages
-        print(f"fetching {len(todo)} new pages…", flush=True)
-        fetch_pages(todo, cache)
+    urls = [r["url"] for _, r in pick(srcs)]
+    todo = [u for u in urls if u not in cache]
+    # pages cached before body text was kept: refetch some of them each run
+    backfill = [u for u in urls if u in cache and cache[u].get("ok") and "body" not in cache[u]][:BODY_BACKFILL]
+    if (todo or backfill) and "--build" not in sys.argv:   # --pages: skip the source refresh, only fetch pages
+        print(f"fetching {len(todo)} new pages, {len(backfill)} for body text…", flush=True)
+        fetch_pages(todo + backfill, cache)
     build(srcs, cache)
