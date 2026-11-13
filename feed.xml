@@ -5,7 +5,7 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-13T03:44:45Z</updated>
+  <updated>2026-11-13T10:57:21Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
     <id>tag:nerdvana,2026:article:a2e9164a3f</id>
@@ -21,14 +21,14 @@ Back in July, I started experimenting with using modern coding agents to build a
     <title>▶ Macbook PROLED Review: It's Not About That</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=hdMszZ2ah5Q"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 4.3M views · 15 min</summary>
+    <summary>Video · Marques Brownlee · 4.6M views · 15 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:60e527769c</id>
     <title>Rust 1.100</title>
     <link href="https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Article · Rust Blog · ▲ 470 on Hacker News · 9 min read
+    <summary>Article · Rust Blog · ▲ 692 on Hacker News · 9 min read
 
 The Rust team is happy to announce a new version of Rust, 1.100.0. Rust is a programming language empowering everyone to build reliable and efficient software.</summary>
   </entry>
@@ -37,7 +37,7 @@ The Rust team is happy to announce a new version of Rust, 1.100.0. Rust is a pro
     <title>Talking Zen 6 with Mike Clark at AMD In-Depth</title>
     <link href="https://chipsandcheese.com/p/talking-zen-6-with-mike-clark-at"/>
     <updated>2026-11-11T22:22:57Z</updated>
-    <summary>Article · Chips and Cheese · ▲ 197 on Hacker News · 9 min read
+    <summary>Article · Chips and Cheese · ▲ 220 on Hacker News · 9 min read
 
 Hello you fine Internet folks, I sat down with AMD’s Mike Clark to talk about Zen 6, the evolution from Zen 5 and what some of the differences are between Zen 6 and Zen 6c and what drove some of those changes.</summary>
   </entry>
@@ -55,14 +55,14 @@ AWS Emulator, launched today and written and tested entirely by agents, gives yo
     <title>▶ What Actually Happens When You Die?</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=fEjvSbI_PT4"/>
     <updated>2026-11-11T00:00:00Z</updated>
-    <summary>Video · Kurzgesagt – In a Nutshell · 3.4M views · 14 min</summary>
+    <summary>Video · Kurzgesagt – In a Nutshell · 3.6M views · 14 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:1223e6f131</id>
     <title>Synaptics patent claims stop work on DisplayLink drivers</title>
     <link href="https://lwn.net/SubscriberLink/1102549/acbc92e00cee3a3f/"/>
     <updated>2026-11-10T18:02:02Z</updated>
-    <summary>Article · LWN.net · ▲ 487 on Hacker News · 18 min read
+    <summary>Article · LWN.net · ▲ 489 on Hacker News · 18 min read
 
 Mike Lothian owns a docking station (or dock) that uses a DisplayLink chipset that had, at leas [...]</summary>
   </entry>
@@ -71,7 +71,7 @@ Mike Lothian owns a docking station (or dock) that uses a DisplayLink chipset th
     <title>AMD's Zen 6 Family: Feeding the Beast</title>
     <link href="https://chipsandcheese.com/p/amds-zen-6-family-feeding-the-beast"/>
     <updated>2026-11-10T17:00:10Z</updated>
-    <summary>Article · Chips and Cheese · ▲ 272 on Hacker News · 10 min read
+    <summary>Article · Chips and Cheese · ▲ 273 on Hacker News · 10 min read
 
 Today we’re looking at AMD’s next-generation Zen 6 CPU core family. We’ll explore the changes from Zen 5 and what the differences between Zen 6 and Zen 6c tell us about AMD’s approach to microarchitecture.</summary>
   </entry>
@@ -89,7 +89,7 @@ AlphaProof Code agents wrote three million lines of proofs in Lean to verify Sig
     <title>▶ I Tested 42 Years of Phones!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=HVLUtJWlcJY"/>
     <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 6.1M views · 37 min</summary>
+    <summary>Video · Mrwhosetheboss · 6.3M views · 37 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:Gro5z03a_Qw</id>
@@ -100,17 +100,17 @@ AlphaProof Code agents wrote three million lines of proofs in Lean to verify Sig
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:0V-4lQYNugA</id>
-    <title>▶ This is why you can't touch Stonehenge any more.</title>
+    <title>▶ Why can't you touch Stonehenge any more?</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=0V-4lQYNugA"/>
     <updated>2026-11-10T00:00:00Z</updated>
     <summary>Video · Tom Scott · 2.5M views · 26 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:pf5tXJZM1Rw</id>
-    <title>▶ Is Linux cooked? OpenAI's agent swarm just found 948 root exploits</title>
+    <title>▶ OpenAI just found 948 ways to root your Linux box...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=pf5tXJZM1Rw"/>
     <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Video · Fireship · 1.7M views · 6 min</summary>
+    <summary>Video · Fireship · 1.8M views · 6 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:ebf57632b4</id>
@@ -133,7 +133,7 @@ Our house has a box room, full of boxes that we still haven’t unpacked from ou
     <title>Writing as a thinking tool</title>
     <link href="http://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html"/>
     <updated>2026-11-07T08:22:00Z</updated>
-    <summary>Article · Murat Demirbas · ▲ 471 on Hacker News · 8 min read
+    <summary>Article · Murat Demirbas · ▲ 472 on Hacker News · 8 min read
 
 In middle school I could not get through long passages no matter how hard I tried. I would read an entire page and find that nothing had reg...</summary>
   </entry>
@@ -151,11 +151,11 @@ Well here we are again. Linux 7.3 is out and it’s been an eventful few months,
     <title>▶ Meta VR Glasses: What Vision Pro 2 COULD Have Been!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=_x58r9TBois"/>
     <updated>2026-11-07T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 7.0M views · 8 min</summary>
+    <summary>Video · Marques Brownlee · 7.1M views · 8 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:iw9SZgyahqg</id>
-    <title>▶ The one thing holding theoretical CS together just broke... kinda</title>
+    <title>▶ OpenAI just made cryptographers very nervous...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=iw9SZgyahqg"/>
     <updated>2026-11-07T00:00:00Z</updated>
     <summary>Video · Fireship · 2.0M views · 6 min</summary>
