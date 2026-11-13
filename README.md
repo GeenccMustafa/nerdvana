@@ -9,11 +9,12 @@ Inspired by Andrej Karpathy's [TristanTube](https://karpathy.ai/tristan-tube/).
 ## Features
 
 **Find something to watch**
-- **Sidebar**: Home, Top picks, New this week, Learning paths, I have X minutes, Watch later and History, plus every channel (with its avatar) grouped by tier: Essential, Great, Worth a look
+- **Sidebar**: Home, Top picks, New this week, Code craft, Learning paths, I have X minutes, Watch later and History, plus every channel (with its avatar) grouped by tier: Essential, Great, Worth a look
 - **Search titles and transcripts**: matches in what is *said* in a video show up with a timestamp and jump straight to that moment (Essential channels)
 - **Learning paths**: 14 hand-picked courses that mix videos and articles, in sections, with a note on why each step is there and your progress. Beginner: How a computer works, How the internet works, Python, Git, Linux, Web development, Docker to Kubernetes, Security. Intermediate: Neural networks to LLMs, Databases and SQL, System design. Advanced: Distributed systems, Performance. Plus Engineering career. Step through them from the watch page with *Next step*
 - **I have X minutes**: pick 5–60 minutes and get unwatched videos that fit, ready to play back to back
 - **New this week**: the latest uploads from all channels
+- **Code craft**: videos (and articles) about writing and reading good code: code reviews, refactoring, clean code, testing, type hints, debugging, internals and the standard library, picked from programming channels by title. Link: `#craft`
 - **Mix** sort (default): a channel-balanced shuffle, so no single channel floods the feed
 
 **Watch**
