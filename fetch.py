@@ -8,6 +8,7 @@ Usage:
 Balancing rules (so a few prolific channels can't drown out the rest):
   - only channels with >= MIN_SUBS subscribers are kept, at most MAX_CHANNELS of them
     (picked by tier first, then subscriber count)
+  - channels marked "pin": true in channels.json skip both limits and don't use up a slot
   - each channel keeps at most TOP_BY_VIEWS most-viewed + NEWEST most-recent videos
   - clips of 60s or shorter (Shorts) are dropped
 """
@@ -66,13 +67,15 @@ def build(channels):
             skipped.append((ch["handle"], "not fetched")); continue
         d = json.loads(f.read_text())
         subs = d.get("channel_follower_count") or 0
-        if subs < MIN_SUBS:
+        if subs < MIN_SUBS and not ch.get("pin"):
             skipped.append((ch["handle"], f"{subs:,} subs")); continue
         loaded.append((ch, d, subs))
-    loaded.sort(key=lambda x: (TIER_RANK.get(x[0]["tier"], 9), -x[2]))
-    for ch, _, subs in loaded[MAX_CHANNELS:]:
+    pinned = [x for x in loaded if x[0].get("pin")]
+    ranked = sorted((x for x in loaded if not x[0].get("pin")),
+                    key=lambda x: (TIER_RANK.get(x[0]["tier"], 9), -x[2]))
+    for ch, _, subs in ranked[MAX_CHANNELS:]:
         skipped.append((ch["handle"], f"over {MAX_CHANNELS} limit ({subs:,} subs)"))
-    loaded = sorted(loaded[:MAX_CHANNELS], key=lambda x: -x[2])
+    loaded = sorted(ranked[:MAX_CHANNELS] + pinned, key=lambda x: -x[2])
 
     chans, vids = [], []
     for ch, d, subs in loaded:

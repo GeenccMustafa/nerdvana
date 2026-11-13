@@ -35,7 +35,7 @@
   {"handle": "NeetCode",          "tier": "A", "topic": "Programming"},
   {"handle": "hnasr",             "tier": "A", "topic": "Programming"},
   {"handle": "ArjanCodes",        "tier": "A", "topic": "Programming"},
-  {"handle": "mCoding",           "tier": "A", "topic": "Programming"},
+  {"handle": "mCoding",           "tier": "A", "topic": "Programming", "pin": true},
   {"handle": "LowLevelTV",        "tier": "A", "topic": "Programming"},
   {"handle": "SebastianLague",    "tier": "S", "topic": "Programming"},
   {"handle": "CodeBullet",        "tier": "B", "topic": "Programming"},
@@ -134,5 +134,23 @@
 
   {"handle": "AlexTheAnalyst",    "tier": "B", "topic": "Data"},
   {"handle": "KenJee_ds",         "tier": "B", "topic": "Data"},
-  {"handle": "LukeBarousse",      "tier": "B", "topic": "Data"}
+  {"handle": "LukeBarousse",      "tier": "B", "topic": "Data"},
+
+  {"handle": "anthonywritescode",  "tier": "A", "topic": "Programming", "pin": true},
+  {"handle": "realpython",         "tier": "A", "topic": "Programming", "pin": true},
+  {"handle": "PythonMorsels",      "tier": "B", "topic": "Programming", "pin": true},
+  {"handle": "Indently",           "tier": "B", "topic": "Programming", "pin": true},
+  {"handle": "ReuvenLerner",       "tier": "B", "topic": "Programming", "pin": true},
+  {"handle": "patloeber",          "tier": "B", "topic": "Programming", "pin": true},
+  {"handle": "talkpython",         "tier": "A", "topic": "Programming", "pin": true},
+  {"handle": "PyConUS",            "tier": "A", "topic": "Programming", "pin": true},
+  {"handle": "EuroPythonConference", "tier": "B", "topic": "Programming", "pin": true},
+  {"handle": "PyDataTV",           "tier": "B", "topic": "Data", "pin": true},
+  {"handle": "daveebbelaar",       "tier": "A", "topic": "AI & ML", "pin": true},
+  {"handle": "bugbytes3923",       "tier": "B", "topic": "Web Dev", "pin": true},
+  {"handle": "NeuralNine",         "tier": "B", "topic": "Programming", "pin": true},
+  {"handle": "rabbitmetrics",      "tier": "B", "topic": "AI & ML", "pin": true},
+  {"handle": "campusx-official",   "tier": "B", "topic": "AI & ML", "pin": true},
+  {"handle": "codingcrashcourses8533", "tier": "B", "topic": "AI & ML", "pin": true},
+  {"handle": "dreamsofcode",       "tier": "B", "topic": "Programming", "pin": true}
 ]
