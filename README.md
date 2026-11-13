@@ -9,13 +9,13 @@ Inspired by Andrej Karpathy's [TristanTube](https://karpathy.ai/tristan-tube/).
 ## Features
 
 **Find something to watch**
-- **Sidebar**: Home, Top picks, New this week, Code craft, Learning paths, I have X minutes, Watch later and History, plus every channel (with its avatar) grouped by tier: Essential, Great, Worth a look
+- **Sidebar**: Home, Top picks, New this week, Code craft, Discovered, Learning paths, I have X minutes, Watch later and History, plus every channel (with its avatar) grouped by tier: Essential, Great, Worth a look
 - **Search titles and transcripts**: matches in what is *said* in a video show up with a timestamp and jump straight to that moment (Essential channels)
 - **Learning paths**: 14 hand-picked courses that mix videos and articles, in sections, with a note on why each step is there and your progress. Beginner: How a computer works, How the internet works, Python, Git, Linux, Web development, Docker to Kubernetes, Security. Intermediate: Neural networks to LLMs, Databases and SQL, System design. Advanced: Distributed systems, Performance. Plus Engineering career. Step through them from the watch page with *Next step*
 - **I have X minutes**: pick 5–60 minutes and get unwatched videos that fit, ready to play back to back
 - **New this week**: the latest uploads from all channels
 - **Code craft**: videos (and articles) about writing and reading good code: code reviews, refactoring, clean code, testing, type hints, debugging, internals and the standard library, picked from programming channels by title. It also has everything the keyword search finds. Link: `#craft`
-- **Keyword search**: besides the fixed channels and blogs, every night the queries in `discover.json` (Python's standard library, popular libraries, code review, reading code…) are searched on YouTube and Hacker News, and the best matches from any channel or site are added under a fourth tier, **Discovered**. These show up in Code craft, in search and in "More like this", but not in the sidebar or the Home mix
+- **Keyword search**: besides the fixed channels and blogs, every night the queries in `discover.json` (Python's standard library, popular libraries, code review, reading code…) are searched on YouTube and Hacker News, and the best matches from any channel or site are added under a fourth tier, **Discovered**. They have their own **Discovered** view (`#disc`) and also show up in Code craft, in search and in "More like this". Their channels aren't listed in the sidebar and they stay out of the Home mix
 - **Mix** sort (default): a channel-balanced shuffle, so no single channel floods the feed
 
 **Watch**
