@@ -36,7 +36,7 @@ Watched, read, saved and in-progress items are stored only in your browser. Ligh
 
 | File | What it is |
 |---|---|
-| `channels.json` | The channel list: handle, tier and topic. This is the part to edit. |
+| `channels.json` | The channel list: handle, tier, topic and optionally `pin`. This is the part to edit. |
 | `fetch.py` | Pulls every channel's uploads with [yt-dlp](https://github.com/yt-dlp/yt-dlp) (no API key) and writes `videos.json`. |
 | `enrich.py` | Embeds every title with [bge-small](https://huggingface.co/BAAI/bge-small-en-v1.5) and writes `similar.json` (More like this); with articles it also writes `similar_articles.json`, `links.json` (videos ↔ articles on the same topic) and `courses.json` (the learning paths, resolved from `curated_paths.json`). |
 | `transcripts.py` | Downloads English subtitles for the Essential channels and writes `search.json`, a compact word index with timestamps. |
@@ -51,6 +51,7 @@ Watched, read, saved and in-progress items are stored only in your browser. Ligh
 So that prolific channels (daily uploaders, conference archives) can't drown out the rest:
 
 - only channels with **≥ 250K subscribers**, at most **100** of them (picked by tier, then subscribers)
+- channels marked `"pin": true` in `channels.json` skip both limits and don't use up one of the 100 slots (used for smaller but valuable Python and conference channels)
 - each channel keeps at most its **300 most-viewed + 100 newest** videos
 - Shorts (≤ 60 s) are dropped
 - articles: at most **150** sources, each keeping its **100 most-upvoted + 30 newest** posts
