@@ -346,6 +346,8 @@ body[data-mode="articles"] #tvBtn { display: none; }
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>Top picks</button>
     <button class="nav-item" type="button" data-view="new">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>New this week<span class="n" id="newN"></span></button>
+    <button class="nav-item" type="button" data-view="craft">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>Code craft</button>
     <button class="nav-item" type="button" data-view="paths" id="navPaths">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h12"/><path d="M9 7h6M9 11h4"/></svg><span id="pathsLbl">Learning paths</span></button>
     <button class="nav-item" type="button" data-view="time">
@@ -585,7 +587,7 @@ function routeView(p) {
   else if (p.get("like") && byId.has(p.get("like"))) Object.assign(next, { view: "like", like: p.get("like") });
   else if (p.get("course")) Object.assign(next, { view: "course", course: p.get("course") });
   else if (p.has("time")) { next.view = "time"; state.budget = BUDGETS.includes(+p.get("time")) ? +p.get("time") : 15; }
-  else for (const k of ["picks", "new", "paths", "later", "history"]) if (p.has(k)) next.view = k;
+  else for (const k of ["picks", "new", "craft", "paths", "later", "history"]) if (p.has(k)) next.view = k;
   Object.assign(state, next); renderFilters(); apply(); syncHash();
 }
 
@@ -673,6 +675,8 @@ function renderContext() {
       ${list.length && !A ? `<button class="btn primary" data-act="playall">Play all in TV mode</button>` : ""}`;
   } else if (state.view === "new") {
     html = `<div class="txt"><h2>New this week</h2><p>${n} ${l.many} ${A ? "published" : "uploaded"} in the last 7 days across all ${CH.length} ${l.src}, newest first</p></div>`;
+  } else if (state.view === "craft") {
+    html = `<div class="txt"><h2>Code craft</h2><p>Writing and reading good code: code reviews, refactoring, clean code, testing, type hints, debugging, internals and the standard library · ${n} ${l.many}</p></div>`;
   } else if (state.view === "paths") {
     html = `<div class="txt"><h2>Learning paths</h2><p>Hand-picked courses that take one topic from zero to solid, mixing the best videos and articles, step by step.</p></div>`;
   } else if (state.view === "course") { const c = COURSES.find(x => x.id === state.course), items = c ? courseItems(c) : [];
@@ -733,6 +737,24 @@ function passes(v, { ignoreSeen = false, ignoreQ = false } = {}) {
   if (!ignoreSeen && state.hideSeen && seen.has(v.id)) return false;
   return ignoreQ || !state.q || v.s.includes(state.q);
 }
+// "Code craft": programming videos/articles about writing and reading good code, matched on the title
+const CRAFT_TOPICS = new Set(["Programming", "Web Dev", "AI & ML", "Data"]);
+const CRAFT_RX = new RegExp([
+  "code reviews?", "reviewing (your |my |the )?code", "code roast", "refactor", "clean code", "code smells?",
+  "read(ing)? (the )?(source )?code", "code reading", "walk-?through", "line[- ]by[- ]line", "let'?s build (gpt|the gpt|a |an )", "source code",
+  "under the hood", "internals", "design patterns?", "anti-?patterns?", "type hints?", "typing module", "static typing",
+  "mypy", "pyright", "pytest", "unit tests?", "unit testing", "test-driven", "\\btdd\\b", "debugg(ing|er)", "(code|coding|python|programming) best practices",
+  "idiomatic", "pythonic", "\\bsolid\\b", "dataclass", "pydantic", "protocols?\\b.*python", "python.*protocols?\\b",
+  "decorators?", "generators?\\b.*python", "python.*generators?\\b", "standard library", "\\bstdlib\\b", "cpython",
+  "bytecode", "code quality", "readable code", "readability", "naming things", "writ(e|ing) better", "code like a pro",
+  "dependency injection", "abstraction", "software design", "software architecture", "composition over inheritance",
+  "metaclass", "descriptors?\\b", "context managers?", "iterators?\\b", "asyncio", "\\bgil\\b"].join("|"), "i");
+const craftMemo = new WeakMap();
+function isCraft(v) {
+  let r = craftMemo.get(v);
+  if (r === undefined) { const c = v.ch || CH[v.c]; r = !!c && CRAFT_TOPICS.has(c.topic) && v.d > 60 && CRAFT_RX.test(v.t); craftMemo.set(v, r); }
+  return r;
+}
 // "I have X minutes": pack unwatched S/A videos (in a channel-balanced order) into the time budget
 function packBudget() {
   const cap = state.budget * 60;
@@ -753,6 +775,7 @@ function apply() {
   else if (view === "like") { const a = byId.get(state.like); list = a ? (SIM?.[a.i] || []).map(i => V[i]).filter(x => x && passes(x, { ignoreQ: true })) : []; }
   else if (view === "time") list = packBudget();
   else if (view === "new") { list = V.filter(v => isNew(v) && passes(v)); list.sort(by.new); }
+  else if (view === "craft") { list = V.filter(v => isCraft(v) && passes(v)); sortList(); }
   else if (view === "picks") {
     // Each Essential channel's 15 most-viewed videos, dealt out evenly so no channel dominates
     const per = new Map();
