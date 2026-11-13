@@ -17,6 +17,10 @@ Pages cached before that was added are refetched, BODY_BACKFILL per run.
 
 Balancing, like the videos: at most 150 sources, each keeping its 100 most-upvoted + 30 newest posts.
 
+Articles found by keyword search (discover.py -> raw_articles/discovered.json) come in as one more
+source, "Discovered" (tier D), with all of its posts kept. A post that one of the listed blogs
+already has stays with that blog.
+
 articles.json  {"sources": [{n, u, t, topic, total}],
                 "articles": [[id, title, source, words, points, ts, url, desc, img, hn_id, comments], ...]}
 """
@@ -32,7 +36,9 @@ ROOT = Path(__file__).resolve().parent
 RAW = ROOT / "raw_articles"
 CACHE = ROOT / ".cache" / "pages.json"
 UA = "Mozilla/5.0 (compatible; NerdvanaBot/1.0; +https://github.com/GeenccMustafa/nerdvana)"
-TIER_ORDER = {"S": 0, "A": 1, "B": 2}
+TIER_ORDER = {"S": 0, "A": 1, "B": 2, "D": 3}
+DISCOVERED = {"name": "Discovered", "url": "https://github.com/GeenccMustafa/nerdvana/blob/main/discover.json",
+              "tier": "D", "topic": "Programming", "discover": True}
 MAX_SOURCES, TOP_BY_POINTS, NEWEST = 150, 100, 30
 MIN_POINTS, MIN_ARTICLES = 5, 8
 DESC_LEN = 220
@@ -64,6 +70,8 @@ def match_key(src):
 
 
 def slug(src):
+    if src.get("discover"):
+        return "discovered"
     return re.sub(r"[^a-z0-9]+", "-", match_key(src)).strip("-")
 
 
@@ -280,7 +288,7 @@ def pick(srcs, refetch_pages=True):
         raw = json.loads((RAW / f"{slug(s)}.json").read_text()) if (RAW / f"{slug(s)}.json").exists() else {"hn": [], "rss": []}
         hn = {norm_url(h["url"]): h for h in raw["hn"]}
         rss = {norm_url(r["url"]): r for r in raw["rss"]}
-        top = sorted(hn, key=lambda k: -hn[k]["points"])[:TOP_BY_POINTS]
+        top = sorted(hn, key=lambda k: -hn[k]["points"])[:None if s.get("discover") else TOP_BY_POINTS]
         newest = sorted(rss, key=lambda k: -(rss[k]["ts"] or 0))[:NEWEST]
         keys = list(dict.fromkeys(top + newest))
         s["_total"] = len(set(hn) | set(rss))
@@ -332,7 +340,12 @@ def build(srcs, cache):
                 words = 0
             rows.append([aid, title, remap[si], words, h.get("points", 0), ts or 0, r["url"], shorten(desc),
                          (p.get("img") or "") if generic_img[si][p.get("img")] <= 2 and re.match(r"https?://", p.get("img") or "") else "", h.get("hn", 0), h.get("comments", 0)])
-    out = {"sources": sources, "articles": rows}
+    disc = [si for si, s in enumerate(srcs) if s.get("discover")]
+    found = set()
+    if disc and (RAW / "discovered.json").exists():
+        found = {hashlib.sha1(norm_url(h["url"]).encode()).hexdigest()[:10]
+                 for h in json.loads((RAW / "discovered.json").read_text())["hn"]}
+    out = {"sources": sources, "articles": rows, "discovered": [r[0] for r in rows if r[0] in found]}
     (ROOT / "articles.json").write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")))
     n_desc = sum(bool(r[7]) for r in rows)
     print(f"articles.json: {len(sources)} sources, {len(rows)} articles ({n_desc} with a description, "
@@ -347,6 +360,8 @@ if __name__ == "__main__":
         with ThreadPoolExecutor(8) as ex:
             for name, nh, nr, err in ex.map(refresh_source, srcs):
                 print(f"  {name:28} hn={nh:4} rss={nr:3} {' | '.join(err)}", flush=True)
+    if (RAW / "discovered.json").exists():   # written by discover.py, not refreshed here
+        srcs.append(DISCOVERED)
     cache = load_cache()
     urls = [r["url"] for _, r in pick(srcs)]
     todo = [u for u in urls if u not in cache]
