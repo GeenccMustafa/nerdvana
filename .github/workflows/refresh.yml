@@ -56,6 +56,11 @@ jobs:
       - name: Keep the current data for comparison
         run: cp videos.json /tmp/videos.prev.json && cp articles.json /tmp/articles.prev.json
 
+      # Videos and articles found by keyword (discover.json); fetch.py and articles.py merge them in.
+      # A failed search shouldn't stop the refresh.
+      - name: Search YouTube and Hacker News by keyword
+        run: python3 discover.py || echo "::warning::Keyword search failed; building without it."
+
       - name: Fetch all channels and rebuild videos.json
         run: python3 fetch.py --force
 

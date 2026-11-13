@@ -78,7 +78,7 @@ header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, v
 .chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 .chip .n { font: 11px var(--mono); opacity: .65; font-variant-numeric: tabular-nums; }
 .tier { font: 600 11px var(--mono); width: 18px; height: 18px; border-radius: 5px; display: inline-grid; place-items: center; color: #fff; flex: none; }
-.tier.S { background: var(--tS); } .tier.A { background: var(--tA); } .tier.B { background: var(--tB); }
+.tier.S { background: var(--tS); } .tier.A { background: var(--tA); } .tier.B { background: var(--tB); } .tier.D { background: var(--fg2); }
 select.chip { padding-right: 8px; }
 
 /* Sidebar: nav + channels grouped by tier. Sticky column on desktop, slide-in drawer below 1000px. */
@@ -465,7 +465,9 @@ const L = () => LBL[mode];
 let progress = store.get("progress", {});    // id -> { t: seconds watched, at: last watched (ms) }
 const saveProgress = () => store.set("progress", progress);
 const state = { q: "", view: "home", path: null, like: null, budget: 15, tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false };
-const TIERS = [["S", "Essential"], ["A", "Great"], ["B", "Worth a look"]];
+const TIERS = [["S", "Essential"], ["A", "Great"], ["B", "Worth a look"]];   // the sidebar groups
+// "D" (Discovered): found by keyword search (discover.py); kept out of the sidebar and the Home mix
+const TIER_NAME = { ...Object.fromEntries(TIERS), D: "Discovered" };
 const DURS = [["<10 min", 0, 600], ["10–30 min", 600, 1800], ["30–60 min", 1800, 3600], ["1 h+", 3600, 1e9]];
 const ADURS = [["<5 min", 0, 300], ["5–15 min", 300, 900], ["15–30 min", 900, 1800], ["30 min+", 1800, 1e9]];
 const durs = () => mode === "articles" ? ADURS : DURS;
@@ -503,6 +505,7 @@ function renderFilters() {
   renderSide();
 }
 
+const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
 const initials = n => n.replace(/[^\p{L}\p{N} ]/gu, "").split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase() || "?";
 function avatar(c) {
   return `<span class="av ${c.t}${c.host ? " fav" : ""}" data-i="${esc(initials(c.n))}">${c.a ? `<img loading="lazy" referrerpolicy="no-referrer" alt="" src="${esc(c.a)}">` : esc(initials(c.n))}</span>`;
@@ -624,6 +627,7 @@ function ensureArticles() {
     A.V = d.articles.map(([id, t, c, w, pts, ts, url, desc, img, hn, cm], i) => ({ i, id, t, c, ch: A.CH[c], art: 1,
       d: w ? Math.max(1, Math.round(w / 230)) * 60 : 0, v: pts, ts, url: web(url) ? url : "#", desc, img: web(img) ? img : "", hn, cm, s: norm(t + " " + desc + " " + A.CH[c].n) }));
     A.byId = new Map(A.V.map(a => [a.id, a]));
+    for (const id of d.discovered || []) { const a = A.byId.get(id); if (a) a.disc = 1; }
     if (s && s.n === A.V.length && s.first === A.V[0]?.id) A.SIM = s.sim;
   }).catch(e => { DS.articles.ready = null; throw e; });
 }
@@ -654,13 +658,13 @@ function renderContext() {
   const A = mode === "articles", l = L();
   let html = "";
   if (A && state.ch != null) { const c = CH[state.ch];
-    html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${c.topic} · ${n} posts: the most upvoted on Hacker News plus the newest</p></div>
+    html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${c.t === "D" ? `${n} posts found by keyword search on Hacker News (the queries are in discover.json)` : `${c.topic} · ${n} posts: the most upvoted on Hacker News plus the newest`}</p></div>
       <a class="btn" href="${esc(c.u)}" target="_blank" rel="noopener">${esc(c.host)} ↗</a>`;
   } else if (A && state.view === "like") { const a = byId.get(state.like);
     html = a ? `<div class="txt lead"><p>More like</p><h2>${esc(a.t)}</h2><p>${esc(a.ch.n)}${a.d ? " · " + readTime(a) : ""}${a.v ? ` · ▲ ${fmtNum(a.v)} on Hacker News` : ""}</p>${a.desc ? `<p style="margin-top:6px">${esc(a.desc)}</p>` : ""}</div>
       <a class="btn primary" href="${esc(a.url)}" target="_blank" rel="noopener" data-read="${a.id}">Read ↗</a>` : "";
   } else if (state.ch != null) { const c = CH[state.ch];
-    html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${fmtNum(c.subs)} subscribers · ${c.topic} · showing ${n} of ${(c.total || 0).toLocaleString("en-US")} uploads</p></div>
+    html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${c.t === "D" ? `Found by keyword search · ${n} ${l.many}` : `${fmtNum(c.subs)} subscribers · ${c.topic} · showing ${n} of ${(c.total || 0).toLocaleString("en-US")} uploads`}</p></div>
       <a class="btn" href="https://www.youtube.com/@${encodeURIComponent(c.h)}" target="_blank" rel="noopener">Channel ↗</a>`;
   } else if (state.tier) { const [t, label] = TIERS.find(x => x[0] === state.tier);
     html = `<span class="tier ${t}" style="width:40px;height:40px;font-size:18px;border-radius:10px">${t}</span><div class="txt"><h2>${label}</h2><p>${CH.filter(c => c.t === t).length} ${l.src} · ${n} ${l.many}</p></div>`;
@@ -674,7 +678,7 @@ function renderContext() {
     html = `<div class="txt"><h2>${l.later}</h2><p>${list.length ? `${n} saved ${list.length === 1 ? l.one : l.many} · ${fmtMin(total)}${A ? " of reading" : ""}` : "Nothing saved yet."}</p></div>
       ${list.length && !A ? `<button class="btn primary" data-act="playall">Play all in TV mode</button>` : ""}`;
   } else if (state.view === "new") {
-    html = `<div class="txt"><h2>New this week</h2><p>${n} ${l.many} ${A ? "published" : "uploaded"} in the last 7 days across all ${CH.length} ${l.src}, newest first</p></div>`;
+    html = `<div class="txt"><h2>New this week</h2><p>${n} ${l.many} ${A ? "published" : "uploaded"} in the last 7 days across all ${CH.filter(c => c.t !== "D").length} ${l.src}, newest first</p></div>`;
   } else if (state.view === "craft") {
     html = `<div class="txt"><h2>Code craft</h2><p>Writing and reading good code: code reviews, refactoring, clean code, testing, type hints, debugging, internals and the standard library · ${n} ${l.many}</p></div>`;
   } else if (state.view === "paths") {
@@ -737,7 +741,8 @@ function passes(v, { ignoreSeen = false, ignoreQ = false } = {}) {
   if (!ignoreSeen && state.hideSeen && seen.has(v.id)) return false;
   return ignoreQ || !state.q || v.s.includes(state.q);
 }
-// "Code craft": programming videos/articles about writing and reading good code, matched on the title
+// "Code craft": programming videos/articles about writing and reading good code, matched on the title,
+// plus everything the keyword search (discover.py) found
 const CRAFT_TOPICS = new Set(["Programming", "Web Dev", "AI & ML", "Data"]);
 const CRAFT_RX = new RegExp([
   "code reviews?", "reviewing (your |my |the )?code", "code roast", "refactor", "clean code", "code smells?",
@@ -752,7 +757,7 @@ const CRAFT_RX = new RegExp([
 const craftMemo = new WeakMap();
 function isCraft(v) {
   let r = craftMemo.get(v);
-  if (r === undefined) { const c = v.ch || CH[v.c]; r = !!c && CRAFT_TOPICS.has(c.topic) && v.d > 60 && CRAFT_RX.test(v.t); craftMemo.set(v, r); }
+  if (r === undefined) { const c = v.ch || CH[v.c]; r = !!v.disc || !!c && CRAFT_TOPICS.has(c.topic) && v.d > 60 && CRAFT_RX.test(v.t); craftMemo.set(v, r); }
   return r;
 }
 // "I have X minutes": pack unwatched S/A videos (in a channel-balanced order) into the time budget
@@ -782,9 +787,11 @@ function apply() {
     for (const v of V.filter(v => CH[v.c].t === "S" && passes(v)).sort(by.views)) { const a = per.get(v.c) || []; if (a.length < 15) { a.push(v); per.set(v.c, a); } }
     list = [...per.values()].flat(); sortList();
   }
-  else { list = V.filter(v => passes(v)); sortList(); }
+  // Discovered items (a video or two from many small channels) would flood the channel-balanced mix,
+  // so outside Code craft they only show up in search, on their channel page and in "More like this"
+  else { list = V.filter(v => passes(v) && (v.ch.t !== "D" || state.q || state.ch != null)); sortList(); }
   renderContext(); renderPaths(); renderCourse(); renderShelf();
-  $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} ${L().many} · ${CH.length} ${L().src}`;
+  $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} ${L().many} · ${CH.filter(c => c.t !== "D").length} ${L().src}`;
   $("#grid").innerHTML = ""; shown = 0; more();
   const empty = { later: `Nothing saved yet. Use the bookmark button on any ${L().one} to keep it for later.`,
                   history: "", course: "", new: `Nothing new in the last 7 days matches these filters.`, time: "", paths: "", path: "",
@@ -833,9 +840,9 @@ function artCard(a, o = {}) {
   const nv = linksOk() ? (LINKS.a2v[a.i] || []).length : 0;
   const badge = o.step ? `<span class="badge step">${o.step}</span>` : read ? `<span class="badge">READ</span>` : isNew(a) ? `<span class="badge new">NEW</span>` : "";
   el.innerHTML = `<a class="card-hit" href="${esc(a.url)}" target="_blank" rel="noopener">
-      <div class="thumb"><span class="ph ${c.t}"><b>${esc(c.n)}</b></span>${a.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(a.img)}">` : ""}${badge}${a.d ? `<span class="dur">${readTime(a)}</span>` : ""}</div>
+      <div class="thumb"><span class="ph ${c.t}"><b>${esc(c.t === "D" ? hostOf(a.url) : c.n)}</b></span>${a.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(a.img)}">` : ""}${badge}${a.d ? `<span class="dur">${readTime(a)}</span>` : ""}</div>
       <h3>${esc(a.t)}</h3>${a.desc ? `<p class="desc">${esc(a.desc)}</p>` : ""}
-      <div class="meta"><span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span>${a.v ? `<span class="dot"></span><span class="num" title="Hacker News points">▲ ${fmtNum(a.v)}</span>` : ""}${a.ts ? `<span class="dot"></span><span class="num">${fmtAgo(a.ts)}</span>` : ""}</div></a>
+      <div class="meta"><span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.t === "D" ? hostOf(a.url) : c.n)}</span>${a.v ? `<span class="dot"></span><span class="num" title="Hacker News points">▲ ${fmtNum(a.v)}</span>` : ""}${a.ts ? `<span class="dot"></span><span class="num">${fmtAgo(a.ts)}</span>` : ""}</div></a>
     <div class="art-acts">${SIM?.[a.i]?.length ? `<button type="button" class="mini" data-like>More like this</button>` : ""}${nv ? `<button type="button" class="mini vids" data-like title="Videos on this topic">▶ ${nv} video${nv > 1 ? "s" : ""}</button>` : ""}${a.hn ? `<a class="mini" href="https://news.ycombinator.com/item?id=${a.hn}" target="_blank" rel="noopener" title="Discussion on Hacker News">💬 ${a.cm ? fmtNum(a.cm) : "HN"}</a>` : ""}</div>
     <button type="button" class="later-btn" aria-pressed="${later.includes(a.id)}" aria-label="Read later" title="Read later">${ICON_SAVE}</button>${rmBtn()}`;
   el.querySelector(".card-hit").addEventListener("click", () => markRead(a));
@@ -1018,8 +1025,8 @@ function openPlayer(v, o = {}) {
 
   const c = CH[v.c];
   $("#pTitle").textContent = v.t;
-  $("#pWho").innerHTML = `${avatar(c)}<span><b>${esc(c.n)}</b><small>${fmtNum(c.subs)} subscribers</small></span>`;
-  $("#pStats").textContent = `${v.v.toLocaleString("en-US")} views · ${fmtAgo(v.ts)} · ${fmtDur(v.d)} · ${TIERS.find(x => x[0] === c.t)[1]} tier · ${c.topic}`;
+  $("#pWho").innerHTML = `${avatar(c)}<span><b>${esc(c.n)}</b><small>${c.t === "D" ? "Found by keyword search" : `${fmtNum(c.subs)} subscribers`}</small></span>`;
+  $("#pStats").textContent = [`${v.v.toLocaleString("en-US")} views`, fmtAgo(v.ts), fmtDur(v.d), `${TIER_NAME[c.t]} tier`, c.topic].filter(Boolean).join(" · ");
   $("#pYt").href = `https://www.youtube.com/watch?v=${v.id}`;
   $("#pSeen").textContent = seen.has(v.id) ? "Mark unwatched" : "Mark watched";
   renderLaterBtn();
@@ -1204,6 +1211,7 @@ Promise.all([
   CH = d.channels; PATHS = paths; DS.videos.PATHS = paths;
   V = d.videos.map(([id, t, c, dur, v, ts], i) => ({ i, id, t, c, ch: CH[c], d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
   byId = new Map(V.map(v => [v.id, v]));
+  for (const id of d.discovered || []) { const v = byId.get(id); if (v) v.disc = 1; }
   Object.assign(DS.videos, { CH, V, byId });
   if (!startOnArticles) { renderFilters(); apply(); }
   route();

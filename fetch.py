@@ -9,6 +9,10 @@ Balancing rules (so a few prolific channels can't drown out the rest):
   - only channels with >= MIN_SUBS subscribers are kept, at most MAX_CHANNELS of them
     (picked by tier first, then subscriber count)
   - channels marked "pin": true in channels.json skip both limits and don't use up a slot
+
+Videos found by keyword search (discover.py -> raw/_discovered.json) are added too: to their channel
+if it's already listed, otherwise under a "D" (Discovered) channel of their own, which the site
+keeps out of the sidebar and the Home mix.
   - each channel keeps at most TOP_BY_VIEWS most-viewed + NEWEST most-recent videos
   - clips of 60s or shorter (Shorts) are dropped
 """
@@ -87,12 +91,40 @@ def build(channels):
                       "topic": ch["topic"], "subs": subs, "total": total, "a": avatar})
         ci = len(chans) - 1
         vids += [[v[0], v[1], ci, v[2], v[3], v[4]] for v in picked]
-    data = {"channels": chans, "videos": vids,
+    disc = add_discovered(chans, vids)
+    data = {"channels": chans, "videos": vids, "discovered": disc,
             "fields": ["id", "title", "channel", "duration", "views", "timestamp"]}
     (ROOT / "videos.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
     for h, why in skipped:
         print(f"  skipped {h:28} {why}")
-    print(f"videos.json: {len(chans)} channels, {len(vids)} videos")
+    print(f"videos.json: {len(chans)} channels, {len(vids)} videos ({len(disc)} found by keyword search)")
+
+
+def add_discovered(chans, vids):
+    """Keyword-search results: onto their channel if listed, else a "D" channel.
+    Returns the ids of every discovered video (also ones the channel lists already had), for Code craft."""
+    f = RAW / "_discovered.json"
+    if not f.exists():
+        return []
+    have = {v[0] for v in vids}
+    by_handle = {c["h"].lower(): i for i, c in enumerate(chans)}
+    ids = []
+    for e in json.loads(f.read_text()).get("entries") or []:
+        handle = (e.get("uploader_id") or "").removeprefix("@")
+        if e["id"] in have:
+            ids.append(e["id"]); continue
+        if not handle:
+            continue
+        ci = by_handle.get(handle.lower())
+        if ci is None:
+            chans.append({"h": handle, "n": e.get("channel") or handle, "t": "D", "topic": "Programming",
+                          "subs": 0, "total": 0, "a": ""})
+            ci = by_handle[handle.lower()] = len(chans) - 1
+        if chans[ci]["t"] == "D":
+            chans[ci]["total"] += 1
+        vids.append([e["id"], e.get("title") or "", ci, int(e.get("duration") or 0), int(e.get("view_count") or 0), 0])
+        have.add(e["id"]); ids.append(e["id"])
+    return list(dict.fromkeys(ids))
 
 
 if __name__ == "__main__":

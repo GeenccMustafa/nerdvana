@@ -14,7 +14,8 @@ Inspired by Andrej Karpathy's [TristanTube](https://karpathy.ai/tristan-tube/).
 - **Learning paths**: 14 hand-picked courses that mix videos and articles, in sections, with a note on why each step is there and your progress. Beginner: How a computer works, How the internet works, Python, Git, Linux, Web development, Docker to Kubernetes, Security. Intermediate: Neural networks to LLMs, Databases and SQL, System design. Advanced: Distributed systems, Performance. Plus Engineering career. Step through them from the watch page with *Next step*
 - **I have X minutes**: pick 5–60 minutes and get unwatched videos that fit, ready to play back to back
 - **New this week**: the latest uploads from all channels
-- **Code craft**: videos (and articles) about writing and reading good code: code reviews, refactoring, clean code, testing, type hints, debugging, internals and the standard library, picked from programming channels by title. Link: `#craft`
+- **Code craft**: videos (and articles) about writing and reading good code: code reviews, refactoring, clean code, testing, type hints, debugging, internals and the standard library, picked from programming channels by title. It also has everything the keyword search finds. Link: `#craft`
+- **Keyword search**: besides the fixed channels and blogs, every night the queries in `discover.json` (Python's standard library, popular libraries, code review, reading code…) are searched on YouTube and Hacker News, and the best matches from any channel or site are added under a fourth tier, **Discovered**. These show up in Code craft, in search and in "More like this", but not in the sidebar or the Home mix
 - **Mix** sort (default): a channel-balanced shuffle, so no single channel floods the feed
 
 **Watch**
@@ -41,6 +42,8 @@ Watched, read, saved and in-progress items are stored only in your browser. Ligh
 | `fetch.py` | Pulls every channel's uploads with [yt-dlp](https://github.com/yt-dlp/yt-dlp) (no API key) and writes `videos.json`. |
 | `enrich.py` | Embeds every title with [bge-small](https://huggingface.co/BAAI/bge-small-en-v1.5) and writes `similar.json` (More like this); with articles it also writes `similar_articles.json`, `links.json` (videos ↔ articles on the same topic) and `courses.json` (the learning paths, resolved from `curated_paths.json`). |
 | `transcripts.py` | Downloads English subtitles for the Essential channels and writes `search.json`, a compact word index with timestamps. |
+| `discover.json` | Keyword search queries for videos and articles from any channel or site, in a `python` group (searched as "python …" and filtered to Python content) and a `general` group. |
+| `discover.py` | Runs those queries on YouTube (yt-dlp search) and Hacker News (Algolia), keeps well-viewed or well-upvoted results whose titles match, and writes `raw/_discovered.json` and `raw_articles/discovered.json`. `fetch.py` and `articles.py` merge these in as the Discovered tier. |
 | `sources.json` | The blog list: name, URL, tier and topic (optionally the feed URL). |
 | `articles.py` | Collects each blog's posts from [Hacker News](https://hn.algolia.com/api) (all-time popular, with points) and its RSS/Atom feed (newest), fetches each new page once for its description, cover image and length, and writes `articles.json`. |
 | `curated_paths.json` | The curated paths: sections and hand-picked steps (a video or article id, its title and a one-line note). If a step's item disappears, the nightly job swaps in the closest match and newer, better-fitting items are listed in `path_candidates.json`. Once a month these are reviewed and proposed as a pull request. |
@@ -68,6 +71,7 @@ Transcripts are refreshed every morning on a local machine rather than in an Act
 Locally you need Python 3 and [uv](https://docs.astral.sh/uv/):
 
 ```bash
+python3 discover.py        # keyword search on YouTube and Hacker News (run before fetch.py and articles.py)
 python3 fetch.py           # fetch new channels, rebuild videos.json
 python3 fetch.py --force   # re-fetch every channel (picks up new uploads)
 uv run --python 3.12 --with fastembed --with numpy python enrich.py   # similarity, paths, video/article links
