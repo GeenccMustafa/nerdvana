@@ -57,7 +57,7 @@ So that prolific channels (daily uploaders, conference archives) can't drown out
 - only channels with **≥ 250K subscribers**, at most **100** of them (picked by tier, then subscribers)
 - channels marked `"pin": true` in `channels.json` skip both limits and don't use up one of the 100 slots (used for smaller but valuable Python and conference channels)
 - each channel keeps at most its **300 most-viewed + 100 newest** videos
-- Shorts (≤ 60 s) are dropped
+- Shorts (≤ 60 s), members-only videos and upcoming premieres are dropped
 - articles: at most **150** sources, each keeping its **100 most-upvoted + 30 newest** posts
 
 Only an article's title, a short description (the author's own summary or opening line) and its cover image link are stored. The full text stays on the author's site.
