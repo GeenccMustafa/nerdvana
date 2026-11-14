@@ -5,21 +5,21 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-14T03:33:36Z</updated>
+  <updated>2026-11-14T09:36:07Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
     <id>tag:nerdvana,2026:video:YYU_geUwQoA</id>
     <title>▶ The Downfall of Jensen Huang: NVIDIA’s Greed &amp; Corruption</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=YYU_geUwQoA"/>
     <updated>2026-11-13T14:00:00Z</updated>
-    <summary>Video · Gamers Nexus · 1.0M views · 61 min</summary>
+    <summary>Video · Gamers Nexus · 1.2M views · 61 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:SOwUWPtXQ9I</id>
     <title>▶ Nvidia just got caught with its pants down...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=SOwUWPtXQ9I"/>
     <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Video · Fireship · 2.0M views · 6 min</summary>
+    <summary>Video · Fireship · 2.1M views · 6 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:a2e9164a3f</id>
@@ -35,14 +35,14 @@ Back in July, I started experimenting with using modern coding agents to build a
     <title>▶ Macbook PROLED Review: It's Not About That</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=hdMszZ2ah5Q"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 5.1M views · 15 min</summary>
+    <summary>Video · Marques Brownlee · 5.2M views · 15 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:60e527769c</id>
     <title>Rust 1.100</title>
     <link href="https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Article · Rust Blog · ▲ 877 on Hacker News · 9 min read
+    <summary>Article · Rust Blog · ▲ 883 on Hacker News · 9 min read
 
 The Rust team is happy to announce a new version of Rust, 1.100.0. Rust is a programming language empowering everyone to build reliable and efficient software.</summary>
   </entry>
@@ -69,7 +69,7 @@ AWS Emulator, launched today and written and tested entirely by agents, gives yo
     <title>▶ Dying Is Complicated</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=fEjvSbI_PT4"/>
     <updated>2026-11-11T00:00:00Z</updated>
-    <summary>Video · Kurzgesagt – In a Nutshell · 3.8M views · 14 min</summary>
+    <summary>Video · Kurzgesagt – In a Nutshell · 3.9M views · 14 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:1223e6f131</id>
@@ -85,7 +85,7 @@ Mike Lothian owns a docking station (or dock) that uses a DisplayLink chipset th
     <title>AMD's Zen 6 Family: Feeding the Beast</title>
     <link href="https://chipsandcheese.com/p/amds-zen-6-family-feeding-the-beast"/>
     <updated>2026-11-10T17:00:10Z</updated>
-    <summary>Article · Chips and Cheese · ▲ 273 on Hacker News · 10 min read
+    <summary>Article · Chips and Cheese · ▲ 274 on Hacker News · 10 min read
 
 Today we’re looking at AMD’s next-generation Zen 6 CPU core family. We’ll explore the changes from Zen 5 and what the differences between Zen 6 and Zen 6c tell us about AMD’s approach to microarchitecture.</summary>
   </entry>
@@ -99,11 +99,29 @@ Today we’re looking at AMD’s next-generation Zen 6 CPU core family. We’ll 
 AlphaProof Code agents wrote three million lines of proofs in Lean to verify Signal’s core encryption.</summary>
   </entry>
   <entry>
+    <id>tag:nerdvana,2026:article:fb18e273e4</id>
+    <title>Businesses in ChatGPT – OpenAI</title>
+    <link href="https://openai.com/index/introducing-businesses-chatgpt/"/>
+    <updated>2026-11-10T10:00:00Z</updated>
+    <summary>Article · OpenAI · ▲ 38 on Hacker News
+
+Manage your business information, get insights about how your business shows up, and turn interest into action in ChatGPT.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:1f81bf923b</id>
+    <title>Work at the Frontier: AI's effect on freelance work</title>
+    <link href="https://openai.com/index/ai-effect-on-freelance-work"/>
+    <updated>2026-11-10T07:00:00Z</updated>
+    <summary>Article · OpenAI · ▲ 43 on Hacker News
+
+New research from OpenAI and Upwork finds shifting demand for freelance work, new skill combinations, and larger budgets and more hours for AI-related projects.</summary>
+  </entry>
+  <entry>
     <id>tag:nerdvana,2026:video:HVLUtJWlcJY</id>
     <title>▶ I Tested 42 Years of Phones!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=HVLUtJWlcJY"/>
     <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 6.8M views · 37 min</summary>
+    <summary>Video · Mrwhosetheboss · 7.0M views · 37 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:Gro5z03a_Qw</id>
@@ -114,7 +132,7 @@ AlphaProof Code agents wrote three million lines of proofs in Lean to verify Sig
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:0V-4lQYNugA</id>
-    <title>▶ This is why you can't touch Stonehenge any more.</title>
+    <title>▶ Why can't you touch Stonehenge any more?</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=0V-4lQYNugA"/>
     <updated>2026-11-10T00:00:00Z</updated>
     <summary>Video · Tom Scott · 2.7M views · 26 min</summary>
@@ -148,23 +166,5 @@ Our house has a box room, full of boxes that we still haven’t unpacked from ou
     <link href="https://geenccmustafa.github.io/nerdvana/#v=kI9EbAFlQ-s"/>
     <updated>2026-11-09T00:00:00Z</updated>
     <summary>Video · Austin Evans · 1.1M views · 22 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:df66397688</id>
-    <title>Writing as a thinking tool</title>
-    <link href="http://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html"/>
-    <updated>2026-11-07T08:22:00Z</updated>
-    <summary>Article · Murat Demirbas · ▲ 473 on Hacker News · 8 min read
-
-In middle school I could not get through long passages no matter how hard I tried. I would read an entire page and find that nothing had reg...</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:28d8f037ea</id>
-    <title>Asahi Linux Progress Linux 7.3</title>
-    <link href="https://asahilinux.org/2026/11/progress-report-7-3/"/>
-    <updated>2026-11-07T04:30:00Z</updated>
-    <summary>Article · Asahi Linux · ▲ 435 on Hacker News · 14 min read
-
-Well here we are again. Linux 7.3 is out and it’s been an eventful few months, so let’s get stuck in to another Asahi Linux progress report!</summary>
   </entry>
 </feed>
