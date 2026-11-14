@@ -50,6 +50,11 @@ def is_python(text, also=False):
 NOT_TALKS = re.compile(r"chillstep|lo-?fi|beats|ambient|music|playlist|asmr", re.I)
 
 
+def watchable(e):
+    """Not members-only, Premium-only or login-only, and not an upcoming premiere."""
+    return e.get("availability") not in ("subscriber_only", "premium_only", "needs_auth") and e.get("live_status") != "is_upcoming"
+
+
 def latin(title):
     letters = [c for c in title if c.isalpha()]
     return not letters or sum(c.isascii() for c in letters) / len(letters) >= 0.9
@@ -63,7 +68,7 @@ def search_youtube(q, py, cfg, known):
     words, out = must_words(q), []
     for e in json.loads(r.stdout).get("entries") or []:
         dur, views, title = e.get("duration") or 0, e.get("view_count") or 0, e.get("title") or ""
-        if not e.get("id") or not e.get("channel_id") or "#short" in title.lower():
+        if not e.get("id") or not e.get("channel_id") or "#short" in title.lower() or not watchable(e):
             continue
         if views < cfg["min_views"] or not 180 <= dur <= 3 * 3600 or not latin(title) or NOT_TALKS.search(title) \
                 or not title_ok(title, words, phrase=not py):

@@ -14,7 +14,7 @@ Videos found by keyword search (discover.py -> raw/_discovered.json) are added t
 if it's already listed, otherwise under a "D" (Discovered) channel of their own, which the site
 keeps out of the sidebar and the Home mix.
   - each channel keeps at most TOP_BY_VIEWS most-viewed + NEWEST most-recent videos
-  - clips of 60s or shorter (Shorts) are dropped
+  - clips of 60s or shorter (Shorts) are dropped, and so are members-only videos and upcoming premieres
 """
 import json, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
@@ -29,6 +29,12 @@ MAX_CHANNELS = 100
 TOP_BY_VIEWS = 300
 NEWEST = 100
 TIER_RANK = {"S": 0, "A": 1, "B": 2, "C": 3}
+# can't be watched without a membership, YouTube Premium or a login; upcoming premieres can't be watched yet
+UNWATCHABLE = {"subscriber_only", "premium_only", "needs_auth"}
+
+
+def watchable(e):
+    return e.get("availability") not in UNWATCHABLE and e.get("live_status") != "is_upcoming"
 
 
 def fetch(ch, force=False):
@@ -51,7 +57,7 @@ def fetch(ch, force=False):
 def pick_videos(entries):
     vids = []
     for e in entries or []:
-        if not e.get("id") or e.get("title") in ("[Private video]", "[Deleted video]"):
+        if not e.get("id") or e.get("title") in ("[Private video]", "[Deleted video]") or not watchable(e):
             continue
         dur = e.get("duration")
         if dur is not None and dur <= 60:
