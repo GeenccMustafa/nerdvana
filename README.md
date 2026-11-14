@@ -1,6 +1,6 @@
 # Nerdvana
 
-~30,000 nerdy videos from 100 popular tech YouTube channels and ~10,000 of the best articles from 122 tech blogs — programming, AI, hardware, security, science and engineering — in one fast, searchable page. Plus a **TV mode** for laid-back watching.
+~30,000 nerdy videos from 100 popular tech YouTube channels and ~10,000 of the best articles from 150 tech blogs — programming, AI, hardware, security, science and engineering — in one fast, searchable page. Plus a **TV mode** for laid-back watching.
 
 **Live:** https://geenccmustafa.github.io/nerdvana/
 
@@ -25,7 +25,7 @@ Inspired by Andrej Karpathy's [TristanTube](https://karpathy.ai/tristan-tube/).
 - **Shareable links** for every video (optionally at a timestamp), channel, path and view, e.g. `#v=VIDEO_ID&t=90`, `#c=veritasium`, `#path=kubernetes`
 
 **Read** (the Articles tab)
-- Articles from 122 personal and engineering blogs (Paul Graham, Dan Luu, Julia Evans, Simon Willison, Cloudflare, Netflix…), each source's **most-upvoted posts on Hacker News plus its newest**
+- Articles from 150 personal and engineering blogs (Paul Graham, Dan Luu, Julia Evans, Simon Willison, Cloudflare, Netflix…), each source's **most-upvoted posts on Hacker News plus its newest**
 - Every card shows a short description, reading time, HN points and a link to the HN discussion; the article itself opens on its own site
 - **More like this**, **Read later**, **I have X minutes** (by reading time), **New this week**, and search across titles and descriptions
 - Videos and articles are linked: the watch page shows **Read more about this**, and an article's "More like this" page shows **Watch on this topic**

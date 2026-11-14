@@ -1012,7 +1012,7 @@ function upItem(u) {
   const uc = CH[u.c], b = document.createElement("button");
   b.type = "button"; b.className = "up";
   b.innerHTML = `<div class="thumb"><img loading="lazy" alt="" src="${thumb(u.id)}">${u.d ? `<span class="dur">${fmtDur(u.d)}</span>` : ""}${seen.has(u.id) ? `<span class="badge">WATCHED</span>` : ""}</div>
-    <div class="m"><h4>${esc(u.t)}</h4><span>${esc(uc.n)} <span class="tier ${uc.t}">${uc.t}</span></span><span>${fmtNum(u.v)} views</span></div>`;
+    <div class="m"><h4>${esc(u.t)}</h4><span>${esc(uc.n)} <span class="tier ${uc.t}">${uc.t}</span></span><span>${fmtNum(u.v)} views${u.ts ? ` · ${fmtAgo(u.ts)}` : ""}</span></div>`;
   b.onclick = () => openPlayer(u, { start: progress[u.id]?.t || 0 });
   return b;
 }
