@@ -57,7 +57,19 @@
     "code review",
     "design patterns",
     "clean code",
-    "cpython source code"
+    "cpython source code",
+    "polars",
+    "scikit-learn",
+    "pytorch",
+    "matplotlib",
+    "jupyter notebook",
+    "duckdb",
+    "feature engineering",
+    "rag",
+    "llm agents",
+    "langgraph",
+    "code walkthrough",
+    "reading code"
   ],
   "general": [
     "code review",
