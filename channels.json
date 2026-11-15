@@ -178,5 +178,18 @@
   {"handle": "TrelisResearch",           "tier": "B", "topic": "AI & ML", "pin": true},
   {"handle": "indydevdan",               "tier": "B", "topic": "AI & ML", "pin": true},
   {"handle": "HuggingFace",              "tier": "B", "topic": "AI & ML", "pin": true},
-  {"handle": "ShawhinTalebi",            "tier": "B", "topic": "AI & ML", "pin": true}
+  {"handle": "ShawhinTalebi",            "tier": "B", "topic": "AI & ML", "pin": true},
+
+  {"handle": "PracticalNetworking",      "tier": "A", "topic": "Networking", "pin": true},
+  {"handle": "CoreDumpped",              "tier": "A", "topic": "Programming", "pin": true},
+  {"handle": "WelchLabs",                "tier": "A", "topic": "AI & ML", "pin": true},
+  {"handle": "AntonPutra",               "tier": "B", "topic": "Cloud & DevOps", "pin": true},
+  {"handle": "AbhishekVeeramalla",       "tier": "B", "topic": "Cloud & DevOps", "pin": true},
+  {"handle": "DevOpsToolkit",            "tier": "B", "topic": "Cloud & DevOps", "pin": true},
+  {"handle": "javascriptmastery",        "tier": "B", "topic": "Web Dev", "pin": true},
+  {"handle": "developedbyed",            "tier": "B", "topic": "Web Dev", "pin": true},
+  {"handle": "typecraft_dev",            "tier": "B", "topic": "Linux", "pin": true},
+  {"handle": "jordanhasnolife5163",      "tier": "B", "topic": "Programming", "pin": true},
+  {"handle": "TCMSecurityAcademy",       "tier": "B", "topic": "Security", "pin": true},
+  {"handle": "NahamSec",                 "tier": "B", "topic": "Security", "pin": true}
 ]
