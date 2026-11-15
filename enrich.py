@@ -20,7 +20,7 @@ reading_paths.json     [{id, title, blurb, articles: [article id, ...]}] resolve
 links.json             videos <-> articles on the same topic:
                        {"vn", "vfirst", "an", "afirst", "v2a": [[article index, ...]], "a2v": [[video index, ...]]}
 """
-import hashlib, json, math, time
+import hashlib, json, math, sys, time
 from pathlib import Path
 
 import numpy as np
@@ -36,6 +36,11 @@ ART_MODEL = "BAAI/bge-base-en-v1.5"
 ART_TEXT_LEN = 1800     # characters of article text embedded (the model reads ~512 tokens)
 ART_MIN_SIM = 0.66      # below this, bge-base matches on this data are mostly unrelated
 ART_REEMBED_PER_RUN = 1500  # articles whose text changed (body text arrived) re-embedded per run; the rest next run
+PATH_REFRESH_DAYS = 7   # curated paths are checked for newer videos this often, not on every run
+# a video step older than this is replaced by a recent one, when a good match exists. Upload dates are
+# approximate ("3 years ago"), so 3.5 years means: anything shown as 4 or more years old
+PATH_MAX_AGE_DAYS = 3.5 * 365
+PATH_MIN_SIM = 0.81     # how close (cosine) a recent video must be to the step it replaces
 
 
 def embed(texts, model, cache_file, by_text=False, max_changed=None):
@@ -167,39 +172,85 @@ def build_reading_paths(A, arts, srcs, model):
     boost = np.array([0.025 * math.log10(max(a[4], 1)) for a in arts])
     return resolve_paths(defs, A, arts, 2, ok, boost, model, "articles")
 
-def build_courses(E, videos, A, arts, model):
+def build_courses(E, videos, channels, A, arts, model, refresh=False):
     """Curated paths (curated_paths.json): every step is pinned by hand. If a pinned item disappears
     from the data, it is replaced by the closest match of the same kind and marked ("swap").
-    New items that fit a step clearly better than its current pick are written to
-    path_candidates.json for the monthly review; they never change a path on their own."""
+
+    Paths are also kept current: every PATH_REFRESH_DAYS days (not on every run, so a path doesn't
+    change under someone who is halfway through it), a video step older than PATH_MAX_AGE_DAYS is
+    replaced by a recent video on the same topic from an Essential or Great channel, when one matches
+    the step well enough (PATH_MIN_SIM). The step is then marked ("fresh": the title it replaced) and
+    remembers the hand-picked id ("pin"). Between refreshes, and when nothing recent fits, a step keeps
+    what it had. A step with "keep": true in curated_paths.json is never replaced. Article steps are
+    left alone. refresh=True re-checks now.
+
+    Newer items that fit a step clearly better than its current pick are still written to
+    path_candidates.json for review; they never change a path on their own."""
     defs = json.loads((ROOT / "curated_paths.json").read_text())
     pools = {"v": (E, videos, np.array([v[4] >= 20_000 for v in videos])),
              "a": (A, arts, np.array([a[4] >= 10 for a in arts]))}
     index = {k: {r[0]: i for i, r in enumerate(rows)} for k, (_, rows, _) in pools.items()}
     now, recent = time.time(), 60 * 86400
+    max_age = PATH_MAX_AGE_DAYS * 86400
+    # replacements: recent, dated, well-viewed, not a clip, from a channel in the top two tiers
+    fresh_ok = np.array([channels[v[2]]["t"] in ("S", "A") and v[4] >= 20_000 and v[3] >= 180
+                         and 0 < now - v[5] <= max_age for v in videos], dtype=bool)
+    prev = {}
+    if (ROOT / "courses.json").exists():
+        try:
+            prev = {p["id"]: p for p in json.loads((ROOT / "courses.json").read_text())}
+        except ValueError:
+            pass
+    today = time.strftime("%Y-%m-%d", time.gmtime(now))
     out, candidates = [], []
     for p in defs:
+        old = prev.get(p["id"]) or {}
+        # what each hand-picked step resolved to last time
+        kept = {(st["k"], st.get("pin", st["id"])): st for sec in old.get("sections", []) for st in sec["steps"]}
+        checked = old.get("checked")
+        due = refresh or not checked or now - time.mktime(time.strptime(checked, "%Y-%m-%d")) >= PATH_REFRESH_DAYS * 86400 - 3600
         used = {k: set() for k in pools}
+        # a replacement must not take a video that another step of this path already shows or is pinned to
+        taken = {index["v"][i] for sec in p["sections"] for st in sec["steps"] if "v" in st
+                 for i in (st["v"], (kept.get(("v", st["v"])) or {}).get("id")) if i in index["v"]}
         texts = [f"Represent this sentence for searching relevant passages: {st['t']}. {st['note']}"
                  for sec in p["sections"] for st in sec["steps"]]
         Q = np.stack(list(model.embed(texts))); Q /= np.linalg.norm(Q, axis=1, keepdims=True)
-        qi, sections = 0, []
+        qi, sections, swapped = 0, [], 0
         for sec in p["sections"]:
             steps = []
             for st in sec["steps"]:
                 k = "v" if "v" in st else "a"
                 M, rows, ok = pools[k]
                 score = M @ Q[qi]; qi += 1
-                j = index[k].get(st[k])
                 step = {"k": k, "note": st["note"]}
+                j = index[k].get(st[k])
+                was = kept.get((k, st[k]))
+                if was and was.get("fresh") and index[k].get(was["id"]) is not None and index[k][was["id"]] not in used[k]:
+                    j = index[k][was["id"]]          # the newer video picked on an earlier refresh
+                    step["fresh"] = was["fresh"]
                 if j is None or j in used[k]:
                     s2 = score.copy(); s2[~ok] = -9
-                    for u in used[k]:
+                    for u in used[k] | (taken if k == "v" else set()):
                         s2[u] = -9
                     j = int(np.argmax(s2))
-                    step["swap"] = st["t"]
+                    step.pop("fresh", None); step["swap"] = st["t"]
                     print(f"  ! {p['id']}: {st['t'][:50]!r} is gone, using {rows[j][1][:50]!r}")
-                used[k].add(j); step["id"] = rows[j][0]; steps.append(step)
+                if k == "v" and due and not st.get("keep") and rows[j][5] and now - rows[j][5] > max_age:
+                    s2 = score.copy(); s2[~fresh_ok] = -9
+                    for u in used[k] | taken:
+                        s2[u] = -9
+                    best = float(s2.max())
+                    if best >= PATH_MIN_SIM:
+                        c = int(np.argmax(s2))
+                        print(f"  ~ {p['id']}: {rows[j][1][:44]!r} ({time.gmtime(rows[j][5]).tm_year}) -> "
+                              f"{rows[c][1][:44]!r} ({time.gmtime(rows[c][5]).tm_year}, {s2[c]:.2f})")
+                        j = c; swapped += 1
+                        step.pop("swap", None); step["fresh"] = st["t"]
+                used[k].add(j); step["id"] = rows[j][0]
+                if step["id"] != st[k]:
+                    step["pin"] = st[k]
+                steps.append(step)
                 # newer items that fit this step better than the current pick
                 ts_col = 5
                 for c in np.argsort(-score)[:20]:
@@ -208,7 +259,10 @@ def build_courses(E, videos, A, arts, model):
                         candidates.append({"path": p["id"], "step": st["t"], "current": rows[j][1], "kind": k,
                                            "candidate": rows[c][0], "title": rows[c][1], "gain": round(float(score[c] - score[j]), 3)})
             sections.append({"title": sec["title"], "steps": steps})
-        out.append({"id": p["id"], "title": p["title"], "level": p["level"], "blurb": p["blurb"], "sections": sections})
+        if due:
+            print(f"  {p['id']}: checked for newer videos, {swapped} step{'' if swapped == 1 else 's'} replaced")
+        out.append({"id": p["id"], "title": p["title"], "level": p["level"], "blurb": p["blurb"],
+                    "checked": today if due else checked, "sections": sections})
     return out, candidates
 
 
@@ -240,7 +294,7 @@ if __name__ == "__main__":
         good_v = np.array([channels[v[2]]["t"] in ("S", "A") and v[4] >= 20_000 and v[3] >= 120 for v in videos])
         links = {"vn": len(videos), "vfirst": videos[0][0], "an": len(arts), "afirst": arts[0][0],
                  "v2a": cross_links(E, A, 3, LINK_THRESHOLD), "a2v": cross_links(A, E, 4, LINK_THRESHOLD, good_v)}
-        courses, cands = build_courses(E, videos, A, arts, model)
+        courses, cands = build_courses(E, videos, channels, A, arts, model, refresh="--refresh-paths" in sys.argv)
         (ROOT / "courses.json").write_text(json.dumps(courses, ensure_ascii=False, indent=1))
         (ROOT / "path_candidates.json").write_text(json.dumps(cands, ensure_ascii=False, indent=1))
         print(f"courses.json: {len(courses)} curated paths, {len(cands)} candidate improvements")

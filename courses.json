@@ -4,6 +4,7 @@
   "title": "Neural networks to LLMs",
   "level": "Intermediate",
   "blurb": "From a single neuron to how ChatGPT-style models are built, trained and tuned. Light on math, heavy on intuition, with two build-it-yourself detours.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "What a neural network is",
@@ -157,6 +158,7 @@
   "title": "Docker to Kubernetes",
   "level": "Beginner",
   "blurb": "Containers from first principles, then running them at scale: from your first Dockerfile to Helm charts and operating a real cluster.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "Why containers",
@@ -169,7 +171,7 @@
      {
       "k": "v",
       "note": "A quick tour of the whole Docker workflow, so the rest has context.",
-      "id": "gAkwW2tuIqE"
+      "id": "rIrNIzy6U_g"
      },
      {
       "k": "a",
@@ -188,18 +190,18 @@
      },
      {
       "k": "v",
-      "note": "Package your own app as an image.",
-      "id": "WmcdMiyqfZs"
+      "note": "Docker hands-on: run containers, write a Dockerfile and package your own app as an image.",
+      "id": "b0HMimUb4f0"
      },
      {
       "k": "v",
       "note": "Run several containers together with one file.",
-      "id": "DM65_JyGxCo"
+      "id": "SXwC9fSwct8"
      },
      {
       "k": "v",
       "note": "How containers talk to each other and to the outside world.",
-      "id": "bKFMS5C4CG0"
+      "id": "W7X6u2BGVRY"
      }
     ]
    },
@@ -219,7 +221,7 @@
      {
       "k": "v",
       "note": "Hands-on: run a local cluster and deploy a real app to it.",
-      "id": "s_o8dwzRlu4"
+      "id": "XuSQU5Grv1g"
      },
      {
       "k": "v",
@@ -285,6 +287,7 @@
   "title": "How the internet works",
   "level": "Beginner",
   "blurb": "What happens between typing a URL and seeing a page: cables, addresses, routing, DNS, HTTP and encryption, plus a few stories of it breaking.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "The physical internet",
@@ -347,12 +350,12 @@
      {
       "k": "v",
       "note": "The layer model that ties everything together.",
-      "id": "CRdL1PcherM"
+      "id": "0y6FtKsg6J4"
      },
      {
       "k": "v",
       "note": "Reliable delivery versus speed, and who uses which.",
-      "id": "uwoD5YsGACg"
+      "id": "DSA4VFdqELg"
      },
      {
       "k": "a",
@@ -367,7 +370,7 @@
      {
       "k": "v",
       "note": "How a name like github.com becomes an address.",
-      "id": "mpQZVYPuDGU"
+      "id": "NiQTs9DbtW4"
      },
      {
       "k": "a",
@@ -386,13 +389,13 @@
     "steps": [
      {
       "k": "v",
-      "note": "Requests, responses, headers and status codes, explored in the browser.",
-      "id": "iYM2zFP3Zn0"
+      "note": "Follow one HTTP request all the way: headers, status codes and what the server does with them.",
+      "id": "hWyBeEF3CqQ"
      },
      {
       "k": "v",
       "note": "How the padlock works: encryption and certificates.",
-      "id": "hExRDVZHhig"
+      "id": "j9QmMEWmcfo"
      },
      {
       "k": "a",
@@ -423,6 +426,7 @@
   "title": "How a computer works",
   "level": "Beginner",
   "blurb": "From a single switch to a working CPU: transistors, logic, machine code, memory and how chips are made.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "From switches to logic",
@@ -435,7 +439,7 @@
      {
       "k": "v",
       "note": "The one component everything is built from, and how it switches.",
-      "id": "IcrBqCFLHIY"
+      "id": "_Pqfjer8-O4"
      },
      {
       "k": "v",
@@ -470,7 +474,7 @@
      {
       "k": "v",
       "note": "The thin layer of text on top of machine code.",
-      "id": "4gwYkEK0gOk"
+      "id": "6S5KRJv-7RU"
      }
     ]
    },
@@ -480,12 +484,12 @@
      {
       "k": "v",
       "note": "How RAM stores bits, down to the capacitor.",
-      "id": "7J7X7aZvMXQ"
+      "id": "TfhL5kBiQVI"
      },
      {
       "k": "v",
       "note": "Why memory is slow compared to the CPU, and how caches hide it.",
-      "id": "6JpLD3PUAZk"
+      "id": "SAk-6gVkio0"
      },
      {
       "k": "a",
@@ -520,35 +524,61 @@
   "id": "python",
   "title": "Python from scratch",
   "level": "Beginner",
-  "blurb": "Learn Python properly: the basics, functions, classes, the Pythonic features, then testing and concurrency. Code along with every video.",
+  "blurb": "Learn Python properly: the basics, the data types, functions, classes, the Pythonic features, reading and improving other people's code, then testing and concurrency. Code along with every video.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "First steps",
     "steps": [
      {
       "k": "v",
-      "note": "Install Python and set up your editor. Do this one hands-on.",
-      "id": "YYXdXT2l-Gg"
+      "note": "Start here: the whole language in two hours. Variables, strings, numbers, lists, loops and functions. Code along.",
+      "id": "K5KVEU3aaeQ"
      },
+     {
+      "k": "v",
+      "note": "Set up projects the modern way: uv installs Python, packages and virtual environments.",
+      "id": "AMdG7IjgSPM"
+     },
+     {
+      "k": "v",
+      "note": "Ten core ideas in twenty minutes. A quick check of what has stuck so far.",
+      "id": "Gx5qb1uHss4"
+     }
+    ]
+   },
+   {
+    "title": "The data types in depth",
+    "steps": [
      {
       "k": "v",
       "note": "Working with text, the thing most programs do most.",
-      "id": "k9TUPpGqYTo"
+      "id": "bnSYeYFRCaA"
      },
      {
       "k": "v",
-      "note": "Numbers and arithmetic.",
-      "id": "khKv-8q7YmY"
+      "note": "f-strings: the way to format output.",
+      "id": "9saytqA0J9A"
      },
      {
       "k": "v",
-      "note": "Lists, tuples and sets: storing many values.",
-      "id": "W8KRzm-HUcc"
+      "note": "Lists: storing many values.",
+      "id": "0yySumZTxJ0"
      },
      {
       "k": "v",
       "note": "Dictionaries: Python's most useful data structure.",
-      "id": "daefaLgNkw0"
+      "id": "u0yr9B3nH8c"
+     },
+     {
+      "k": "v",
+      "note": "Sets: fast membership tests and no duplicates.",
+      "id": "k_Hp4C-OQmM"
+     },
+     {
+      "k": "v",
+      "note": "Comprehensions: build lists, dicts and sets in one readable line.",
+      "id": "twxE0dEp3qQ"
      }
     ]
    },
@@ -557,23 +587,33 @@
     "steps": [
      {
       "k": "v",
-      "note": "Loops: doing things many times.",
-      "id": "6iF8Xb7Z3wQ"
+      "note": "Loops: doing things many times, the Pythonic way.",
+      "id": "RvvXo2-9bnE"
      },
      {
       "k": "v",
-      "note": "Functions: naming and reusing pieces of code.",
-      "id": "9Os0o3wzS_I"
+      "note": "Functions: naming and reusing pieces of code, and what makes a function good.",
+      "id": "yatgY4NpZXE"
+     },
+     {
+      "k": "v",
+      "note": "*args and **kwargs, which you will meet in almost every library you read.",
+      "id": "Vh__2V2tXUM"
+     },
+     {
+      "k": "v",
+      "note": "Exceptions: what to do when things go wrong.",
+      "id": "V_NXT2-QIlE"
      },
      {
       "k": "v",
       "note": "Modules and the standard library: code you don't have to write.",
-      "id": "CqvZ3vGoGs0"
+      "id": "eZ9RqnkJxsk"
      },
      {
       "k": "v",
-      "note": "Virtual environments, so every project gets its own packages.",
-      "id": "Kg1Yvry_Ydk"
+      "note": "Files and paths with pathlib.",
+      "id": "yxa-DJuuTBI"
      }
     ]
    },
@@ -583,22 +623,27 @@
      {
       "k": "v",
       "note": "Classes and instances: bundling data with behaviour.",
-      "id": "ZDa-Z5JzLYM"
+      "id": "rLyYb7BFgQI"
      },
      {
       "k": "v",
-      "note": "Class variables: data shared by every instance.",
-      "id": "BJ-VvGyQxho"
+      "note": "How to design a class well, and when not to write one.",
+      "id": "lX9UQp2NwTk"
      },
      {
       "k": "v",
-      "note": "Class methods and static methods, and when to use which.",
-      "id": "rq8cL2XMM5M"
+      "note": "Class methods, and when to use them.",
+      "id": "g-qRKZD3FgE"
      },
      {
       "k": "v",
-      "note": "Inheritance: building new classes on top of old ones.",
-      "id": "RSl87lqOXDE"
+      "note": "Dataclasses: classes that mostly hold data, without the boilerplate.",
+      "id": "mVea6Mu15l8"
+     },
+     {
+      "k": "v",
+      "note": "Inheritance and its modern alternatives: abstract base classes and protocols.",
+      "id": "dryNwWvSd4M"
      }
     ]
    },
@@ -607,18 +652,43 @@
     "steps": [
      {
       "k": "v",
-      "note": "Decorators: functions that wrap other functions. Used everywhere in frameworks.",
-      "id": "FsAPt_9Bf3U"
+      "note": "Decorators: functions that wrap other functions.",
+      "id": "QH5fw9kxDQA"
      },
      {
       "k": "v",
       "note": "Generators: handle huge data one item at a time.",
-      "id": "bD05uGo_sVI"
+      "id": "5VN-3rIUPZ8"
      },
      {
       "k": "v",
       "note": "Context managers: the 'with' statement and clean-up done right.",
-      "id": "-aKFBoZpiqA"
+      "id": "qfN6_Kv6E-Y"
+     },
+     {
+      "k": "v",
+      "note": "Type hints: they make code far easier to read, your own and other people's.",
+      "id": "RwH2UzC2rIo"
+     }
+    ]
+   },
+   {
+    "title": "Reading and improving code",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Step through a program line by line. The fastest way to understand code you didn't write.",
+      "id": "XmpIBsnc3xU"
+     },
+     {
+      "k": "v",
+      "note": "Watch someone read a stranger's code, judge it and improve it step by step.",
+      "id": "NOcwXmXr0ho"
+     },
+     {
+      "k": "v",
+      "note": "The same on a larger, messier program: find the structure, then clean it up.",
+      "id": "FXwBWS4qDAA"
      }
     ]
    },
@@ -628,17 +698,17 @@
      {
       "k": "v",
       "note": "Test your code so you can change it without fear.",
-      "id": "6tNS--WetLI"
+      "id": "EgpLj86ZHFQ"
      },
      {
       "k": "v",
-      "note": "Threads: doing several things at once.",
-      "id": "IEEhzQoKtQU"
+      "note": "Threads, processes or async: which one to reach for, and why.",
+      "id": "QlkXji08lno"
      },
      {
       "k": "v",
-      "note": "Async and await: thousands of network calls without threads.",
-      "id": "t5Bo1Je9EmE"
+      "note": "Async and await in depth: thousands of network calls without threads.",
+      "id": "oAkLSJNr5zY"
      },
      {
       "k": "a",
@@ -659,6 +729,7 @@
   "title": "Git and GitHub",
   "level": "Beginner",
   "blurb": "Version control from the first commit to branching, rebasing and automation, with Julia Evans explaining what Git is really doing.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "What Git is",
@@ -681,12 +752,12 @@
      {
       "k": "v",
       "note": "The core commands on the command line. Follow along in a test folder.",
-      "id": "HVsySz-h9r4"
+      "id": "zTjRZNkhiEU"
      },
      {
       "k": "v",
       "note": "GitHub: remotes, pushing, pull requests and collaborating.",
-      "id": "RGOj5yH7evk"
+      "id": "vA5TTz6BXhY"
      }
     ]
    },
@@ -736,7 +807,7 @@
      {
       "k": "v",
       "note": "Automate tests and deployments on every push with GitHub Actions.",
-      "id": "R8_veQiYBjI"
+      "id": "9flcoQ1R0Y4"
      },
      {
       "k": "a",
@@ -752,6 +823,7 @@
   "title": "Linux and the command line",
   "level": "Beginner",
   "blurb": "Get comfortable in the terminal: commands, the file system, users, services, Bash scripting, and the tools that make it home.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "First steps",
@@ -759,7 +831,7 @@
      {
       "k": "v",
       "note": "Why learn Linux, and your first commands.",
-      "id": "VbEx7B_PTOE"
+      "id": "a3ujwK65dgs"
      },
      {
       "k": "v",
@@ -769,7 +841,7 @@
      {
       "k": "v",
       "note": "Where everything lives: the Linux directory tree.",
-      "id": "A3G-3hp88mo"
+      "id": "bbmWOjuFmgA"
      },
      {
       "k": "v",
@@ -804,7 +876,7 @@
      {
       "k": "v",
       "note": "How SSH lets you work on other machines securely.",
-      "id": "ORcvSkgdA58"
+      "id": "rlMfRa7vfO8"
      }
     ]
    },
@@ -865,6 +937,7 @@
   "title": "Web development",
   "level": "Beginner",
   "blurb": "Build for the web from the ground up: HTML, CSS, JavaScript, React and a small backend, plus how browsers really work.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "The big picture",
@@ -872,7 +945,7 @@
      {
       "k": "v",
       "note": "A fast map of the whole web development landscape.",
-      "id": "erEgovG9WBs"
+      "id": "u72H_zZzkcw"
      },
      {
       "k": "a",
@@ -887,7 +960,7 @@
      {
       "k": "v",
       "note": "HTML: the structure of every page. Code along.",
-      "id": "UB1O30fR-EE"
+      "id": "1L2YiWdaUDM"
      },
      {
       "k": "v",
@@ -912,7 +985,7 @@
      {
       "k": "v",
       "note": "The language of the browser, from variables to functions.",
-      "id": "hdI2bqOjy3c"
+      "id": "Zi-Q0t4gMC8"
      },
      {
       "k": "v",
@@ -942,7 +1015,7 @@
      {
       "k": "v",
       "note": "Components and props: building UIs out of pieces.",
-      "id": "hQAHSlTtcmY"
+      "id": "SqcY0GlETPk"
      },
      {
       "k": "v",
@@ -983,6 +1056,7 @@
   "title": "Databases and SQL",
   "level": "Intermediate",
   "blurb": "Write SQL with confidence, pick the right database, and understand what happens inside one: indexes, B-trees and transactions.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "SQL",
@@ -995,12 +1069,12 @@
      {
       "k": "v",
       "note": "The essential SQL in one hour. Practise every query.",
-      "id": "p3qvj9hO_Bo"
+      "id": "OT1RErkfLNQ"
      },
      {
       "k": "v",
       "note": "Joins: combining tables, the part most people find hard.",
-      "id": "9URM1_2S0ho"
+      "id": "lXQzD09BOH0"
      },
      {
       "k": "v",
@@ -1086,6 +1160,7 @@
   "title": "System design",
   "level": "Intermediate",
   "blurb": "How large systems are put together: APIs, proxies, caches, queues, auth, and how to design one yourself.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "The building blocks",
@@ -1108,7 +1183,7 @@
      {
       "k": "v",
       "note": "Proxies and reverse proxies: what sits in front of your servers.",
-      "id": "4NB0NDtOwIQ"
+      "id": "RXXRguaHZs0"
      }
     ]
    },
@@ -1128,7 +1203,7 @@
      {
       "k": "v",
       "note": "Why Kafka is fast: queues and logs at scale.",
-      "id": "UNUz1-msbOM"
+      "id": "yIAcHMJzqJc"
      },
      {
       "k": "v",
@@ -1194,6 +1269,7 @@
   "title": "Distributed systems",
   "level": "Advanced",
   "blurb": "Why things get hard when work is spread across machines, and the ideas that make it work: consistency, consensus and failure handling. Mostly reading.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "Why it's hard",
@@ -1287,6 +1363,7 @@
   "title": "Security basics",
   "level": "Beginner",
   "blurb": "How attacks really work and how to defend against them: passwords, web attacks, cryptography, and famous real-world exploits.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "Thinking like an attacker",
@@ -1344,7 +1421,7 @@
      {
       "k": "v",
       "note": "Phishing: attacking people instead of machines.",
-      "id": "u9dBGWVwMMA"
+      "id": "9JD7E4-ITvM"
      }
     ]
    },
@@ -1410,6 +1487,7 @@
   "title": "Performance and the machine",
   "level": "Advanced",
   "blurb": "What really makes code fast or slow: caches, branch prediction, SIMD, and how the experts measure it. Mostly reading.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "Intuition",
@@ -1422,7 +1500,7 @@
      {
       "k": "v",
       "note": "Why caches exist.",
-      "id": "6JpLD3PUAZk"
+      "id": "SAk-6gVkio0"
      },
      {
       "k": "a",
@@ -1467,7 +1545,7 @@
      {
       "k": "v",
       "note": "Multithreaded code and why it's harder than it looks.",
-      "id": "7ENFeb-J75k"
+      "id": "E3hvLz717zM"
      },
      {
       "k": "a",
@@ -1508,6 +1586,7 @@
   "title": "Engineering career",
   "level": "All levels",
   "blurb": "Essays on doing great work, growing as an engineer, working in teams and building companies.",
+  "checked": "2026-11-15",
   "sections": [
    {
     "title": "Doing great work",
