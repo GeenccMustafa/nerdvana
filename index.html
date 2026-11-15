@@ -692,7 +692,7 @@ function renderContext() {
   } else if (state.view === "course") { const c = COURSES.find(x => x.id === state.course), items = c ? courseItems(c) : [];
     const done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0), nv = items.filter(x => !x.art).length;
     html = c ? `<div class="txt lead"><span class="lvl">${esc(c.level)}</span><h2 style="margin-top:8px">${esc(c.title)}</h2><p>${esc(c.blurb)}</p>
-      <p style="margin-top:6px">${items.length} steps · ${nv} videos, ${items.length - nv} articles · about ${fmtMin(mins)} · ${done} of ${items.length} done</p></div>
+      <p style="margin-top:6px">${items.length} steps · ${nv} videos, ${items.length - nv} articles · about ${fmtMin(mins)} · ${done} of ${items.length} done${c.checked ? ` · checked for newer videos on ${new Date(c.checked + "T00:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}` : ""}</p></div>
       <button class="btn" data-act="allpaths">All paths</button>
       ${items.length ? `<button class="btn primary" data-act="cstart">${done ? (done === items.length ? "Start again" : "Continue") : "Start"}</button>` : ""}`
       : `<div class="txt"><h2>Path not found</h2><p>This path doesn't exist anymore.</p></div><button class="btn" data-act="allpaths">All paths</button>`;
@@ -942,7 +942,7 @@ function renderCourse() {
       const th = x.art ? `<span class="ph ${x.ch.t}"><b>${esc(x.ch.n)}</b></span>${x.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(x.img)}">` : ""}`
         : `<img loading="lazy" alt="" src="${thumb(x.id)}"><span class="dur">${fmtDur(x.d)}</span>`;
       const meta = x.art ? `<span class="kind">ARTICLE</span>${esc(x.ch.n)}${x.d ? " · " + readTime(x) : ""}${x.v ? ` · ▲ ${fmtNum(x.v)}` : ""}`
-        : `<span class="kind">VIDEO</span>${esc(x.ch.n)} · ${fmtNum(x.v)} views`;
+        : `<span class="kind">VIDEO</span>${esc(x.ch.n)} · ${fmtNum(x.v)} views${x.ts ? ` · ${fmtAgo(x.ts)}` : ""}`;
       return `<button type="button" class="step${done ? " done" : ""}" data-k="${k}"><span class="num">${done ? "✓" : k + 1}</span>
         <div class="thumb">${th}</div><div><h4>${esc(x.t)}</h4><p class="why">${esc(st.note)}</p><div class="m">${meta}</div></div></button>`;
     }).join("");

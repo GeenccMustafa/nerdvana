@@ -167,8 +167,8 @@
             "note": "Start here: what a container actually is, and how it differs from a virtual machine."
           },
           {
-            "v": "gAkwW2tuIqE",
-            "t": "Learn Docker in 7 Easy Steps",
+            "v": "rIrNIzy6U_g",
+            "t": "100+ Docker Concepts you Need to Know",
             "note": "A quick tour of the whole Docker workflow, so the rest has context."
           },
           {
@@ -187,18 +187,18 @@
             "note": "Hands-on: images, containers, ports and volumes. Follow along on your machine."
           },
           {
-            "v": "WmcdMiyqfZs",
-            "t": "Dockerfile Tutorial",
-            "note": "Package your own app as an image."
+            "v": "b0HMimUb4f0",
+            "t": "Docker Tutorial for Beginners",
+            "note": "Docker hands-on: run containers, write a Dockerfile and package your own app as an image."
           },
           {
-            "v": "DM65_JyGxCo",
-            "t": "Docker Compose will BLOW your MIND!!",
+            "v": "SXwC9fSwct8",
+            "t": "Ultimate Docker Compose Tutorial",
             "note": "Run several containers together with one file."
           },
           {
-            "v": "bKFMS5C4CG0",
-            "t": "Docker networking is CRAZY!!",
+            "v": "W7X6u2BGVRY",
+            "t": "How Docker Networking Actually Works",
             "note": "How containers talk to each other and to the outside world."
           }
         ]
@@ -217,8 +217,8 @@
             "note": "The building blocks you'll use every day: Pods, Services, ConfigMaps, Secrets, Deployments."
           },
           {
-            "v": "s_o8dwzRlu4",
-            "t": "Kubernetes Crash Course for Absolute Beginners",
+            "v": "XuSQU5Grv1g",
+            "t": "Kubernetes Crash Course: Learn the Basics and Build a Microservice Application",
             "note": "Hands-on: run a local cluster and deploy a real app to it."
           },
           {
@@ -345,13 +345,13 @@
         "title": "Protocols: TCP/IP",
         "steps": [
           {
-            "v": "CRdL1PcherM",
-            "t": "what is TCP/IP and OSI?",
+            "v": "0y6FtKsg6J4",
+            "t": "What is OSI Model | Real World Examples",
             "note": "The layer model that ties everything together."
           },
           {
-            "v": "uwoD5YsGACg",
-            "t": "TCP vs UDP Comparison",
+            "v": "DSA4VFdqELg",
+            "t": "Reliable Isn’t Always Better: TCP vs UDP",
             "note": "Reliable delivery versus speed, and who uses which."
           },
           {
@@ -365,8 +365,8 @@
         "title": "Names: DNS",
         "steps": [
           {
-            "v": "mpQZVYPuDGU",
-            "t": "How a DNS Server (Domain Name System) works.",
+            "v": "NiQTs9DbtW4",
+            "t": "What is DNS? (and how it makes the Internet work)",
             "note": "How a name like github.com becomes an address."
           },
           {
@@ -385,13 +385,13 @@
         "title": "The web on top: HTTP and TLS",
         "steps": [
           {
-            "v": "iYM2zFP3Zn0",
-            "t": "HTTP Crash Course & Exploration",
-            "note": "Requests, responses, headers and status codes, explored in the browser."
+            "v": "hWyBeEF3CqQ",
+            "t": "How an HTTP Request Gets Served - In Great Detail",
+            "note": "Follow one HTTP request all the way: headers, status codes and what the server does with them."
           },
           {
-            "v": "hExRDVZHhig",
-            "t": "SSL, TLS, HTTP, HTTPS Explained",
+            "v": "j9QmMEWmcfo",
+            "t": "SSL, TLS, HTTPS Explained",
             "note": "How the padlock works: encryption and certificates."
           },
           {
@@ -433,8 +433,8 @@
             "note": "A playful start: build a computer from nothing but simple logic, in a simulator."
           },
           {
-            "v": "IcrBqCFLHIY",
-            "t": "How Does a Transistor Work?",
+            "v": "_Pqfjer8-O4",
+            "t": "How do Transistors Build into a CPU?  🖥️🤔  How do Transistors Work? 🖥️🤔",
             "note": "The one component everything is built from, and how it switches."
           },
           {
@@ -468,8 +468,8 @@
             "note": "Watch a real 6502 CPU read and run machine code, signal by signal."
           },
           {
-            "v": "4gwYkEK0gOk",
-            "t": "Assembly Language in 100 Seconds",
+            "v": "6S5KRJv-7RU",
+            "t": "you can learn assembly in 10 minutes (try it RIGHT NOW)",
             "note": "The thin layer of text on top of machine code."
           }
         ]
@@ -478,13 +478,13 @@
         "title": "Memory",
         "steps": [
           {
-            "v": "7J7X7aZvMXQ",
-            "t": "How does Computer Memory Work? 💻🛠",
+            "v": "TfhL5kBiQVI",
+            "t": "How does Computer Cache, Memory, and Storage Work? 🖥️💿🛠️",
             "note": "How RAM stores bits, down to the capacitor."
           },
           {
-            "v": "6JpLD3PUAZk",
-            "t": "Why do CPUs Need Caches? - Computerphile",
+            "v": "SAk-6gVkio0",
+            "t": "How CPU Memory & Caches Work - Computerphile",
             "note": "Why memory is slow compared to the CPU, and how caches hide it."
           },
           {
@@ -520,35 +520,60 @@
     "id": "python",
     "title": "Python from scratch",
     "level": "Beginner",
-    "blurb": "Learn Python properly: the basics, functions, classes, the Pythonic features, then testing and concurrency. Code along with every video.",
+    "blurb": "Learn Python properly: the basics, the data types, functions, classes, the Pythonic features, reading and improving other people's code, then testing and concurrency. Code along with every video.",
     "sections": [
       {
         "title": "First steps",
         "steps": [
           {
-            "v": "YYXdXT2l-Gg",
-            "t": "Python Tutorial for Beginners 1: Install and Setup for Mac and Windows",
-            "note": "Install Python and set up your editor. Do this one hands-on."
+            "v": "K5KVEU3aaeQ",
+            "t": "Python Full Course for Beginners",
+            "note": "Start here: the whole language in two hours. Variables, strings, numbers, lists, loops and functions. Code along."
           },
           {
-            "v": "k9TUPpGqYTo",
-            "t": "Python Tutorial for Beginners 2: Strings - Working with Textual Data",
+            "v": "AMdG7IjgSPM",
+            "t": "Python Tutorial: UV - A Faster, All-in-One Package Manager to Replace Pip and Venv",
+            "note": "Set up projects the modern way: uv installs Python, packages and virtual environments."
+          },
+          {
+            "v": "Gx5qb1uHss4",
+            "t": "10 Important Python Concepts In 20 Minutes",
+            "note": "Ten core ideas in twenty minutes. A quick check of what has stuck so far."
+          }
+        ]
+      },
+      {
+        "title": "The data types in depth",
+        "steps": [
+          {
+            "v": "bnSYeYFRCaA",
+            "t": "ALL 47 STRING METHODS IN PYTHON EXPLAINED",
             "note": "Working with text, the thing most programs do most."
           },
           {
-            "v": "khKv-8q7YmY",
-            "t": "Python Tutorial for Beginners 3: Integers and Floats - Working with Numeric Data",
-            "note": "Numbers and arithmetic."
+            "v": "9saytqA0J9A",
+            "t": "Every F-String Trick In Python Explained",
+            "note": "f-strings: the way to format output."
           },
           {
-            "v": "W8KRzm-HUcc",
-            "t": "Python Tutorial for Beginners 4: Lists, Tuples, and Sets",
-            "note": "Lists, tuples and sets: storing many values."
+            "v": "0yySumZTxJ0",
+            "t": "ALL 11 LIST METHODS IN PYTHON EXPLAINED",
+            "note": "Lists: storing many values."
           },
           {
-            "v": "daefaLgNkw0",
-            "t": "Python Tutorial for Beginners 5: Dictionaries - Working with Key-Value Pairs",
+            "v": "u0yr9B3nH8c",
+            "t": "ALL 11 Dictionary Methods In Python EXPLAINED",
             "note": "Dictionaries: Python's most useful data structure."
+          },
+          {
+            "v": "k_Hp4C-OQmM",
+            "t": "How Sets Can Truly OPTIMIZE Your Python Code",
+            "note": "Sets: fast membership tests and no duplicates."
+          },
+          {
+            "v": "twxE0dEp3qQ",
+            "t": "10 Python Comprehensions You SHOULD Be Using",
+            "note": "Comprehensions: build lists, dicts and sets in one readable line."
           }
         ]
       },
@@ -556,24 +581,34 @@
         "title": "Control flow and functions",
         "steps": [
           {
-            "v": "6iF8Xb7Z3wQ",
-            "t": "Python Tutorial for Beginners 7: Loops and Iterations - For/While Loops",
-            "note": "Loops: doing things many times."
+            "v": "RvvXo2-9bnE",
+            "t": "6 Tips to write BETTER For Loops in Python",
+            "note": "Loops: doing things many times, the Pythonic way."
           },
           {
-            "v": "9Os0o3wzS_I",
-            "t": "Python Tutorial for Beginners 8: Functions",
-            "note": "Functions: naming and reusing pieces of code."
+            "v": "yatgY4NpZXE",
+            "t": "The Ultimate Guide to Writing Functions",
+            "note": "Functions: naming and reusing pieces of code, and what makes a function good."
           },
           {
-            "v": "CqvZ3vGoGs0",
-            "t": "Python Tutorial for Beginners 9: Import Modules and Exploring The Standard Library",
+            "v": "Vh__2V2tXUM",
+            "t": "Python *ARGS & **KWARGS are awesome! 📦",
+            "note": "*args and **kwargs, which you will meet in almost every library you read."
+          },
+          {
+            "v": "V_NXT2-QIlE",
+            "t": "Learn Python EXCEPTION HANDLING in 5 minutes! 🚦",
+            "note": "Exceptions: what to do when things go wrong."
+          },
+          {
+            "v": "eZ9RqnkJxsk",
+            "t": "10 Powerful Python Modules You’re Probably Not Using",
             "note": "Modules and the standard library: code you don't have to write."
           },
           {
-            "v": "Kg1Yvry_Ydk",
-            "t": "Python Tutorial: VENV (Mac & Linux) - How to Use Virtual Environments with the Built-In venv Module",
-            "note": "Virtual environments, so every project gets its own packages."
+            "v": "yxa-DJuuTBI",
+            "t": "Python Tutorial: Pathlib - The Modern Way to Handle File Paths",
+            "note": "Files and paths with pathlib."
           }
         ]
       },
@@ -581,24 +616,29 @@
         "title": "Classes and objects",
         "steps": [
           {
-            "v": "ZDa-Z5JzLYM",
-            "t": "Python OOP Tutorial 1: Classes and Instances",
+            "v": "rLyYb7BFgQI",
+            "t": "Learn Python OOP in under 20 Minutes",
             "note": "Classes and instances: bundling data with behaviour."
           },
           {
-            "v": "BJ-VvGyQxho",
-            "t": "Python OOP Tutorial 2: Class Variables",
-            "note": "Class variables: data shared by every instance."
+            "v": "lX9UQp2NwTk",
+            "t": "The Ultimate Guide to Writing Classes in Python",
+            "note": "How to design a class well, and when not to write one."
           },
           {
-            "v": "rq8cL2XMM5M",
-            "t": "Python OOP Tutorial 3: classmethods and staticmethods",
-            "note": "Class methods and static methods, and when to use which."
+            "v": "g-qRKZD3FgE",
+            "t": "Learn Python CLASS METHODS in 6 minutes! 🏫",
+            "note": "Class methods, and when to use them."
           },
           {
-            "v": "RSl87lqOXDE",
-            "t": "Python OOP Tutorial 4: Inheritance - Creating Subclasses",
-            "note": "Inheritance: building new classes on top of old ones."
+            "v": "mVea6Mu15l8",
+            "t": "How To Use: \"@dataclass\" In Python (Tutorial 2023)",
+            "note": "Dataclasses: classes that mostly hold data, without the boilerplate."
+          },
+          {
+            "v": "dryNwWvSd4M",
+            "t": "Protocols vs ABCs in Python - When to Use Which One?",
+            "note": "Inheritance and its modern alternatives: abstract base classes and protocols."
           }
         ]
       },
@@ -606,19 +646,44 @@
         "title": "Writing Pythonic code",
         "steps": [
           {
-            "v": "FsAPt_9Bf3U",
-            "t": "Python Tutorial: Decorators - Dynamically Alter The Functionality Of Your Functions",
-            "note": "Decorators: functions that wrap other functions. Used everywhere in frameworks."
+            "v": "QH5fw9kxDQA",
+            "t": "Python Decorators: The Complete Guide",
+            "note": "Decorators: functions that wrap other functions."
           },
           {
-            "v": "bD05uGo_sVI",
-            "t": "Python Tutorial: Generators - How to use them and the benefits you receive",
+            "v": "5VN-3rIUPZ8",
+            "t": "What Most Python Developers Miss About Generators",
             "note": "Generators: handle huge data one item at a time."
           },
           {
-            "v": "-aKFBoZpiqA",
-            "t": "Python Tutorial: Context Managers - Efficiently Managing Resources",
+            "v": "qfN6_Kv6E-Y",
+            "t": "How to use Context Managers in Python Tutorial",
             "note": "Context managers: the 'with' statement and clean-up done right."
+          },
+          {
+            "v": "RwH2UzC2rIo",
+            "t": "Python Tutorial: Type Hints - From Basic Annotations to Advanced Generics",
+            "note": "Type hints: they make code far easier to read, your own and other people's."
+          }
+        ]
+      },
+      {
+        "title": "Reading and improving code",
+        "steps": [
+          {
+            "v": "XmpIBsnc3xU",
+            "t": "Stop Using print(): Learn the VSCode Debugger",
+            "note": "Step through a program line by line. The fastest way to understand code you didn't write."
+          },
+          {
+            "v": "NOcwXmXr0ho",
+            "t": "Refactoring Conway's Game of Life | ArjanCodes Code Roast",
+            "note": "Watch someone read a stranger's code, judge it and improve it step by step."
+          },
+          {
+            "v": "FXwBWS4qDAA",
+            "t": "Refactor a Messy FastAPI App Into Clean Architecture",
+            "note": "The same on a larger, messier program: find the structure, then clean it up."
           }
         ]
       },
@@ -626,19 +691,19 @@
         "title": "Real programs",
         "steps": [
           {
-            "v": "6tNS--WetLI",
-            "t": "Python Tutorial: Unit Testing Your Code with the unittest Module",
+            "v": "EgpLj86ZHFQ",
+            "t": "Please Learn How To Write Tests in Python… • Pytest Tutorial",
             "note": "Test your code so you can change it without fear."
           },
           {
-            "v": "IEEhzQoKtQU",
-            "t": "Python Threading Tutorial: Run Code Concurrently Using the Threading Module",
-            "note": "Threads: doing several things at once."
+            "v": "QlkXji08lno",
+            "t": "AsyncIO VS Threading VS Multiprocessing in Python",
+            "note": "Threads, processes or async: which one to reach for, and why."
           },
           {
-            "v": "t5Bo1Je9EmE",
-            "t": "Python Asynchronous Programming - AsyncIO & Async/Await",
-            "note": "Async and await: thousands of network calls without threads."
+            "v": "oAkLSJNr5zY",
+            "t": "Python Tutorial: AsyncIO - Complete Guide to Asynchronous Programming with Animations",
+            "note": "Async and await in depth: thousands of network calls without threads."
           },
           {
             "a": "facdfa50c9",
@@ -679,13 +744,13 @@
         "title": "The everyday workflow",
         "steps": [
           {
-            "v": "HVsySz-h9r4",
-            "t": "Git Tutorial for Beginners: Command-Line Fundamentals",
+            "v": "zTjRZNkhiEU",
+            "t": "Learn Git – Full Course for Beginners",
             "note": "The core commands on the command line. Follow along in a test folder."
           },
           {
-            "v": "RGOj5yH7evk",
-            "t": "Git and GitHub for Beginners - Crash Course",
+            "v": "vA5TTz6BXhY",
+            "t": "Git & GitHub Crash Course 2025",
             "note": "GitHub: remotes, pushing, pull requests and collaborating."
           }
         ]
@@ -734,8 +799,8 @@
             "note": "Config options that make Git nicer to use every day."
           },
           {
-            "v": "R8_veQiYBjI",
-            "t": "GitHub Actions Tutorial - Basic Concepts and CI/CD Pipeline with Docker",
+            "v": "9flcoQ1R0Y4",
+            "t": "How To Setup Github Actions For CI/CD",
             "note": "Automate tests and deployments on every push with GitHub Actions."
           },
           {
@@ -757,8 +822,8 @@
         "title": "First steps",
         "steps": [
           {
-            "v": "VbEx7B_PTOE",
-            "t": "Linux for Hackers // EP 1 (FREE Linux course for beginners)",
+            "v": "a3ujwK65dgs",
+            "t": "Linux Crash Course for Beginners | Free Linux Lab Access | KodeKloud",
             "note": "Why learn Linux, and your first commands."
           },
           {
@@ -767,8 +832,8 @@
             "note": "The 60 commands you'll use most, in ten minutes."
           },
           {
-            "v": "A3G-3hp88mo",
-            "t": "the Linux File System explained in 1,233 seconds // Linux for Hackers // EP 2",
+            "v": "bbmWOjuFmgA",
+            "t": "Linux File System Explained!",
             "note": "Where everything lives: the Linux directory tree."
           },
           {
@@ -802,8 +867,8 @@
             "note": "What happens between pressing the power button and the login prompt."
           },
           {
-            "v": "ORcvSkgdA58",
-            "t": "How Secure Shell Works (SSH) - Computerphile",
+            "v": "rlMfRa7vfO8",
+            "t": "How SSH Really Works",
             "note": "How SSH lets you work on other machines securely."
           }
         ]
@@ -870,8 +935,8 @@
         "title": "The big picture",
         "steps": [
           {
-            "v": "erEgovG9WBs",
-            "t": "100+ Web Development Things you Should Know",
+            "v": "u72H_zZzkcw",
+            "t": "Web Development In 2023 - A Practical Guide",
             "note": "A fast map of the whole web development landscape."
           },
           {
@@ -885,8 +950,8 @@
         "title": "HTML and CSS",
         "steps": [
           {
-            "v": "UB1O30fR-EE",
-            "t": "HTML Crash Course For Absolute Beginners",
+            "v": "1L2YiWdaUDM",
+            "t": "HTML & CSS for Absolute Beginners: Introduction",
             "note": "HTML: the structure of every page. Code along."
           },
           {
@@ -910,8 +975,8 @@
         "title": "JavaScript",
         "steps": [
           {
-            "v": "hdI2bqOjy3c",
-            "t": "JavaScript Crash Course For Beginners",
+            "v": "Zi-Q0t4gMC8",
+            "t": "JavaScript Course for Beginners",
             "note": "The language of the browser, from variables to functions."
           },
           {
@@ -940,8 +1005,8 @@
         "title": "React",
         "steps": [
           {
-            "v": "hQAHSlTtcmY",
-            "t": "Learn React In 30 Minutes",
+            "v": "SqcY0GlETPk",
+            "t": "React Tutorial for Beginners",
             "note": "Components and props: building UIs out of pieces."
           },
           {
@@ -993,13 +1058,13 @@
             "note": "SQL in 100 seconds, for orientation."
           },
           {
-            "v": "p3qvj9hO_Bo",
-            "t": "Learn SQL In 60 Minutes",
+            "v": "OT1RErkfLNQ",
+            "t": "Learn SQL Beginner to Advanced in Under 4 Hours",
             "note": "The essential SQL in one hour. Practise every query."
           },
           {
-            "v": "9URM1_2S0ho",
-            "t": "Intermediate SQL Tutorial | Inner/Outer Joins | Use Cases",
+            "v": "lXQzD09BOH0",
+            "t": "Joins in MySQL | Intermediate MySQL",
             "note": "Joins: combining tables, the part most people find hard."
           },
           {
@@ -1106,8 +1171,8 @@
             "note": "REST, GraphQL, gRPC, WebSockets and friends side by side."
           },
           {
-            "v": "4NB0NDtOwIQ",
-            "t": "Proxy vs Reverse Proxy (Real-world Examples)",
+            "v": "RXXRguaHZs0",
+            "t": "Proxy vs Reverse Proxy Explained",
             "note": "Proxies and reverse proxies: what sits in front of your servers."
           }
         ]
@@ -1126,8 +1191,8 @@
             "note": "Memory and storage systems and their trade-offs."
           },
           {
-            "v": "UNUz1-msbOM",
-            "t": "System Design: Why is Kafka fast?",
+            "v": "yIAcHMJzqJc",
+            "t": "System Design: Why is Kafka so Popular?",
             "note": "Why Kafka is fast: queues and logs at scale."
           },
           {
@@ -1342,8 +1407,8 @@
             "note": "Cross-site scripting, told through a famous tweet."
           },
           {
-            "v": "u9dBGWVwMMA",
-            "t": "Phishing attacks are SCARY easy to do!! (let me show you!) // FREE Security+ // EP 2",
+            "v": "9JD7E4-ITvM",
+            "t": "What Is Phishing?",
             "note": "Phishing: attacking people instead of machines."
           }
         ]
@@ -1420,8 +1485,8 @@
             "note": "How fast computers really are."
           },
           {
-            "v": "6JpLD3PUAZk",
-            "t": "Why do CPUs Need Caches? - Computerphile",
+            "v": "SAk-6gVkio0",
+            "t": "How CPU Memory & Caches Work - Computerphile",
             "note": "Why caches exist."
           },
           {
@@ -1465,8 +1530,8 @@
         "title": "Measuring",
         "steps": [
           {
-            "v": "7ENFeb-J75k",
-            "t": "Multithreading Code - Computerphile",
+            "v": "E3hvLz717zM",
+            "t": "Why Multi-Threaded Code Can Sometimes Misbehave (Weak Memory Concurrency) - Computerphile",
             "note": "Multithreaded code and why it's harder than it looks."
           },
           {
