@@ -9,18 +9,18 @@
         "title": "What a neural network is",
         "steps": [
           {
-            "v": "aircAruvnKk",
-            "t": "But what is a neural network?",
-            "note": "The clearest picture there is: layers of numbers, weights and a lot of tiny decisions."
+            "v": "J1QD9hLDEDY",
+            "t": "Neural Networks - Lecture 5 - CS50's Introduction to Artificial Intelligence with Python 2020",
+            "note": "What a neural network is: layers of numbers, weights and a lot of tiny decisions, from the ground up."
           },
           {
-            "v": "IHZwWFHWa-w",
-            "t": "Gradient descent, how neural networks learn",
+            "v": "gsfbWn4Gy5Q",
+            "t": "Gradient Descent From Scratch in Python - Visual Explanation",
             "note": "How a network learns: measure how wrong it is, then nudge every weight downhill."
           },
           {
-            "v": "Ilg3gGewQ5U",
-            "t": "Backpropagation, intuitively",
+            "v": "VkHfRKewkWw",
+            "t": "The F=ma of Artificial Intelligence [Backpropagation, How Models Learn Part 2]",
             "note": "The trick that makes learning fast: blame flows backwards through the network."
           },
           {
@@ -39,9 +39,9 @@
         "title": "Build one yourself",
         "steps": [
           {
-            "v": "VMj-3S1tku0",
-            "t": "The spelled-out intro to neural networks and backpropagation: building micrograd",
-            "note": "Write a tiny autograd engine and train a net with it in plain Python. Long, and the best investment on this path."
+            "v": "A83BbHFoKb8",
+            "t": "Neural Network From Scratch: No Pytorch & Tensorflow; just pure math | 30 min theory + 30 min coding",
+            "note": "Build a neural network and train it with nothing but plain math and Python."
           },
           {
             "a": "21e3e719f6",
@@ -64,9 +64,9 @@
             "note": "What embeddings are good for in practice: search, clustering, recommendations."
           },
           {
-            "v": "PaCmpygFfXo",
-            "t": "The spelled-out intro to language modeling: building makemore",
-            "note": "Your first language model: predicting the next character, from counting to a neural net."
+            "v": "pOFcwcwtv3k",
+            "t": "Build a Small Language Model (SLM) From Scratch",
+            "note": "Your first language model: build a small one from scratch and watch it learn to predict the next token."
           },
           {
             "a": "ce3e63aa26",
@@ -212,9 +212,9 @@
             "note": "The architecture on one page: control plane, nodes, pods."
           },
           {
-            "v": "Krpb44XR0bk",
-            "t": "Kubernetes Components explained!",
-            "note": "The building blocks you'll use every day: Pods, Services, ConfigMaps, Secrets, Deployments."
+            "v": "6IPu3WU_M0o",
+            "t": "Kubernetes Basics: Pods, Nodes, Containers, Deployments & Clusters",
+            "note": "The building blocks you'll use every day: Pods, Nodes, containers, Deployments and clusters."
           },
           {
             "v": "XuSQU5Grv1g",
@@ -222,9 +222,9 @@
             "note": "Hands-on: run a local cluster and deploy a real app to it."
           },
           {
-            "v": "qmDzcu5uY1I",
-            "t": "Kubernetes YAML File Explained",
-            "note": "How to read and write the manifests you'll be living in."
+            "v": "AEwty5sXCm4",
+            "t": "YAML Explained for DevOps and Engineers",
+            "note": "YAML, the format of the manifests you'll be living in."
           }
         ]
       },
@@ -232,13 +232,13 @@
         "title": "Networking and storage",
         "steps": [
           {
-            "v": "T4Z7visMM4E",
-            "t": "Kubernetes Services explained",
-            "note": "ClusterIP, NodePort, LoadBalancer: how traffic finds your pods."
+            "v": "RQbc_Yjb9ls",
+            "t": "Kubernetes NodePort vs LoadBalancer vs Ingress",
+            "note": "NodePort, LoadBalancer, Ingress: how traffic finds your pods."
           },
           {
-            "v": "80Ew_fsV4rM",
-            "t": "Kubernetes Ingress Tutorial for Beginners",
+            "v": "1BksUVJ1f5M",
+            "t": "Kubernetes Ingress Explained (2 Types)",
             "note": "One entry point and routing rules for all your services."
           },
           {
@@ -247,8 +247,8 @@
             "note": "Keeping data alive when pods come and go."
           },
           {
-            "v": "pPQKAR1pA9U",
-            "t": "Kubernetes StatefulSet simply explained",
+            "v": "30KAInyvY_o",
+            "t": "Kubernetes Deployment vs. StatefulSet vs. DaemonSet",
             "note": "Why databases need different treatment than stateless apps."
           }
         ]
@@ -262,9 +262,9 @@
             "note": "Package and version whole applications instead of piles of YAML."
           },
           {
-            "v": "ha3LjlD6g7g",
-            "t": "Kubernetes Operator simply explained",
-            "note": "Teaching Kubernetes to run complex software for you."
+            "v": "aM2Y9m2Kazk",
+            "t": "What The Heck Are Kubernetes Resources, CRs, CRDs, Operators, etc.?",
+            "note": "Custom resources and operators: teaching Kubernetes to run complex software for you."
           },
           {
             "a": "3d81ccac36",
@@ -305,9 +305,9 @@
             "note": "The cables on the ocean floor that carry almost all intercontinental traffic."
           },
           {
-            "v": "vvKbMueRzrI",
-            "t": "How WiFi Works - Computerphile",
-            "note": "The last few metres: how data gets to your laptop through the air."
+            "v": "hhks5xSpM-0",
+            "t": "WIFI (wireless) Standards and Generations Explained",
+            "note": "The last few metres: how data gets to your laptop through the air, and what the WiFi generations mean."
           }
         ]
       },
@@ -320,8 +320,8 @@
             "note": "The boxes that move packets around, and what each one knows."
           },
           {
-            "v": "ThdO9beHhpA",
-            "t": "IP Address - IPv4 vs IPv6 Tutorial",
+            "v": "RRFjKXxYJdM",
+            "t": "Introduction to IP - CompTIA A+ 220-1201 - 2.1",
             "note": "How every device gets an address."
           },
           {
@@ -438,9 +438,9 @@
             "note": "The one component everything is built from, and how it switches."
           },
           {
-            "v": "UvI-AMAtrvE",
-            "t": "AND OR NOT - Logic Gates Explained - Computerphile",
-            "note": "Combine switches into AND, OR and NOT: the vocabulary of every chip."
+            "v": "HjneAhCy2N4",
+            "t": "HOW TRANSISTORS RUN CODE?",
+            "note": "From transistors to logic gates to running code: the vocabulary of every chip."
           },
           {
             "v": "wvJc9CZcvBc",
@@ -453,9 +453,9 @@
         "title": "The CPU",
         "steps": [
           {
-            "v": "vqs_0W-MSB0",
-            "t": "How a CPU Works in 100 Seconds // Apple Silicon M1 vs Intel i9",
-            "note": "The whole CPU in 100 seconds, to hang the details on."
+            "v": "fpkCNu_dzcM",
+            "t": "CPU Summary - Computerphile",
+            "note": "The whole CPU in one summary, to hang the details on."
           },
           {
             "v": "16zrEPOsIcI",
@@ -729,9 +729,9 @@
         "title": "What Git is",
         "steps": [
           {
-            "v": "2ReR1YJrNOM",
-            "t": "What is Git? Explained in 2 Minutes!",
-            "note": "Git in two minutes: why version control exists."
+            "v": "QzvA7r-WndM",
+            "t": "What is Git and GitHub?",
+            "note": "What Git and GitHub are, and why version control exists."
           },
           {
             "v": "e9lnsKot_SQ",
@@ -784,9 +784,9 @@
         "title": "Like a pro",
         "steps": [
           {
-            "v": "Uszj_k0DGsg",
-            "t": "Git for Professionals Tutorial - Tools & Concepts for Mastering Version Control with Git",
-            "note": "Interactive staging, rebase, cherry-pick, reflog and more."
+            "v": "S7XpTAnSDL4",
+            "t": "Git & GitHub Tutorial | Visualized Git Course for Beginner & Professional Developers in 2024",
+            "note": "Git visualized, from the basics to branching, rebasing and undoing mistakes."
           },
           {
             "a": "537ef76760",
@@ -837,9 +837,9 @@
             "note": "Where everything lives: the Linux directory tree."
           },
           {
-            "v": "Y17KTiJLcyQ",
-            "t": "HELP!! (for when you suck at Linux) // Linux for Hackers // EP3",
-            "note": "How to help yourself: man pages, --help and friends."
+            "v": "AvGv2PmBwqA",
+            "t": "10 Powerful Tips to Learn Linux Faster and Easier",
+            "note": "Ten habits for learning Linux faster and finding answers yourself."
           }
         ]
       },
@@ -852,13 +852,13 @@
             "note": "Installing software with package managers."
           },
           {
-            "v": "jwnvKOjmtEA",
-            "t": "sudo = POWER!! (managing users in Linux) // Linux for Hackers // EP4",
+            "v": "bI3Ta0-7xCw",
+            "t": "Managing Users and Groups in Linux | Linux Tutorial | KodeKloud",
             "note": "Users, groups, permissions and sudo."
           },
           {
-            "v": "wOWhfNB_r-0",
-            "t": "start, stop, restart Linux services (daemon HUNTING!!) // Linux for Hackers // EP 6",
+            "v": "Kzpm-rGAXos",
+            "t": "Systemd Explained: How to Manage Linux Services Easily",
             "note": "Services: starting, stopping and inspecting background programs."
           },
           {
@@ -877,13 +877,13 @@
         "title": "Bash scripting",
         "steps": [
           {
-            "v": "I4EWvMFj37g",
-            "t": "Bash in 100 Seconds",
-            "note": "Bash in 100 seconds, for orientation."
+            "v": "62mygqukbYk",
+            "t": "How to use BASH to Automate Linux!",
+            "note": "Bash in nine minutes, for orientation: what it is and what you can automate with it."
           },
           {
-            "v": "SPwyp2NG-bE",
-            "t": "you need to learn BASH Scripting RIGHT NOW!! // EP 1",
+            "v": "2733cRPudvI",
+            "t": "How To Write Bash Scripts In Linux - Complete Guide (Part 1 - Introduction)",
             "note": "Your first scripts: automate what you just did by hand."
           },
           {
@@ -902,9 +902,9 @@
             "note": "tmux: windows, splits and sessions that survive disconnects."
           },
           {
-            "v": "-txKSRn0qeA",
-            "t": "Vim in 100 Seconds",
-            "note": "Vim in 100 seconds, so you're never stuck in it."
+            "v": "RSlrxE21l_k",
+            "t": "30 Vim commands you NEED TO KNOW (in just 10 minutes)",
+            "note": "Thirty Vim commands in ten minutes, so you're never stuck in it."
           },
           {
             "a": "f8f8d6f9e4",
@@ -960,8 +960,8 @@
             "note": "CSS: colours, spacing, fonts and the box model."
           },
           {
-            "v": "rg7Fvvl3taU",
-            "t": "Learn CSS Grid the easy way",
+            "v": "7OrtUkPgHLA",
+            "t": "Why CSS Grid feels complex, and how to keep it simple",
             "note": "CSS Grid: page layouts the easy way."
           },
           {
@@ -980,13 +980,13 @@
             "note": "The language of the browser, from variables to functions."
           },
           {
-            "v": "y17RuWkWdn8",
-            "t": "Learn DOM Manipulation In 18 Minutes",
+            "v": "NO5kUNxGIu0",
+            "t": "The JavaScript DOM explained in 5 minutes! 🌳",
             "note": "Changing the page from code: the DOM."
           },
           {
-            "v": "DHvZLI7Db8E",
-            "t": "JavaScript Promises In 10 Minutes",
+            "v": "NOzi4wBHn0o",
+            "t": "What are JavaScript PROMISES? 🤞",
             "note": "Promises: handling things that finish later."
           },
           {
@@ -1010,9 +1010,9 @@
             "note": "Components and props: building UIs out of pieces."
           },
           {
-            "v": "O6P86uwfdR0",
-            "t": "Learn useState In 15 Minutes - React Hooks Explained",
-            "note": "State with useState: making components interactive."
+            "v": "9mTgKFjJRXg",
+            "t": "React Hooks Crash Course (useMemo, useCallback and more).",
+            "note": "React hooks: state and friends, making components interactive."
           },
           {
             "a": "3c860c11cd",
@@ -1025,14 +1025,14 @@
         "title": "A backend, and shipping it",
         "steps": [
           {
-            "v": "ENrzD9HAZK4",
-            "t": "Node.js Ultimate Beginner’s Guide in 7 Easy Steps",
+            "v": "32M1al-Y6Ag",
+            "t": "Node.js Crash Course",
             "note": "JavaScript on the server with Node.js."
           },
           {
-            "v": "-MTSQjw5DrM",
-            "t": "RESTful APIs in 100 Seconds // Build an API from Scratch with Node.js Express",
-            "note": "Design and build a REST API."
+            "v": "SjUQLryotAk",
+            "t": "6 Easy Tips to Design an AWESOME REST API",
+            "note": "How to design a REST API well."
           },
           {
             "a": "7884ee2cb9",
@@ -1053,9 +1053,9 @@
         "title": "SQL",
         "steps": [
           {
-            "v": "zsjvFFKOm3c",
-            "t": "SQL Explained in 100 Seconds",
-            "note": "SQL in 100 seconds, for orientation."
+            "v": "RBXZrPVjPyo",
+            "t": "What is SQL (Visually Explained) | #SQL Course 2",
+            "note": "What SQL is, explained visually, for orientation."
           },
           {
             "v": "OT1RErkfLNQ",
@@ -1083,18 +1083,18 @@
         "title": "Choosing a database",
         "steps": [
           {
-            "v": "W2Z7fbCLSTw",
-            "t": "7 Database Paradigms",
-            "note": "Seven kinds of databases and what each is good at."
+            "v": "VfcRxtBKI54",
+            "t": "Types of Databases: Relational vs. Columnar vs. Document vs. Graph vs. Vector vs. Key-value & more",
+            "note": "The kinds of databases and what each is good at."
           },
           {
-            "v": "kkeFE6iRfMM",
-            "t": "How To Choose The Right Database?",
-            "note": "A practical guide to picking one."
+            "v": "HAv5t2Gq-yU",
+            "t": "7 Powerful Databases Python Developers Should Know",
+            "note": "Seven databases compared: a practical guide to picking one."
           },
           {
-            "v": "OqCK95AS-YE",
-            "t": "Redis Crash Course - the What, Why and How to use Redis as your primary database",
+            "v": "z_NbVtbgBJw",
+            "t": "What Is Redis Really About? Why Is It So Popular?",
             "note": "Redis: the in-memory database behind most caches."
           }
         ]
@@ -1161,9 +1161,9 @@
             "note": "The eight concepts that come up in every design."
           },
           {
-            "v": "-mN3VyJuCjM",
-            "t": "What Is REST API? Examples And How To Use It: Crash Course System Design #3",
-            "note": "REST APIs: how services talk to each other."
+            "v": "hltLrjabkiY",
+            "t": "APIs Explained in 6 Minutes!",
+            "note": "APIs: how services talk to each other."
           },
           {
             "v": "4vLxWqE94l4",
@@ -1196,8 +1196,8 @@
             "note": "Why Kafka is fast: queues and logs at scale."
           },
           {
-            "v": "lTAcCNbJ7KE",
-            "t": "What Are Microservices Really All About? (And When Not To Use It)",
+            "v": "yC6EEuxhglE",
+            "t": "The Thing No One Tells You About Microservices",
             "note": "Microservices, and when not to use them."
           },
           {
@@ -1236,8 +1236,8 @@
             "note": "A step-by-step method for designing any system."
           },
           {
-            "v": "M4lR_Va97cQ",
-            "t": "FAANG System Design Interview: Design A Location Based Service (Yelp, Google Places)",
+            "v": "mMSJO4SrQLI",
+            "t": "9: Design Yelp/Google Places | Systems Design Interview Questions With Ex-Google SWE",
             "note": "A full worked example: designing a Yelp-like service."
           },
           {
@@ -1357,13 +1357,13 @@
         "title": "Thinking like an attacker",
         "steps": [
           {
-            "v": "2TofunAI6fU",
-            "t": "The Secret step-by-step Guide to learn Hacking",
+            "v": "hWl-V-mNX3Q",
+            "t": "How I Became a Hacker (and What I'd Do Differently)",
             "note": "How to start learning security, from someone who did it."
           },
           {
-            "v": "g-JgA1hvJzA",
-            "t": "Hacking into Google's Network for $133,337",
+            "v": "oUI38IEqimM",
+            "t": "This Hacker Scored $5,000 with a Remote Code Execution Exploit!",
             "note": "A real bug bounty story to show where this can lead."
           }
         ]
@@ -1377,9 +1377,9 @@
             "note": "How NOT to store passwords, and what to do instead."
           },
           {
-            "v": "7U-RbOKanYs",
-            "t": "Password Cracking - Computerphile",
-            "note": "How attackers crack the passwords they steal."
+            "v": "vKPGZHoHX8k",
+            "t": "How Hackers Steal Passwords: 5 Attack Methods Explained",
+            "note": "How attackers get hold of passwords: five methods explained."
           },
           {
             "a": "338d936017",
@@ -1397,14 +1397,14 @@
         "title": "Web attacks",
         "steps": [
           {
-            "v": "_jKylhJtPmI",
-            "t": "Hacking Websites with SQL Injection - Computerphile",
+            "v": "yusJWttsD5o",
+            "t": "SQL Injection Hacking Tutorial (Beginner to Advanced)",
             "note": "SQL injection: the classic way websites get hacked."
           },
           {
-            "v": "zv0kZKC6GAM",
-            "t": "How The Self-Retweeting Tweet Worked: Cross-Site Scripting (XSS) and Twitter",
-            "note": "Cross-site scripting, told through a famous tweet."
+            "v": "ej2O4lOUzRc",
+            "t": "Cross-Site Scripting (XSS) Explained! // How to Bug Bounty",
+            "note": "Cross-site scripting, explained with real examples."
           },
           {
             "v": "9JD7E4-ITvM",
@@ -1417,8 +1417,8 @@
         "title": "Cryptography",
         "steps": [
           {
-            "v": "GSIDS_lvRv4",
-            "t": "Public Key Cryptography - Computerphile",
+            "v": "QToJvh7M62o",
+            "t": "A better definition of Asymmetric Cryptography",
             "note": "Public-key cryptography: secrets without sharing a secret."
           },
           {
