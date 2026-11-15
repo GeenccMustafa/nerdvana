@@ -11,18 +11,18 @@
     "steps": [
      {
       "k": "v",
-      "note": "The clearest picture there is: layers of numbers, weights and a lot of tiny decisions.",
-      "id": "aircAruvnKk"
+      "note": "What a neural network is: layers of numbers, weights and a lot of tiny decisions, from the ground up.",
+      "id": "J1QD9hLDEDY"
      },
      {
       "k": "v",
       "note": "How a network learns: measure how wrong it is, then nudge every weight downhill.",
-      "id": "IHZwWFHWa-w"
+      "id": "gsfbWn4Gy5Q"
      },
      {
       "k": "v",
       "note": "The trick that makes learning fast: blame flows backwards through the network.",
-      "id": "Ilg3gGewQ5U"
+      "id": "VkHfRKewkWw"
      },
      {
       "k": "v",
@@ -41,8 +41,8 @@
     "steps": [
      {
       "k": "v",
-      "note": "Write a tiny autograd engine and train a net with it in plain Python. Long, and the best investment on this path.",
-      "id": "VMj-3S1tku0"
+      "note": "Build a neural network and train it with nothing but plain math and Python.",
+      "id": "A83BbHFoKb8"
      },
      {
       "k": "a",
@@ -66,8 +66,8 @@
      },
      {
       "k": "v",
-      "note": "Your first language model: predicting the next character, from counting to a neural net.",
-      "id": "PaCmpygFfXo"
+      "note": "Your first language model: build a small one from scratch and watch it learn to predict the next token.",
+      "id": "pOFcwcwtv3k"
      },
      {
       "k": "a",
@@ -215,8 +215,8 @@
      },
      {
       "k": "v",
-      "note": "The building blocks you'll use every day: Pods, Services, ConfigMaps, Secrets, Deployments.",
-      "id": "Krpb44XR0bk"
+      "note": "The building blocks you'll use every day: Pods, Nodes, containers, Deployments and clusters.",
+      "id": "6IPu3WU_M0o"
      },
      {
       "k": "v",
@@ -225,8 +225,8 @@
      },
      {
       "k": "v",
-      "note": "How to read and write the manifests you'll be living in.",
-      "id": "qmDzcu5uY1I"
+      "note": "YAML, the format of the manifests you'll be living in.",
+      "id": "AEwty5sXCm4"
      }
     ]
    },
@@ -235,13 +235,13 @@
     "steps": [
      {
       "k": "v",
-      "note": "ClusterIP, NodePort, LoadBalancer: how traffic finds your pods.",
-      "id": "T4Z7visMM4E"
+      "note": "NodePort, LoadBalancer, Ingress: how traffic finds your pods.",
+      "id": "RQbc_Yjb9ls"
      },
      {
       "k": "v",
       "note": "One entry point and routing rules for all your services.",
-      "id": "80Ew_fsV4rM"
+      "id": "1BksUVJ1f5M"
      },
      {
       "k": "v",
@@ -251,7 +251,7 @@
      {
       "k": "v",
       "note": "Why databases need different treatment than stateless apps.",
-      "id": "pPQKAR1pA9U"
+      "id": "30KAInyvY_o"
      }
     ]
    },
@@ -265,8 +265,8 @@
      },
      {
       "k": "v",
-      "note": "Teaching Kubernetes to run complex software for you.",
-      "id": "ha3LjlD6g7g"
+      "note": "Custom resources and operators: teaching Kubernetes to run complex software for you.",
+      "id": "aM2Y9m2Kazk"
      },
      {
       "k": "a",
@@ -309,8 +309,8 @@
      },
      {
       "k": "v",
-      "note": "The last few metres: how data gets to your laptop through the air.",
-      "id": "vvKbMueRzrI"
+      "note": "The last few metres: how data gets to your laptop through the air, and what the WiFi generations mean.",
+      "id": "hhks5xSpM-0"
      }
     ]
    },
@@ -325,7 +325,7 @@
      {
       "k": "v",
       "note": "How every device gets an address.",
-      "id": "ThdO9beHhpA"
+      "id": "RRFjKXxYJdM"
      },
      {
       "k": "v",
@@ -443,8 +443,8 @@
      },
      {
       "k": "v",
-      "note": "Combine switches into AND, OR and NOT: the vocabulary of every chip.",
-      "id": "UvI-AMAtrvE"
+      "note": "From transistors to logic gates to running code: the vocabulary of every chip.",
+      "id": "HjneAhCy2N4"
      },
      {
       "k": "v",
@@ -458,8 +458,8 @@
     "steps": [
      {
       "k": "v",
-      "note": "The whole CPU in 100 seconds, to hang the details on.",
-      "id": "vqs_0W-MSB0"
+      "note": "The whole CPU in one summary, to hang the details on.",
+      "id": "fpkCNu_dzcM"
      },
      {
       "k": "v",
@@ -736,8 +736,8 @@
     "steps": [
      {
       "k": "v",
-      "note": "Git in two minutes: why version control exists.",
-      "id": "2ReR1YJrNOM"
+      "note": "What Git and GitHub are, and why version control exists.",
+      "id": "QzvA7r-WndM"
      },
      {
       "k": "v",
@@ -791,8 +791,8 @@
     "steps": [
      {
       "k": "v",
-      "note": "Interactive staging, rebase, cherry-pick, reflog and more.",
-      "id": "Uszj_k0DGsg"
+      "note": "Git visualized, from the basics to branching, rebasing and undoing mistakes.",
+      "id": "S7XpTAnSDL4"
      },
      {
       "k": "a",
@@ -845,8 +845,8 @@
      },
      {
       "k": "v",
-      "note": "How to help yourself: man pages, --help and friends.",
-      "id": "Y17KTiJLcyQ"
+      "note": "Ten habits for learning Linux faster and finding answers yourself.",
+      "id": "AvGv2PmBwqA"
      }
     ]
    },
@@ -861,12 +861,12 @@
      {
       "k": "v",
       "note": "Users, groups, permissions and sudo.",
-      "id": "jwnvKOjmtEA"
+      "id": "bI3Ta0-7xCw"
      },
      {
       "k": "v",
       "note": "Services: starting, stopping and inspecting background programs.",
-      "id": "wOWhfNB_r-0"
+      "id": "Kzpm-rGAXos"
      },
      {
       "k": "v",
@@ -885,13 +885,13 @@
     "steps": [
      {
       "k": "v",
-      "note": "Bash in 100 seconds, for orientation.",
-      "id": "I4EWvMFj37g"
+      "note": "Bash in nine minutes, for orientation: what it is and what you can automate with it.",
+      "id": "62mygqukbYk"
      },
      {
       "k": "v",
       "note": "Your first scripts: automate what you just did by hand.",
-      "id": "SPwyp2NG-bE"
+      "id": "2733cRPudvI"
      },
      {
       "k": "v",
@@ -910,8 +910,8 @@
      },
      {
       "k": "v",
-      "note": "Vim in 100 seconds, so you're never stuck in it.",
-      "id": "-txKSRn0qeA"
+      "note": "Thirty Vim commands in ten minutes, so you're never stuck in it.",
+      "id": "RSlrxE21l_k"
      },
      {
       "k": "a",
@@ -970,7 +970,7 @@
      {
       "k": "v",
       "note": "CSS Grid: page layouts the easy way.",
-      "id": "rg7Fvvl3taU"
+      "id": "7OrtUkPgHLA"
      },
      {
       "k": "a",
@@ -990,12 +990,12 @@
      {
       "k": "v",
       "note": "Changing the page from code: the DOM.",
-      "id": "y17RuWkWdn8"
+      "id": "NO5kUNxGIu0"
      },
      {
       "k": "v",
       "note": "Promises: handling things that finish later.",
-      "id": "DHvZLI7Db8E"
+      "id": "NOzi4wBHn0o"
      },
      {
       "k": "v",
@@ -1019,8 +1019,8 @@
      },
      {
       "k": "v",
-      "note": "State with useState: making components interactive.",
-      "id": "O6P86uwfdR0"
+      "note": "React hooks: state and friends, making components interactive.",
+      "id": "9mTgKFjJRXg"
      },
      {
       "k": "a",
@@ -1035,12 +1035,12 @@
      {
       "k": "v",
       "note": "JavaScript on the server with Node.js.",
-      "id": "ENrzD9HAZK4"
+      "id": "32M1al-Y6Ag"
      },
      {
       "k": "v",
-      "note": "Design and build a REST API.",
-      "id": "-MTSQjw5DrM"
+      "note": "How to design a REST API well.",
+      "id": "SjUQLryotAk"
      },
      {
       "k": "a",
@@ -1063,8 +1063,8 @@
     "steps": [
      {
       "k": "v",
-      "note": "SQL in 100 seconds, for orientation.",
-      "id": "zsjvFFKOm3c"
+      "note": "What SQL is, explained visually, for orientation.",
+      "id": "RBXZrPVjPyo"
      },
      {
       "k": "v",
@@ -1093,18 +1093,18 @@
     "steps": [
      {
       "k": "v",
-      "note": "Seven kinds of databases and what each is good at.",
-      "id": "W2Z7fbCLSTw"
+      "note": "The kinds of databases and what each is good at.",
+      "id": "VfcRxtBKI54"
      },
      {
       "k": "v",
-      "note": "A practical guide to picking one.",
-      "id": "kkeFE6iRfMM"
+      "note": "Seven databases compared: a practical guide to picking one.",
+      "id": "HAv5t2Gq-yU"
      },
      {
       "k": "v",
       "note": "Redis: the in-memory database behind most caches.",
-      "id": "OqCK95AS-YE"
+      "id": "z_NbVtbgBJw"
      }
     ]
    },
@@ -1172,8 +1172,8 @@
      },
      {
       "k": "v",
-      "note": "REST APIs: how services talk to each other.",
-      "id": "-mN3VyJuCjM"
+      "note": "APIs: how services talk to each other.",
+      "id": "hltLrjabkiY"
      },
      {
       "k": "v",
@@ -1208,7 +1208,7 @@
      {
       "k": "v",
       "note": "Microservices, and when not to use them.",
-      "id": "lTAcCNbJ7KE"
+      "id": "yC6EEuxhglE"
      },
      {
       "k": "v",
@@ -1248,7 +1248,7 @@
      {
       "k": "v",
       "note": "A full worked example: designing a Yelp-like service.",
-      "id": "M4lR_Va97cQ"
+      "id": "mMSJO4SrQLI"
      },
      {
       "k": "a",
@@ -1371,12 +1371,12 @@
      {
       "k": "v",
       "note": "How to start learning security, from someone who did it.",
-      "id": "2TofunAI6fU"
+      "id": "hWl-V-mNX3Q"
      },
      {
       "k": "v",
       "note": "A real bug bounty story to show where this can lead.",
-      "id": "g-JgA1hvJzA"
+      "id": "oUI38IEqimM"
      }
     ]
    },
@@ -1390,8 +1390,8 @@
      },
      {
       "k": "v",
-      "note": "How attackers crack the passwords they steal.",
-      "id": "7U-RbOKanYs"
+      "note": "How attackers get hold of passwords: five methods explained.",
+      "id": "vKPGZHoHX8k"
      },
      {
       "k": "a",
@@ -1411,12 +1411,12 @@
      {
       "k": "v",
       "note": "SQL injection: the classic way websites get hacked.",
-      "id": "_jKylhJtPmI"
+      "id": "yusJWttsD5o"
      },
      {
       "k": "v",
-      "note": "Cross-site scripting, told through a famous tweet.",
-      "id": "zv0kZKC6GAM"
+      "note": "Cross-site scripting, explained with real examples.",
+      "id": "ej2O4lOUzRc"
      },
      {
       "k": "v",
@@ -1431,7 +1431,7 @@
      {
       "k": "v",
       "note": "Public-key cryptography: secrets without sharing a secret.",
-      "id": "GSIDS_lvRv4"
+      "id": "QToJvh7M62o"
      },
      {
       "k": "v",

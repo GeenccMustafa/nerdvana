@@ -5,7 +5,7 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-14T23:19:34Z</updated>
+  <updated>2026-11-15T01:21:59Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
     <id>tag:nerdvana,2026:video:YYU_geUwQoA</id>
@@ -19,7 +19,7 @@
     <title>Advancing science and engineering with Antigravity's /teamwork</title>
     <link href="https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/"/>
     <updated>2026-11-13T20:47:18Z</updated>
-    <summary>Article · Google Research · ▲ 144 on Hacker News · 15 min read
+    <summary>Article · Google Research · ▲ 158 on Hacker News · 15 min read
 
 We share recent results from Antigravity’s /teamwork multiagent systems, which enhance human-AI collaborations to solve open problems across mathematics, chemistry, systems software, and ML engineering. All of this work…</summary>
   </entry>
@@ -42,7 +42,7 @@ We share recent results from Antigravity’s /teamwork multiagent systems, which
     <title>Rust 1.100</title>
     <link href="https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Article · Rust Blog · ▲ 892 on Hacker News · 9 min read
+    <summary>Article · Rust Blog · ▲ 893 on Hacker News · 9 min read
 
 The Rust team is happy to announce a new version of Rust, 1.100.0. Rust is a programming language empowering everyone to build reliable and efficient software.</summary>
   </entry>
@@ -112,7 +112,7 @@ AlphaProof Code agents wrote three million lines of proofs in Lean to verify Sig
     <title>▶ I Tested 42 Years of Phones!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=HVLUtJWlcJY"/>
     <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 7.3M views · 37 min</summary>
+    <summary>Video · Mrwhosetheboss · 7.4M views · 37 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:Gro5z03a_Qw</id>
@@ -123,14 +123,14 @@ AlphaProof Code agents wrote three million lines of proofs in Lean to verify Sig
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:0V-4lQYNugA</id>
-    <title>▶ Why you can't touch Stonehenge any more</title>
+    <title>▶ Why can't you touch Stonehenge any more?</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=0V-4lQYNugA"/>
     <updated>2026-11-10T00:00:00Z</updated>
     <summary>Video · Tom Scott · 2.8M views · 26 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:pf5tXJZM1Rw</id>
-    <title>▶ OpenAI spent $1.2 million hacking Linux... and it was a bargain</title>
+    <title>▶ OpenAI just found 948 ways to root your Linux box...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=pf5tXJZM1Rw"/>
     <updated>2026-11-10T00:00:00Z</updated>
     <summary>Video · Fireship · 1.8M views · 6 min</summary>
@@ -163,7 +163,7 @@ Our house has a box room, full of boxes that we still haven’t unpacked from ou
     <title>Reverse engineering a vintage diode-transistor logic chip</title>
     <link href="https://www.righto.com/2026/11/signetics-st680a-dtl-nand.html"/>
     <updated>2026-11-08T16:12:25Z</updated>
-    <summary>Article · Ken Shirriff · ▲ 78 on Hacker News · 13 min read
+    <summary>Article · Ken Shirriff · ▲ 91 on Hacker News · 13 min read
 
 Going through a collection of old parts, CuriousMarc encountered some ICs that he couldn't identify. He opened up one of these ICs, and I st...</summary>
   </entry>
