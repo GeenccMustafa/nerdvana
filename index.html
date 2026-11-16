@@ -148,6 +148,7 @@ select.chip { padding-right: 8px; }
 .path-card .mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .path-card h3 { margin: 2px 0 0; font: 700 18px var(--display); }
 .path-card p { margin: 0; color: var(--fg2); font-size: 13px; }
+.path-card p.by { margin-top: -6px; color: var(--fg); font-weight: 600; }
 .path-card .bar { height: 5px; border-radius: 99px; background: var(--raise); overflow: hidden; }
 .path-card .bar i { display: block; height: 100%; background: var(--accent); }
 .path-card .foot { display: flex; justify-content: space-between; font: 12px var(--mono); color: var(--fg2); font-variant-numeric: tabular-nums; }
@@ -674,8 +675,9 @@ function renderContext() {
   } else if (A && state.view === "like") { const a = byId.get(state.like);
     html = a ? `<div class="txt lead"><p>More like</p><h2>${esc(a.t)}</h2><p>${esc(a.ch.n)}${a.d ? " · " + readTime(a) : ""}${a.v ? ` · ▲ ${fmtNum(a.v)} on Hacker News` : ""}</p>${a.desc ? `<p style="margin-top:6px">${esc(a.desc)}</p>` : ""}</div>
       <a class="btn primary" href="${esc(a.url)}" target="_blank" rel="noopener" data-read="${a.id}">Read ↗</a>` : "";
-  } else if (state.ch != null) { const c = CH[state.ch];
-    html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${c.t === "D" ? `Found by keyword search · ${n} ${l.many}` : `${fmtNum(c.subs)} subscribers · ${c.topic} · showing ${n} of ${(c.total || 0).toLocaleString("en-US")} uploads`}</p></div>
+  } else if (state.ch != null) { const c = CH[state.ch], cs = COURSES.filter(x => x.h && x.h.toLowerCase() === c.h.toLowerCase());
+    html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${c.t === "D" ? `Found by keyword search · ${n} ${l.many}` : `${fmtNum(c.subs)} subscribers · ${c.topic} · showing ${n} of ${(c.total || 0).toLocaleString("en-US")} uploads`}</p>
+      ${cs.length ? `<div class="group" style="margin-top:10px">${cs.map(x => `<button class="chip" data-act="course" data-id="${esc(x.id)}">${esc(x.title)}</button>`).join("")}</div>` : ""}</div>
       <a class="btn" href="https://www.youtube.com/@${encodeURIComponent(c.h)}" target="_blank" rel="noopener">Channel ↗</a>`;
   } else if (state.tier) { const [t, label] = TIERS.find(x => x[0] === state.tier);
     html = `<span class="tier ${t}" style="width:40px;height:40px;font-size:18px;border-radius:10px">${t}</span><div class="txt"><h2>${label}</h2><p>${CH.filter(c => c.t === t).length} ${l.src} · ${n} ${l.many}</p></div>`;
@@ -696,12 +698,14 @@ function renderContext() {
     html = `<div class="txt"><h2>Discovered</h2><p>Found by keyword search on ${A ? "Hacker News" : "YouTube"}, from ${A ? "sites" : "channels"} beyond the fixed list: Python's standard library, popular libraries, code review and reading code · ${n} ${l.many}</p></div>
       <a class="btn" href="https://github.com/GeenccMustafa/nerdvana/blob/main/discover.json" target="_blank" rel="noopener">Queries ↗</a>`;
   } else if (state.view === "paths") {
-    html = `<div class="txt"><h2>Learning paths</h2><p>Hand-picked courses that take one topic from zero to solid, mixing the best videos and articles, step by step.</p></div>`;
+    html = `<div class="txt"><h2>Learning paths</h2><p>Hand-picked courses that take one topic from zero to solid, mixing the best videos and articles, step by step. Plus complete courses from YouTube creators, in their own order.</p></div>`;
   } else if (state.view === "course") { const c = COURSES.find(x => x.id === state.course), items = c ? courseItems(c) : [];
     const done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0), nv = items.filter(x => !x.art).length;
-    html = c ? `<div class="txt lead"><span class="lvl">${esc(c.level)}</span><h2 style="margin-top:8px">${esc(c.title)}</h2><p>${esc(c.blurb)}</p>
-      <p style="margin-top:6px">${items.length} steps · ${nv} videos, ${items.length - nv} articles · about ${fmtMin(mins)} · ${done} of ${items.length} done${c.checked ? ` · checked for newer videos on ${new Date(c.checked + "T00:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}` : ""}</p></div>
+    const pl = c?.lists?.[0], byLine = c?.by ? `<p style="margin-top:6px">A course by <a href="#c=${encodeURIComponent(c.h)}">${esc(c.by)}</a>, the whole YouTube playlist${c.lists.length > 1 ? "s" : ""} in order</p>` : "";
+    html = c ? `<div class="txt lead"><span class="lvl">${esc(c.level)}</span><h2 style="margin-top:8px">${esc(c.title)}</h2><p>${esc(c.blurb)}</p>${byLine}
+      <p style="margin-top:6px">${items.length} steps · ${c.by ? `${nv} videos` : `${nv} videos, ${items.length - nv} articles`} · about ${fmtMin(mins)} · ${done} of ${items.length} done${c.checked ? ` · checked for newer videos on ${new Date(c.checked + "T00:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}` : ""}</p></div>
       <button class="btn" data-act="allpaths">All paths</button>
+      ${pl ? `<a class="btn" href="https://www.youtube.com/playlist?list=${encodeURIComponent(pl)}" target="_blank" rel="noopener">On YouTube ↗</a>` : ""}
       ${items.length ? `<button class="btn primary" data-act="cstart">${done ? (done === items.length ? "Start again" : "Continue") : "Start"}</button>` : ""}`
       : `<div class="txt"><h2>Path not found</h2><p>This path doesn't exist anymore.</p></div><button class="btn" data-act="allpaths">All paths</button>`;
   } else if (state.view === "path") { const p = PATHS.find(x => x.id === state.path);
@@ -726,6 +730,7 @@ $("#context").addEventListener("click", e => {
   else if (a === "reroll") apply();
   else if (a === "playall") startTV([...list]);
   else if (a === "allpaths") pick({ view: "paths" });
+  else if (a === "course") pick({ view: "course", course: b.dataset.id, ch: null, tier: null });
   else if (a === "clearhist") {
     const what = mode === "videos" ? "watch history and in-progress videos" : "reading history";
     if (!confirm(`Clear your ${what} (${seen.size.toLocaleString("en-US")} ${L().many})? This can't be undone.`)) return;
@@ -910,16 +915,19 @@ function renderPaths() {
   const tile = v => `<span class="mt">${v.art ? `<span class="ph ${v.ch.t}"><b>${esc(v.ch.n)}</b></span>${v.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(v.img)}">` : ""}`
     : `<img loading="lazy" alt="" src="${thumb(v.id)}">`}</span>`;
   const LEVELS = ["Beginner", "Intermediate", "Advanced", "All levels"];
-  const courses = [...COURSES].sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
-  let lastLevel = null;
+  const byLevel = (a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level);
+  const courses = [...COURSES.filter(c => !c.by).sort(byLevel), ...COURSES.filter(c => c.by).sort(byLevel)];
+  let lastLevel = null, inCreators = false;
   for (const c of courses) {
-    if (c.level !== lastLevel) { lastLevel = c.level; box.insertAdjacentHTML("beforeend", `<div class="paths-head">${esc(c.level)}</div>`); }
+    if (c.by && !inCreators) { inCreators = true; lastLevel = null;
+      box.insertAdjacentHTML("beforeend", `<div class="paths-head">Courses by creators <small>complete YouTube playlists, in the creator's order</small></div>`); }
+    if (c.level !== lastLevel && !c.by) { lastLevel = c.level; box.insertAdjacentHTML("beforeend", `<div class="paths-head">${esc(c.level)}</div>`); }
     const items = courseItems(c), done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0);
     const b = document.createElement("button");
     b.type = "button"; b.className = "path-card";
     const cover = [...items.filter(x => !x.art), ...items.filter(x => x.art)].slice(0, 4);   // videos first, articles fill the rest
     b.innerHTML = `<div class="mosaic">${cover.map(tile).join("")}</div>
-      <span class="lvl">${esc(c.level)}</span><h3>${esc(c.title)}</h3><p>${esc(c.blurb)}</p>
+      <span class="lvl">${esc(c.level)}</span><h3>${esc(c.title)}</h3>${c.by ? `<p class="by">by ${esc(c.by)}</p>` : ""}<p>${esc(c.blurb)}</p>
       <div class="bar"><i style="width:${items.length ? done / items.length * 100 : 0}%"></i></div>
       <div class="foot"><span>${items.length} steps · ${fmtMin(mins)}</span><span>${done}/${items.length} done</span></div>`;
     b.onclick = () => pick({ view: "course", course: c.id });
@@ -968,7 +976,7 @@ function renderCourse() {
       const meta = x.art ? `<span class="kind">ARTICLE</span>${esc(x.ch.n)}${x.d ? " · " + readTime(x) : ""}${x.v ? ` · ▲ ${fmtNum(x.v)}` : ""}`
         : `<span class="kind">VIDEO</span>${esc(x.ch.n)} · ${fmtNum(x.v)} views${x.ts ? ` · ${fmtAgo(x.ts)}` : ""}`;
       return `<button type="button" class="step${done ? " done" : ""}" data-k="${k}"><span class="num">${done ? "✓" : k + 1}</span>
-        <div class="thumb">${th}</div><div><h4>${esc(x.t)}</h4><p class="why">${esc(st.note)}</p><div class="m">${meta}</div></div></button>`;
+        <div class="thumb">${th}</div><div><h4>${esc(x.t)}</h4>${st.note ? `<p class="why">${esc(st.note)}</p>` : ""}<div class="m">${meta}</div></div></button>`;
     }).join("");
     const mins = sec.steps.reduce((s, st) => s + ((st.k === "v" ? DS.videos.byId : DS.articles.byId).get(st.id)?.d || 0), 0);
     return `<section class="course-sec"><h3>${esc(sec.title)} <small>${fmtMin(mins)}</small></h3>${rows}</section>`;

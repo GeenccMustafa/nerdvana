@@ -11,7 +11,8 @@ Inspired by Andrej Karpathy's [TristanTube](https://karpathy.ai/tristan-tube/).
 **Find something to watch**
 - **Sidebar**: Home, Top picks, New this week, Code craft, Discovered, Learning paths, I have X minutes, Watch later and History, plus every channel (with its avatar) grouped by tier: Essential, Great, Worth a look
 - **Search titles and transcripts**: matches in what is *said* in a video show up with a timestamp and jump straight to that moment (Essential channels)
-- **Learning paths**: 14 hand-picked courses that mix videos and articles, in sections, with a note on why each step is there and your progress. Beginner: How a computer works, How the internet works, Python, Git, Linux, Web development, Docker to Kubernetes, Security. Intermediate: Neural networks to LLMs, Databases and SQL, System design. Advanced: Distributed systems, Performance. Plus Engineering career. Step through them from the watch page with *Next step*. The paths stay current: once a week, videos that are four or more years old are swapped for recent ones on the same topic
+- **Learning paths**: 14 hand-picked courses that mix videos and articles, in sections, with a note on why each step is there and your progress. Beginner: How a computer works, How the internet works, Python, Git, Linux, Web development, Docker to Kubernetes, Security. Intermediate: Neural networks to LLMs, Databases and SQL, System design. Advanced: Distributed systems, Performance. Plus Engineering career. Step through them from the watch page with *Next step*.
+- **Courses by creators**: complete YouTube playlists used as learning paths, in the creator's own order, with the same progress tracking and *Next step*: Python, Java, Spring Boot, FastAPI, Terraform, Docker and AI engineering from Telusko, SQL, Databricks and data projects from Data with Baraa. A channel's page links to its courses. Add one by putting its playlist id in `playlist_paths.json` The paths stay current: once a week, videos that are four or more years old are swapped for recent ones on the same topic
 - **I have X minutes**: pick 5–60 minutes and get unwatched videos that fit, ready to play back to back
 - **New this week**: the latest uploads from all channels
 - **Code craft**: videos (and articles) about writing and reading good code: code reviews, refactoring, clean code, testing, type hints, debugging, internals and the standard library, picked from programming channels by title. It also has everything the keyword search finds. Link: `#craft`
@@ -46,6 +47,7 @@ Watched, read, saved and in-progress items are stored only in your browser. Ligh
 | `discover.py` | Runs those queries on YouTube (yt-dlp search) and Hacker News (Algolia), keeps well-viewed or well-upvoted results whose titles match, and writes `raw/_discovered.json` and `raw_articles/discovered.json`. `fetch.py` and `articles.py` merge these in as the Discovered tier. |
 | `sources.json` | The blog list: name, URL, tier and topic (optionally the feed URL). |
 | `articles.py` | Collects each blog's posts from [Hacker News](https://hn.algolia.com/api) (all-time popular, with points) and its RSS/Atom feed (newest), fetches each new page once for its description, cover image and length, and writes `articles.json`. |
+| `playlist_paths.json` | Learning paths that are whole YouTube playlists: an id, title, level, blurb and one or more playlist ids (each becomes a section). `"order": "number"` sorts a shuffled playlist by the `#12` numbers in its titles, `"reverse"` flips one that runs newest first, and `"skip"` leaves out videos. `fetch.py` fetches the playlists and keeps all their videos, past the per-channel limits; `enrich.py` adds them to `courses.json`. Members-only videos and Shorts are left out. |
 | `curated_paths.json` | The curated paths: sections and hand-picked steps (a video or article id, its title and a one-line note). If a step's item disappears, the nightly job swaps in the closest match. Once a week the paths are also checked for age: a video step that is four or more years old is replaced by a recent video on the same topic from an Essential or Great channel, when one matches well enough (a step with `"keep": true` is never replaced; articles are left alone). Newer, better-fitting items are listed in `path_candidates.json`; once a month these are reviewed and proposed as a pull request. |
 | `feed.py` | Writes `feed.xml`, the weekly top-20 Atom feed. |
 | `index.html` | The whole site: one file, no build step, no dependencies. |
@@ -56,7 +58,7 @@ So that prolific channels (daily uploaders, conference archives) can't drown out
 
 - only channels with **≥ 250K subscribers**, at most **100** of them (picked by tier, then subscribers)
 - channels marked `"pin": true` in `channels.json` skip both limits and don't use up one of the 100 slots (used for smaller but valuable Python and conference channels)
-- each channel keeps at most its **300 most-viewed + 100 newest** videos
+- each channel keeps at most its **300 most-viewed + 100 newest** videos (plus every video of a playlist in `playlist_paths.json`)
 - Shorts (≤ 60 s), members-only videos and upcoming premieres are dropped
 - articles: at most **150** sources, each keeping its **100 most-upvoted + 30 newest** posts
 

@@ -15,12 +15,14 @@ and reading paths. "More like this" for articles uses a larger model (ART_MODEL)
 the start of the text (kept in .cache/pages.json by articles.py), and only lists matches above ART_MIN_SIM:
 similar_articles.json  {"n", "first", "sim": [[article index, ...] x up to 8]}  aligned with articles.json
 courses.json           curated paths from curated_paths.json: [{id, title, level, blurb, sections: [{title, steps: [{k, id, note}]}]}]
+                       followed by whole YouTube playlists from playlist_paths.json, in the creator's order
+                       (same shape, plus "by": channel name, "h": its handle and "lists": the playlist ids)
 path_candidates.json   newer items that may fit a curated step better (for the monthly review)
 reading_paths.json     [{id, title, blurb, articles: [article id, ...]}] resolved from reading_paths_def.json
 links.json             videos <-> articles on the same topic:
                        {"vn", "vfirst", "an", "afirst", "v2a": [[article index, ...]], "a2v": [[video index, ...]]}
 """
-import hashlib, json, math, sys, time
+import hashlib, json, math, re, sys, time
 from pathlib import Path
 
 import numpy as np
@@ -266,6 +268,51 @@ def build_courses(E, videos, channels, A, arts, model, refresh=False):
     return out, candidates
 
 
+def build_playlist_courses(videos, channels, prev):
+    """Learning paths that are whole YouTube playlists (playlist_paths.json, fetched by fetch.py into
+    raw/_playlists/). Each playlist is one section, in the playlist's order; "order": "number" sorts by the
+    "#12" numbers in the titles and "reverse" flips a playlist that runs newest first. Videos listed in
+    "skip", and ones that aren't in videos.json (members-only, Shorts), are left out. If a playlist
+    couldn't be fetched, the path keeps what it had last time."""
+    f = ROOT / "playlist_paths.json"
+    if not f.exists():
+        return []
+    have = {v[0] for v in videos}
+    out = []
+    for c in json.loads(f.read_text()):
+        sections, by, handle = [], None, None
+        for pl in c["playlists"]:
+            raw = ROOT / "raw" / "_playlists" / f"{pl['list']}.json"
+            if not raw.exists():
+                sections = None; break
+            d = json.loads(raw.read_text())
+            entries = [e for e in d.get("entries") or [] if e.get("id")]
+            if pl.get("order") == "reverse":
+                entries.reverse()
+            elif pl.get("order") == "number":
+                last, keyed = 0, []
+                for k, e in enumerate(entries):
+                    m = re.search(r"#\s*(\d+)", e.get("title") or "")
+                    last = int(m.group(1)) if m else last + 0.5   # unnumbered: stays after its neighbour
+                    keyed.append((last, k, e))
+                entries = [e for *_, e in sorted(keyed, key=lambda x: x[:2])]
+            ids = list(dict.fromkeys(e["id"] for e in entries if e["id"] in have and e["id"] not in pl.get("skip", [])))
+            by, handle = by or d.get("channel"), handle or (d.get("uploader_id") or "").removeprefix("@")
+            sections.append({"title": pl.get("title") or d.get("title") or "Lessons",
+                             "steps": [{"k": "v", "id": i, "note": ""} for i in ids]})
+        if sections is None or not any(s["steps"] for s in sections):
+            if c["id"] in prev:
+                print(f"  ! {c['id']}: playlist missing, keeping the previous version")
+                out.append(prev[c["id"]])
+            else:
+                print(f"  ! {c['id']}: playlist missing, left out")
+            continue
+        out.append({"id": c["id"], "title": c["title"], "level": c["level"], "blurb": c["blurb"],
+                    "topic": c.get("topic", ""), "by": by or "", "h": handle or "",
+                    "lists": [pl["list"] for pl in c["playlists"]], "sections": sections})
+    return out
+
+
 if __name__ == "__main__":
     data = json.loads((ROOT / "videos.json").read_text())
     videos, channels = data["videos"], data["channels"]
@@ -294,10 +341,19 @@ if __name__ == "__main__":
         good_v = np.array([channels[v[2]]["t"] in ("S", "A") and v[4] >= 20_000 and v[3] >= 120 for v in videos])
         links = {"vn": len(videos), "vfirst": videos[0][0], "an": len(arts), "afirst": arts[0][0],
                  "v2a": cross_links(E, A, 3, LINK_THRESHOLD), "a2v": cross_links(A, E, 4, LINK_THRESHOLD, good_v)}
+        prev = {}
+        if (ROOT / "courses.json").exists():
+            try:
+                prev = {p["id"]: p for p in json.loads((ROOT / "courses.json").read_text())}
+            except ValueError:
+                pass
         courses, cands = build_courses(E, videos, channels, A, arts, model, refresh="--refresh-paths" in sys.argv)
+        pcourses = build_playlist_courses(videos, channels, prev)
+        courses += pcourses
         (ROOT / "courses.json").write_text(json.dumps(courses, ensure_ascii=False, indent=1))
         (ROOT / "path_candidates.json").write_text(json.dumps(cands, ensure_ascii=False, indent=1))
-        print(f"courses.json: {len(courses)} curated paths, {len(cands)} candidate improvements")
+        print(f"courses.json: {len(courses) - len(pcourses)} curated paths, {len(pcourses)} from playlists, "
+              f"{len(cands)} candidate improvements")
         rp = build_reading_paths(A, arts, srcs, model)
         (ROOT / "reading_paths.json").write_text(json.dumps(rp, ensure_ascii=False, indent=1))
         print(f"reading_paths.json: {len(rp)} paths")

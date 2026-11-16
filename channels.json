@@ -26,6 +26,7 @@
   {"handle": "coreyms",           "tier": "A", "topic": "Programming"},
   {"handle": "TechWithTim",       "tier": "B", "topic": "Programming"},
   {"handle": "programmingwithmosh","tier": "A", "topic": "Programming"},
+  {"handle": "Telusko",           "tier": "A", "topic": "Programming", "pin": true},
   {"handle": "WebDevSimplified",  "tier": "A", "topic": "Web Dev"},
   {"handle": "KevinPowell",       "tier": "A", "topic": "Web Dev"},
   {"handle": "t3dotgg",           "tier": "B", "topic": "Web Dev"},
