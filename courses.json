@@ -3381,5 +3381,8332 @@
     ]
    }
   ]
+ },
+ {
+  "id": "nn-zero-to-hero-karpathy",
+  "title": "Neural Networks: Zero to Hero",
+  "level": "Advanced",
+  "blurb": "Build neural networks from scratch in code: backprop, a character-level language model, and finally GPT-2 itself.",
+  "topic": "AI",
+  "by": "Andrej Karpathy",
+  "h": "AndrejKarpathy",
+  "lists": [
+   "PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "VMj-3S1tku0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PaCmpygFfXo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TCH_1BHY58I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "P6sfmUTpUmc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "q8SA3rM6ckI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "t3YJ5hKiMQ0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kCc8FmEb1nY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bZQun8Y4L2A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zduSFxRajkE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l8pRSuU81PU",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "llm-from-scratch-raschka",
+  "title": "Build an LLM from scratch",
+  "level": "Advanced",
+  "blurb": "Tokenizing, attention, a GPT model, pretraining and fine-tuning for classification and instructions, step by step in PyTorch.",
+  "topic": "AI",
+  "by": "Sebastian Raschka",
+  "h": "SebastianRaschka",
+  "lists": [
+   "PLTKMiZHVd_2IIEsoJrWACkIxLRdfMlw11"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "yAcWnfsZhzo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "341Rb8fJxY0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-Ll8DtpNtvk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YSAkgEarBGE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Zar2TJv-sE0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5PFXJYme4ik",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4yNswvhPWCQ",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "neural-networks-3b1b",
+  "title": "Neural networks, visually",
+  "level": "Beginner",
+  "blurb": "What a neural network is, how it learns, backpropagation, and how transformers and LLMs work, all animated.",
+  "topic": "AI",
+  "by": "3Blue1Brown",
+  "h": "3blue1brown",
+  "lists": [
+   "PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi"
+  ],
+  "sections": [
+   {
+    "title": "Chapters",
+    "steps": [
+     {
+      "k": "v",
+      "id": "aircAruvnKk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IHZwWFHWa-w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ilg3gGewQ5U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tIeHLnjs5U8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LPZh9BOjkQs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wjZofJX0v4M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eMlx5fFNoYc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9-Jl0dxWQs8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GlYgs6v2YfU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iv-5mZ_9CPY",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "linear-algebra-3b1b",
+  "title": "Essence of linear algebra",
+  "level": "Beginner",
+  "blurb": "Vectors, matrices, determinants, eigenvectors and more, built on geometric intuition instead of formulas.",
+  "topic": "Math",
+  "by": "3Blue1Brown",
+  "h": "3blue1brown",
+  "lists": [
+   "PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab"
+  ],
+  "sections": [
+   {
+    "title": "Chapters",
+    "steps": [
+     {
+      "k": "v",
+      "id": "fNk_zzaMoSs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "k7RM-ot2NWY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kYB8IZa5AuE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XkY2DOUCWMU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rHLEWRxRGiM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ip3X9LOh2dk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uQhTuRlWMxw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "v8VSDg_WQlA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LyGKycYT2v0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eu6i7WJeinw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BaM7OCEm3G0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jBsC34PxzoM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "P2LTAUO1TdA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PFDu9oVAE-g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e50Bj7jn9IQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TgKwz5Ikpc8",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "calculus-3b1b",
+  "title": "Essence of calculus",
+  "level": "Beginner",
+  "blurb": "Derivatives, integrals and limits explained so that you could have invented them yourself.",
+  "topic": "Math",
+  "by": "3Blue1Brown",
+  "h": "3blue1brown",
+  "lists": [
+   "PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr"
+  ],
+  "sections": [
+   {
+    "title": "Chapters",
+    "steps": [
+     {
+      "k": "v",
+      "id": "WUvTyaaNkzM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9vKqVkMQHKk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "S0_qX4VJhMQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YG15m2VwSjA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "m2MIpDrF7Es",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qb40J4N1fa4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kfF40MiS7zA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rfG8ce4nNh0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FnJqaIESC2s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BLkz5LGWihw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3d6DsjIBzJ4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CfW845LNObM",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "statistics-statquest",
+  "title": "Statistics fundamentals",
+  "level": "Beginner",
+  "blurb": "Histograms, distributions, p-values, hypothesis tests and regression, clearly explained one idea at a time.",
+  "topic": "Data",
+  "by": "StatQuest with Josh Starmer",
+  "h": "statquest",
+  "lists": [
+   "PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "qBigTkBLU6g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oI3hZJqXJuc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rzFX5NWojp0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vikkiwjQqfU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SzZ6GpcfoQY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yQhTtdq_y9M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0oc49DyA3hU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5koKb5B_YWo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vemZtEM63GY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "udyAvvaMjfM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JQc3yx0-Q9E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HDCOUXE3HMM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L3nlGfSyHV0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Rsc5znwR5FA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VX_M3tIyiYk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qtaqvPAeEJY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xZ_z8KWkhXE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_IgyaD7vOOA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9wCnvr7Xw4E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KLs_7b7SKi4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OSPr6G6Ka-U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J8jNoF-K8E8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YAlJCEDH2uY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Exk0OoRG0PQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "67zCIqdeXpo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "A82brFpdr9g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XNgt7F6FqDU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Xz0x-8-cgaQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "N4ZQQqyIf6k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RiEZ_hEf96A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fHLhBnmwUM0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VSi0Z04fWj0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TqOeMYtOc1w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2AQKmw14mHM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aFDOzpTeg0s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PaFPbb66DxQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Vf7oJ6z2LCc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7ArmBVF2dCs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "u1cc1r_Y7M0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zITIFTsivN8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hokALdIst8k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NF5_btOaCig",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CqLGvwi-5Pc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XLCWeSVzHUU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i4iUvjsGCMc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KEofcJ1tfkI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nnBJeb_I-q8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bsZGt-caXO4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IFKQLDmRK0Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "okjYjClSjOg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ecjN6Xpv6SE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pYxNSUDSFH4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XepXtl9YKwc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "p3T-_LMrvBc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4KKV9yZCoM4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Dn6b9fCIUpM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ARfXDSkQf1Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8nm0G-1uJzA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6fWk_lQ_K5A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sHRBg6BhKjI",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "machine-learning-statquest",
+  "title": "Machine learning, clearly explained",
+  "level": "Intermediate",
+  "blurb": "The classic ML algorithms from linear regression to decision trees, random forests, boosting and SVMs, plus the ideas behind them.",
+  "topic": "AI",
+  "by": "StatQuest with Josh Starmer",
+  "h": "statquest",
+  "lists": [
+   "PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Gv9_4yMHFhI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fSytzGwwBVw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Kdsp6soqA7o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vP06aMoz4v8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EuBBz3bI-aA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YtebGVx-Fxw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eJIp_mgVLwE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PaFPbb66DxQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7ArmBVF2dCs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zITIFTsivN8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NF5_btOaCig",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CqLGvwi-5Pc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ARfXDSkQf1Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8nm0G-1uJzA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yIYKR4sgzI8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vN5cNN2-HWE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BfKanl1aSG0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xxFYro8QuXA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9T0wlKdew6I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "C4N3_XJJ-jU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JC56jS2gVUE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4jRBRDbJemM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qcvAqAH60Yw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q81RR3yKn30",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NGf0voTMlcs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Xm2C_gTAl8c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1dKRdX9bfIo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ctmNq7FgbvI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FgakZw6K1QQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HMOI_lkzW08",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oRvgq966yZg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0Jp4gsfOLMs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Lsue2gEM9D0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "azXCzI57Yfc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i4iUvjsGCMc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GEn-_dAyYME",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pGAUHhLYp5Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NEaUSP4YerM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7xHsRkOdVwo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4b5d3muPQmA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RDZUdRSDOok",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HVXime0nQeI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "O2L2Uv9pdDA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "H3EjCKtlVog",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_L39rN6gz7Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wpNl-JwwplA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g9c66TUylZ4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "D0efHEJsfHo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "589nCGeWG1w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "q90UDEgYqeI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J4Wdy0Wc_xQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mIlw5j3WyVk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6EXPYzbfLCE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wl1myxrtQHQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sDv4f4s2SB8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vMh0zPT0tLI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LsK-xG1cLYA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3CC4N4z3GJc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2xudPOBz-vs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jxuNLH5dXCs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "StWY5QWMXCw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "W4sYsXGeCls",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OtD8wVaFm6E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8b1JEDvenQU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZVFeW798-2I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oRrKeUCEbq8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GrJP9FLV3FE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KXOTSkPL2X4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3Bg2XRFOTzg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e9U0QAFbfLI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "efR1C6CvhmE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Toet3EiSFcM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qc5IyLW_hns",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8A7L0GsBiLQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CqOfi41LfDw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IN2XmBhILt4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iyn2zdALii8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GKZoOHXGcLo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "68BZ5f7P94E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "83LYR-1IcjA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KpKog-L9veg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "M59JElEPgIg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6ArSys5qHAU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xBEh66V9gZo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HGwBXDKFk9I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AsNTP8Kwu80",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YCzL96nL7j0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "viZrOnJclY0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L8HKweZIOmg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PSs6nxngL6k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zxQyTK8quyY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bQ5BoolX9Ag",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GDN649X_acE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L35fFDpwIM4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZTt9gsGcdDo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KphmOJnLAdI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FHdlXe1bSe4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "khMzi6xPbuM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RHGiXPuo_pI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qf06XDYXCXI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "C9QSpl5nmrY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Z-T0iJEXiwM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9hbQieQh7-o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DVGmsnxB2UQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qPN_XZcJf_s",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "deep-learning-statquest",
+  "title": "Neural networks and deep learning",
+  "level": "Intermediate",
+  "blurb": "Neural networks from the ground up: backprop, CNNs, RNNs, LSTMs, word embeddings, attention and transformers.",
+  "topic": "AI",
+  "by": "StatQuest with Josh Starmer",
+  "h": "statquest",
+  "lists": [
+   "PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "CqOfi41LfDw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wl1myxrtQHQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sDv4f4s2SB8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IN2XmBhILt4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iyn2zdALii8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GKZoOHXGcLo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "68BZ5f7P94E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "83LYR-1IcjA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KpKog-L9veg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "M59JElEPgIg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6ArSys5qHAU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xBEh66V9gZo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HGwBXDKFk9I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AsNTP8Kwu80",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YCzL96nL7j0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "viZrOnJclY0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L8HKweZIOmg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PSs6nxngL6k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zxQyTK8quyY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bQ5BoolX9Ag",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GDN649X_acE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9hbQieQh7-o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DVGmsnxB2UQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qPN_XZcJf_s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L35fFDpwIM4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZTt9gsGcdDo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KphmOJnLAdI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FHdlXe1bSe4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "khMzi6xPbuM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RHGiXPuo_pI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qf06XDYXCXI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "C9QSpl5nmrY",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hf-course",
+  "title": "Hugging Face course",
+  "level": "Intermediate",
+  "blurb": "Transformers, tokenizers, datasets, fine-tuning and sharing models with the Hugging Face libraries.",
+  "topic": "AI",
+  "by": "Hugging Face",
+  "h": "HuggingFace",
+  "lists": [
+   "PLo2EIpI_JMQvWfQndUesu0nPBAtZ9gP1o"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "00GKzGyWFEs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tiZFewofSLM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ftWlj4FBHTg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BqqfQnyjmgg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "H39Z_720T5s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MUqNwgPjJvQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d_ixlCubqQw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0_4KEb08xrE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1pedAIvTWXk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wVN12smEvqg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AhChOFRegn4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d3JVgghSOew",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nhJxYji1aho",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ssLq_EK2jLE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zHvTiHr506c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Yffk5aydLzg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "M6adb1j2jPI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ROxrFOEbsQE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_BZearw7f0w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "W_gMJF0xomE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0u3ioSwev3s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "P-rZWqcB6CE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7q5NyFT8REg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nvBXf7s7vTI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rnTGBy2ax1c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AUozVp78dhk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cpzq6ESSM5c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nx10eh4CoOs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Dh9CL8fyG80",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "s7dy8QRgjJ0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XvSGPZFEjDY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9yY3RB_GSPM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Zh0FfmVrKX0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pUh5cGmNV8Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HyQgpJTkRdE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tqfSFcPMgOI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tfcY1067A5Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "blF9uxYcKHo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JwISwTCPPWo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HaN6qCr_Afc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OATCgQtNX2o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DJimQynXZsQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g8quOxoqhHQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3umI3tm27Vw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0E7ltQB7fM8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PrX4CjrVnNc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_wxyB3j3mk4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "b3u8RzBCX9Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4IIC2jI9CaU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "grlLV8AIXug",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HEikzVL-lZU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qpv6ms_t_1A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TGZfZVuF9Yc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MR8tZm5ViWU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iY2AZYdZAr0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8PmhEIXhBvI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NURcDHhYe98",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0Oxphw4Q9fo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XAR8jnZZuUs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "M05L1DhFqcw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1m7BerpSq8A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TMshhnrEXlg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ma1TrR7gE7I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Hm8_PgVTFuc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qgaM0weJHpA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BNy08iIWVJM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VN67ZpN33Ss",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-RPeakdlHYo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DQ-CpJn6Rc4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rSPyvPw0p9k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5PkZ4rbHL6c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "S2EEG3JIt2A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L-WSwUWde1U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "N9kO52itd0Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_PAli-V4wj0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6NTHvcXAl90",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tMwZlbMJggA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qNUjhpn4V5s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iNzlxWUAjd4",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rag-krishnaik",
+  "title": "Retrieval-augmented generation (RAG)",
+  "level": "Intermediate",
+  "blurb": "How RAG works and how to build it: embeddings, vector stores, retrieval strategies, chatbots and evaluation.",
+  "topic": "AI",
+  "by": "Krish Naik",
+  "h": "krishnaik06",
+  "lists": [
+   "PLZoTAELRMXVM8Pf4U67L4UuDRgV4TNX9D"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "fZM3oX4xEyg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MykcjWPJ6T4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "adPi3a8fq4c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MMS04bku3FE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hSO4zjeQO48",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Chl-cRcwVpA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FepDo-0DrSo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NebOSOTp-zA",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ai-agents-colemedin",
+  "title": "Building AI agents",
+  "level": "Intermediate",
+  "blurb": "How to plan, build and ship AI agents: tools, memory, RAG, frameworks and what actually works in practice.",
+  "topic": "AI",
+  "by": "Cole Medin",
+  "h": "ColeMedin",
+  "lists": [
+   "PLyrg3m7Ei-MrSXWv90oXXbuSsbdOP9j2n"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "FGeB9w1ZeHE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "56D91EcaUnM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zf_D2Eafvk0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7XZbI_ez8_U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yRIEpNlacd0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2Ai7_5G70xY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "U6LbW2IFUQw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TV8SyEuSMIA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TlbcAphLGSc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OFfwN23hR8U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i5kwX7jeWL8",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ai-agents-google",
+  "title": "AI agent crash course",
+  "level": "Beginner",
+  "blurb": "Short lessons on AI agents with Google's Agent Development Kit: tools, multi-agent workflows and long-term memory.",
+  "topic": "AI",
+  "by": "Google Cloud Tech",
+  "h": "googlecloudtech",
+  "lists": [
+   "PLIivdWyY5sqLNeW9MPxldbbevMEJGMWBG"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "WfJcCeLZD2I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JnKkdHaatwU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WZZLtwnZ4w0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XwlVHm3JKWU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pX0_iIfRilU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vuBvf7ZRKTA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GDm_uH6VxPY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "89KKm_a4M7A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vfVcDUCucSs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HDqzJJhZsxw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KZPo15M2DbM",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cs101-fireship",
+  "title": "CS101",
+  "level": "Beginner",
+  "blurb": "Fast, dense intros to the fundamentals: binary, data structures, algorithms, Big O, compilers and Linux.",
+  "topic": "Computer Science",
+  "by": "Fireship",
+  "h": "Fireship",
+  "lists": [
+   "PL0vfts4VzfNjQOM9VClyL5R0LeuTxlAR3"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "zDNaUi2cjv4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "U3aXWizDbQ4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "I4EWvMFj37g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vqs_0W-MSB0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4Zc9ci9L5wY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "W2Z7fbCLSTw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MFhxShGxHWc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-uleG_Vecis",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "erEgovG9WBs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lkIFF4maKMU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r5NQecwZs1A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rIrNIzy6U_g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LKCVKw9CzFo",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "computer-architecture-coredumped",
+  "title": "Computer architecture from scratch",
+  "level": "Intermediate",
+  "blurb": "How transistors run code: logic, memory, the clock and how a CPU actually executes instructions.",
+  "topic": "Computer Science",
+  "by": "Core Dumped",
+  "h": "CoreDumpped",
+  "lists": [
+   "PL9vTTBa7QaQOoMfpP3ztvgyQkPWDPfJez"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "HjneAhCy2N4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rM9BjciBLmg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GYlNoAMBY6o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7WnbIeMgWYA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ui6QyzcD3_E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PVNAPWUxZ0g",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "8bit-computer-beneater",
+  "title": "Build an 8-bit breadboard computer",
+  "level": "Advanced",
+  "blurb": "A working computer built from basic chips on breadboards: clock, registers, ALU, RAM, control logic and microcode.",
+  "topic": "Hardware",
+  "by": "Ben Eater",
+  "h": "BenEater",
+  "lists": [
+   "PLowKtXNTBypGqImE405J2565dvjafglHU"
+  ],
+  "sections": [
+   {
+    "title": "Build",
+    "steps": [
+     {
+      "k": "v",
+      "id": "HyznrdDSSGM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kRlSFm519Bo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "81BgFhm2vz8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WCwJNnx36Rk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SmQ5K7UQPMM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KM0DdEaY5sY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "peCh_859q7Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YW-_GkUguMM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QzWW-CBugZo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "faAjse109Q8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-arYx_oVIj8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CiMaWbz_6E8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9WE3Obdjtv0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4qH4unVtJkE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mOVOS9AjgFs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "S-3fXU3FZQc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "U7Q8-2YZTUU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4nCMDvnR2Fg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FnxPIZR1ybs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uYXwCBo40iA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KNve2LCcSRc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5rl1tEFXKt0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Vw3uDOUJRGw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F1OC5e7Tn_o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "st3mUEub99E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rXHSB5w7CyE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "exGEmA67dNc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g_1HyxBzjl0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tNwU7pK_3tk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7zffjsXqATg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BA12Z7gQ4P0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "K88pgWhEb1M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dLh1n2dErzE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-6JAgFWCL9w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AwUirxi9eBg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dXdoim96v5A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "X7rCxs1ppyY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dHWFpkGsxOs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HtFro0UKqkk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JUVt_KYAp-I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FCscQGBIL-Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AqNDk_UJW4k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ObnosznZvHY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Zg1NdPKoosU",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "6502-computer-beneater",
+  "title": "Build a 6502 computer",
+  "level": "Advanced",
+  "blurb": "A 65c02-based computer from scratch: the CPU, memory, an LCD, interrupts, a keyboard and serial, programmed in assembly.",
+  "topic": "Hardware",
+  "by": "Ben Eater",
+  "h": "BenEater",
+  "lists": [
+   "PLowKtXNTBypFbtuVMUVXNR0z1mu7dp7eH"
+  ],
+  "sections": [
+   {
+    "title": "Build",
+    "steps": [
+     {
+      "k": "v",
+      "id": "LnzuMJLZRdU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yl8vPW5hydQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oO8_2JJV0B4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FY3zTUaykVo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xBjQVxVxOxc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i_wrxBdXTgM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "omI0MrTWiMU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fCbAafKLqC8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZYJIakkcLYw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "v3-a-zqKfgA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DlEa8kd7n3Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oOYA-jsWTmc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7aXbh9VUB3U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "w1SB9Ry8_Jg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dL0GO9SeBh0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MCi7dCBhVpQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g_koa00MBLg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AHYNxpqKqwo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4alV5LzHLE4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oLYLnb7kpLg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zsERDRM1oy8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CnA8nG3zYHw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HlLCtjJzHVI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7M8LvMtdcgY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0q6Ujn_zNH8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XlbPnihCM0E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mpIFag8zSWo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tIOR7kRevPU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jJi5EAWgyEM",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "digital-electronics-beneater",
+  "title": "Digital electronics",
+  "level": "Beginner",
+  "blurb": "From LEDs and transistors to logic gates: the hands-on basics of digital circuits.",
+  "topic": "Hardware",
+  "by": "Ben Eater",
+  "h": "BenEater",
+  "lists": [
+   "PLowKtXNTBypETld5oX1ZMI-LYoA2LWi8D"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "poWJTSV4Yio",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CdqvY_vY1XA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LakgUi2Ajkw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KEOsmWRoT00",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BpJAh0KfgEI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uo2KgRN04XI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WD14ow-1q6k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ks_VShSgPns",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hYN8C769k8A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Lv9Gc3Lghjk",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "electronic-basics-greatscott",
+  "title": "Electronic basics",
+  "level": "Beginner",
+  "blurb": "Multimeters, resistors, capacitors, transistors, op-amps, power supplies and every other building block of electronics.",
+  "topic": "Hardware",
+  "by": "GreatScott!",
+  "h": "greatscottlab",
+  "lists": [
+   "PLAROrg3NQn7cyu01HpOv5BWo217XWBZu0"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "CBah3vz5b-U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jQ3JHknsM4o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9LjfkjwMqXI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x3KAXjnP06o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uQMUPhyoXoE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J3DYgzRvLT8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a6D6H6SLa_c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qlayua3yjuE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "46WSCihjoRI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Y2OPnrgb0pY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gVGD-f8SQSI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kdrP9WbJIb8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XCnI6ZOYKes",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "otQGdPLyF3w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1U4fep_qAeo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7w5I-KbJ1Sg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eYVOdlK15Og",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UteZJ_7C4Mg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_fgWQ3TIhyE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4N1uLth1o9o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kqCV-HGJc6A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WRm2oUw4owE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "o4_NeqlJgOs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bkqoKWP4Oy4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J8atdmEqZsc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fLaexx-NMj8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EnfjYwe2A0w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RxRJW09A_XA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sU-hSFFwSmo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IdL0_ZJ7V2s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GtH8lAzQf2A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2BdevOmN-Zk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lWFiKMSB_4M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1pKJ-KcHZ8g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "woTiKij76cA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fvOAbDMzoks",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "W2VwAL7-8-o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cxXmWZDwNEs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Degt4HUzWXY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mzPb9QLJu8k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1wzUqVFyQ7o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2cxcP5lY7K4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yFQS_TQ4948",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PL0TPdrhMuI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qNLvoSQCx60",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EzJsKWW-cDU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RoSIzgvEGtA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JOhQ3nsR7xo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d58GzhXKKG8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "isutYMU2HHU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uezoQ5fkixY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "z5eB_2wjLTg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "y1ROEogHF7A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sF0KOVWj9p8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "U5cqrrhq9TA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eIUuXEZtcsw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cNPIL7rhKUw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d3IH8zwUVYU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MzxBBXpgwrE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2mNpYOYL7Ss",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ncu1Ep2Um2A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Y6ZND7Ed70k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cmRGhoF_ZEM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LOIVrVVYBfA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ajKES2dd5BM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YzfEdZtpABI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-fSjLF4u4kE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q_5bna_cyBw",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "nes-emulator-javidx9",
+  "title": "NES emulator from scratch",
+  "level": "Advanced",
+  "blurb": "Write a working Nintendo emulator in C++: the 6502 CPU, the bus, the picture processing unit, mappers and sound.",
+  "topic": "Programming",
+  "by": "javidx9",
+  "h": "javidx9",
+  "lists": [
+   "PLrOv9FMX8xJHqMvSGB_9G9nZZ_4IgteYf"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "F8kx56OZQhg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8XmxKPJDGU0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xdzOvpYPmGE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-THeUXqR3zY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cksywUTZxlY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "72dI7dB3ZvQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AAcEk5pWXPY",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "semiconductors-asianometry",
+  "title": "Semiconductors",
+  "level": "Intermediate",
+  "blurb": "The history and engineering of chips: photolithography, fabs, materials and the companies that make it all work.",
+  "topic": "Hardware",
+  "by": "Asianometry",
+  "h": "Asianometry",
+  "lists": [
+   "PLKtxx9TnH76QY5FjmO3NaUkVJvTPN9Vmg"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Pt9NEnWmyMo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ihz2WY-E2C8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "785Uzi1mGAA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jJIO7aRXUCg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Th4E-0VFaEA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-x9nGo0Ge70",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sIRfWyyOFPg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0s5TO9h6fco",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZPa_RKFTBPc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1WJWYMTLeOg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-DCZsT2plw8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6dT-h74lPDc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YJrOuBkYCMQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "m-8G1Yixb34",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DAPgDuw1uZM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5tmGKTNW8DQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3aSLZDep7dM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RiRyap-EVg0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4dX2IsZDBfg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nRJgvX6P8dI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nNpuiJitKwk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5uuRduTpl4Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RmgkV83OhHA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "p5JQX1BvsDI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3UUq5cPH4Uw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lNypq1XuZRo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "po-nlRUQkbI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uPualBNf1nM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2G4_RZo41Zw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5RPFfPtgw7g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3T4FpRm2uwk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "US6YO-IK64w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UpxYrmV4OCk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KCWDzWG1BcI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vkx2zIanSpc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zUgy29h0alM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SXULADjnO5s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iFoma1jUToU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "byWZoKCdePo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "srGmVOFpasU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SwYDxh3PQJ0",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "system-design-bytebytego",
+  "title": "System design fundamentals",
+  "level": "Intermediate",
+  "blurb": "Short visual explainers on caching, databases, APIs, networking, scaling and the building blocks of large systems.",
+  "topic": "System Design",
+  "by": "ByteByteGo",
+  "h": "ByteByteGo",
+  "lists": [
+   "PLCRMIe5FDPsd0gVs500xeOewfySTsmEjf"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "lX4CrbXMsNQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "27r4Bzuj5NQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FqR5vESuKe0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-mN3VyJuCjM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ouipSd_5ivQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dGAgxozNWFE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7swoLEqABhQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "p-88GN1WVs8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J8uAiZJMfzQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a4yX7RUgTxI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "42UP1fxi2SY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TlHvYWVUZyc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BHqjEjzAicA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0y6FtKsg6J4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RI9np1LWzqw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gnchfOojMk4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yWzKJPw_VzM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6ULyxuHKxg8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4NB0NDtOwIQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lTAcCNbJ7KE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UNUz1-msbOM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zt8Cocdy15c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Jz8Gs4UHTO8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a-sBfyiXysI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5TRFpFBccQM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nH4qjmP2KEE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BHwzDmr6d7s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JTp0TY_2hXM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4vLxWqE94l4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AWVTKBUnoIg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "O3PwuzCvAjI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fKc050dvNIE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZV5yTm4pT8g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Uu32ggF-DWg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "q2MWdzhMq6A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "an8SrFtJBdM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zvWKqUiovAM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x3cANGNPyx0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0chZFIZLR_0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dBmxNsS3BGE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HZklgPkboro",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OTfYFl3rzjg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Cs2j-Rjqg94",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qmpUfWN7hh4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hnlz0YYCpBU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xSPA2yBgDgA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e9lnsKot_SQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "P2CPd9ynFLg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XpFsMB6FoOs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dvRFHG2-uYs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qquIJ1Ivusg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "I5c7fBgvkNY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bbmWOjuFmgA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UN1kW5AHid4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jCd6XfWLZsg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x_jjhcDrISk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wh98s0XhMmQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RqfaTIWc3LQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yIAcHMJzqJc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GAe5oB742dw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6WZ6S-qmtqY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UuT61kf292A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zY2DMpCUfCg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RIX4ufelA58",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cTyZ_hbmbDw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kGT4PcTEPP8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x4k1XEjNzYQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_1IKwnbscQU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RlM9AfWf1WU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4N4Q576i3zA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fyTxwIa-1U0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_kynGl5hr9U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iJ_eIsA5E1U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sMHzfigUxz4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UMwQjFzTQXw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TByRaraQqW4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ajz6dBp_EB4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lv0DdVLZuHc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EWS_CIxttVw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_higfXfhjdo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rlMfRa7vfO8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x2CRZaN2xgM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "14K_a2kKTxU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-RDyEFvnTXI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BTjxUS_PylA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GhX8sNyFo5w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LQuuoHTyYz8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QEzbZKtLi-g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3Kqal7QaCCM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3Lis4w4_bBc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PNRbanEKGtw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1nENigGr-a0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2g1G8Jr88xU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hltLrjabkiY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nBvDtj-p6VM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qd9tJ3H_hPE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uq-JpclPQV4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OvufRkoD-D0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7_wkWQ9rB5I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "z_NbVtbgBJw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "taSmwcqdkQk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WvSVSbGo0wI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bF28LFPjFsI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aVRjFZM23ak",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "api-essentials-ibm",
+  "title": "API essentials",
+  "level": "Beginner",
+  "blurb": "What APIs are, REST, GraphQL, gateways, webhooks and how services talk to each other.",
+  "topic": "Web Dev",
+  "by": "IBM Technology",
+  "h": "IBMTechnology",
+  "lists": [
+   "PLOspHqNVtKAAAq9pHWlEiRUVcYMCcu4X0"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "hWRRdICvMNs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DBZTNzrZC3E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lsMQRaeKNDk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fh3VaXLzH5Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pRS9LRBgjYg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kG-fLp9BTRo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sKfep-UmZeM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hFRpTVZpz8M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qGFRbOq4fmQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "h3SiItf_0Vw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OAdOa31EH4o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PTfZcN20fro",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "python-brocode",
+  "title": "Python for beginners",
+  "level": "Beginner",
+  "blurb": "A long, friendly Python course: variables to classes, files and many small projects along the way.",
+  "topic": "Python",
+  "by": "Bro Code",
+  "h": "BroCodez",
+  "lists": [
+   "PLZPZq0r_RZOOkUQbat8LyQii36cJf2SWT"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Sg4GMVMdOPo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7IoQ5BGkTJo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qtq83lAoogM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nMCOB8KElwo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jc7TBgMS_kw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FvMPfrgGeKs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yUrYouDQZL8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "80kjCBRjkmU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fy5QsDJmctQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "W7luvtXeQTA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TYyKQBC4bwE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tb6EYiHtcXU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7pXf1DUuaIo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6MAufQ6vGtI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FrvBwdAU2dQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rRTjPnVooxE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aM5dttidg4Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KWgYha0clzw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "APWy6Pc83gE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KseiSR0MCTI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gOMW_n2-2Mw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kbyHLU9JqjE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Xy6qeQWQwFw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zehwgTB0vV8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MZZSMaEAC2g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PbkIzW_70EI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "piJc18hcH0Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jcKe13D6bao",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fn68QNcatfo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x-Ag2_bJ40Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vsLBErLWBhA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "89cGQjB5R4M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "m2uURZxex3c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7QCHpAtlSMo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Vh__2V2tXUM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VL_g3LjsFqs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OJ5E7VLsZQM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YlY2g2xrl6Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L7tT0NZF-Ag",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XcfxkHrHTVE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XN83IECAscM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8A0E1dSyjFM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LqXIJjcRmGI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8aW3tkIul-8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "f5J3YiZ3XX8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ag8NtD1e0Kc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1XE-_s4ZBT8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bytvWg4fPB0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "u1be7Vele5o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q8YlYHjksLo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "97V7ICVeTJc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HzyhmZqiaE8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tHN8I_4FIt8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qe03kCuTMoU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "caXOUnQkD1o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TPUdUkFHD5I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zxPODCF4KEw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GZYWTm7JoWs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g-qRKZD3FgE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NwjSP1_WEfE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "U-G-mSd4KAE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HkbQ_NaH0Lc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IljPHDyBRog",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cd-vtiO5chk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5WK3j2erJW4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ivl5-snqul8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "V_NXT2-QIlE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EReeJSaU0Og",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1IYrmTTKOoI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GWBWQnWNWBI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FblABqaKz_U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DwBDHsdX6XQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uf8DvQlWm7M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "k0D3MQwLn7A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "G1lJeEIl05o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZBlxaXMN_hU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Gsfsq2epdr8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "STEOavXqXkQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JVQNywo4AbU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Uvqmv3PGiXM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nFLADhwXjW4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7v5NQeIBYes",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ml-mBl77h6Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9pl55MxZlG4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VgnUB_vzR9I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DZ3-ij_JHE0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4IUWg_wQNSc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YJM9d0F3n-o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "543g1CurFFo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UKs0xhxSOg0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q4377DH5Jso",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pJdTyvufOdg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xf71dRBRP6o",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "javascript-brocode",
+  "title": "JavaScript for beginners",
+  "level": "Beginner",
+  "blurb": "JavaScript from the first line to the DOM, classes, async code and small apps like a weather app.",
+  "topic": "Web Dev",
+  "by": "Bro Code",
+  "h": "BroCodez",
+  "lists": [
+   "PLZPZq0r_RZOO1zkgO4bIdfuLpizCeHYKv"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Ihy0QziLDf0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nbX0MIV7-Ek",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FyGIKD2fxIo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JeXqaKeJSRI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jLRnuVHwHKk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3M53uhj0D4k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uSJXZ3LkABE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uy-1WNqecnI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "K2upGO5Bb48",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PgUXiprlg1k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SgxzJdqhyfw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "atS_A9HHAVo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "z2fcWdoph4U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wssvLtVSFeI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sPPGd4Lfh3s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J4YhlDsNqeE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ovWYhDVQiR8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "O7aUm0AuUy4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TDUz9QcGPoE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZOQYIWLngSU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "maB0r59KOUk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HFaxylC7bUc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KyqmbIkZGIo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6xrTdpIAsb0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yQ1fz8LY354",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SmJNeJuLmVo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RuDdltsfaVc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ahwR1D_GAfc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PXilNmL9U80",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1cdXwYEFDAg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i2SPq-nb3NQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uOZWH0KEUs4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xNQH1NbZQ0E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VvSEKHKFvpQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iDWtuWkuj8g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jDqmFt03Gy0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fRRRkognpOs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lo7o91qLzxc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Jdlo8ZDt5Jg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WPmAu26LZKo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "U2vxAEiaVRY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UOH4SAG3BoQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DqUPa0D2N78",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Cto38GpvJgg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KQVCAnh6Afk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UHZcJyVXtLo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "b8gwYQ_V4K4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "w9078dAjcrY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CTHhlx25X-U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FGAUekwri1Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LwYwz67l1lA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "beZfCfiuIkA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "shWr5DNVeCI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9amAW_qXv84",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HOMu48bTzz8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pq_FYp2JSLI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2glfqa-ZbNw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d8-LGhKtzRw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fl-_6d18DN0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Coyy79wRz_s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NwoAZF66_Go",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "I5kj-YsmWjM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NO5kUNxGIu0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FQtjI1PC5Z0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RKXIMnSwUcg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WCRi7y6aNrQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g_vXSKbfUiQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "q32skvBgxo4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MkvHPOT4RS8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5n3qPKgLEDc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "62qN2RcpIAE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3uKdQx-SZ5A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "749ta0nvj8s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NOlOw03qBfw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NOzi4wBHn0o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9j1dZwFEJ-c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r4MLHHLctKw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i7oL_K_FmM8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "37vxWr0WgQk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VaDUGPMjzOM",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "c-brocode",
+  "title": "C for beginners",
+  "level": "Beginner",
+  "blurb": "C from scratch: types, loops, functions, arrays, pointers, structs, files and small programs.",
+  "topic": "Programming",
+  "by": "Bro Code",
+  "h": "BroCodez",
+  "lists": [
+   "PLZPZq0r_RZOOzY_vR4zJM32SqsSInGMwe"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "2ciUcosJFBc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WrFEtUzVcnw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oz5xT5Pej8A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4WMRnTfhQfU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rknoBwLDzAI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-xDAFNXAkRA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wt194lO5kKE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uKjMsrCceXY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "M7PU_q6jp5o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "u0YOwArfO2w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LFE0yibJTDk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mKfOZ7Fq9o4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "C0Fgs5zgcK4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NtlSzRWhaOc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r4VxxABeECg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pMHLTiSZaT0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "S1D6iDV7hBs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7Bq87y7eJEg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "geL9zwSJ9AM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Nrbm22wPU9k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NEj2H7SoTzQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6YNYuJ_jiu0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zdAggA1q0eo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wVSekrbPcuk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "A36pfuw33oQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_wWfHRbzdX4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F6OrJaiNGJM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cUKD_AHpjNw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Z5smVeUVNFU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6Hk2aE_SRzY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "y4siEcxgOpM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vpu09OPR61M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e7SACGE9hKw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HDlm1imM7mU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Jx12Vf0VxmY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pNNC6WAJfdk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sU0XQ3jSsu8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e9OXqEPF-5M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZwSyuqbeN0c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Hi-Ul47t3nQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d29sVpbM0kc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eIlcl-mt3tg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "n_Se6bt8jM0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l8DU9ZeT3o8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rUXjvybSPWc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "s3QMbp7TlFg",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cpp-brocode",
+  "title": "C++ for beginners",
+  "level": "Beginner",
+  "blurb": "C++ from scratch: the basics, functions, arrays, pointers, memory and object-oriented programming.",
+  "topic": "Programming",
+  "by": "Bro Code",
+  "h": "BroCodez",
+  "lists": [
+   "PLZPZq0r_RZOMHoXIcxze_lP97j2Ase2on"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "S3nx34WFXjI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4psGUiKacPQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MwQEaCsS6UM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2lcIKzFHjSM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7TJ7Z1-V_24",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6am27D60i84",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Fj9HjbqHto8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "imiIhu9u670",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LXq3OhajeeU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LvfUeY4-_1k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kO3eEn_hgQc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Bx9b12FCF5o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tjAa5VRuy6A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dWsjatPhWHQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UiF-QgCBOhM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7bTZrFGRqGM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KTr0SZTW9nI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XCxHhfJq1LU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3xcXse7DK5s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gP22X_ykkxI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "D2aQITtBhMM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TdtFtPHeyZE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bYEdLCWJeHA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JLIF5XHBL3E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hfnr2EPzn98",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6SnxFx9aRps",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d89IvsCh__E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LZd5LhfnYsk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q7ZFHAO-oxI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TJOysgQkqZY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F4jzY6YVw4w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QFrJQq6Iox8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1_YDHY_34Bg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a4P4ial8OgQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qnEUB25TRaY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VQSroKMqISE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a6V4QQs5m3E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kOEOqehNCQg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xFMnQhkjq1Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0CJMEuKuapc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fINt-nzR-o8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tIr-43tfT5k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sHD7r6HWFc4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ao0I1ViVV6U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5wDXnZ2vOGY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "o_RTeD_3Lq8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "slzcWKWCMBg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yKT_Rwx4lsQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "D30owXMzAm8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fc19HhHKtrA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "udiq6hVvZ1Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "spZd2rNtze8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ObUUe9ujYoY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Iv-ZBq4Bcps",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Fqn4pSRH6Ec",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_8H2n0nDfd4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5z3KEX9AZEQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uAVj1cLktyU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5_GQw06deQg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5HYIFFuGcvk",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "java-brocode",
+  "title": "Java for beginners",
+  "level": "Beginner",
+  "blurb": "Java from scratch: the basics, methods, arrays, objects, inheritance, interfaces and small projects.",
+  "topic": "Java",
+  "by": "Bro Code",
+  "h": "BroCodez",
+  "lists": [
+   "PLZPZq0r_RZOOj_NOZYq_R2PECIMglLemc"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "23HFxAPyJ9U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TGVLmr194DI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RAthlOQUMkc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7QlOxkzFOYw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QAD5unRlCyo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "P8CVPIaRmys",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q_ll-EKocuI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-tt98ICTHtQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nle8CQXYhl4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nTBDjxWAcoE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IgdIfGW-cVU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "23VT2wh3BG4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ntl3DxhyrQQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "44iQGNUcik0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DFhpzaEOoxs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "t2PcC-FYFmI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iF9OVaBdxBQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6q2JKiynteM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1An1DH79e5Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4ezfRdg6Z7E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZjHJrmYknrk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QSSmxYRgi5o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vOmZ4JFhRds",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iGo1Syv4YuM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sd4x2QG2K6U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JKecvKiNX2I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nhnAx79gxCM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eVCK1jlopmY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "49bIIa6id08",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sGevUtru91I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9dr2mHYYoug",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ah5bAnGpmKY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EB9-OOnCthg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2knxgAFqwKk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qf3Nczxm2AY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WmksoCCwGlk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GsuEJ9QOPgk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oPmlnKaHUNs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DYbi93vuSaU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZD7CB6wKg8A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iLrY412dFwo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cMJeCs0n6BY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qULACa4D_vg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GTP5lVEKXaU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LN45TyPWAAg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hx_DRanBRRM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "u3BGdOunOTI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4B8XKEORJss",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "c2sTQk9opO8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6xRd0j1anzc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YDKHfqzaF30",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OjrR_C_UPjc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pqQAHA1XjJk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6MYaUdSuW24",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5bt07czziV4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wsTSREgCE5E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "u1PROb-aRUI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Pg0aoSbrqOE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eHjbvgw4hsI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PmOgruSPy3s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0Nn8PZrWZKE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F2bZ1fkAQx0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "P_iOnmdww8E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HjzcZkzRDYs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IwC5T5gtFI4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "H9vc4gTtGGA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NMHk1CGb28o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BIOxWAfaAgw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SztE5W41on4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "taI7G6U29L8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lGG0LAJf0uE",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "flask-corey",
+  "title": "Flask web apps",
+  "level": "Intermediate",
+  "blurb": "Build a full-featured web app in Python with Flask: templates, forms, a database, user accounts, pagination and deployment.",
+  "topic": "Python",
+  "by": "Corey Schafer",
+  "h": "coreyms",
+  "lists": [
+   "PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "MwZwr5Tvyxo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "goToXTC96Co",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LUFn-QVcmB8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QnDWIZuWYW0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Gdys9qPjuKs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UIJKdCIEXUQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cYWiDiIUxQc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "44PvX0Yv368",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CSHx6eCkmv0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "803Ei2Sq-Zs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "u0oDDZrDz9U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PSWf2TjTGNY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vutyTx7IaAI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Wfx4YBzg16s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uVNfQDohYNI",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "git-corey",
+  "title": "Git",
+  "level": "Beginner",
+  "blurb": "Git from the command line: the everyday commands, branching, fixing mistakes and deploying with GitHub.",
+  "topic": "Tools",
+  "by": "Corey Schafer",
+  "h": "coreyms",
+  "lists": [
+   "PL-osiE80TeTuRUfjRe54Eea17-YfnOOAx"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "HVsySz-h9r4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FdZecVxzJbk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KLEDKgMmbBI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iCGrKFH2oeo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kjBA2WISteM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tcd4txbTtAY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AD-3nVI3-_U",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "terminal-corey",
+  "title": "The Linux and Mac terminal",
+  "level": "Beginner",
+  "blurb": "Navigating, files, permissions, grep, cron, SSH and automating your setup from the command line.",
+  "topic": "Linux",
+  "by": "Corey Schafer",
+  "h": "coreyms",
+  "lists": [
+   "PL-osiE80TeTvGhHkpvfmKWOiIPF8UVy6c"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "j6vKLJxAKfw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eoejHvAPDFs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KCVaNb_zOuw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VGgTmxXp7xQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WxUVU0b95Oc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qE77MbDnljA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QZJ1drMQz1A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vDOVEDl2z84",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LXgXV7YmSiU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "c5RZWDLqifA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TXzrk3b9sKM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0liXeoADU6A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HVMOBKRNEbc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qte4X-rdr2Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xzgwDbe7foQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SELYgZvAZbU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kIdiWut8eD8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vpk_1gldOAE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ra5kMCXO-6I",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "linux-kodekloud",
+  "title": "Linux basics",
+  "level": "Beginner",
+  "blurb": "The Linux essentials for DevOps: the shell, files and directories, users, permissions, packages and services.",
+  "topic": "Linux",
+  "by": "KodeKloud",
+  "h": "KodeKloud",
+  "lists": [
+   "PL2We04F3Y_40R2-1DdAN14AolOvmSH9GX"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "t3e_CaC4V_k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SWcdwsfUKNU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cOkbOyrnSfk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eC8scXX1_1M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JhcE8u1bAmo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "67RYmim1m6o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0kux5-EtLZU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "o9pT9cWzbnI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a3ujwK65dgs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GKheeR6lwwc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "y9Aq0Sn84RU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bI3Ta0-7xCw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "izOdJH4fsUs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9nCIjLlLVzY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KyOA2iUXAIM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cElrGIyVzHg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uXQqStU8K8Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "05gUqcHevzk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "v_c21RCTra8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qxwvw1MD1AM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "W0yI-EoGSa0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4EBPLVevV_w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "m5W4WexW5SQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rYgITcJIkYw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uCcfSaBYT1E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aJ_zAraaVMg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "38SrYU1erBY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9OAP24kl-Ig",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Tbp3hGHCdzA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wa1NZcX6Nzs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zWFj0_C2a2w",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "docker-kodekloud",
+  "title": "Docker for absolute beginners",
+  "level": "Beginner",
+  "blurb": "What containers are, images, Dockerfiles, networking, storage, Compose and where Docker fits in CI/CD.",
+  "topic": "Cloud & DevOps",
+  "by": "KodeKloud",
+  "h": "KodeKloud",
+  "lists": [
+   "PL2We04F3Y_42mOz2jsBqB_TOGIgaB8KkL"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "ZZ10b63xnQc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zJ6WbK9zFpI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZWReEReO2xE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "21onkZfL2yM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XPGSqqgwmgA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tYg6T_DAP-k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "W7X6u2BGVRY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "W8yZUCzy4SI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QioHwK-kths",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iOGEBj7Ozak",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FhorvGysZ6w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Xxhhdo2e-DA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wxxigbHwDGM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9KsOCK0-Sio",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AlrImm1T8Wg",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "kubernetes-kodekloud",
+  "title": "Kubernetes",
+  "level": "Intermediate",
+  "blurb": "Kubernetes end to end: pods, deployments, services, storage, networking, security, scaling and disaster recovery.",
+  "topic": "Cloud & DevOps",
+  "by": "KodeKloud",
+  "h": "KodeKloud",
+  "lists": [
+   "PL2We04F3Y_43dAehLMT5GxJhtk3mJtkl5"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "QJ4fODH6DXI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XuSQU5Grv1g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "klxZke9qbvg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xaZ87iSvMAI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "B810TDzTQsQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rmf04ylI2K0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8C_SCDbUJTg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r0uRLhrzbtU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Aw01Wtx104U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "o9pT9cWzbnI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "T6E2yzlEX0Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AAJ6FTqIVMY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "02AA5JRFn5w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OYbEWUbmk90",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5lzUpDtmWgM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VicH6KojwCI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Y2SA7sCtKSs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mo2UrkjA7FE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mB3ODCDWZIY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wWMJCY2E0d4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yH1LkWLocVo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sCb_ywpP28w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "j3KfwvABCbQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Y-CupBJBUHA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PlHUjS4JxRg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NUhySOoHm3Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oIP13PZnPAk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l2BS_kuQxBA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L9xkXzpEY6Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vl_K1QcA7Pg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "T4-gigGwPpo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5y1fI55ZVS4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wgfjXHw7uPs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Vrxr-7rjkvM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EbR3iRCGMT8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CnqjHRCZEt0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GhZi4DxaxxE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L_ej12aahNI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VOruC2tQbmw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_65Md2qar14",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jXCl3GtEgmA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YcJ9IeukJL8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1fSxM0_dtac",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6xmWr7p5TE0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3cGR0455cZI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rUFgZuIp1mY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EoKuPoFXY-k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mRlBtYc-HSk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RUoejLILgyA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yCkQgKVwSVU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EonWeoFPpvM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5nIAYEzedNc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MTnQW9MxnRI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JRc967vAkGM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yt5KuYjMPvg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XooCrxSzJtM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Y9OMY2VYO94",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PNRy_zodrXQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8JT6DS8yt0s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ztVU5B8hDAs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DdTYHPJTlao",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q0bX28vBWr4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QMPCogrLTeA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CeOsIjO0gzk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kY4emVgTjPc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_YvCg5E7xc8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jfRxw5-Gdq8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "f44s063zOrQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nv2fi2hlAko",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HTe2_uIWSuY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NXrrVb_tMaQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "H5NR9Ocqhvc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NDABiL0N6Dw",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "kubernetes-ibm",
+  "title": "Kubernetes essentials",
+  "level": "Beginner",
+  "blurb": "Short explainers on Kubernetes and containers: how they compare to Docker and VMs, and the core building blocks.",
+  "topic": "Cloud & DevOps",
+  "by": "IBM Technology",
+  "h": "IBMTechnology",
+  "lists": [
+   "PLOspHqNVtKABAVX4azqPIu6UfsPzSu2YN"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "2vMEQ5zs1ko",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0qotVMX-J5s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aSrqRSk43lY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fy8SHvNZGeE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cTPFwXsM2po",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NPFbYpb0I7w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kBF6Bvth0zw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZsOR8RkAOwI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i9V4oCa5f9I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1iyFq2VaL5Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Xx588nbshlM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BgrQ16r84pM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "69OfdJ5BIzs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Sulw5ndbE88",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6h-UCGJ4-BA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1Br4m0_8YDQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "j64WdNBqoWk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F0hNDkAA1sM",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ansible-geerling",
+  "title": "Ansible 101",
+  "level": "Intermediate",
+  "blurb": "Automate servers with Ansible: inventories, playbooks, roles, testing and real deployments, episode by episode.",
+  "topic": "Cloud & DevOps",
+  "by": "Jeff Geerling",
+  "h": "JeffGeerling",
+  "lists": [
+   "PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "goclfp6a2IQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7kVfqmGtDL8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WNmKjtWtqIc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SLW4LX7lbvE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HU-dkXBCPdU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JFweg2dUvqM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FaXVZ60o8L8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CYghlf-6Opc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gV_16dU7XjM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iKmY4jEiy_A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_rDzMYp-fBs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_QZr4xKhir4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nyXDR4RG4A8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "N7tgLVCXup4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sb5XYD3BLMA",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "iac-nana",
+  "title": "Infrastructure as code",
+  "level": "Intermediate",
+  "blurb": "Ansible, Terraform and friends: what infrastructure as code is and how the main tools work.",
+  "topic": "Cloud & DevOps",
+  "by": "TechWorld with Nana",
+  "h": "TechWorldwithNana",
+  "lists": [
+   "PLy7NrYWoggjzmPAyfDQgthSgx6VEVlS0-"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "1id6ERvfozo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l5k1ai_GBDE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "POPP2WTJ8es",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "m3cKkYXl-8o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vIjeiDcsR3Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "f5EpcWp0THw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gxPykhPxRW0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9JGONx_X4ho",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "css-fundamentals-kevinpowell",
+  "title": "CSS fundamentals",
+  "level": "Beginner",
+  "blurb": "The core of CSS that trips everyone up: the cascade, units, box model, backgrounds, layout and more.",
+  "topic": "Web Dev",
+  "by": "Kevin Powell",
+  "h": "KevinPowell",
+  "lists": [
+   "PL4-IK0AVhVjPRj8P56TtFX2hg33BlbT3x"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "3T_Jy1CqH9k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Bcr70LIJcOk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Azfj1efPAH0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ty4lnEUy7SY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xRp6HVjCDrY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EhbZGV2dqZ4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uEfH6qnFF6Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TkdBtmwWyZo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "M6coJNLFBWI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SjYYfd7obug",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9e-lWQdO-DA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "B-eM50GBB1Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "j68WvpUX41c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "b64gzAvAi1A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Y2PIlNyVilI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zHZRFwWQt2w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "86nTToBm2uQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rxnX1jdoI6c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6aHKdahOfCc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fF_NVrd1s14",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x3MTfp3HDLc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZrZ-ZzacGXs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "G1buM51f09s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tr7EH48TFiE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "o-95kJ0eyzQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DoPq7pH1BKg",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "responsive-site-kevinpowell",
+  "title": "Build a responsive website",
+  "level": "Beginner",
+  "blurb": "Build a complete responsive site with HTML and CSS from a design, start to finish.",
+  "topic": "Web Dev",
+  "by": "Kevin Powell",
+  "h": "KevinPowell",
+  "lists": [
+   "PL4-IK0AVhVjNDRHoXGort7sDWcna8cGPA"
+  ],
+  "sections": [
+   {
+    "title": "Build",
+    "steps": [
+     {
+      "k": "v",
+      "id": "h3bTwCqX4ns",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3K6zr1CdZy8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ch_LoWKLv3A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zPHMqqyD2kY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mQYRWvIj0Yw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NorLM-dalTE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eX9JhQtMxCg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r6hx35TbtN4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a8OiB2NnHMo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vGFiOhl-hjY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e7o69Zi-Iao",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "responsive-css-kevinpowell",
+  "title": "Responsive CSS",
+  "level": "Intermediate",
+  "blurb": "Writing CSS that adapts without fighting it: intrinsic layouts, modern units, container queries and breakpoints.",
+  "topic": "Web Dev",
+  "by": "Kevin Powell",
+  "h": "KevinPowell",
+  "lists": [
+   "PL4-IK0AVhVjODqX-gN6KH68Tt_zrYiTwA"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "0ohtVzCSHqs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "U9VF-4euyRo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_kF3k0vDMNA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qjJR3qYCd54",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2QYpkrX2N48",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Rik3gHT24AM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6yAAV-uP0po",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8QKOaTYvYUA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SElOdK2qTpI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vQAvjof1oe4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wARbgs5Fmuw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "H04P5YXVssE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x4u1yp3Msao",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bj0Z_GncIwY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FNxoKhpEegA",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "unit-testing-netninja",
+  "title": "Unit testing with Vitest",
+  "level": "Intermediate",
+  "blurb": "Write and run unit tests for JavaScript: assertions, mocking, async code and testing real modules.",
+  "topic": "Web Dev",
+  "by": "Net Ninja",
+  "h": "NetNinja",
+  "lists": [
+   "PL4cUxeGkcC9iyuClsf48SSgsJPBStHo7F"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "XdDZKeM5_pQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9Op6lK4wnRE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qj7nPbRgXNc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AfrwNQAImH0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6uOAq1Fh9UA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "prstrdyP3_c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9VVCUhcV2gA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WJd3lhwU3mM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cBHwPrWTh-8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xiYL0bJ55pk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uX5SF94RBNI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XMk1sG6ndwY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oy35c9mZuZ4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RDJbg2smAes",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "django-htmx-netninja",
+  "title": "Django with HTMX",
+  "level": "Intermediate",
+  "blurb": "Build an interactive Django app with HTMX: dynamic pages without a JavaScript framework, through to deployment.",
+  "topic": "Python",
+  "by": "Net Ninja",
+  "h": "NetNinja",
+  "lists": [
+   "PL4cUxeGkcC9hgO93oEHPBMuLA20y0SBVK"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "zZFUtK-Eh8M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ig3syqGT1Fg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bXx2RxNJ-0A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gQyJJbNq01A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NOX83nszcwI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3XYj5eaUJGA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PWu3-U-FM-Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_8DXjNcr-XA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aJoPeSved2Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OkalF8q7Xss",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "20Hfbsccnpg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jNa6TNaLTeA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "X4z5_ccwfvI",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "neovim-typecraft",
+  "title": "Neovim for newbies",
+  "level": "Beginner",
+  "blurb": "Turn Neovim into a full IDE from scratch: plugins, LSP, completion, formatting and debugging.",
+  "topic": "Tools",
+  "by": "typecraft",
+  "h": "typecraft_dev",
+  "lists": [
+   "PLsz00TDipIffreIaUNk64KxTIkQaGguqn"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "zHTeCSVAFNY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4zyZ3sw_ulc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "S-xzYgTLVJE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SxuwQJ0JHMU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iXIwm4mCpuc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oYzZxi3SSnM",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "data-analyst-alex",
+  "title": "Data analyst bootcamp",
+  "level": "Beginner",
+  "blurb": "Everything a data analyst job needs: SQL, Excel, Tableau, Power BI, Python and portfolio projects.",
+  "topic": "Data",
+  "by": "Alex The Analyst",
+  "h": "AlexTheAnalyst",
+  "lists": [
+   "PLUaB-1hjhk8FE_XZ87vPPSfHqb6OcM0cF"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "rGx1QNdYzvs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CUBfrdDwznQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wgRwITQHszU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HYD8KjPB9F8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MARn_mssG4A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zgYqUP_PhQo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dCNjUOc1cBY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZnAydTqCtFU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lXQzD09BOH0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iTQW_nDp938",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KRXSJb9ql1Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RYIiOG4LsvQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Vj6RqA_X-IE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7NBt0V8ebGk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UC7uvOqcUTs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uEk07jXdKOo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7vnxpcqmqNQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QMUZ5HfWMRc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4UltKCnnnTA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QYd-RtK58VQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lH7HfwUFnYA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XRPyj7cKVsQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Z7hPEwCzk2s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_eZRkmRfVTM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gMAHXrty6wI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_jmiEGZ6PIY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "opJgMj1IUrc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6xv1KvCMF1Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "f6qxxtWkaUg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ebjDwX8sUMk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "A4SVUF-fTwc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zOR0-nygfDE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g0m5sEHPU-s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gP-AxNi6uxo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sW5LoDA1ssM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vcijg0gUXSg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ulFY20KTzFQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "m0h3Ghl6mgY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9j_EBt3RNrs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3NV5Jtbhfcw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pixlHHe_lNQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WUeBzT43JyY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pHOH7UfOhbE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ppsCxnNm-JI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lPVke-p4S7s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-BOBedcjySI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zmIdC0_0BgY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ECduJk00mUU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zvzjaqMBEso",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "B63bN2cLVLM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ey1VNjU0YbM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gs0FNQR0njI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "q-kbzWjyPak",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bargNl2WeN4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xjA1HjvmoMY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8dTpNajxaH0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dUpyC40cF6Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kB7FV-ijdqE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mBCG9J1TVTc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VRmXto2YA2I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TPivN7tpdwc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JpSMse3eVVg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bDhvCp3_lYw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Liv6eeb1VfE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HiOtQMcI5wg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KB2CtEDrglY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ocdwh0KYeUs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WizLaDdsHUs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZHaYOC0H5KE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fT-8mRf_-Hk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "I0_ca6iyo6w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KZKizyBS9YM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZYps6TmBkWk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sEImMaovc1Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9ur0OpMADuM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sge9qTf8GdY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vDVcXXfc9e8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YSjbGET6R1A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hgaVi4sOHkM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "K2GfrERtliU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AycpRKyRagE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rxyLC247h6E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7uH7_DThtX0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "28r412KFhG4",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "power-bi-codebasics",
+  "title": "Power BI project",
+  "level": "Beginner",
+  "blurb": "A real sales-insights project in Power BI: from the business problem and data cleaning to a finished dashboard.",
+  "topic": "Data",
+  "by": "codebasics",
+  "h": "codebasics",
+  "lists": [
+   "PLeo1K3hjS3uva8pk1FI3iK9kCOKQdz1I9"
+  ],
+  "sections": [
+   {
+    "title": "Project",
+    "steps": [
+     {
+      "k": "v",
+      "id": "hhZ62IlTxYs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9QiZ0-HZG_A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JOrhcV3_NAk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6pifKxjyHd8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pbOJVEsZKJ8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gDuMaJfDtS0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tGxelSFySuI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_QqhyLfRzb0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "68m2UCtedj0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cElCnuA40os",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cybersecurity-architecture-ibm",
+  "title": "Cybersecurity architecture",
+  "level": "Intermediate",
+  "blurb": "Security principles and how they apply to identity, endpoints, networks, apps, data, detection and response.",
+  "topic": "Security",
+  "by": "IBM Technology",
+  "h": "IBMTechnology",
+  "lists": [
+   "PLOspHqNVtKADkWLFt9OcziQF7EatuANSY"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "jq_LZ1RFPfU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EqNe55IzjAw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "E9pHJRRfAhw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5uNifnVlBy4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Njqid_JpqTs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sesacY7Xz3c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nthEXs12nFE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UpkqXK0B2E0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VEu326IZpsc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Jk79QJCxPkM",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "pentesting-tcm",
+  "title": "Network penetration testing",
+  "level": "Advanced",
+  "blurb": "A practical pentesting course: recon, scanning, exploitation, Active Directory attacks, post-exploitation and reporting.",
+  "topic": "Security",
+  "by": "The Cyber Mentors",
+  "h": "TCMSecurityAcademy",
+  "lists": [
+   "PLLKT__MCUeiwBa7d7F_vN1GUwz_2TmVQj"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "qlK174d_uu8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "egg-GoT5iVk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3GriwyvJzio",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ChdUC32lsYQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "t9aAhuG0LkE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BWE51iudbPo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gGNjDwnXgsg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_OseTyfXr3Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QvMeLoyS944",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6rZddmB0fug",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MxjIDoGsGCQ",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "wireshark-bombal",
+  "title": "Wireshark and ethical hacking",
+  "level": "Intermediate",
+  "blurb": "Capture and read network traffic with Wireshark, then see how attackers use it, with hands-on demos.",
+  "topic": "Security",
+  "by": "David Bombal",
+  "h": "davidbombal",
+  "lists": [
+   "PLhfrWIlLOoKMBv50Y8NH6Dtfge_MrHYnl"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "QXfaGOMT7MY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9CY42I04MFw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qfWSToryDos",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IdEFDkGtcQg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WdBBYosG-YI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tM2aUpll1EQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nGEKnYUEPcg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PoaOgBmWJQY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LfZNhf2Yc8k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uZI9ZnKRudg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4_7A8Ikp5Cc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rtm_Bofv4-8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zRk5dymfNsk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HoYgPlmOZgo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "D9FBjUq2J74",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-WefgSx_eKY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "keAHKO2Fc4I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Auwn3RWapRE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LoFoV3T17T0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yMAWcHP6yn8",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "practical-engineering-intro",
+  "title": "Introduction to practical engineering",
+  "level": "Beginner",
+  "blurb": "How the built world works: concrete, dams, bridges, roads, water and the hidden engineering around us.",
+  "topic": "Science & Eng",
+  "by": "Practical Engineering",
+  "h": "PracticalEngineeringChannel",
+  "lists": [
+   "PLTZM4MrZKfW8ukxIuMmf80p3DkpVOHcp4"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "cZINeaDjisY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xoLmVFAFjn4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pH7VfJDq7f4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "f1U4SAgy60c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yZwfcMSDBHs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SBvclVcesEE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "B08iDMXYtR8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Y_729CQdG50",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tVzgHvTuwdU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i2m3I0LxZOA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uOSnQM1Zu4w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UBivwxBgdPQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dOe_6vuaR_s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xQbaVdge7kU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nGhBHrr5CYQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZwkNTwWJP5k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HRx_dZawN44",
+      "note": ""
+     }
+    ]
+   }
+  ]
  }
 ]
