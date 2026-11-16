@@ -5,14 +5,21 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-16T03:24:43Z</updated>
+  <updated>2026-11-16T10:32:18Z</updated>
   <author><name>Nerdvana</name></author>
+  <entry>
+    <id>tag:nerdvana,2026:video:PptRrzYY61w</id>
+    <title>▶ The NVIDIA Scandal Goes Deeper than You Think</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=PptRrzYY61w"/>
+    <updated>2026-11-15T16:00:00Z</updated>
+    <summary>Video · ColdFusion · 1.6M views · 26 min</summary>
+  </entry>
   <entry>
     <id>tag:nerdvana,2026:article:e047ece727</id>
     <title>Understanding Positional Embeddings in Modern LLMs</title>
     <link href="https://magazine.sebastianraschka.com/p/understanding-positional-embeddings"/>
     <updated>2026-11-15T12:10:37Z</updated>
-    <summary>Article · Sebastian Raschka · ▲ 214 on Hacker News · 41 min read
+    <summary>Article · Sebastian Raschka · ▲ 228 on Hacker News · 41 min read
 
 The Methods Behind How LLMs Represent Token Positions</summary>
   </entry>
@@ -21,14 +28,7 @@ The Methods Behind How LLMs Represent Token Positions</summary>
     <title>▶ My Datacenter Evicted Me</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=u5UTIofKDGc"/>
     <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 1.9M views · 15 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:VEvzBhRyB94</id>
-    <title>▶ SpaceX Catches Starship for the First Time Ending Flight Test 15</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=VEvzBhRyB94"/>
-    <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Video · CNET · 1.5M views · 9 min</summary>
+    <summary>Video · Linus Tech Tips · 2.0M views · 15 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:YYU_geUwQoA</id>
@@ -42,13 +42,13 @@ The Methods Behind How LLMs Represent Token Positions</summary>
     <title>Advancing science and engineering with Antigravity's /teamwork</title>
     <link href="https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/"/>
     <updated>2026-11-13T20:47:18Z</updated>
-    <summary>Article · Google Research · ▲ 213 on Hacker News · 15 min read
+    <summary>Article · Google Research · ▲ 214 on Hacker News · 15 min read
 
 We share recent results from Antigravity’s /teamwork multiagent systems, which enhance human-AI collaborations to solve open problems across mathematics, chemistry, systems software, and ML engineering. All of this work…</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:SOwUWPtXQ9I</id>
-    <title>▶ Jensen Huang just pulled out of Nvidia...</title>
+    <title>▶ Nvidia just got caught with its pants down...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=SOwUWPtXQ9I"/>
     <updated>2026-11-13T00:00:00Z</updated>
     <summary>Video · Fireship · 2.3M views · 6 min</summary>
@@ -58,14 +58,14 @@ We share recent results from Antigravity’s /teamwork multiagent systems, which
     <title>▶ Macbook PROLED Review: It's Not About That</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=hdMszZ2ah5Q"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 5.8M views · 15 min</summary>
+    <summary>Video · Marques Brownlee · 5.9M views · 15 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:60e527769c</id>
     <title>Rust 1.100</title>
     <link href="https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Article · Rust Blog · ▲ 900 on Hacker News · 9 min read
+    <summary>Article · Rust Blog · ▲ 901 on Hacker News · 9 min read
 
 The Rust team is happy to announce a new version of Rust, 1.100.0. Rust is a programming language empowering everyone to build reliable and efficient software.</summary>
   </entry>
@@ -101,7 +101,7 @@ Because GitHub Actions are fetched from Git, the previous advice was to pin to a
     <title>▶ Dying Is Complicated</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=fEjvSbI_PT4"/>
     <updated>2026-11-11T00:00:00Z</updated>
-    <summary>Video · Kurzgesagt – In a Nutshell · 4.4M views · 14 min</summary>
+    <summary>Video · Kurzgesagt – In a Nutshell · 4.5M views · 14 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:1223e6f131</id>
@@ -135,7 +135,7 @@ AlphaProof Code agents wrote three million lines of proofs in Lean to verify Sig
     <title>▶ I Tested 42 Years of Phones!</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=HVLUtJWlcJY"/>
     <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 8.0M views · 37 min</summary>
+    <summary>Video · Mrwhosetheboss · 8.1M views · 37 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:Gro5z03a_Qw</id>
@@ -146,10 +146,10 @@ AlphaProof Code agents wrote three million lines of proofs in Lean to verify Sig
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:0V-4lQYNugA</id>
-    <title>▶ Why can't you touch Stonehenge any more?</title>
+    <title>▶ Why you can't touch Stonehenge any more</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=0V-4lQYNugA"/>
     <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Video · Tom Scott · 3.0M views · 26 min</summary>
+    <summary>Video · Tom Scott · 3.1M views · 26 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:pf5tXJZM1Rw</id>
