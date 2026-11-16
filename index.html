@@ -286,6 +286,8 @@ body[data-mode="articles"] #tvBtn { display: none; }
 /* Curated paths: a course page with sections and annotated steps */
 .paths-head { grid-column: 1 / -1; margin: 6px 0 -4px; font: 700 17px var(--display); display: flex; align-items: baseline; gap: 10px; }
 .paths-head small { font: 400 12px var(--body); color: var(--fg2); }
+.paths-head.creators { margin-top: 22px; font-size: 22px; }
+.paths-head.sub { font-size: 15px; color: var(--fg2); }
 .path-card .lvl, .context .lvl { align-self: flex-start; font: 600 10.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 5px; background: var(--fg); color: var(--bg); }
 .course { max-width: 980px; }
 .course-sec { margin: 0 0 26px; }
@@ -916,11 +918,15 @@ function renderPaths() {
     : `<img loading="lazy" alt="" src="${thumb(v.id)}">`}</span>`;
   const LEVELS = ["Beginner", "Intermediate", "Advanced", "All levels"];
   const byLevel = (a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level);
-  const courses = [...COURSES.filter(c => !c.by).sort(byLevel), ...COURSES.filter(c => c.by).sort(byLevel)];
-  let lastLevel = null, inCreators = false;
+  // creator courses are grouped by topic, the biggest topics first
+  const tn = {}; for (const c of COURSES) if (c.by) tn[c.topic] = (tn[c.topic] || 0) + 1;
+  const byTopic = (a, b) => tn[b.topic] - tn[a.topic] || a.topic.localeCompare(b.topic) || byLevel(a, b);
+  const courses = [...COURSES.filter(c => !c.by).sort(byLevel), ...COURSES.filter(c => c.by).sort(byTopic)];
+  let lastLevel = null, lastTopic = null;
   for (const c of courses) {
-    if (c.by && !inCreators) { inCreators = true; lastLevel = null;
-      box.insertAdjacentHTML("beforeend", `<div class="paths-head">Courses by creators <small>complete YouTube playlists, in the creator's order</small></div>`); }
+    if (c.by && c.topic !== lastTopic) {
+      if (lastTopic === null) box.insertAdjacentHTML("beforeend", `<div class="paths-head creators">Courses by creators <small>complete YouTube playlists, in the creator's order</small></div>`);
+      lastTopic = c.topic; box.insertAdjacentHTML("beforeend", `<div class="paths-head sub">${esc(c.topic || "More")}</div>`); }
     if (c.level !== lastLevel && !c.by) { lastLevel = c.level; box.insertAdjacentHTML("beforeend", `<div class="paths-head">${esc(c.level)}</div>`); }
     const items = courseItems(c), done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0);
     const b = document.createElement("button");

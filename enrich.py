@@ -268,10 +268,14 @@ def build_courses(E, videos, channels, A, arts, model, refresh=False):
     return out, candidates
 
 
+# "#12", "Part 12", "Lesson 12", "Episode 12", "Day 12", "Chapter 12"... in a lesson title
+NUMBERED = re.compile(r"(?:#|\b(?:part|lesson|lecture|episode|ep\.?|day|chapter|tutorial)\s*#?)\s*(\d+)", re.I)
+
+
 def build_playlist_courses(videos, channels, prev):
     """Learning paths that are whole YouTube playlists (playlist_paths.json, fetched by fetch.py into
     raw/_playlists/). Each playlist is one section, in the playlist's order; "order": "number" sorts by the
-    "#12" numbers in the titles and "reverse" flips a playlist that runs newest first. Videos listed in
+    lesson numbers in the titles ("#12", "Part 12"...) and "reverse" flips a playlist that runs newest first. Videos listed in
     "skip", and ones that aren't in videos.json (members-only, Shorts), are left out. If a playlist
     couldn't be fetched, the path keeps what it had last time."""
     f = ROOT / "playlist_paths.json"
@@ -292,7 +296,7 @@ def build_playlist_courses(videos, channels, prev):
             elif pl.get("order") == "number":
                 last, keyed = 0, []
                 for k, e in enumerate(entries):
-                    m = re.search(r"#\s*(\d+)", e.get("title") or "")
+                    m = NUMBERED.search(e.get("title") or "")
                     last = int(m.group(1)) if m else last + 0.5   # unnumbered: stays after its neighbour
                     keyed.append((last, k, e))
                 entries = [e for *_, e in sorted(keyed, key=lambda x: x[:2])]
