@@ -15,6 +15,10 @@ if it's already listed, otherwise under a "D" (Discovered) channel of their own,
 keeps out of the sidebar and the Home mix.
   - each channel keeps at most TOP_BY_VIEWS most-viewed + NEWEST most-recent videos
   - clips of 60s or shorter (Shorts) are dropped, and so are members-only videos and upcoming premieres
+
+Playlists used as learning paths (playlist_paths.json) are fetched to raw/_playlists/, and every video in
+them is kept too, past the per-channel limits, so a course is never missing a lesson. enrich.py turns them
+into courses.
 """
 import json, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
@@ -22,6 +26,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 RAW = ROOT / "raw"
+PLAYLISTS = RAW / "_playlists"
 YTDLP = ["uvx", "--from", "yt-dlp@latest", "yt-dlp"]
 FETCH_LIMIT = 3000      # newest N uploads read per channel
 MIN_SUBS = 250_000
@@ -52,6 +57,26 @@ def fetch(ch, force=False):
     tmp.rename(out)  # atomic: a concurrent build never sees half a file
     d = json.loads(r.stdout)
     return ch["handle"], f"{len(d.get('entries') or [])} videos, {d.get('channel_follower_count')} subs"
+
+
+def playlist_ids():
+    defs = json.loads((ROOT / "playlist_paths.json").read_text()) if (ROOT / "playlist_paths.json").exists() else []
+    return list(dict.fromkeys(pl["list"] for c in defs for pl in c["playlists"]))
+
+
+def fetch_playlist(pid, force=False):
+    out = PLAYLISTS / f"{pid}.json"
+    if out.exists() and not force:
+        return pid, "cached"
+    r = subprocess.run(YTDLP + ["--flat-playlist", "-J", f"https://www.youtube.com/playlist?list={pid}"],
+                       capture_output=True, text=True)
+    if r.returncode != 0 or not r.stdout.strip():
+        return pid, "FAILED: " + (r.stderr.strip().splitlines() or ["?"])[-1][-200:]
+    tmp = out.with_suffix(".part")
+    tmp.write_text(r.stdout)
+    tmp.rename(out)
+    d = json.loads(r.stdout)
+    return pid, f"{len(d.get('entries') or [])} videos: {d.get('title')}"
 
 
 def pick_videos(entries):
@@ -98,6 +123,7 @@ def build(channels):
         ci = len(chans) - 1
         vids += [[v[0], v[1], ci, v[2], v[3], v[4]] for v in picked]
     disc = add_discovered(chans, vids)
+    add_playlists(chans, vids, {ch["handle"]: d.get("entries") or [] for ch, d, _ in loaded})
     data = {"channels": chans, "videos": vids, "discovered": disc,
             "fields": ["id", "title", "channel", "duration", "views", "timestamp"]}
     (ROOT / "videos.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
@@ -133,6 +159,38 @@ def add_discovered(chans, vids):
     return list(dict.fromkeys(ids))
 
 
+def add_playlists(chans, vids, uploads):
+    """Every watchable video of a learning-path playlist, onto its channel (a "D" channel if it isn't listed).
+    The upload date comes from the channel's own list when it has the video (playlists don't carry it)."""
+    have = {v[0] for v in vids}
+    by_handle = {c["h"].lower(): i for i, c in enumerate(chans)}
+    dates = {e["id"]: int(e.get("timestamp") or 0) for es in uploads.values() for e in es if e.get("id")}
+    added = 0
+    for pid in playlist_ids():
+        f = PLAYLISTS / f"{pid}.json"
+        if not f.exists():
+            continue
+        d = json.loads(f.read_text())
+        for e in d.get("entries") or []:
+            if not e.get("id") or e["id"] in have or not watchable(e) or e.get("title") in ("[Private video]", "[Deleted video]"):
+                continue
+            if e.get("duration") is not None and e["duration"] <= 60:
+                continue
+            handle = (e.get("uploader_id") or d.get("uploader_id") or "").removeprefix("@")
+            if not handle:
+                continue
+            ci = by_handle.get(handle.lower())
+            if ci is None:
+                chans.append({"h": handle, "n": e.get("channel") or d.get("channel") or handle, "t": "D",
+                              "topic": "Programming", "subs": 0, "total": 0, "a": ""})
+                ci = by_handle[handle.lower()] = len(chans) - 1
+            vids.append([e["id"], e.get("title") or "", ci, int(e.get("duration") or 0),
+                         int(e.get("view_count") or 0), dates.get(e["id"], 0)])
+            have.add(e["id"]); added += 1
+    if added:
+        print(f"  added {added} videos from learning-path playlists")
+
+
 if __name__ == "__main__":
     channels = json.loads((ROOT / "channels.json").read_text())
     if "--build" not in sys.argv:
@@ -140,4 +198,7 @@ if __name__ == "__main__":
         with ThreadPoolExecutor(8) as ex:
             for h, status in ex.map(lambda c: fetch(c, "--force" in sys.argv), channels):
                 print(f"{h:28} {status}", flush=True)
+            PLAYLISTS.mkdir(exist_ok=True)
+            for pid, status in ex.map(lambda p: fetch_playlist(p, "--force" in sys.argv), playlist_ids()):
+                print(f"playlist {pid} {status}", flush=True)
     build(channels)
