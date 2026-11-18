@@ -122,9 +122,9 @@ def build(channels):
                       "topic": ch["topic"], "subs": subs, "total": total, "a": avatar})
         ci = len(chans) - 1
         vids += [[v[0], v[1], ci, v[2], v[3], v[4]] for v in picked]
-    disc = add_discovered(chans, vids)
+    disc, craft, hubs = add_discovered(chans, vids)
     add_playlists(chans, vids, {ch["handle"]: d.get("entries") or [] for ch, d, _ in loaded})
-    data = {"channels": chans, "videos": vids, "discovered": disc,
+    data = {"channels": chans, "videos": vids, "discovered": disc, "craft": craft, "hubs": hubs,
             "fields": ["id", "title", "channel", "duration", "views", "timestamp"]}
     (ROOT / "videos.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
     for h, why in skipped:
@@ -134,29 +134,33 @@ def build(channels):
 
 def add_discovered(chans, vids):
     """Keyword-search results: onto their channel if listed, else a "D" channel.
-    Returns the ids of every discovered video (also ones the channel lists already had), for Code craft."""
+    Returns the ids of every discovered video (also ones the channel lists already had), the ids found by
+    the Code craft queries (python, general), and {hub: ids} for the ones found by a hub's queries."""
     f = RAW / "_discovered.json"
     if not f.exists():
-        return []
+        return [], [], {}
     have = {v[0] for v in vids}
     by_handle = {c["h"].lower(): i for i, c in enumerate(chans)}
-    ids = []
+    ids, craft, hubs = [], [], {}
     for e in json.loads(f.read_text()).get("entries") or []:
         handle = (e.get("uploader_id") or "").removeprefix("@")
-        if e["id"] in have:
-            ids.append(e["id"]); continue
-        if not handle:
-            continue
-        ci = by_handle.get(handle.lower())
-        if ci is None:
-            chans.append({"h": handle, "n": e.get("channel") or handle, "t": "D", "topic": "Programming",
-                          "subs": 0, "total": 0, "a": ""})
-            ci = by_handle[handle.lower()] = len(chans) - 1
-        if chans[ci]["t"] == "D":
-            chans[ci]["total"] += 1
-        vids.append([e["id"], e.get("title") or "", ci, int(e.get("duration") or 0), int(e.get("view_count") or 0), 0])
-        have.add(e["id"]); ids.append(e["id"])
-    return list(dict.fromkeys(ids))
+        if e["id"] not in have:
+            if not handle:
+                continue
+            ci = by_handle.get(handle.lower())
+            if ci is None:
+                chans.append({"h": handle, "n": e.get("channel") or handle, "t": "D", "topic": e.get("topic") or "Programming",
+                              "subs": 0, "total": 0, "a": ""})
+                ci = by_handle[handle.lower()] = len(chans) - 1
+            if chans[ci]["t"] == "D":
+                chans[ci]["total"] += 1
+            vids.append([e["id"], e.get("title") or "", ci, int(e.get("duration") or 0), int(e.get("view_count") or 0), 0])
+            have.add(e["id"])
+        ids.append(e["id"])
+        for g in e.get("groups") or ["python"]:   # results from before groups were recorded came from craft queries
+            (craft if g in ("python", "general") else hubs.setdefault(g, [])).append(e["id"])
+    once = lambda xs: list(dict.fromkeys(xs))
+    return once(ids), once(craft), {h: once(x) for h, x in hubs.items()}
 
 
 def add_playlists(chans, vids, uploads):

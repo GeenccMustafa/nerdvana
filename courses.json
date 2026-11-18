@@ -154,6 +154,238 @@
   ]
  },
  {
+  "id": "agents",
+  "title": "AI agents, from LLM calls to multi-agent systems",
+  "level": "Intermediate",
+  "blurb": "What you need to build agents and chatbots at work, in order: what an agent is, structured output and tool calling, a first agent from scratch, context, RAG and memory, MCP, frameworks, design patterns and multi-agent orchestration, then evals and production. Ends with agents on Azure.",
+  "checked": "2026-11-18",
+  "sections": [
+   {
+    "title": "What an agent is",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The idea in twelve minutes: a model that plans, calls tools and acts in a loop, and how that differs from a chatbot.",
+      "id": "F8NKVhkZZWI"
+     },
+     {
+      "k": "v",
+      "note": "The university version: definitions, a short history and the design space the rest of this path walks through.",
+      "id": "DGI4vucR71w"
+     },
+     {
+      "k": "a",
+      "note": "The classic map of the field: planning, memory and tool use, with the papers behind each idea.",
+      "id": "a0d49ff653"
+     }
+    ]
+   },
+   {
+    "title": "Talking to a model from code",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Calling an LLM from Python: messages, tokens, streaming and the settings that matter.",
+      "id": "X967IsYvhTM"
+     },
+     {
+      "k": "v",
+      "note": "Make the model answer in JSON that fits a schema. Every reliable agent and workflow rests on this.",
+      "id": "OudnE_HOwJA"
+     },
+     {
+      "k": "v",
+      "note": "Let the model call your functions: the one mechanism every agent framework is built on.",
+      "id": "KDDRQ9SS5Gg"
+     }
+    ]
+   },
+   {
+    "title": "A first agent from scratch",
+    "steps": [
+     {
+      "k": "v",
+      "note": "An agent loop in plain Python, no framework, so nothing that comes later is magic.",
+      "id": "vHDwpoSFdQY"
+     },
+     {
+      "k": "v",
+      "note": "The ReAct pattern (think, act, observe) built by hand, the ancestor of most agents today.",
+      "id": "hKVhRA9kfeM"
+     },
+     {
+      "k": "a",
+      "note": "Why writing your own small agent teaches more than any framework, and how little code it takes.",
+      "id": "8c8e670b5b"
+     },
+     {
+      "k": "a",
+      "note": "What makes a loop work in practice: a clear goal, the right tools and a safe place to run them.",
+      "id": "1948129538"
+     }
+    ]
+   },
+   {
+    "title": "Context, RAG and memory",
+    "steps": [
+     {
+      "k": "v",
+      "note": "Context engineering: what goes into the window on every step decides what an agent can do.",
+      "id": "Vr1NzH8bT44"
+     },
+     {
+      "k": "v",
+      "note": "Retrieval from keyword search to embeddings to agentic RAG, where the agent decides what to look up.",
+      "id": "psLc-46GqY0"
+     },
+     {
+      "k": "v",
+      "note": "Short-term and long-term memory, and how agents remember across conversations.",
+      "id": "qh5tP6PBZ6U"
+     }
+    ]
+   },
+   {
+    "title": "Tools and MCP",
+    "steps": [
+     {
+      "k": "v",
+      "note": "How tool use works under the hood, and why the Model Context Protocol became the standard way to plug tools in.",
+      "id": "s0S38lz6O7M"
+     },
+     {
+      "k": "v",
+      "note": "Build an MCP server in Python, so any agent or chat app can use your tools and data.",
+      "id": "_mUuhOwv9PY"
+     },
+     {
+      "k": "v",
+      "note": "MCP connects an agent to tools; A2A connects agents to each other. Where each one fits.",
+      "id": "BMDFPOyezH4"
+     }
+    ]
+   },
+   {
+    "title": "Frameworks",
+    "steps": [
+     {
+      "k": "v",
+      "note": "What a framework gives you over a hand-written loop, compared on two very different ones.",
+      "id": "q0Q-Hy8TTps"
+     },
+     {
+      "k": "v",
+      "note": "LangGraph hands-on: state, nodes and edges, the most common way to build agents in Python.",
+      "id": "UltwJqpNA04"
+     },
+     {
+      "k": "v",
+      "note": "The same ideas with Microsoft Agent Framework, which you'll meet on Azure.",
+      "id": "I4vCp9cpsiI"
+     },
+     {
+      "k": "v",
+      "note": "Planning, sub-agents and a file system: what long-running agents like Claude Code and deep research have in common.",
+      "id": "IVts6ztrkFg"
+     }
+    ]
+   },
+   {
+    "title": "Patterns and multi-agent orchestration",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The agent designs to know by name, and when each one is worth it.",
+      "id": "JC_pLC5EX_w"
+     },
+     {
+      "k": "a",
+      "note": "Evals, RAG, guardrails, caching and feedback: the patterns around the model that make a product work.",
+      "id": "b2c26e1a48"
+     },
+     {
+      "k": "v",
+      "note": "Supervisors, hand-offs and teams of agents, in short.",
+      "id": "Mi5wOpAgixw"
+     },
+     {
+      "k": "v",
+      "note": "The honest version: when splitting work across agents pays off, and when one agent does better.",
+      "id": "TlX_ft_PQIM"
+     },
+     {
+      "k": "v",
+      "note": "Orchestration in code: sequential, concurrent, group chat and hand-off workflows.",
+      "id": "WtZbDrd-RJg"
+     },
+     {
+      "k": "v",
+      "note": "Let a person approve or correct an agent before it acts, which most workplace agents need.",
+      "id": "7pGqASn-LEY"
+     }
+    ]
+   },
+   {
+    "title": "Evals and production",
+    "steps": [
+     {
+      "k": "v",
+      "note": "How to tell whether your agent works: look at outputs, find the failure modes, then measure them.",
+      "id": "-sL7QzDFW-4"
+     },
+     {
+      "k": "a",
+      "note": "Practical answers on evals from someone who has set them up at many companies.",
+      "id": "0f9645b5cd"
+     },
+     {
+      "k": "v",
+      "note": "Tracing, metrics and automated evaluation for agents once they run for real.",
+      "id": "3yS-G-NEBu8"
+     },
+     {
+      "k": "v",
+      "note": "The security problem every agent with tools has, and the ways to limit the damage.",
+      "id": "jrHRe9lSqqA"
+     },
+     {
+      "k": "v",
+      "note": "Twelve rules for agents that hold up in production, from owning your prompts to small, focused agents.",
+      "id": "8kMaTybvDUw"
+     },
+     {
+      "k": "a",
+      "note": "Lessons from building agents for real: caching, tool design, failure handling and why abstractions leak.",
+      "id": "1e8f08b110"
+     }
+    ]
+   },
+   {
+    "title": "Agents on Azure",
+    "steps": [
+     {
+      "k": "v",
+      "note": "The Azure pieces: Microsoft Foundry, the Agent Service and where they fit with what you learned above.",
+      "id": "FStNpGPUSGY"
+     },
+     {
+      "k": "v",
+      "note": "From prototype to a production agent on Foundry, with tools, identity and monitoring.",
+      "id": "ExJXHCkeO4A"
+     },
+     {
+      "k": "v",
+      "note": "Everything Azure offers for AI apps and agents in one whiteboard session, and prep for the AI-103 exam.",
+      "id": "WK2BvjOYTCQ"
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
   "id": "kubernetes",
   "title": "Docker to Kubernetes",
   "level": "Beginner",
@@ -3123,6 +3355,9 @@
      }
     ]
    }
+  ],
+  "hubs": [
+   "agents"
   ]
  },
  {
@@ -5213,7 +5448,7 @@
   "title": "Retrieval-augmented generation (RAG)",
   "level": "Intermediate",
   "blurb": "How RAG works and how to build it: embeddings, vector stores, retrieval strategies, chatbots and evaluation.",
-  "topic": "AI",
+  "topic": "AI agents",
   "by": "Krish Naik",
   "h": "krishnaik06",
   "lists": [
@@ -5265,6 +5500,9 @@
      }
     ]
    }
+  ],
+  "hubs": [
+   "agents"
   ]
  },
  {
@@ -5272,7 +5510,7 @@
   "title": "Building AI agents",
   "level": "Intermediate",
   "blurb": "How to plan, build and ship AI agents: tools, memory, RAG, frameworks and what actually works in practice.",
-  "topic": "AI",
+  "topic": "AI agents",
   "by": "Cole Medin",
   "h": "ColeMedin",
   "lists": [
@@ -5339,6 +5577,9 @@
      }
     ]
    }
+  ],
+  "hubs": [
+   "agents"
   ]
  },
  {
@@ -5346,7 +5587,7 @@
   "title": "AI agent crash course",
   "level": "Beginner",
   "blurb": "Short lessons on AI agents with Google's Agent Development Kit: tools, multi-agent workflows and long-term memory.",
-  "topic": "AI",
+  "topic": "AI agents",
   "by": "Google Cloud Tech",
   "h": "googlecloudtech",
   "lists": [
@@ -5413,6 +5654,9 @@
      }
     ]
    }
+  ],
+  "hubs": [
+   "agents"
   ]
  },
  {
@@ -11707,6 +11951,4938 @@
      }
     ]
    }
+  ]
+ },
+ {
+  "id": "agents-explained-ibm",
+  "title": "AI agents, explained",
+  "level": "Beginner",
+  "blurb": "Short whiteboard explainers: what an agent is, how it plans, uses tools and memory, agentic RAG, multi-agent systems and the risks.",
+  "topic": "AI agents",
+  "by": "IBM Technology",
+  "h": "IBMTechnology",
+  "lists": [
+   "PLOspHqNVtKAB6AzNie7BrFhbg4dv4Gfz8"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "F8NKVhkZZWI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gUrENDkPw_k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IivxYYkJ2DI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aQuCTWhiiPg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EDb37y_MhRw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "X3XJeTApVMM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Yq29bZ8Hlrc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_pEEJu-2KKM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "j_Q1cL6Cog4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wiU7VEvi1LM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ts42JTye-AI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "T_c48yxTNuM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cyMdBK8oEYc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "446x7GqXdaA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yJkCuEu3K68",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4-FH09AMsp0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5Igexz7kzMo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eQN0mNC37UU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "D9fp2OVeAIo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mRkJTXDromw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Tud9HLTk8hg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Wtpwva8t1vs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2ihEirLXeas",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "R43Q0nIXa1Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ons1Fv3IE4U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2j26a5dmCnI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZeZozy3lsJg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yKPAwTF1SGY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CAKGKkWf0tI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sWH0T4Zez6I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bwvfdFWR1RI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-Tz_FWVYgnM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rrQHnibpXX8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2P9DOtg4gP4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "E_yPUsCpoC8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UMYtqHptYvA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BMDFPOyezH4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i36R5orEXYQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cmEJ-5zYKHA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wh489_XT5TI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lUQ2NKkCW_Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Lg-meK5IU8Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kqj22mWIdjU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IVGjBxqygmI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SbrEk_tXZaE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BacJ6sEhqMo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kYkZI3oj2W4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PjrXaC5UsIw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fCHe_fOqlYA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "k5jYwyhDMxA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "goU9VIXA8II",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bNRhppHct54",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qYNs80FKIVc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BHGTA6ZEls4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i1ZmNUbRGD4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nVImVgKpoOY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "X4FVEEegCbk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jRMbbRdju7Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F3hlZSZc6UI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hTAWHgQI4xg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BwXremQ-i6I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4LINhsEZEDI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EkdIZXDnRK8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rXFV1ivDe6c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hvnPWgfmvyI",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "agents-theory-to-production-google",
+  "title": "AI agents from theory to production",
+  "level": "Beginner",
+  "blurb": "Build a first agent, give it tools through an MCP server, learn context engineering and deploy it, in six short videos.",
+  "topic": "AI agents",
+  "by": "Google Cloud Tech",
+  "h": "googlecloudtech",
+  "lists": [
+   "PLIivdWyY5sqJ1mn9L_bM-Sw9QZB6TgZEb"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Zqno_vux6d8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wBnnA8aIxUs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cGuyrANVi4A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "185XGEMefgc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bjZ2M7ThOBc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BBPQYtR7oUk",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "genai-savill",
+  "title": "Generative AI from the ground up",
+  "level": "Beginner",
+  "blurb": "John Savill explains LLMs, tokens, embeddings, RAG, prompt engineering, agents and why they fail, with Azure in mind.",
+  "topic": "AI agents",
+  "by": "John Savill's Technical Training",
+  "h": "NTFAQGuy",
+  "lists": [
+   "PLlVtbbG169nE9W2ZqiNwtEeJzic-gh2KP"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "C7Iu2lcoAQ4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "O3F0AVd0nSc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "orLGv2LgWDE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NuSL-FwviIQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HnUNi1RMMTA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l_8dTUwrqNw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PXRg1QQ3GFs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Sq8Cq7RZM2o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OHQFObW6PXA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ArRpwLGA2Hk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "D8N44J5-6TM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ch6KE7KxHGM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UYJ539hgDS0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uZ-05Jg5ti0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1Pf2rW5FsqQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IMcDEvXRBkY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0Ly34nFESQk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "360I_jTLI_I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9z7x0u99J9s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xQRjb7V8OCg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WiNcWsyENU4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3jewNNMCxA8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tQlNq8bH674",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1ri8HSbN4q4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gTupe7ou5xI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uDVkcZwB0EU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "37LHUPvT1gU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WTcyL68qTo8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WUgujz0y1K4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LKA9U9T7_t0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oqbKWwUhh4Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "X9n5EYoWdNk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YpUSm0_7Lgs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qXPTJDgbbPg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LrIS9lcSbko",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WK2BvjOYTCQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YSFSR8d58Bk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xKgY5vnzjMQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oejDOONIfIs",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents",
+   "azure"
+  ]
+ },
+ {
+  "id": "python-ai-reactor",
+  "title": "Python + AI",
+  "level": "Beginner",
+  "blurb": "One-hour live sessions from Microsoft: LLMs, embeddings, RAG, vision, structured outputs, safety, tool calling, agents and MCP in Python.",
+  "topic": "AI agents",
+  "by": "Microsoft Reactor",
+  "h": "MicrosoftReactor",
+  "lists": [
+   "PLmsFUfdnGr3yoVDWpYT4x_xNMuiFeL2_C"
+  ],
+  "sections": [
+   {
+    "title": "Sessions",
+    "steps": [
+     {
+      "k": "v",
+      "id": "X967IsYvhTM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ABLeB7JMWk0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DHebceyjCbk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KE7nR1s-5_Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OudnE_HOwJA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7o7ip25z5Yg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KDDRQ9SS5Gg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "S7v7czW4F9w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dq_AuNLEwUU",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents",
+   "azure"
+  ]
+ },
+ {
+  "id": "mcp-explained-ibm",
+  "title": "MCP, explained",
+  "level": "Beginner",
+  "blurb": "The Model Context Protocol in short videos: what it is, how it compares to APIs, RAG, skills and A2A, and how agents use it.",
+  "topic": "AI agents",
+  "by": "IBM Technology",
+  "h": "IBMTechnology",
+  "lists": [
+   "PLOspHqNVtKAAY8UCxA15eIK3lgE9BLc4n"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "7j1t3UZA1TY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eur8dUO9mvE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "X4FVEEegCbk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BMDFPOyezH4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g9JIUM0MHgQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "goU9VIXA8II",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "X95MFcYH1_s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TjvT9sI5mLE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "23PzNxw11jc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BedAaB1RKgE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l93LrDpIJGY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yKPAwTF1SGY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xz00BbW1z6M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ons1Fv3IE4U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pUUzXimhUuA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Gh1E9VgXZWs",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "rag-explained-ibm",
+  "title": "RAG, explained",
+  "level": "Beginner",
+  "blurb": "Retrieval-augmented generation without code: vector databases, chunking, hybrid search, agentic RAG and when RAG is the wrong tool.",
+  "topic": "AI agents",
+  "by": "IBM Technology",
+  "h": "IBMTechnology",
+  "lists": [
+   "PLOspHqNVtKADc8E1JLd_kBBPdEBDdmwsR"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "VSFuqMh4hus",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UabBYexBD4k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rXFV1ivDe6c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RRKwmeyIc24",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "X4FVEEegCbk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ESBMgZHzfG0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fB2JQXEH_94",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JB2P5Gk23VI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "X95MFcYH1_s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CAKGKkWf0tI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pN-LfxNFiTc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7HSSR1n8dgc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vRZNJWw78BQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "anLahYrEFiQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r0Dciuq0knU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qreMmsOY86A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "81FbpXpfxTc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CNKGgOphAPM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "egJAqyS9CB8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rrQHnibpXX8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xc63tFIIfeA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sMQ5R92F86o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RNYdP6CYrOw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l9LfC98tE_4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hvnPWgfmvyI",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "n8n-agents-nateherk",
+  "title": "No-code agents with n8n",
+  "level": "Beginner",
+  "blurb": "Agentic workflows without code: email and RAG chatbot agents, multi-agent teams, MCP and voice agents built in n8n.",
+  "topic": "AI agents",
+  "by": "Nate Herk | AI Automation",
+  "h": "nateherk",
+  "lists": [
+   "PLvQWpZ46MVvgUUUBxnqLAu-JzA-6QA1o2"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "YFrej2oSldo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6w0MshwAqBQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "otUBuV1foLY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fz1RduhHeks",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x1tam0Fhymc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "R36bpNPPIMs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "omw1MEvMCo0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JUx2ZfNfD64",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iT9xpiUwVbI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gvldzucAoBo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EzS2PIjyeQQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9G-5SiShBKM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l8NoMgd8lG4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wEXrbtqNIqI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZP4fjVWKt2w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "u2Tuu02r7QI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "skHe-qIRkM4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Kvf-Pr1LRe4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KIJHRq_Tg6o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pJYm7MOyMH0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Je4EAscnKK0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6DLZK7XDOGo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dooXxhGy5Ow",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HUdm3NXwk-w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tjaD65OCoE8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IBaT-XQm_wE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9FuNtfsnRNo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FcAAlOw6KZ8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nSQnJoqK4DQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tr5_S1FGoUI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5zhTxuuPc3A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TfqioNAP1W4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "z-gDDajSSNE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JjBofKJnYIU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vwlx-e8UYC8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2vj2BF_dWeY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "h7BLVKh7yzc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QhujcQk8pyU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BhGaGFH0jR4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KUvSzvFeZls",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HuTyZiUDz2k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WqyLxyALTt0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ldETapkr8Hg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qV7xOEKEBDA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gwCQF--cARA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vVdS-ZEFf50",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Nj9yzBp14EM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CdnR-fNVPKI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BcfjIBd49C8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3Pim6uCASSE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ar37oypyATQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0iUNOmeU7O4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ik8OHT3w4pE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ch-AWxvX2Jc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AGi3U79zMIM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xWhX61651H8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UBx4Zudvf8s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kNsX2qu8jHY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cCD303XsUjI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lnm0PMi-4mE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vpyllOeLhs4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qJRFu88HUio",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gGCwSIlIRlY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "k_5NcmxWlVg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jBanaNBY-sM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7UNsK9LoORo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7siRW0My05o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QojPKL96Dx4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HN0oWxbF2bM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "y-cq_Qo4zVo",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "ai-agents-shaw",
+  "title": "AI agents, step by step",
+  "level": "Intermediate",
+  "blurb": "From LLM workflows to agents in Python: tools, evals in the loop, MCP, multi-agent systems, agent skills and harness engineering.",
+  "topic": "AI agents",
+  "by": "Shaw Talebi",
+  "h": "ShawhinTalebi",
+  "lists": [
+   "PLz-ep5RbHosU02OKABBkbsQrYWmQfoZMH"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "ZaY5_ScmiFE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-BUs1CPHKfU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Nm_mmRTpWLg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6VcXukJuGA0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "N3vHJcHBS-w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lS33W56-NGc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "w-Ml3NivoFo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XEMZniYKuaY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1pQ_JNItjdo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6wdvSH61xGw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Mi5wOpAgixw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UmZytjgs2eo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xLwsKjwopqU",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "build-agents-alejandro",
+  "title": "Build agents from scratch",
+  "level": "Intermediate",
+  "blurb": "A ReAct agent with no framework, then multi-agent systems the Anthropic way and remote MCP servers with auth.",
+  "topic": "AI agents",
+  "by": "Alejandro AO",
+  "h": "alejandro_ao",
+  "lists": [
+   "PLMVV8yyL2GN8Vvs4-E8B0aGZt8008LMvZ"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "hKVhRA9kfeM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vHDwpoSFdQY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0HljLKVdtjo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vHBRmXpDIFY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "god8Pox1laE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WUUujm1MRQg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ek8JHgZtmcI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wXAqv8uvY0M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gl6U8s3zStI",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "python-agents-reactor",
+  "title": "Python + agents",
+  "level": "Intermediate",
+  "blurb": "Live sessions with Microsoft Agent Framework: a first agent, context and memory, evals, workflows, multi-agent orchestration and human in the loop.",
+  "topic": "AI agents",
+  "by": "Microsoft Reactor",
+  "h": "MicrosoftReactor",
+  "lists": [
+   "PLmsFUfdnGr3yAmP-22z-0Akdz_i2FzN7Z"
+  ],
+  "sections": [
+   {
+    "title": "Sessions",
+    "steps": [
+     {
+      "k": "v",
+      "id": "I4vCp9cpsiI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BMzI9cEaGBM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3yS-G-NEBu8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FQtZCKWjARI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WtZbDrd-RJg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7pGqASn-LEY",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents",
+   "azure"
+  ]
+ },
+ {
+  "id": "python-mcp-reactor",
+  "title": "Python + MCP, local to production",
+  "level": "Intermediate",
+  "blurb": "Build MCP servers with FastMCP, deploy them to the cloud and secure them with authentication.",
+  "topic": "AI agents",
+  "by": "Microsoft Reactor",
+  "h": "MicrosoftReactor",
+  "lists": [
+   "PLmsFUfdnGr3yUH4c7F0i1c-0jDV6C9inF"
+  ],
+  "sections": [
+   {
+    "title": "Sessions",
+    "steps": [
+     {
+      "k": "v",
+      "id": "_mUuhOwv9PY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gL3WYfXAiWI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_Redi3ChzFA",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents",
+   "azure"
+  ]
+ },
+ {
+  "id": "agentic-ai-krishnaik",
+  "title": "Agentic AI",
+  "level": "Intermediate",
+  "blurb": "Multi-agent RAG, agent frameworks and end-to-end projects, in long hands-on sessions.",
+  "topic": "AI agents",
+  "by": "Krish Naik",
+  "h": "krishnaik06",
+  "lists": [
+   "PLZoTAELRMXVMBr14UQ30AFlnlQ7eL5wjl"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Qs_j5wRbVr8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xOS0BhhdUbo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4MTtfTZnH5Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zDKTnYDbMkE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ih1LDnPijFU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EhQzMMLpJ7s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "R4-P79KgSMg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "otVJhcf3NsU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "we3lpRR5G2k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lLCck9FH6z4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VSm5-CX4QaM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F9LGHxDHUlU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qNUbPw62-rk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Kk4ukdWqKPM",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "mcp-krishnaik",
+  "title": "MCP crash course",
+  "level": "Intermediate",
+  "blurb": "What the Model Context Protocol is, then MCP servers and clients built from scratch in Python and LangChain.",
+  "topic": "AI agents",
+  "by": "Krish Naik",
+  "h": "krishnaik06",
+  "lists": [
+   "PLZoTAELRMXVPC8r1xF68Gksi241DAtMsK"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "-UQ6OZywZ2I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BG4F3b5QpjM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MDBG2MOp4Go",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ASRCJK2aWk0",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "agent-frameworks-witteveen",
+  "title": "Agent frameworks compared",
+  "level": "Intermediate",
+  "blurb": "CrewAI, LangGraph, the OpenAI Agents SDK, Google ADK, PydanticAI and more, each tried on real code.",
+  "topic": "AI agents",
+  "by": "Sam Witteveen",
+  "h": "samwitteveenai",
+  "lists": [
+   "PL8motc6AQftlnoLQ2j4YtS1MYiuOu6G52"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "s-jYxgKMqRc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2Uar1fDKYpQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "K0mb-pXdqsI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1D4YoAUpjlg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lvQ96Ssesfk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WyIWaopiUEo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hpMCvfIIM_A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uGj4REGFp3A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nK9K8UPraXk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pEMhPBQMNjg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RUDZZLtB08w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UnH7S5044GA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MkqkiJgnDxk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "c8EpB4zmXG0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XHijkFRd2TU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rAeqTaYj_aI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pXGakso13ZM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yD-hKFj78g0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fvUGQFtJaT4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hjIlj4OAECQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "erQnRkMrpls",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e5srAMM1amA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3AdW345Jskk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "n-xAzWZCq6w",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "llm-evals-shaw",
+  "title": "Evaluating LLM apps",
+  "level": "Intermediate",
+  "blurb": "How to tell if an LLM app works: error analysis, automated evals and LLM judges, then what changes for RAG.",
+  "topic": "AI agents",
+  "by": "Shaw Talebi",
+  "h": "ShawhinTalebi",
+  "lists": [
+   "PLz-ep5RbHosW6Gyk5Q1Xqto-ElhJnHMCn"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "-sL7QzDFW-4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "982V2ituTdc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ayGdRbMDZcU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2peE6mwoiXs",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "agents-lucek",
+  "title": "Agent memory, orchestration and evals",
+  "level": "Advanced",
+  "blurb": "Deep dives into agent memory systems, swarms and multi-agent orchestration, reflection, voice agents and evals you can hill-climb.",
+  "topic": "AI agents",
+  "by": "Adam Lucek",
+  "h": "AdamLucek",
+  "lists": [
+   "PL31XFvSmiPKHqM3Y6Dqo00bzWz2McMd0N"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "VKPngyO0iKg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eCoObzaHYC4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zNA01OEVFUI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i_NRmG2qUQA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nJtPzkq3Ve0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aUktGVEz5aY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9K51Leyv3qI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZJlfF1ESXVw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GZWFLEj0UqI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BGltHLInYDg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7li_iCjQ4vk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ly9UDjiOpxg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Uvt2rhoTxLk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ceAWFE7D9bs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sSqzg_W8OnA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bxjmFlopZqc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "h_DP7ChJUpY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-iu2-stwSwg",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "engineering-agents-stanford",
+  "title": "Engineering AI agents (Stanford CS329Z)",
+  "level": "Advanced",
+  "blurb": "A university course on agents: context engineering, RAG, tools and MCP, frameworks, design patterns, memory, multi-agent systems and optimization.",
+  "topic": "AI agents",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLPRcF5HR02_U"
+  ],
+  "sections": [
+   {
+    "title": "Lectures",
+    "steps": [
+     {
+      "k": "v",
+      "id": "y2cwbmOy12U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HbgZFwWj4vY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DGI4vucR71w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Vr1NzH8bT44",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "psLc-46GqY0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "s0S38lz6O7M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "q0Q-Hy8TTps",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JC_pLC5EX_w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qh5tP6PBZ6U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TlX_ft_PQIM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e_m99aR7_3Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7GW-9ug2nvw",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "llm-agents-berkeley",
+  "title": "LLM agents (UC Berkeley)",
+  "level": "Advanced",
+  "blurb": "Berkeley's LLM Agents MOOC: reasoning, the history of agents, AutoGen, DSPy, coding and enterprise agents, and safety, from the people who built them.",
+  "topic": "AI agents",
+  "by": "Berkeley RDI",
+  "h": "BerkeleyRDI",
+  "lists": [
+   "PLS01nW3RtgopsNLeM936V4TNSsvvVglLc"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, fall 2024",
+    "steps": [
+     {
+      "k": "v",
+      "id": "XULFEKugmm4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ck66PiXXlFI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QL-FS_Zcmyo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RM6ZArd2nVc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OOdtmCMSOo4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Sy1psHS3w3I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JEMYuzrKLUw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "f9L9Fkq-8K4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-yf-e-9FvOc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wm9-7VBpdEo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qhxr0uVT2zs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "f3KKx9LWntQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6y2AnWol7oo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QAgR4uQ15rc",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "agentic-ai-berkeley",
+  "title": "Agentic AI (UC Berkeley)",
+  "level": "Advanced",
+  "blurb": "The 2025 follow-up: agent overview, system design, training and post-training agentic models, multi-agent AI and security.",
+  "topic": "AI agents",
+  "by": "Berkeley RDI",
+  "h": "BerkeleyRDI",
+  "lists": [
+   "PLS01nW3RtgoqGkm4UeqNeZLccW-OGc1fJ"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, fall 2025",
+    "steps": [
+     {
+      "k": "v",
+      "id": "r1qZpYAmqmg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xqRAS6rAouo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3l0Zxus34es",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xNxrBHZPDvM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SrLcGdVOb9w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HV8pugcFVO0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yqPIsTTdUkc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sfJM4LaiYsM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ntjOxjZMaac",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iDhzzugMOLA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CvZDJxd4LKM",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "agent-reliability-aie",
+  "title": "Reliable agents in production",
+  "level": "Advanced",
+  "blurb": "Conference talks on shipping agents: 12-factor agents, agents vs workflows, durable execution, observability and catching regressions.",
+  "topic": "AI agents",
+  "by": "AI Engineer",
+  "h": "aiDotEngineer",
+  "lists": [
+   "PLcfpQ4tk2k0VLQeSLhVinP0lVhNcXa-Ai"
+  ],
+  "sections": [
+   {
+    "title": "Talks",
+    "steps": [
+     {
+      "k": "v",
+      "id": "8kMaTybvDUw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WnTq5Mc5bIU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kTnfJszFxCg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8SUJEqQNClw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1izYWsokr9s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "n991Yxo1aOI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Dj0b_cEBHBI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sl3icG-IjHo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WJjInLeaJjo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-aM2EDTiaMs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0RNNfxpdbQk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9HbzAWnKbo4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IQkVMvXQKLY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JsCCrBF7F1g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Lc8zRh9muoY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LrGCT7G_rU8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kZsf_Sfm7RU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "u1yaOeEX4e8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wEc9aG7cRQc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zU4EagB311U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YNT7Plf9KIg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YiFqcu9YA38",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rTojoVotlD8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "y-OVWZD4j6U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "v5tm5EAzsAs",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "langchain-leonvanzyl",
+  "title": "LangChain in Python",
+  "level": "Beginner",
+  "blurb": "Seven short lessons: setup, prompt templates and chains, output parsers, retrieval, an agent with tools and chat memory.",
+  "topic": "LangChain",
+  "by": "Leon van Zyl",
+  "h": "leonvanzyl",
+  "lists": [
+   "PL4HikwTaYE0GEs7lvlYJQcvKhq0QZGRVn"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "ekpnVh-l3YA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hVs8MVydN3A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qFGdygmYgto",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-Ueh5XBpcoY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KwA5DnRo_co",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uyAyeUcXps8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2Up0Cj3p_EE",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "langchain"
+  ]
+ },
+ {
+  "id": "langchain-krishnaik",
+  "title": "LangChain from the ground up",
+  "level": "Beginner",
+  "blurb": "Chatbots with paid and open models, retrieval, RAG with vector stores, agents and guardrails, in LangChain.",
+  "topic": "LangChain",
+  "by": "Krish Naik",
+  "h": "krishnaik06",
+  "lists": [
+   "PLZoTAELRMXVOQPRG7VAuHL--y97opD5GQ"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "KmQOlg5YfU0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AOI7IVE3CMw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5CJA1Hbutqc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XWB5DXP-DO8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9Thc6hRw2Gs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tIwi92nkcu0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2_gSXyt2108",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QQdiHrIc84o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RZ2Vu8z-P1Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-PSq_ilkvwI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8Vq4K1EGq2g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9LewL1bUS6g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TcvI-Nnebow",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "T6XhRFeDbPY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LOUaom9HZIg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CK0ExcCWDP4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ruiLq0OzjkI",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "langchain"
+  ]
+ },
+ {
+  "id": "rag-from-scratch-langchain",
+  "title": "RAG from scratch",
+  "level": "Intermediate",
+  "blurb": "LangChain's own series: indexing, retrieval and generation, then query rewriting, routing, RAPTOR and ColBERT.",
+  "topic": "LangChain",
+  "by": "LangChain",
+  "h": "LangChain",
+  "lists": [
+   "PLfaIDFEXuae2LXbO1_PKyVJiQ23ZztA0x"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "wd7TZ4w1mSw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bjb_EMsTDKI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LxNVgdIz9sU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Vw52xyyFsB8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JChPi0CRnDY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "77qELPbNgxA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "h0OPWlEOank",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xn1jEjRyJ2U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SaDzIVkYqyY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pfpIndq7Fi8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ktRb17mAwYc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kl6NwWYxvbM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gTCU9I6QqCE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "z_6EeA2LDSw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cN6S0Ehm7_8",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "langchain",
+   "agents"
+  ]
+ },
+ {
+  "id": "agentic-langgraph-krishnaik",
+  "title": "Agentic AI with LangGraph",
+  "level": "Intermediate",
+  "blurb": "LangGraph from state and nodes to agentic chatbots, tools, memory, human in the loop and RAG pipelines.",
+  "topic": "LangChain",
+  "by": "Krish Naik",
+  "h": "krishnaik06",
+  "lists": [
+   "PLZoTAELRMXVPFd7JdvB-rnTb_5V26NYNO"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "vVGXPRjtAJE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UltwJqpNA04",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HCSPIH3I-vc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dIb-DujRNEo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5TBsXGdmkc0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "E0fQWFNqGgg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BV0YUeam4y8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r0q1n8BJ0QI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fZM3oX4xEyg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MykcjWPJ6T4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "adPi3a8fq4c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MMS04bku3FE",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "langchain",
+   "agents"
+  ]
+ },
+ {
+  "id": "langchain-v1-langchain",
+  "title": "LangChain 1.0 and deep agents",
+  "level": "Intermediate",
+  "blurb": "The current LangChain: deep agents, middleware, context management, skills, evals, voice agents and deploying agents.",
+  "topic": "LangChain",
+  "by": "LangChain",
+  "h": "LangChain",
+  "lists": [
+   "PLfaIDFEXuae2kPmRKuZDcSCNJiAnVVknU"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "IVts6ztrkFg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "A1t53E4vtGo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Yl_mdp2IiW4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mz7mAo4zIC8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Gkv0L_32SPU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6-87bwBCyos",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tfE0Qj3Izsc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PwldOnb0eiU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kDPzdyX76cg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0FmbIgzKAkQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4Ox2gdZnM6c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e_G_rXXj7eU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Rp7RGkTFNng",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dFONF4PqCLw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "n-Hw_K_GsOg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yi4XNKcUS8Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PH5kunmAAjA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bzcAZJTxOrs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3daSUNpWErQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "S-T5OMEhQlA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ryFZxr5HUXA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5oI_G8WL6rU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hrEWqm8JA-w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FDVdLrloFOw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Nfv0P8xi0rM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "657Agkgga44",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QZjjVMhjEcY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oSjAbx67f0k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hcWHufkzicc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HBcIDnOFU6A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BEYEWw1Mkmw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AldL9C7Vimc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AaZQZ-mbUZc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SjGPXBNH614",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DkNqgCz8cjE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vxxxkNF5SXk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i_Tf956Yh0U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "y6WUw2_Hhrs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5AkdMangfNk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aV0ctbnDUCM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wVB95vLg_FQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Rh6KWngr8T4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nIVu3zfYprI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Nw7teZn0MqU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MxgUMBGeF14",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_iGxqQ2J2hc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jLOM_ahG78c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sBg90v2qfas",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jv91Ruwrl0U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NxJjMvDN6aE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ncv5TYdY7Tg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-s6rYWX8VaY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OpFXXSsEIBo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0oh0X2NQgQo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xEnUDGZ3_HE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hd-LmPwfrVc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jdgYoKLmElY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XE5-hb-H-OY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pjv-mp5J4hA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a5Yie-Bgx7A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d6aNbE-3dxo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VE5dsWll06M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4-oA1BJeyr4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-mWWsvv19jE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6v0Fmsi4Ldk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KAITWbHLSSE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5kTFyEOgark",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r1iJzoxFBtg",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "langchain",
+   "agents"
+  ]
+ },
+ {
+  "id": "langsmith-langchain",
+  "title": "LangSmith: tracing and evals",
+  "level": "Intermediate",
+  "blurb": "Trace and debug agents in LangSmith, then build datasets, evaluators and LLM judges to measure and improve them.",
+  "topic": "LangChain",
+  "by": "LangChain",
+  "h": "LangChain",
+  "lists": [
+   "PLdFlSlnk1J2Q",
+   "PLfaIDFEXuae0um8Fj0V4dHG37fGFU8Q5S"
+  ],
+  "sections": [
+   {
+    "title": "Introduction to LangSmith",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Y8fW5LLvw10",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eOGuaxHR2sI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GPf7f8ZgYjs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TyxwaLr89V4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9tB7ARhlDPQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jZLy4WjTNII",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Y6Gi_gYnOAo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LfdGwdUhGW4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HVXydoGAWsQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "keMWUys2BMs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eg5O6q9H84I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_5ZDkWP8K0c",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "Evaluations",
+    "steps": [
+     {
+      "k": "v",
+      "id": "vygFgCNR7WA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OuFUy45RsHU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "N9hjO-Uy1Vo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hPqhQJPIVI8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "y5GvqOi4bJQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "w31v_kFvcNw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kl5U_efgK_8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IJxI-4YdySE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Kr10khtlSzs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZA6ygagspjA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zMgrHzs_cAg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lTfhw_9cJqc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IlNglM9bKLw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LBBD5r9vbao",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Fr_7HtHjcf0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xTMngs6JWNM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yx3JMAaNggQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yskkOAfTwcQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RZv2WBHj0-c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XkdvJ-kGl0A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_ssozegykRs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3cDtDI2W-xA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "O0x6AcImDpM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jypHvE1vN5U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FQMn_FQV-fI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Pvz24JdzzF8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NbQKDfSw3gM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AVPflFmRkd4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pvlT056DAHs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3gCTa0Li4ew",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fmL6cB5Q5M0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DpimoC1Cszg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YBErIomQ7N4",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "langchain",
+   "agents"
+  ]
+ },
+ {
+  "id": "langgraph-patterns-langchain",
+  "title": "LangGraph agent architectures",
+  "level": "Advanced",
+  "blurb": "The classic agent designs built in LangGraph: multi-agent workflows, planning, reflection, self-RAG, STORM and a support bot (2024 API).",
+  "topic": "LangChain",
+  "by": "LangChain",
+  "h": "LangChain",
+  "lists": [
+   "PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "5h-JBkySK34",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9dXp5q3OFdQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Un-88uJKdiU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9H4gwJGgvfg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rabXcLaAlqE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "P1aDaYkZzNg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xJ6ipunO16E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "o5Hw9V5ntxw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hvAPnpSfSGo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YE6A5d8kNp4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ylrew7qb8sQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pbAd8O1Lvm4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uRya4zRrRx4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "v5ymBTXNqtk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1uUORSZwTz4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "W611inKNMwk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UqYzzjTmKj8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "b3XsvoFWp4c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ORAecR4hXsQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Vj76hEhuJZk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-BKqJim5o-0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HfJ4h380J_U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g7s_6t5Jm4I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NXhyWJozM8A",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "langchain",
+   "agents"
+  ]
+ },
+ {
+  "id": "azure-beginners-marczak",
+  "title": "Azure for beginners",
+  "level": "Beginner",
+  "blurb": "One service per video, clearly drawn: App Service, Functions, Storage, Logic Apps, Data Factory, Cosmos DB, Key Vault, Entra ID and more.",
+  "topic": "Azure",
+  "by": "Adam Marczak - Azure for Everyone",
+  "h": "AdamMarczakYT",
+  "lists": [
+   "PLGjZwEtPN7j96A9JNpA4ouI3bH-uWZ0Ht"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "ZvsOzji_8ow",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EpDkxTHAhOs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UzTtastcBsk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4BwyqmRTrx8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Vxf-rOEO1q4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "M7t1T1Q5MNc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "R_Fi59j6BMo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jAWLQFi4USk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TujzkSxJzIA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PgujSug1ZbI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-FHc_lZ6jJY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BgvEOkcR0Wk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "u6eR8yguVxE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GqpwiyYsNIw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4Fv6cHdL8S0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2uSkjBEwwq0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iUaTq06m26g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aPNa7Axulhg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "T7XU6Lz8lJw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JQ6KhjU5Zsg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HSL1poL1VR0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "A0jAeGf2zUQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "t6m13DxUJMc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ge_Sp-1lWZ4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "If4g2vVaiYk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CXFWPI1qk_s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Dc3P27BsK3E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BCzeb0IAy2k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NbGmyjgY0pU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ma7VAQE7ga4",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure"
+  ]
+ },
+ {
+  "id": "azure-getting-started-savill",
+  "title": "Getting started with Azure",
+  "level": "Beginner",
+  "blurb": "What Azure is, regions, landing zones, pricing and identity, explained by John Savill.",
+  "topic": "Azure",
+  "by": "John Savill's Technical Training",
+  "h": "NTFAQGuy",
+  "lists": [
+   "PLlVtbbG169nETlTE5AsN-AZZllMzll5Sk"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "_x1V2ny8FWM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F_1NPXrO4Qs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rMKmbZ1SYQg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mluS8ovuBKg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uts0oy8NlUs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PwZdeUUehEY",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure"
+  ]
+ },
+ {
+  "id": "azure-first-steps-devs",
+  "title": "Azure in ten short videos",
+  "level": "Beginner",
+  "blurb": "The portal, free account, regions, resource groups, costs, virtual machines and App Service, five to ten minutes each.",
+  "topic": "Azure",
+  "by": "Microsoft Azure Developers",
+  "h": "AzureDevelopers",
+  "lists": [
+   "PLI7iePan8aH45SW7KxWS9G5FO4Rh17_P9"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "leJRc0JWzSY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EqNJ9IQgODI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "y8Hy0uYL3hg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OEdZGF1JcEI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ud5CqyMHKTg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ipUY8oz3SpM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "irs2q7YefHA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JYHzkwvu_BA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xJFX_bGb6Uc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GDSiWvUZK9E",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure"
+  ]
+ },
+ {
+  "id": "az900-exampro",
+  "title": "AZ-900: Azure Fundamentals",
+  "level": "Beginner",
+  "blurb": "The full AZ-900 course in short lessons: cloud concepts, core services, security, pricing and governance, with hands-on labs.",
+  "topic": "Azure",
+  "by": "ExamPro",
+  "h": "ExamProChannel",
+  "lists": [
+   "PLBfufR7vyJJ4sJX_1LAiQt9GTRioEc5Ld"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "oS5CpGumMqU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vs2UxRkdpM8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FOE0pweXxUc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "onKQSaksHB4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vyP9u_MahGA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eYLA4i3Dz0I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mcQjM7R9mKo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XPpguxDJLFA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "v9tFQqv5WkI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Nrby-PZWxU4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BWlHpE9KJxk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oQ15XN1WK8g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "boQ31XheRIM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wxYUutHi1Ug",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nCCc4fZ_wtY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2d3adHTIb90",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "teRojWLG01Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bD0gCUGILmw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "08X96Dx5Vdk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rRbLs4ZFM-Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tDDKv-gtAQw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8cdc6ZiTuBg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OKVO7REy0sI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cw5UTSfR4EM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RGRi_GNgH1Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rkfYXM6zAcM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XXdfks4HFGo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6skq5sTbshA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-204FKunPSA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ejxoAkQ8uAs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CKBOjY5FoOg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zEUIPcqHdGs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MDkL1NL1ebY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qlt3dFoLY0I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Bp664RO8xiQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "V5p07BSc-cQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qutTRDEnsYg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2RBJUajdKSM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1WQay0IQHSs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gfYGi6IEnow",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xIWpN13UuZs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7pmSa_s0tTU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "O9hBtguwB9Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "y8D6hQm-mZ0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fLsicVu5rjg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LPYhnzTnqu4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VE5OyFDfEH4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0zAEbr0E19U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9iOdcOcPc0M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "69vO_z0uPRk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yfUz5ggTq8w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RLkuxbd4gEM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8eOeeiEGUuc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lR_InPyHY1k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "f2_2D14UhTg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WYm3lKiZmJk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ebJy3cu-zGw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ycpILzeeThs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mecMhkKcpHY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "i61WWbw-HRQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uhJfO1y4SVU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gOnd8PehYrQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DT8iTUnbds4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4BdFIQQiX1I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZAAIkSlv4gY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BzvchfqhKn8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tqy5siSUopQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pOsovQ49sEc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1Fpg78NlmJQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "44UjYXuolIY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "joBtG9lURBY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Uae-9BWhNBA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wZpNQD-xzVc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8AQ0gWUNsWQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hp_sEVo78nI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2R423rR5bQE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "K2as-ZfwKmU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Yj8hssPXlDs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dlrinG7eWAA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jEzRf5zGiMk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pYfoYBBjgQI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sWYAlg4uwYE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uE7-5Df0onE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ve6PdO5rjt8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "w7dNvLyfSZU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x3b5oOC6dLw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yE6zPnzdm48",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure"
+  ]
+ },
+ {
+  "id": "ai900-reactor",
+  "title": "AI-900: Azure AI Fundamentals",
+  "level": "Beginner",
+  "blurb": "Azure AI services, computer vision, language, generative AI, Azure AI Foundry, responsible AI and document intelligence.",
+  "topic": "Azure",
+  "by": "Microsoft Reactor",
+  "h": "MicrosoftReactor",
+  "lists": [
+   "PLmsFUfdnGr3zTs9lpTDVa4jAECFELd778"
+  ],
+  "sections": [
+   {
+    "title": "Sessions",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Vtm7pdD2Ghc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2G3TtDIcg1I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YstoKU2Cz94",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "I9C5CK3quBQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AI8D7UPbdU4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fz8LSlDkX4I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pYxasN5wWB4",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure",
+   "agents"
+  ]
+ },
+ {
+  "id": "exam-crams-savill",
+  "title": "Azure exam study crams",
+  "level": "Intermediate",
+  "blurb": "John Savill's famous whiteboard crams for AZ-900, AZ-104, AZ-305, AZ-700, AI-900, AI-901 and AI-103 (AI apps and agents on Azure).",
+  "topic": "Azure",
+  "by": "John Savill's Technical Training",
+  "h": "NTFAQGuy",
+  "lists": [
+   "PLlVtbbG169nHz2qfLvPsAz9CnnXofhmcA"
+  ],
+  "sections": [
+   {
+    "title": "Crams",
+    "steps": [
+     {
+      "k": "v",
+      "id": "0sHvssrWytM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tQp1YkB2Tgs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nVZYDhB_M64",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eY2YmF6W7Ts",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vq9LuCM4YP4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0gtpasITVnk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ch6KE7KxHGM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0Knf9nub4-k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bTkUTkXrqOQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-FJqb60wPSY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a-yuXz_uV30",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WK2BvjOYTCQ",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure"
+  ]
+ },
+ {
+  "id": "exam-prep-mslearn",
+  "title": "Official Azure exam prep",
+  "level": "Intermediate",
+  "blurb": "Microsoft Learn's own walkthroughs of what each exam covers: AZ-104, AZ-204, AZ-305, AI-103 and AI-200.",
+  "topic": "Azure",
+  "by": "Microsoft Learn",
+  "h": "MicrosoftLearn",
+  "lists": [
+   "PLahhVEj9XNTcFnkx03XSK9TUkhzG3YTS_",
+   "PLahhVEj9XNTckXLaZp-R2PbDUKdNRmECZ",
+   "PLahhVEj9XNTfwP-ZMX4BIlx2fPZeVjKrv",
+   "PLPeyjdVd6jr8",
+   "PLZYrjOoyXM30"
+  ],
+  "sections": [
+   {
+    "title": "AZ-104 Azure Administrator",
+    "steps": [
+     {
+      "k": "v",
+      "id": "ZBvT2LzUCYM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KzcDHhz4DYM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "B1TH1552dIY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ex1NaAIip08",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uEF5v5hxYgc",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "AZ-204 Azure Developer",
+    "steps": [
+     {
+      "k": "v",
+      "id": "0uOfl67EMJc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7UnzDcUIg78",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eidadKVfIj4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yVKYBHGj5Nk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SyssNpn4skE",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "AZ-305 Azure Solutions Architect",
+    "steps": [
+     {
+      "k": "v",
+      "id": "oqASwDfxHq8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AeFjEnfNN5Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zngQi5SOWW4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zCAkNsqItf8",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "AI-103 AI apps and agents",
+    "steps": [
+     {
+      "k": "v",
+      "id": "BEUoruZBHgc",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "AI-200",
+    "steps": [
+     {
+      "k": "v",
+      "id": "XHOBLJQZBCU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "haeOJ2K1UU4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oIalMs581A0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "K2F1uvc8Cr8",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure"
+  ]
+ },
+ {
+  "id": "az305-savill",
+  "title": "AZ-305: Designing Azure infrastructure",
+  "level": "Advanced",
+  "blurb": "Architecture on Azure: identity, governance, storage, data, business continuity, networking and compute, for the AZ-305 exam and for real designs.",
+  "topic": "Azure",
+  "by": "John Savill's Technical Training",
+  "h": "NTFAQGuy",
+  "lists": [
+   "PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "vq9LuCM4YP4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sVq7qjU9LNE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9P10hgPDRZg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WVNvoiA_ktw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kP7KpfToMkg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4nDRvZR2EjU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F_1NPXrO4Qs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lQlHWacM1N0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3pSue9nm3Bg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "s1H2HpSJ-cg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "10FQkdAuNR0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "E8Fx0mji5Ss",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LWA4SCALYCY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oE9YCVjzaKs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0gtpasITVnk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Hf7ZTa_PlGU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gCotvBx-UrQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4dKzFFwtPbA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2nPZyLmciN4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rMKmbZ1SYQg",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure"
+  ]
+ },
+ {
+  "id": "ai-agents-azure-learnlive",
+  "title": "AI agents on Azure",
+  "level": "Intermediate",
+  "blurb": "Plan an AI solution on Azure, then build agents with Azure AI Agent Service and Semantic Kernel, custom tools and multi-agent orchestration.",
+  "topic": "Azure",
+  "by": "Microsoft Reactor",
+  "h": "MicrosoftReactor",
+  "lists": [
+   "PLmsFUfdnGr3zRA2iYdIkbOKUuqzKlvU-8"
+  ],
+  "sections": [
+   {
+    "title": "Sessions",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Zl_IFvrKaaY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FStNpGPUSGY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "o1auJY8I34k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XaP7ruyyhRo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MRpExvcdxGs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ySsiPmYXUTY",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure",
+   "agents"
+  ]
+ },
+ {
+  "id": "foundry-agents-reactor",
+  "title": "Production agents on Microsoft Foundry",
+  "level": "Intermediate",
+  "blurb": "A first production agent, reliable multi-agent orchestration with state and human review, then hosting Agent Framework and LangGraph agents on Foundry.",
+  "topic": "Azure",
+  "by": "Microsoft Reactor",
+  "h": "MicrosoftReactor",
+  "lists": [
+   "PLF2-eOkbiteU",
+   "PLmsFUfdnGr3wnGCOHe8zkPU0oAwUpzhtK"
+  ],
+  "sections": [
+   {
+    "title": "Build and orchestrate",
+    "steps": [
+     {
+      "k": "v",
+      "id": "ExJXHCkeO4A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wmlHwo1zPMQ",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "Host your agents",
+    "steps": [
+     {
+      "k": "v",
+      "id": "8N7q0Ucr3rw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mFZHq5mTt0A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GiJQhMl0mWc",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure",
+   "agents",
+   "langchain"
+  ]
+ },
+ {
+  "id": "rag-time-microsoft",
+  "title": "RAG on Azure AI Search",
+  "level": "Intermediate",
+  "blurb": "Five journeys through retrieval on Azure: RAG fundamentals, the retrieval system, vector index tuning, multimodal data and real use cases.",
+  "topic": "Azure",
+  "by": "Microsoft Developer",
+  "h": "MicrosoftDeveloper",
+  "lists": [
+   "PLlrxD0HtieHirdQ1SKCB0SvxiAazYg2VI"
+  ],
+  "sections": [
+   {
+    "title": "Journeys",
+    "steps": [
+     {
+      "k": "v",
+      "id": "UOsboxxyqew",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bURCZeCSx2A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J3eDgwS8wpo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OFuO9sI5BQc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-yyONUB5b88",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure",
+   "agents"
+  ]
+ },
+ {
+  "id": "mcp-on-azure-devs",
+  "title": "MCP servers on Azure",
+  "level": "Intermediate",
+  "blurb": "The Azure MCP Server in your editor, MCP for agents, APIs as tools and remote MCP servers on Azure Functions.",
+  "topic": "Azure",
+  "by": "Microsoft Azure Developers",
+  "h": "AzureDevelopers",
+  "lists": [
+   "PLI7iePan8aH48uMF_GtISFAMfKUsbndLa"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "_P3V07_rg-M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KfmRel0Fgwg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wGz955ZeLpc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UqtsfXpDvgI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Xf5xxhT9ySs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XwnEtZxaokg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "U9DsLcP5vEk",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure",
+   "agents"
+  ]
+ },
+ {
+  "id": "rag-chat-reactor",
+  "title": "Build a RAG chat app on Azure",
+  "level": "Advanced",
+  "blurb": "Microsoft's RAG chat solution end to end: Azure AI Search retrieval, ingestion, login and access control, chat history, speech, evals and tracing.",
+  "topic": "Azure",
+  "by": "Microsoft Reactor",
+  "h": "MicrosoftReactor",
+  "lists": [
+   "PLmsFUfdnGr3xEpKxpnsQqepTnynkY7PKL"
+  ],
+  "sections": [
+   {
+    "title": "Sessions",
+    "steps": [
+     {
+      "k": "v",
+      "id": "80eHg3Rm41Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "D3slfMqydHc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ugJy9QkgLYg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5FfIy7G2WW0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GwEiYJgM8Vw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1YiTFnnLVIA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ajtH--jjUJ0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "08wtL1eB15g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lyCLu53fb3g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6P3fyWAiCac",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "maP9lgTOwmM",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "azure",
+   "agents"
   ]
  }
 ]

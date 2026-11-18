@@ -1,1 +1,20 @@
-[]
+[
+ {
+  "path": "agents",
+  "step": "Python + AI: Large Language Models",
+  "current": "Python + AI: Large Language Models",
+  "kind": "v",
+  "candidate": "rYElE9GZudA",
+  "title": "Turn Local LLM into AI Agent with Python",
+  "gain": 0.03
+ },
+ {
+  "path": "agents",
+  "step": "Python + AI: Tool calling",
+  "current": "Python + AI: Tool calling",
+  "kind": "v",
+  "candidate": "s0S38lz6O7M",
+  "title": "How AI Agents Use Tools: Function Calling & MCP | Stanford CS329Z Lecture 4 with Diyi Yang",
+  "gain": 0.061
+ }
+]

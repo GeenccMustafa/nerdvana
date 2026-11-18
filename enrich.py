@@ -16,7 +16,8 @@ the start of the text (kept in .cache/pages.json by articles.py), and only lists
 similar_articles.json  {"n", "first", "sim": [[article index, ...] x up to 8]}  aligned with articles.json
 courses.json           curated paths from curated_paths.json: [{id, title, level, blurb, sections: [{title, steps: [{k, id, note}]}]}]
                        followed by whole YouTube playlists from playlist_paths.json, in the creator's order
-                       (same shape, plus "by": channel name, "h": its handle and "lists": the playlist ids)
+                       (same shape, plus "by": channel name, "h": its handle and "lists": the playlist ids);
+                       a path listed in focus sections of the site carries "hubs": ["agents", "azure", ...]
 path_candidates.json   newer items that may fit a curated step better (for the monthly review)
 reading_paths.json     [{id, title, blurb, articles: [article id, ...]}] resolved from reading_paths_def.json
 links.json             videos <-> articles on the same topic:
@@ -264,8 +265,13 @@ def build_courses(E, videos, channels, A, arts, model, refresh=False):
         if due:
             print(f"  {p['id']}: checked for newer videos, {swapped} step{'' if swapped == 1 else 's'} replaced")
         out.append({"id": p["id"], "title": p["title"], "level": p["level"], "blurb": p["blurb"],
-                    "checked": today if due else checked, "sections": sections})
+                    "checked": today if due else checked, "sections": sections, **hubs_of(p)})
     return out, candidates
+
+
+def hubs_of(c):
+    """The focus sections of the site (AI agents, LangChain, Azure) a path is listed in, if any."""
+    return {"hubs": c["hubs"]} if c.get("hubs") else {}
 
 
 # "#12", "Part 12", "Lesson 12", "Episode 12", "Day 12", "Chapter 12"... in a lesson title
@@ -313,7 +319,7 @@ def build_playlist_courses(videos, channels, prev):
             continue
         out.append({"id": c["id"], "title": c["title"], "level": c["level"], "blurb": c["blurb"],
                     "topic": c.get("topic", ""), "by": by or "", "h": handle or "",
-                    "lists": [pl["list"] for pl in c["playlists"]], "sections": sections})
+                    "lists": [pl["list"] for pl in c["playlists"]], "sections": sections, **hubs_of(c)})
     return out
 
 

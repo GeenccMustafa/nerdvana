@@ -153,6 +153,237 @@
     ]
   },
   {
+    "id": "agents",
+    "title": "AI agents, from LLM calls to multi-agent systems",
+    "level": "Intermediate",
+    "hubs": [
+      "agents"
+    ],
+    "blurb": "What you need to build agents and chatbots at work, in order: what an agent is, structured output and tool calling, a first agent from scratch, context, RAG and memory, MCP, frameworks, design patterns and multi-agent orchestration, then evals and production. Ends with agents on Azure.",
+    "sections": [
+      {
+        "title": "What an agent is",
+        "steps": [
+          {
+            "v": "F8NKVhkZZWI",
+            "t": "What are AI Agents?",
+            "note": "The idea in twelve minutes: a model that plans, calls tools and acts in a loop, and how that differs from a chatbot."
+          },
+          {
+            "v": "DGI4vucR71w",
+            "t": "What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1 with Diyi Yang",
+            "note": "The university version: definitions, a short history and the design space the rest of this path walks through."
+          },
+          {
+            "a": "a0d49ff653",
+            "t": "LLM Powered Autonomous Agents",
+            "note": "The classic map of the field: planning, memory and tool use, with the papers behind each idea."
+          }
+        ]
+      },
+      {
+        "title": "Talking to a model from code",
+        "steps": [
+          {
+            "v": "X967IsYvhTM",
+            "t": "Python + AI: Large Language Models",
+            "note": "Calling an LLM from Python: messages, tokens, streaming and the settings that matter."
+          },
+          {
+            "v": "OudnE_HOwJA",
+            "t": "Python + AI: Structured outputs",
+            "note": "Make the model answer in JSON that fits a schema. Every reliable agent and workflow rests on this."
+          },
+          {
+            "v": "KDDRQ9SS5Gg",
+            "t": "Python + AI: Tool calling",
+            "note": "Let the model call your functions: the one mechanism every agent framework is built on."
+          }
+        ]
+      },
+      {
+        "title": "A first agent from scratch",
+        "steps": [
+          {
+            "v": "vHDwpoSFdQY",
+            "t": "Intro to Agents - Create an Agent from Scratch (No Frameworks)",
+            "note": "An agent loop in plain Python, no framework, so nothing that comes later is magic."
+          },
+          {
+            "v": "hKVhRA9kfeM",
+            "t": "Python: Create a ReAct Agent from Scratch",
+            "note": "The ReAct pattern (think, act, observe) built by hand, the ancestor of most agents today."
+          },
+          {
+            "a": "8c8e670b5b",
+            "t": "You should write an agent",
+            "note": "Why writing your own small agent teaches more than any framework, and how little code it takes."
+          },
+          {
+            "a": "1948129538",
+            "t": "Designing agentic loops",
+            "note": "What makes a loop work in practice: a clear goal, the right tools and a safe place to run them."
+          }
+        ]
+      },
+      {
+        "title": "Context, RAG and memory",
+        "steps": [
+          {
+            "v": "Vr1NzH8bT44",
+            "t": "LLMs for Agent Builders: Context Engineering | Stanford CS329Z Lecture 2 with Michael Ryan",
+            "note": "Context engineering: what goes into the window on every step decides what an agent can do."
+          },
+          {
+            "v": "psLc-46GqY0",
+            "t": "RAG Explained: From BM25 to Agentic RAG | Stanford CS329Z Lecture 3 with Diyi Yang",
+            "note": "Retrieval from keyword search to embeddings to agentic RAG, where the agent decides what to look up."
+          },
+          {
+            "v": "qh5tP6PBZ6U",
+            "t": "How AI Agent Memory Works: MemGPT & Memory Types | Stanford CS329Z Lecture 7 with Michael Ryan",
+            "note": "Short-term and long-term memory, and how agents remember across conversations."
+          }
+        ]
+      },
+      {
+        "title": "Tools and MCP",
+        "steps": [
+          {
+            "v": "s0S38lz6O7M",
+            "t": "How AI Agents Use Tools: Function Calling & MCP | Stanford CS329Z Lecture 4 with Diyi Yang",
+            "note": "How tool use works under the hood, and why the Model Context Protocol became the standard way to plug tools in."
+          },
+          {
+            "v": "_mUuhOwv9PY",
+            "t": "Python + MCP: Building MCP servers with FastMCP",
+            "note": "Build an MCP server in Python, so any agent or chat app can use your tools and data."
+          },
+          {
+            "v": "BMDFPOyezH4",
+            "t": "A2A vs MCP: AI Agent Communication Explained",
+            "note": "MCP connects an agent to tools; A2A connects agents to each other. Where each one fits."
+          }
+        ]
+      },
+      {
+        "title": "Frameworks",
+        "steps": [
+          {
+            "v": "q0Q-Hy8TTps",
+            "t": "DSPy vs. LangGraph: AI Agent Frameworks Explained | Stanford CS329Z Lecture 5 with Michael Ryan",
+            "note": "What a framework gives you over a hand-written loop, compared on two very different ones."
+          },
+          {
+            "v": "UltwJqpNA04",
+            "t": "Tutorials 2-Live Getting Started With LangGraph For Building AI Agents",
+            "note": "LangGraph hands-on: state, nodes and edges, the most common way to build agents in Python."
+          },
+          {
+            "v": "I4vCp9cpsiI",
+            "t": "Python + Agents: Building your first agent in Python",
+            "note": "The same ideas with Microsoft Agent Framework, which you'll meet on Azure."
+          },
+          {
+            "v": "IVts6ztrkFg",
+            "t": "What are Deep Agents?",
+            "note": "Planning, sub-agents and a file system: what long-running agents like Claude Code and deep research have in common."
+          }
+        ]
+      },
+      {
+        "title": "Patterns and multi-agent orchestration",
+        "steps": [
+          {
+            "v": "JC_pLC5EX_w",
+            "t": "AI Agent Design Patterns: ReAct, CodeAct & More | Stanford CS329Z Lecture 6 with Michael Ryan",
+            "note": "The agent designs to know by name, and when each one is worth it."
+          },
+          {
+            "a": "b2c26e1a48",
+            "t": "Patterns for building LLM-based systems and products",
+            "note": "Evals, RAG, guardrails, caching and feedback: the patterns around the model that make a product work."
+          },
+          {
+            "v": "Mi5wOpAgixw",
+            "t": "Multi-agent Systems Explained in 17 Minutes",
+            "note": "Supervisors, hand-offs and teams of agents, in short."
+          },
+          {
+            "v": "TlX_ft_PQIM",
+            "t": "Multi-Agent Systems: When More Agents Help or Hurt | Stanford CS329Z Lecture 8 with Michael Ryan",
+            "note": "The honest version: when splitting work across agents pays off, and when one agent does better."
+          },
+          {
+            "v": "WtZbDrd-RJg",
+            "t": "Python + Agents: Orchestrating advanced multi-agent workflows",
+            "note": "Orchestration in code: sequential, concurrent, group chat and hand-off workflows."
+          },
+          {
+            "v": "7pGqASn-LEY",
+            "t": "Python + Agents: Adding a human in the loop to agentic workflows",
+            "note": "Let a person approve or correct an agent before it acts, which most workplace agents need."
+          }
+        ]
+      },
+      {
+        "title": "Evals and production",
+        "steps": [
+          {
+            "v": "-sL7QzDFW-4",
+            "t": "How to Evaluate (and Improve) Your LLM Apps",
+            "note": "How to tell whether your agent works: look at outputs, find the failure modes, then measure them."
+          },
+          {
+            "a": "0f9645b5cd",
+            "t": "About AI Evals",
+            "note": "Practical answers on evals from someone who has set them up at many companies."
+          },
+          {
+            "v": "3yS-G-NEBu8",
+            "t": "Python + Agents: Monitoring and evaluating agents",
+            "note": "Tracing, metrics and automated evaluation for agents once they run for real."
+          },
+          {
+            "v": "jrHRe9lSqqA",
+            "t": "What Is a Prompt Injection Attack?",
+            "note": "The security problem every agent with tools has, and the ways to limit the damage."
+          },
+          {
+            "v": "8kMaTybvDUw",
+            "t": "12-Factor Agents: Patterns of reliable LLM applications — Dex Horthy, HumanLayer",
+            "note": "Twelve rules for agents that hold up in production, from owning your prompts to small, focused agents."
+          },
+          {
+            "a": "1e8f08b110",
+            "t": "Agent design is still hard",
+            "note": "Lessons from building agents for real: caching, tool design, failure handling and why abstractions leak."
+          }
+        ]
+      },
+      {
+        "title": "Agents on Azure",
+        "steps": [
+          {
+            "v": "FStNpGPUSGY",
+            "t": "Learn Live: Fundamentals of AI agents on Azure",
+            "note": "The Azure pieces: Microsoft Foundry, the Agent Service and where they fit with what you learned above."
+          },
+          {
+            "v": "ExJXHCkeO4A",
+            "t": "Beyond Chatbots: Build Your First Production Agent with Microsoft Foundry",
+            "note": "From prototype to a production agent on Foundry, with tools, identity and monitoring."
+          },
+          {
+            "v": "WK2BvjOYTCQ",
+            "t": "AI-103 Develop AI Apps and Agents on Azure Study Cram",
+            "note": "Everything Azure offers for AI apps and agents in one whiteboard session, and prep for the AI-103 exam."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "kubernetes",
     "title": "Docker to Kubernetes",
     "level": "Beginner",
