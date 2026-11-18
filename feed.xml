@@ -5,62 +5,78 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-18T03:22:11Z</updated>
+  <updated>2026-11-18T23:35:25Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
-    <id>tag:nerdvana,2026:article:bd15b74bcd</id>
-    <title>Quad9's withdrawal from France: A canary in the coal mine</title>
-    <link href="https://blog.cloudflare.com/quad9-withdrawal-from-france/"/>
-    <updated>2026-11-17T20:24:27Z</updated>
-    <summary>Article · Cloudflare Blog · ▲ 341 on Hacker News · 9 min read
+    <id>tag:nerdvana,2026:article:b48326e6ee</id>
+    <title>Attackers Used Optimizely to A/B Test Malware on Top Websites</title>
+    <link href="https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/"/>
+    <updated>2026-11-18T02:52:04Z</updated>
+    <summary>Article · Krebs on Security · ▲ 53 on Hacker News · 5 min read
 
-Quad9's forced withdrawal from France highlights the dangers of mandating DNS-level blocking.</summary>
+At least 178 top web destinations unwittingly served a variety of malware exploits against visitors over the past 24 hours thanks to a security vulnerability involving Optimizely , a company that helps websites…</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:awjlMCCdqXw</id>
+    <title>▶ The Dark Side of China’s Perfect Cars</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=awjlMCCdqXw"/>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>Video · Mrwhosetheboss · 8.0M views · 27 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:KTDJiVpSDTI</id>
     <title>▶ Can You Trust MKBHD?</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=KTDJiVpSDTI"/>
-    <updated>2026-11-17T19:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 1.5M views · 14 min</summary>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>Video · Marques Brownlee · 2.8M views · 14 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:ddadc868c0</id>
+    <title>Advancing chip design with OpenAI models</title>
+    <link href="https://openai.com/index/advancing-chip-design-with-our-models/"/>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>Article · OpenAI · ▲ 141 on Hacker News
+
+OpenAI models optimized circuits used in Jalapeño silicon and improved RISC‑V core designs, showing progress in AI-assisted chip design with GPT‑6 Astra.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:bd15b74bcd</id>
+    <title>Quad9's withdrawal from France: A canary in the coal mine</title>
+    <link href="https://blog.cloudflare.com/quad9-withdrawal-from-france/"/>
+    <updated>2026-11-17T20:24:27Z</updated>
+    <summary>Article · Cloudflare Blog · ▲ 879 on Hacker News · 9 min read
+
+Quad9's forced withdrawal from France highlights the dangers of mandating DNS-level blocking.</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:9235aaac89</id>
     <title>GPT‑6.2 Astra and Sol</title>
     <link href="https://openai.com/index/introducing-gpt-6-2-astra-sol/"/>
     <updated>2026-11-17T17:45:00Z</updated>
-    <summary>Article · OpenAI · ▲ 1129 on Hacker News
+    <summary>Article · OpenAI · ▲ 1336 on Hacker News
 
 Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.</summary>
   </entry>
   <entry>
-    <id>tag:nerdvana,2026:video:awjlMCCdqXw</id>
-    <title>▶ The Dark Side of China’s Perfect Cars</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=awjlMCCdqXw"/>
-    <updated>2026-11-17T12:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 3.6M views · 27 min</summary>
-  </entry>
-  <entry>
     <id>tag:nerdvana,2026:video:ytmawkPTP24</id>
-    <title>▶ The $7 billion bug hiding inside Microsoft’s network...</title>
+    <title>▶ Microsoft just broke email for most of the planet...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=ytmawkPTP24"/>
     <updated>2026-11-17T00:00:00Z</updated>
-    <summary>Video · Fireship · 1.6M views · 6 min</summary>
+    <summary>Video · Fireship · 1.9M views · 6 min</summary>
   </entry>
   <entry>
-    <id>tag:nerdvana,2026:article:14bff1948c</id>
-    <title>Strengthening the fight against online child sexual abuse</title>
-    <link href="https://openai.com/index/strengthening-online-child-safety/"/>
-    <updated>2026-11-16T17:00:00Z</updated>
-    <summary>Article · OpenAI · ▲ 125 on Hacker News
-
-New tools, practical guidance, and partnerships will help prevent, detect and respond to online child sexual exploitation and abuse.</summary>
+    <id>tag:nerdvana,2026:video:SxFJ5QGNxwo</id>
+    <title>▶ IF ONLY SOMEBODY TOLD US ABOUT THE NVIDIA GPU SMUGGLING</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=SxFJ5QGNxwo"/>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <summary>Video · Gamers Nexus · 1.4M views · 44 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:PptRrzYY61w</id>
     <title>▶ The NVIDIA Scandal Goes Deeper than You Think</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=PptRrzYY61w"/>
     <updated>2026-11-16T00:00:00Z</updated>
-    <summary>Video · ColdFusion · 2.6M views · 26 min</summary>
+    <summary>Video · ColdFusion · 2.7M views · 26 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:e047ece727</id>
@@ -76,14 +92,16 @@ The Methods Behind How LLMs Represent Token Positions</summary>
     <title>▶ My Datacenter Evicted Me</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=u5UTIofKDGc"/>
     <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 2.5M views · 15 min</summary>
+    <summary>Video · Linus Tech Tips · 2.6M views · 15 min</summary>
   </entry>
   <entry>
-    <id>tag:nerdvana,2026:video:VEvzBhRyB94</id>
-    <title>▶ SpaceX Catches Starship for the First Time Ending Flight Test 15</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=VEvzBhRyB94"/>
-    <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Video · CNET · 1.7M views · 9 min</summary>
+    <id>tag:nerdvana,2026:article:ba1e55febf</id>
+    <title>Open-source AI without Jensen</title>
+    <link href="https://www.interconnects.ai/p/open-source-ai-without-jensen"/>
+    <updated>2026-11-14T12:23:15Z</updated>
+    <summary>Article · Interconnects · ▲ 27 on Hacker News · 7 min read
+
+The resignation of Nvidia CEO Jensen Huang is a major setback for the US development of an open model ecosystem. Nvidia still has the financial interests in supporting open models, which are to avoid concentration in…</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:YYU_geUwQoA</id>
@@ -103,10 +121,10 @@ We share recent results from Antigravity’s /teamwork multiagent systems, which
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:SOwUWPtXQ9I</id>
-    <title>▶ The backdoor that got banned GPUs into China...</title>
+    <title>▶ Jensen Huang just pulled out of Nvidia...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=SOwUWPtXQ9I"/>
     <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Video · Fireship · 2.3M views · 6 min</summary>
+    <summary>Video · Fireship · 2.4M views · 6 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:353f930cd0</id>
@@ -118,11 +136,20 @@ We share recent results from Antigravity’s /teamwork multiagent systems, which
 After decades of bickering about which molecules came first, a new generation of scientists is rethinking what life was, is, and could be.</summary>
   </entry>
   <entry>
+    <id>tag:nerdvana,2026:article:a2e9164a3f</id>
+    <title>Lean Grimoire</title>
+    <link href="https://terrytao.wordpress.com/2026/11/11/lean-grimoire/"/>
+    <updated>2026-11-12T02:36:00Z</updated>
+    <summary>Article · Terence Tao · ▲ 64 on Hacker News · 24 min read
+
+Back in July, I started experimenting with using modern coding agents to build a number of mathematical visualization applets. With the extremely hectic events of the last few months, I had to set …</summary>
+  </entry>
+  <entry>
     <id>tag:nerdvana,2026:video:hdMszZ2ah5Q</id>
     <title>▶ Macbook PROLED Review: It's Not About That</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=hdMszZ2ah5Q"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 6.2M views · 15 min</summary>
+    <summary>Video · Marques Brownlee · 6.4M views · 15 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:t62ZRncv2d4</id>
@@ -139,32 +166,5 @@ After decades of bickering about which molecules came first, a new generation of
     <summary>Article · Rust Blog · ▲ 904 on Hacker News · 9 min read
 
 The Rust team is happy to announce a new version of Rust, 1.100.0. Rust is a programming language empowering everyone to build reliable and efficient software.</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:4adcf70e1e</id>
-    <title>Talking Zen 6 with Mike Clark at AMD In-Depth</title>
-    <link href="https://chipsandcheese.com/p/talking-zen-6-with-mike-clark-at"/>
-    <updated>2026-11-11T22:22:57Z</updated>
-    <summary>Article · Chips and Cheese · ▲ 239 on Hacker News · 9 min read
-
-Hello you fine Internet folks, I sat down with AMD’s Mike Clark to talk about Zen 6, the evolution from Zen 5 and what some of the differences are between Zen 6 and Zen 6c and what drove some of those changes.</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:dde4f6cff7</id>
-    <title>AWS Emulator and the engineer's job when agents write the code</title>
-    <link href="https://www.allthingsdistributed.com/2026/11/aws-emulator-and-the-engineers-job-when-agents-write-the-code.html"/>
-    <updated>2026-11-11T14:30:00Z</updated>
-    <summary>Article · All Things Distributed · ▲ 111 on Hacker News · 7 min read
-
-AWS Emulator, launched today and written and tested entirely by agents, gives you a local copy of more than 200 AWS services to test against. Swami Sivasubramanian recalls the high-fidelity simulation his team built to…</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:4f916212e1</id>
-    <title>Lock Your GitHub Actions</title>
-    <link href="https://hugovk.dev/blog/2026/lock-github-actions/"/>
-    <updated>2026-11-11T12:19:08Z</updated>
-    <summary>Article · Hugo van Kemenade · ▲ 337 on Hacker News · 3 min read
-
-Because GitHub Actions are fetched from Git, the previous advice was to pin to a full SHA instead of a tag. This is because tags are mutable and susceptible to supply-chain attacks where an attacker points a previously…</summary>
   </entry>
 </feed>
