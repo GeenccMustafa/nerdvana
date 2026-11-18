@@ -5,30 +5,69 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-17T03:20:49Z</updated>
+  <updated>2026-11-18T03:22:11Z</updated>
   <author><name>Nerdvana</name></author>
+  <entry>
+    <id>tag:nerdvana,2026:article:bd15b74bcd</id>
+    <title>Quad9's withdrawal from France: A canary in the coal mine</title>
+    <link href="https://blog.cloudflare.com/quad9-withdrawal-from-france/"/>
+    <updated>2026-11-17T20:24:27Z</updated>
+    <summary>Article · Cloudflare Blog · ▲ 341 on Hacker News · 9 min read
+
+Quad9's forced withdrawal from France highlights the dangers of mandating DNS-level blocking.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:KTDJiVpSDTI</id>
+    <title>▶ Can You Trust MKBHD?</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=KTDJiVpSDTI"/>
+    <updated>2026-11-17T19:00:00Z</updated>
+    <summary>Video · Marques Brownlee · 1.5M views · 14 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:9235aaac89</id>
+    <title>GPT‑6.2 Astra and Sol</title>
+    <link href="https://openai.com/index/introducing-gpt-6-2-astra-sol/"/>
+    <updated>2026-11-17T17:45:00Z</updated>
+    <summary>Article · OpenAI · ▲ 1129 on Hacker News
+
+Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:awjlMCCdqXw</id>
+    <title>▶ The Dark Side of China’s Perfect Cars</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=awjlMCCdqXw"/>
+    <updated>2026-11-17T12:00:00Z</updated>
+    <summary>Video · Mrwhosetheboss · 3.6M views · 27 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:ytmawkPTP24</id>
+    <title>▶ The $7 billion bug hiding inside Microsoft’s network...</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=ytmawkPTP24"/>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <summary>Video · Fireship · 1.6M views · 6 min</summary>
+  </entry>
   <entry>
     <id>tag:nerdvana,2026:article:14bff1948c</id>
     <title>Strengthening the fight against online child sexual abuse</title>
     <link href="https://openai.com/index/strengthening-online-child-safety/"/>
     <updated>2026-11-16T17:00:00Z</updated>
-    <summary>Article · OpenAI · ▲ 108 on Hacker News
+    <summary>Article · OpenAI · ▲ 125 on Hacker News
 
 New tools, practical guidance, and partnerships will help prevent, detect and respond to online child sexual exploitation and abuse.</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:PptRrzYY61w</id>
-    <title>▶ The NVIDIA Scandal Just Opened a Can of Worms</title>
+    <title>▶ The NVIDIA Scandal Goes Deeper than You Think</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=PptRrzYY61w"/>
     <updated>2026-11-16T00:00:00Z</updated>
-    <summary>Video · ColdFusion · 2.3M views · 26 min</summary>
+    <summary>Video · ColdFusion · 2.6M views · 26 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:e047ece727</id>
     <title>Understanding Positional Embeddings in Modern LLMs</title>
     <link href="https://magazine.sebastianraschka.com/p/understanding-positional-embeddings"/>
     <updated>2026-11-15T12:10:37Z</updated>
-    <summary>Article · Sebastian Raschka · ▲ 244 on Hacker News · 41 min read
+    <summary>Article · Sebastian Raschka · ▲ 246 on Hacker News · 41 min read
 
 The Methods Behind How LLMs Represent Token Positions</summary>
   </entry>
@@ -37,7 +76,7 @@ The Methods Behind How LLMs Represent Token Positions</summary>
     <title>▶ My Datacenter Evicted Me</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=u5UTIofKDGc"/>
     <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 2.3M views · 15 min</summary>
+    <summary>Video · Linus Tech Tips · 2.5M views · 15 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:VEvzBhRyB94</id>
@@ -64,38 +103,40 @@ We share recent results from Antigravity’s /teamwork multiagent systems, which
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:SOwUWPtXQ9I</id>
-    <title>▶ Jensen Huang just pulled out of Nvidia...</title>
+    <title>▶ The backdoor that got banned GPUs into China...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=SOwUWPtXQ9I"/>
     <updated>2026-11-13T00:00:00Z</updated>
     <summary>Video · Fireship · 2.3M views · 6 min</summary>
   </entry>
   <entry>
-    <id>tag:nerdvana,2026:video:2mNYcFaNQi0</id>
-    <title>▶ NVIDIA CEO Resigns... What happens next?</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=2mNYcFaNQi0"/>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Video · JayzTwoCents · 1.1M views · 28 min</summary>
+    <id>tag:nerdvana,2026:article:353f930cd0</id>
+    <title>The Evolving Story of How Chemistry Became Biology</title>
+    <link href="https://www.quantamagazine.org/the-evolving-story-of-how-chemistry-became-biology-20261112/"/>
+    <updated>2026-11-12T15:45:27Z</updated>
+    <summary>Article · Quanta Magazine · ▲ 107 on Hacker News · 33 min read
+
+After decades of bickering about which molecules came first, a new generation of scientists is rethinking what life was, is, and could be.</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:hdMszZ2ah5Q</id>
     <title>▶ Macbook PROLED Review: It's Not About That</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=hdMszZ2ah5Q"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 6.1M views · 15 min</summary>
+    <summary>Video · Marques Brownlee · 6.2M views · 15 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:t62ZRncv2d4</id>
     <title>▶ Imagining A World Without Windows</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=t62ZRncv2d4"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 1.9M views · 20 min</summary>
+    <summary>Video · Linus Tech Tips · 2.0M views · 20 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:60e527769c</id>
     <title>Rust 1.100</title>
     <link href="https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/"/>
     <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Article · Rust Blog · ▲ 901 on Hacker News · 9 min read
+    <summary>Article · Rust Blog · ▲ 904 on Hacker News · 9 min read
 
 The Rust team is happy to announce a new version of Rust, 1.100.0. Rust is a programming language empowering everyone to build reliable and efficient software.</summary>
   </entry>
@@ -125,46 +166,5 @@ AWS Emulator, launched today and written and tested entirely by agents, gives yo
     <summary>Article · Hugo van Kemenade · ▲ 337 on Hacker News · 3 min read
 
 Because GitHub Actions are fetched from Git, the previous advice was to pin to a full SHA instead of a tag. This is because tags are mutable and susceptible to supply-chain attacks where an attacker points a previously…</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:fEjvSbI_PT4</id>
-    <title>▶ Dying Is Complicated</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=fEjvSbI_PT4"/>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <summary>Video · Kurzgesagt – In a Nutshell · 4.7M views · 14 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:1FurWDiK9A4</id>
-    <title>▶ Did Anthropic just save its $1 trillion IPO?</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=1FurWDiK9A4"/>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <summary>Video · Fireship · 1.6M views · 6 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:1223e6f131</id>
-    <title>Synaptics patent claims stop work on DisplayLink drivers</title>
-    <link href="https://lwn.net/SubscriberLink/1102549/acbc92e00cee3a3f/"/>
-    <updated>2026-11-10T18:02:02Z</updated>
-    <summary>Article · LWN.net · ▲ 492 on Hacker News · 18 min read
-
-Mike Lothian owns a docking station (or dock) that uses a DisplayLink chipset that had, at leas [...]</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:9832b40699</id>
-    <title>AMD's Zen 6 Family: Feeding the Beast</title>
-    <link href="https://chipsandcheese.com/p/amds-zen-6-family-feeding-the-beast"/>
-    <updated>2026-11-10T17:00:10Z</updated>
-    <summary>Article · Chips and Cheese · ▲ 275 on Hacker News · 10 min read
-
-Today we’re looking at AMD’s next-generation Zen 6 CPU core family. We’ll explore the changes from Zen 5 and what the differences between Zen 6 and Zen 6c tell us about AMD’s approach to microarchitecture.</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:4133c672fa</id>
-    <title>AlphaProof Code</title>
-    <link href="https://deepmind.google/blog/introducing-alphaproof-code/"/>
-    <updated>2026-11-10T12:00:00Z</updated>
-    <summary>Article · Google DeepMind · ▲ 679 on Hacker News
-
-AlphaProof Code agents wrote three million lines of proofs in Lean to verify Signal’s core encryption.</summary>
   </entry>
 </feed>
