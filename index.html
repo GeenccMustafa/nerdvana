@@ -92,6 +92,7 @@ select.chip { padding-right: 8px; }
 .nav-item[aria-current="true"], .ch-item[aria-current="true"] { background: var(--raise); font-weight: 600; }
 .nav-item[aria-current="true"] svg { color: var(--accent); }
 .side hr { border: 0; border-top: 1px solid var(--line); margin: 12px 4px; }
+.side-label { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--fg2); padding: 2px 12px 6px; }
 .tier-head { width: 100%; display: flex; align-items: center; gap: 10px; border: 0; background: none; padding: 14px 12px 6px; font: 700 14px var(--display); letter-spacing: -.01em; text-align: left; border-radius: 8px; }
 .tier-head .tier { width: 22px; height: 22px; font-size: 12px; border-radius: 6px; }
 .tier-head .sub { font: 500 11px var(--mono); color: var(--fg2); margin-left: auto; font-variant-numeric: tabular-nums; }
@@ -139,6 +140,10 @@ select.chip { padding-right: 8px; }
 .shelf h3 { margin: 0 0 12px; font: 700 17px var(--display); display: flex; align-items: baseline; gap: 10px; }
 .shelf h3 small { font: 400 12px var(--body); color: var(--fg2); }
 .shelf-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 260px); gap: 14px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: thin; }
+/* a focus section's courses: one scrollable row of path cards, blurbs cut to three lines so the row stays even */
+.hub-row { grid-auto-columns: minmax(250px, 290px); align-items: stretch; }
+.hub-row .path-card p:not(.by) { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.hub-row .path-card .bar { margin-top: auto; }
 
 /* Learning paths */
 .paths { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-bottom: 26px; }
@@ -366,6 +371,14 @@ body[data-mode="articles"] #tvBtn { display: none; }
     <button class="nav-item" type="button" data-view="time">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>I have X minutes</button>
     <hr>
+    <div class="side-label">Focus</div>
+    <button class="nav-item" type="button" data-view="agents">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V5M9 13v1M15 13v1M9.5 17h5"/><circle cx="12" cy="4" r="1"/></svg>AI agents<span class="n" id="hubN-agents"></span></button>
+    <button class="nav-item" type="button" data-view="langchain">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg>LangChain<span class="n" id="hubN-langchain"></span></button>
+    <button class="nav-item" type="button" data-view="azure">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.1 9.1 4.5 4.5 0 0 0 7 18z"/></svg>Azure<span class="n" id="hubN-azure"></span></button>
+    <hr>
     <button class="nav-item" type="button" data-view="later">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span id="laterLbl">Watch later</span><span class="n" id="laterN"></span></button>
     <button class="nav-item" type="button" data-view="history">
@@ -383,6 +396,7 @@ body[data-mode="articles"] #tvBtn { display: none; }
 
   <main class="wrap">
     <div class="context" id="context" hidden></div>
+    <section class="shelf" id="hubBox" hidden><h3 id="hubTitle"></h3><div class="shelf-row hub-row" id="hubRow"></div></section>
     <section class="shelf" id="shelf" hidden><h3 id="shelfTitle"></h3><div class="shelf-row" id="shelfRow"></div></section>
     <div class="paths" id="pathsGrid" hidden></div>
     <div class="course" id="courseBox" hidden></div>
@@ -477,7 +491,7 @@ const LBL = {
 const L = () => LBL[mode];
 let progress = store.get("progress", {});    // id -> { t: seconds watched, at: last watched (ms) }
 const saveProgress = () => store.set("progress", progress);
-const state = { q: "", view: "home", path: null, like: null, budget: 15, tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false };
+const state = { q: "", view: "home", path: null, like: null, budget: 15, tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false, facet: null };
 const TIERS = [["S", "Essential"], ["A", "Great"], ["B", "Worth a look"]];   // the sidebar groups
 // "D" (Discovered): found by keyword search (discover.py); kept out of the sidebar and the Home mix
 const TIER_NAME = { ...Object.fromEntries(TIERS), D: "Discovered" };
@@ -536,6 +550,9 @@ function updateCounts() {
   $("#laterN").textContent = n(later.filter(id => byId.has(id)).length);
   $("#newN").textContent = n(V.filter(isNew).length);
   $("#discN").textContent = n(V.filter(v => v.disc).length);
+  if (!V.length) return;
+  const hn = DS[mode].hubN ||= Object.fromEntries(Object.keys(HUBS).map(id => [id, V.filter(v => hubsOf(v).has(id)).length]));
+  for (const id in HUBS) $("#hubN-" + id).textContent = n(hn[id]);
 }
 function renderSide() {
   const cur = state.view === "path" || state.view === "course" ? "paths" : state.view;
@@ -562,12 +579,13 @@ function renderSide() {
 }
 // Sidebar selection: set view/tier/channel, refresh, close the drawer on phones, jump to top
 function pick(p) {
-  Object.assign(state, { view: "home", path: null, like: null, course: null }, p);
+  Object.assign(state, { view: "home", path: null, like: null, course: null, facet: null }, p);
   renderFilters(); apply(); setDrawer(false); scrollTo({ top: 0 }); syncHash();
 }
 document.querySelectorAll(".nav-item").forEach(b => b.onclick = () => pick({ view: b.dataset.view, tier: null, ch: null }));
 
-/* ---------- Shareable links: #v=ID&t=SEC, #c=handle, #tier=S, #path=id, #time=15, #picks, #new, #paths, #later, #history ---------- */
+/* ---------- Shareable links: #v=ID&t=SEC, #c=handle, #tier=S, #path=id, #time=15, #picks, #new, #paths, #later, #history,
+   #agents, #langchain, #azure (a focus section), with a facet: #agents&f=mcp ---------- */
 // Articles views carry a leading "read": #read, #read&new, #read&c=dan-luu, #read&like=ID
 function hashFor() {
   let h = "";
@@ -577,6 +595,7 @@ function hashFor() {
   else if (state.view === "like") h = `like=${state.like}`;
   else if (state.view === "course") h = `course=${encodeURIComponent(state.course)}`;
   else if (state.view === "time") h = `time=${state.budget}`;
+  else if (HUBS[state.view] && state.facet) h = `${state.view}&f=${state.facet}`;
   else if (state.view !== "home") h = state.view;
   const parts = [mode === "articles" ? "read" : "", h].filter(Boolean);
   return parts.length ? "#" + parts.join("&") : "";
@@ -595,7 +614,7 @@ function route() {
   setMode("videos", { quiet: true }); routeView(p);
 }
 function routeView(p) {
-  const next = { view: "home", path: null, like: null, tier: null, ch: null };
+  const next = { view: "home", path: null, like: null, tier: null, ch: null, facet: null };
   if (p.get("c")) { const i = CH.findIndex(c => c.h.toLowerCase() === p.get("c").toLowerCase()); if (i >= 0) next.ch = i; }
   else if (p.get("tier") && TIERS.some(t => t[0] === p.get("tier").toUpperCase())) next.tier = p.get("tier").toUpperCase();
   // old automatic paths now live on as curated ones (same id, or renamed)
@@ -604,7 +623,8 @@ function routeView(p) {
   else if (p.get("like") && byId.has(p.get("like"))) Object.assign(next, { view: "like", like: p.get("like") });
   else if (p.get("course")) Object.assign(next, { view: "course", course: p.get("course") });
   else if (p.has("time")) { next.view = "time"; state.budget = BUDGETS.includes(+p.get("time")) ? +p.get("time") : 15; }
-  else for (const k of ["picks", "new", "craft", "disc", "paths", "later", "history"]) if (p.has(k)) next.view = k;
+  else for (const k of ["picks", "new", "craft", "disc", ...Object.keys(HUBS), "paths", "later", "history"]) if (p.has(k)) next.view = k;
+  if (HUBS[next.view]?.facets.some(f => f[0] === p.get("f"))) next.facet = p.get("f");
   Object.assign(state, next); renderFilters(); apply(); syncHash();
 }
 
@@ -641,9 +661,16 @@ function ensureArticles() {
     A.V = d.articles.map(([id, t, c, w, pts, ts, url, desc, img, hn, cm], i) => ({ i, id, t, c, ch: A.CH[c], art: 1,
       d: w ? Math.max(1, Math.round(w / 230)) * 60 : 0, v: pts, ts, url: web(url) ? url : "#", desc, img: web(img) ? img : "", hn, cm, s: norm(t + " " + desc + " " + A.CH[c].n) }));
     A.byId = new Map(A.V.map(a => [a.id, a]));
-    for (const id of d.discovered || []) { const a = A.byId.get(id); if (a) a.disc = 1; }
+    markFound(d, A.byId);
     if (s && s.n === A.V.length && s.first === A.V[0]?.id) A.SIM = s.sim;
   }).catch(e => { DS.articles.ready = null; throw e; });
+}
+// What the keyword search found: disc (all of it, the Discovered view), craft (by the Code craft queries;
+// older data files only have "discovered") and hub (the focus sections whose queries found it)
+function markFound(d, byId) {
+  for (const id of d.discovered || []) { const x = byId.get(id); if (x) x.disc = 1; }
+  for (const id of d.craft || d.discovered || []) { const x = byId.get(id); if (x) x.craft = 1; }
+  for (const [h, ids] of Object.entries(d.hubs || {})) for (const id of ids) { const x = byId.get(id); if (x) (x.hub ||= []).push(h); }
 }
 // links.json connects videos and articles on the same topic; only valid for the exact data it was built from
 function ensureLinks() {
@@ -697,8 +724,14 @@ function renderContext() {
   } else if (state.view === "craft") {
     html = `<div class="txt"><h2>Code craft</h2><p>Writing and reading good code: code reviews, refactoring, clean code, testing, type hints, debugging, internals and the standard library · ${n} ${l.many}</p></div>`;
   } else if (state.view === "disc") {
-    html = `<div class="txt"><h2>Discovered</h2><p>Found by keyword search on ${A ? "Hacker News" : "YouTube"}, from ${A ? "sites" : "channels"} beyond the fixed list: Python's standard library, popular libraries, code review and reading code · ${n} ${l.many}</p></div>
+    html = `<div class="txt"><h2>Discovered</h2><p>Found by keyword search on ${A ? "Hacker News" : "YouTube"}, from ${A ? "sites" : "channels"} beyond the fixed list: Python's standard library, popular libraries, code review, reading code, AI agents, LangChain and Azure · ${n} ${l.many}</p></div>
       <a class="btn" href="https://github.com/GeenccMustafa/nerdvana/blob/main/discover.json" target="_blank" rel="noopener">Queries ↗</a>`;
+  } else if (HUBS[state.view]) { const h = HUBS[state.view], f = facetOf();
+    const count = re => hubAll.reduce((k, v) => k + re.test(facetText(v)), 0).toLocaleString("en-US");
+    html = `<div class="txt"><h2>${esc(h.name)}</h2><p>${esc(h.blurb)} · ${f ? `${n} of ${hubAll.length.toLocaleString("en-US")}` : n} ${l.many}</p>
+      <div class="group" style="margin-top:10px"><button class="chip" data-act="facet" data-f="" aria-pressed="${!f}">All</button>${h.facets.map(([id, label, re]) =>
+        `<button class="chip" data-act="facet" data-f="${id}" aria-pressed="${state.facet === id}">${esc(label)}<span class="n">${count(re)}</span></button>`).join("")}</div></div>
+      ${list.length && !A ? `<button class="btn primary" data-act="playall">Play in TV mode</button>` : ""}`;
   } else if (state.view === "paths") {
     html = `<div class="txt"><h2>Learning paths</h2><p>Hand-picked courses that take one topic from zero to solid, mixing the best videos and articles, step by step. Plus complete courses from YouTube creators, in their own order.</p></div>`;
   } else if (state.view === "course") { const c = COURSES.find(x => x.id === state.course), items = c ? courseItems(c) : [];
@@ -729,6 +762,7 @@ $("#context").addEventListener("click", e => {
   const b = e.target.closest("[data-act]"); if (!b) return;
   const a = b.dataset.act;
   if (a === "budget") { state.budget = +b.dataset.m; apply(); syncHash(); }
+  else if (a === "facet") { state.facet = b.dataset.f && state.facet !== b.dataset.f ? b.dataset.f : null; apply(); syncHash(); }
   else if (a === "reroll") apply();
   else if (a === "playall") startTV([...list]);
   else if (a === "allpaths") pick({ view: "paths" });
@@ -794,9 +828,90 @@ const CRAFT_RX = new RegExp([
 const craftMemo = new WeakMap();
 function isCraft(v) {
   let r = craftMemo.get(v);
-  if (r === undefined) { const c = v.ch || CH[v.c]; r = !!v.disc || !!c && CRAFT_TOPICS.has(c.topic) && v.d > 60 && CRAFT_RX.test(v.t); craftMemo.set(v, r); }
+  if (r === undefined) { const c = v.ch || CH[v.c]; r = !!v.craft || !!c && CRAFT_TOPICS.has(c.topic) && v.d > 60 && CRAFT_RX.test(v.t); craftMemo.set(v, r); }
   return r;
 }
+
+/* ---------- Focus sections: AI agents, LangChain, Azure ----------
+   A section holds everything on its subject: titles that match rx (from tech channels and blogs only, so a
+   "secret agent" in a science video stays out), every upload of the channels in chans, and what the
+   section's keyword search found (discover.json "hubs"). Facets are the chips that narrow it down;
+   they match the title (and an article's description). Courses with "hubs": [id] are shown on top. */
+const HUB_TOPICS = new Set(["Programming", "Web Dev", "AI & ML", "Data", "Cloud & DevOps", "Systems"]);
+const HUBS = {
+  agents: {
+    name: "AI agents",
+    blurb: "Agents, chatbots and agentic workflows: how agents work, tools and MCP, RAG and memory, frameworks, multi-agent orchestration, evals and production",
+    chans: ["langchain", "crewaiinc", "llamaindex", "arizeai"],
+    rx: /\bagent(s|ic)?\b|agentic|multi-?agent|lang ?(chain|graph|smith)|crew ?ai|autogen|semantic kernel|pydantic ?ai|llama ?index|smolagents|\bdspy\b|\bmcp\b|model context protocol|\ba2a\b|agent2agent|function[- ]calling|tool[- ](calling|use)|structured outputs?|\brag\b|retrieval[- ]augmented|vector (database|db|store|search)|graph ?rag|chat ?bots?|prompt engineering|context engineering|\b(llm|ai|agent) evals?\b|guardrails|\bn8n\b|flowise|langflow|copilot studio|claude code|\bcodex\b|computer use|browser use|deep research|responses api|assistants api/i,
+    not: /user[- ]agents?|ssh[- ]agent|agent pools?|jenkins|secret agents?|double agents?|free agents?|travel agents?|real estate|agent smith|agent 47/i,
+    facets: [
+      ["basics", "Basics", /what (is|are) (an? )?(ai )?agent|explained|intro(duction)? to|for beginners|beginner|\b101\b|fundamentals|crash course|from scratch|first agent|getting started|in \d+ minutes/i],
+      ["patterns", "Patterns", /patterns?\b|architectur|design|\breact\b(?![.\- ]?(js|native|hooks?|components?|router|query))|reflection|planning|planner|reasoning|workflows?|\bvs\.? |chain of thought|state machine|routing|harness|12-factor/i],
+      ["frameworks", "Frameworks", /lang ?(chain|graph)|crew ?ai|autogen|\bag2\b|semantic kernel|agent framework|agents? sdk|\badk\b|agent development kit|pydantic ?ai|llama ?index|smolagents|haystack|\bdspy\b|mastra|strands|\bagno\b|phidata|swarm|deep ?agents|bedrock agents|letta/i],
+      ["multi", "Multi-agent", /multi-?agents?|orchestrat|supervisor|swarm|hand-?offs?|\ba2a\b|agent2agent|agent-to-agent|crew|sub-?agents?|team of agents|agent teams?|hierarch|collaborat/i],
+      ["tools", "Tools & MCP", /\bmcp\b|model context protocol|\btools?\b|function[- ]calling|structured outputs?|\bjson\b|computer use|browser use|\bskills?\b|\bapis?\b/i],
+      ["rag", "RAG & memory", /\brag\b|retriev|vector|embedding|semantic search|knowledge (base|graph)|graph ?rag|memory|memories|chunking|rerank|context window|long context/i],
+      ["chatbots", "Chatbots & voice", /chat ?bots?|conversational|assistants?\b|customer (service|support)|support bot|voice|speech|real-?time|receptionist|chat (app|ui|with)|whatsapp|telegram|slack|discord/i],
+      ["evals", "Evals & production", /evals?\b|evaluat|observab|tracing|monitor|langsmith|langfuse|phoenix|guardrails?|safety|secur|prompt injection|production|deploy|reliab|scal(e|ing)\b|\bcost|latency|testing|debug|fail/i],
+      ["nocode", "No-code", /\bn8n\b|flowise|langflow|\bdify\b|make\.com|zapier|copilot studio|power automate|no[- ]code|low[- ]code|logic apps|\bvapi\b/i],
+      ["coding", "Coding agents", /claude code|\bcodex\b|cursor|copilot|coding agents?|\bcline\b|aider|devin|windsurf|vibe[- ]?cod|agentic (coding|engineering)|ai coding|spec[- ]driven|swe-?(agent|bench)/i],
+    ],
+  },
+  langchain: {
+    name: "LangChain",
+    blurb: "LangChain, LangGraph and LangSmith: chains and agents, stateful graphs, RAG, multi-agent systems, deep agents, tracing and evals",
+    chans: ["langchain"],
+    rx: /lang ?chain|lang ?graph|lang ?smith|langserve|\blcel\b|deep ?agents/i,
+    facets: [
+      ["langgraph", "LangGraph", /lang ?graph/i],
+      ["langchain", "LangChain", /lang ?chain|\blcel\b|\bchains?\b|prompt templates?|output parsers?/i],
+      ["langsmith", "LangSmith & evals", /lang ?smith|evals?\b|evaluat|tracing|observab|judge|datasets?\b/i],
+      ["agents", "Agents", /agent/i],
+      ["multi", "Multi-agent", /multi-?agents?|supervisor|swarm|hand-?offs?|orchestrat|sub-?agents?/i],
+      ["rag", "RAG & memory", /\brag\b|retriev|vector|embedding|memory|knowledge/i],
+      ["deep", "Deep agents", /deep ?agents|harness|middleware/i],
+      ["deploy", "Deploy", /deploy|production|platform|server|cloud|fleet|scal(e|ing)\b/i],
+      ["js", "JavaScript", /\bjs\b|javascript|typescript|next\.?js|node/i],
+    ],
+  },
+  azure: {
+    name: "Azure",
+    blurb: "Microsoft Azure from the basics to architecture: core services, certifications, Azure OpenAI and Microsoft Foundry, agents on Azure, networking, identity, data and DevOps",
+    chans: ["microsoftazure", "azuredevelopers", "adammarczakyt"],
+    rx: /\bazure\b|\baz[- ]?\d{3}\b|\bai[- ]?(900|901|102|103|200)\b|\bdp[- ]?(900|100|203|300|420|600|700)\b|\bsc[- ]?(900|100|200|300|401)\b|microsoft (foundry|entra|fabric|sentinel|defender|agent framework)|\bentra\b|\bbicep\b|cosmos ?db|semantic kernel|copilot studio|ai foundry|\baks\b/i,
+    facets: [
+      ["basics", "Basics", /fundamentals|for beginners|beginner|introduction|intro to|getting started|what is|explained|overview|tutorial|\b101\b|portal/i],
+      ["certs", "Certifications", /\b(az|ai|dp|sc|pl|ab|ms)[- ]?\d{3}\b|exam|certif|cram|study (guide|playlist)/i],
+      ["ai", "AI & agents", /\bai\b|openai|\bgpt|foundry|cognitive|ai search|document intelligence|copilot|agents?\b|semantic kernel|autogen|\brag\b|\bllms?\b|machine learning|\bml\b|prompt|speech|vision|\bmcp\b/i],
+      ["compute", "Compute & apps", /virtual machines?|\bvms?\b|functions?\b|app service|web apps?|containers?|\baks\b|kubernetes|serverless|scale sets?|\bbatch\b|static web apps|logic apps|durable|api management|\bapim\b|service bus|event grid|event hubs?|messaging|integration/i],
+      ["data", "Data & storage", /storage|blob|cosmos|\bsql\b|database|postgres|mysql|data factory|synapse|fabric|databricks|data lake|stream analytics|redis|\bdata\b/i],
+      ["network", "Networking", /network|vnet|subnet|\bdns\b|firewall|load balanc|front door|application gateway|private (link|endpoint)|expressroute|\bvpn\b|peering|\bnsg\b|traffic manager|\bcdn\b/i],
+      ["security", "Identity & security", /entra|active directory|\baad\b|identit|rbac|key vault|defender|sentinel|secur|conditional access|zero trust|governance|polic(y|ies)|privileged|\bpim\b|compliance/i],
+      ["devops", "DevOps & IaC", /devops|bicep|terraform|\barm\b|templates?|pipelines?|github actions|ci\/cd|landing zones?|\bazd\b|developer cli|infrastructure as code|\biac\b|deploy/i],
+      ["architecture", "Architecture & cost", /architect|well-architected|design|\bcost|pricing|finops|resilien|high availability|disaster recovery|backup|reliab|migrat|monitor|regions?\b/i],
+    ],
+  },
+};
+for (const h of Object.values(HUBS)) h.chans = new Set(h.chans);
+const hubMemo = new WeakMap();
+function hubsOf(v) {   // the ids of the focus sections a video or article is in
+  let r = hubMemo.get(v);
+  if (r) return r;
+  const c = v.ch || CH[v.c], tech = c && HUB_TOPICS.has(c.topic), h = (c?.h || "").toLowerCase();
+  r = new Set(v.hub);
+  for (const [id, x] of Object.entries(HUBS))
+    if (x.chans.has(h) || tech && x.rx.test(v.t) && !x.not?.test(v.t)) r.add(id);
+  hubMemo.set(v, r);
+  return r;
+}
+const facetText = v => v.desc ? v.t + " " + v.desc : v.t;
+const facetOf = () => HUBS[state.view]?.facets.find(f => f[0] === state.facet);
+// courses listed in a focus section, curated paths first, then by level
+const LEVELS = ["Beginner", "Intermediate", "Advanced", "All levels"];
+const hubCourses = id => COURSES.filter(c => c.hubs?.includes(id))
+  .sort((a, b) => !b.by - !a.by || LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
+let hubAll = [];   // the current section before the facet, for the facet counts
 // "I have X minutes": pack unwatched S/A videos (in a channel-balanced order) into the time budget
 function packBudget() {
   const cap = state.budget * 60;
@@ -818,6 +933,9 @@ function apply() {
   else if (view === "time") list = packBudget();
   else if (view === "new") { list = V.filter(v => isNew(v) && passes(v)); list.sort(by.new); }
   else if (view === "craft") { list = V.filter(v => isCraft(v) && passes(v)); sortList(); }
+  else if (HUBS[view]) { const f = facetOf();
+    hubAll = V.filter(v => hubsOf(v).has(view) && passes(v));
+    list = f ? hubAll.filter(v => f[2].test(facetText(v))) : [...hubAll]; sortList(); }
   else if (view === "disc") { list = V.filter(v => v.disc && passes(v)); sortList(); }
   else if (view === "picks") {
     // Each Essential channel's 15 most-viewed videos, dealt out evenly so no channel dominates
@@ -828,7 +946,7 @@ function apply() {
   // Discovered items (a video or two from many small channels) would flood the channel-balanced mix,
   // so outside Code craft they only show up in search, on their channel page and in "More like this"
   else { list = V.filter(v => passes(v) && (v.ch.t !== "D" || state.q || state.ch != null)); sortList(); }
-  renderContext(); renderPaths(); renderCourse(); renderShelf();
+  renderContext(); renderHub(); renderPaths(); renderCourse(); renderShelf();
   $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} ${L().many} · ${CH.filter(c => c.t !== "D").length} ${L().src}`;
   $("#grid").innerHTML = ""; shown = 0; more();
   const empty = { later: `Nothing saved yet. Use the bookmark button on any ${L().one} to keep it for later.`,
@@ -907,16 +1025,37 @@ function toggleLater(id) {
 function renderLaterBtn() { if (mode !== "videos") return; const on = later.includes(current.id); $("#pLater").setAttribute("aria-pressed", on); $("#pLater").textContent = on ? "Saved" : "Save"; }
 
 /* ---------- Learning paths ---------- */
+// each tile has the source-name tile underneath, so a missing or broken image still looks right
+const tile = v => `<span class="mt">${v.art ? `<span class="ph ${v.ch.t}"><b>${esc(v.ch.n)}</b></span>${v.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(v.img)}">` : ""}`
+  : `<img loading="lazy" alt="" src="${thumb(v.id)}">`}</span>`;
+function courseCard(c) {
+  const items = courseItems(c), done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0);
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "path-card";
+  const cover = [...items.filter(x => !x.art), ...items.filter(x => x.art)].slice(0, 4);   // videos first, articles fill the rest
+  b.innerHTML = `<div class="mosaic">${cover.map(tile).join("")}</div>
+    <span class="lvl">${esc(c.level)}</span><h3>${esc(c.title)}</h3>${c.by ? `<p class="by">by ${esc(c.by)}</p>` : ""}<p>${esc(c.blurb)}</p>
+    <div class="bar"><i style="width:${items.length ? done / items.length * 100 : 0}%"></i></div>
+    <div class="foot"><span>${items.length} steps · ${fmtMin(mins)}</span><span>${done}/${items.length} done</span></div>`;
+  b.onclick = () => pick({ view: "course", course: c.id });
+  return b;
+}
+// A focus section's courses, on one row above its videos (hidden while a facet or a search narrows the list)
+function renderHub() {
+  const box = $("#hubBox"), cs = HUBS[state.view] && !state.facet && !state.q ? hubCourses(state.view) : [];
+  box.hidden = !cs.length;
+  if (box.hidden) return;
+  // curated paths have article steps: count them once the article data is in
+  if (!DS.articles.V.length && cs.some(c => !c.by)) ensureArticles().then(() => HUBS[state.view] && renderHub()).catch(() => {});
+  $("#hubTitle").innerHTML = `Courses <small>${cs.length} complete playlists and paths, in order, with your progress</small>`;
+  $("#hubRow").replaceChildren(...cs.map(courseCard));
+}
 function renderPaths() {
   const box = $("#pathsGrid");
   box.hidden = state.view !== "paths";
   if (box.hidden) return;
   box.innerHTML = "";
   if (COURSES.length && !DS.articles.V.length) { ensureArticles().then(() => state.view === "paths" && renderPaths()).catch(() => {}); }
-  // each tile has the source-name tile underneath, so a missing or broken image still looks right
-  const tile = v => `<span class="mt">${v.art ? `<span class="ph ${v.ch.t}"><b>${esc(v.ch.n)}</b></span>${v.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(v.img)}">` : ""}`
-    : `<img loading="lazy" alt="" src="${thumb(v.id)}">`}</span>`;
-  const LEVELS = ["Beginner", "Intermediate", "Advanced", "All levels"];
   const byLevel = (a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level);
   // creator courses are grouped by topic, the biggest topics first
   const tn = {}; for (const c of COURSES) if (c.by) tn[c.topic] = (tn[c.topic] || 0) + 1;
@@ -928,16 +1067,7 @@ function renderPaths() {
       if (lastTopic === null) box.insertAdjacentHTML("beforeend", `<div class="paths-head creators">Courses by creators <small>complete YouTube playlists, in the creator's order</small></div>`);
       lastTopic = c.topic; box.insertAdjacentHTML("beforeend", `<div class="paths-head sub">${esc(c.topic || "More")}</div>`); }
     if (c.level !== lastLevel && !c.by) { lastLevel = c.level; box.insertAdjacentHTML("beforeend", `<div class="paths-head">${esc(c.level)}</div>`); }
-    const items = courseItems(c), done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0);
-    const b = document.createElement("button");
-    b.type = "button"; b.className = "path-card";
-    const cover = [...items.filter(x => !x.art), ...items.filter(x => x.art)].slice(0, 4);   // videos first, articles fill the rest
-    b.innerHTML = `<div class="mosaic">${cover.map(tile).join("")}</div>
-      <span class="lvl">${esc(c.level)}</span><h3>${esc(c.title)}</h3>${c.by ? `<p class="by">by ${esc(c.by)}</p>` : ""}<p>${esc(c.blurb)}</p>
-      <div class="bar"><i style="width:${items.length ? done / items.length * 100 : 0}%"></i></div>
-      <div class="foot"><span>${items.length} steps · ${fmtMin(mins)}</span><span>${done}/${items.length} done</span></div>`;
-    b.onclick = () => pick({ view: "course", course: c.id });
-    box.append(b);
+    box.append(courseCard(c));
   }
   if (COURSES.length && PATHS.length) box.insertAdjacentHTML("beforeend", `<div class="paths-head">More paths <small>picked automatically, being replaced by curated ones</small></div>`);
   for (const p of PATHS) {
@@ -1256,7 +1386,7 @@ Promise.all([
   CH = d.channels; PATHS = paths; DS.videos.PATHS = paths;
   V = d.videos.map(([id, t, c, dur, v, ts], i) => ({ i, id, t, c, ch: CH[c], d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
   byId = new Map(V.map(v => [v.id, v]));
-  for (const id of d.discovered || []) { const v = byId.get(id); if (v) v.disc = 1; }
+  markFound(d, byId);
   Object.assign(DS.videos, { CH, V, byId });
   if (!startOnArticles) { renderFilters(); apply(); }
   route();

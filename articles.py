@@ -341,11 +341,17 @@ def build(srcs, cache):
             rows.append([aid, title, remap[si], words, h.get("points", 0), ts or 0, r["url"], shorten(desc),
                          (p.get("img") or "") if generic_img[si][p.get("img")] <= 2 and re.match(r"https?://", p.get("img") or "") else "", h.get("hn", 0), h.get("comments", 0)])
     disc = [si for si, s in enumerate(srcs) if s.get("discover")]
-    found = set()
+    found = {}   # article id -> the query groups that found it ("python", "general" or a hub name)
     if disc and (RAW / "discovered.json").exists():
-        found = {hashlib.sha1(norm_url(h["url"]).encode()).hexdigest()[:10]
+        found = {hashlib.sha1(norm_url(h["url"]).encode()).hexdigest()[:10]: h.get("groups") or ["python"]
                  for h in json.loads((RAW / "discovered.json").read_text())["hn"]}
-    out = {"sources": sources, "articles": rows, "discovered": [r[0] for r in rows if r[0] in found]}
+    hubs = {}
+    for r in rows:
+        for g in found.get(r[0], ()):
+            if g not in ("python", "general"):
+                hubs.setdefault(g, []).append(r[0])
+    out = {"sources": sources, "articles": rows, "discovered": [r[0] for r in rows if r[0] in found],
+           "craft": [r[0] for r in rows if {"python", "general"} & set(found.get(r[0], ()))], "hubs": hubs}
     (ROOT / "articles.json").write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")))
     n_desc = sum(bool(r[7]) for r in rows)
     print(f"articles.json: {len(sources)} sources, {len(rows)} articles ({n_desc} with a description, "
