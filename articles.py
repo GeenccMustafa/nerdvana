@@ -315,7 +315,9 @@ def build(srcs, cache):
                 generic_img[si][c["img"]] += 1
     keep = [si for si, recs in per_src.items() if len(recs) >= MIN_ARTICLES]
     keep.sort(key=lambda si: (TIER_ORDER[srcs[si]["tier"]], -sum(r["hn"].get("points", 0) for r in per_src[si])))
-    keep = sorted(keep[:MAX_SOURCES])
+    # the keyword-search source ranks last (tier D), so it doesn't use up one of the MAX_SOURCES slots
+    disc_src = [si for si in keep if srcs[si].get("discover")]
+    keep = sorted([si for si in keep if not srcs[si].get("discover")][:MAX_SOURCES] + disc_src)
     remap = {si: i for i, si in enumerate(keep)}
     sources, rows, seen_ids = [], [], set()
     for si in keep:
