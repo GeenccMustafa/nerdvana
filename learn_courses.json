@@ -1,5 +1,5 @@
 {
- "_about": "Official Microsoft Learn certification courses, built into learn.json by learn.py. Each course follows its Learn course (course: the course number) path by path and module by module; every unit that has a video becomes a step. exam: Microsoft Learn's own exam-prep playlist on YouTube (fetched by fetch.py) and cram: a study-cram video, both added as a last 'Exam prep' section. hubs: the focus sections the course shows up in.",
+ "_about": "Official Microsoft Learn certification courses, built into learn.json by learn.py. Each course follows its Learn course (course: the course number) path by path and module by module; every unit becomes a step: its video plays in Nerdvana, a unit without one opens on Learn. exam: Microsoft Learn's own exam-prep playlist on YouTube (fetched by fetch.py) and cram: a study-cram video, both added as a last 'Exam prep' section. hubs: the focus sections the course shows up in.",
  "courses": [
   {
    "course": "AZ-900T00",
@@ -116,6 +116,15 @@
    "blurb": "AI-enabled database solutions: design and develop databases, secure, optimize and deploy them, and build AI capabilities like vector search into them."
   },
   {
+   "course": "SC-500T00",
+   "level": "Associate",
+   "cert": "Cloud and AI Security Engineer Associate",
+   "hubs": [
+    "azure"
+   ],
+   "blurb": "Security controls for cloud and AI workloads end to end: identity and access, networks, compute, data, AI apps and agents, and security operations."
+  },
+  {
    "course": "AZ-305T00",
    "level": "Expert",
    "cert": "Azure Solutions Architect Expert",
@@ -135,6 +144,26 @@
     "agents"
    ],
    "blurb": "Production-grade multi-agent AI on Azure: architecture, building with Microsoft Foundry, deployment and governance, then monitoring and evaluation."
+  },
+  {
+   "course": "AZ-400T00",
+   "level": "Expert",
+   "cert": "DevOps Engineer Expert",
+   "hubs": [
+    "azure"
+   ],
+   "exam": "PLahhVEj9XNTd9I9KnYEwKm4g-wc6dIG4-",
+   "blurb": "DevOps with GitHub and Azure DevOps: processes and communication, source control, build and release pipelines, security and compliance, and instrumentation."
+  },
+  {
+   "course": "AB-100T00",
+   "level": "Expert",
+   "cert": "Agentic AI Business Solutions Architect Expert",
+   "hubs": [
+    "azure",
+    "agents"
+   ],
+   "blurb": "Architect agentic AI business solutions: plan, design and govern agents across Microsoft's AI platforms."
   }
  ]
 }
