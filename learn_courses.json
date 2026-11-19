@@ -1,0 +1,140 @@
+{
+ "_about": "Official Microsoft Learn certification courses, built into learn.json by learn.py. Each course follows its Learn course (course: the course number) path by path and module by module; every unit that has a video becomes a step. exam: Microsoft Learn's own exam-prep playlist on YouTube (fetched by fetch.py) and cram: a study-cram video, both added as a last 'Exam prep' section. hubs: the focus sections the course shows up in.",
+ "courses": [
+  {
+   "course": "AZ-900T00",
+   "level": "Fundamentals",
+   "cert": "Azure Fundamentals",
+   "hubs": [
+    "azure"
+   ],
+   "cram": "tQp1YkB2Tgs",
+   "blurb": "Cloud concepts and the core of Azure: compute, networking, storage, identity, governance and cost."
+  },
+  {
+   "course": "AI-901T00",
+   "level": "Fundamentals",
+   "cert": "Azure AI Fundamentals",
+   "hubs": [
+    "azure",
+    "agents"
+   ],
+   "cram": "a-yuXz_uV30",
+   "blurb": "AI on Azure from the ground up: generative AI and agents in Microsoft Foundry, text, speech, vision and information extraction."
+  },
+  {
+   "course": "DP-900T00",
+   "level": "Fundamentals",
+   "cert": "Azure Data Fundamentals",
+   "hubs": [
+    "azure"
+   ],
+   "cram": "0gtpasITVnk",
+   "blurb": "Core data concepts, relational and non-relational data on Azure, and analytics."
+  },
+  {
+   "course": "AZ-104T00",
+   "level": "Associate",
+   "cert": "Azure Administrator Associate",
+   "hubs": [
+    "azure"
+   ],
+   "exam": "PLahhVEj9XNTcFnkx03XSK9TUkhzG3YTS_",
+   "cram": "0Knf9nub4-k",
+   "blurb": "Run Azure day to day: identities and governance, storage, virtual networks, compute, and monitoring and backup."
+  },
+  {
+   "course": "AI-103T00",
+   "level": "Associate",
+   "cert": "Azure AI Apps and Agents Developer Associate",
+   "hubs": [
+    "azure",
+    "agents"
+   ],
+   "exam": "PLPeyjdVd6jr8",
+   "cram": "WK2BvjOYTCQ",
+   "blurb": "Build generative AI apps and agents with Microsoft Foundry: tools and MCP, Foundry IQ knowledge, Agent Framework, multi-agent orchestration and A2A, speech and vision."
+  },
+  {
+   "course": "AI-200T00",
+   "level": "Associate",
+   "cert": "Azure AI Cloud Developer Associate",
+   "hubs": [
+    "azure",
+    "agents"
+   ],
+   "exam": "PLZYrjOoyXM30",
+   "blurb": "The cloud side of AI apps: containers, Azure Container Apps and AKS, Cosmos DB, PostgreSQL and Redis for AI, backend integration, and observability."
+  },
+  {
+   "course": "AI-300T00",
+   "level": "Associate",
+   "cert": "Machine Learning Operations Engineer Associate",
+   "hubs": [
+    "azure"
+   ],
+   "blurb": "MLOps and GenAIOps on Azure: put machine learning models and generative AI apps into production, then evaluate, monitor and improve them."
+  },
+  {
+   "course": "AZ-700T00",
+   "level": "Associate",
+   "cert": "Azure Network Engineer Associate",
+   "hubs": [
+    "azure"
+   ],
+   "exam": "PLahhVEj9XNTcOGFddOIkbWvVMfw8PMOx1",
+   "blurb": "Azure networking in depth: virtual networks, hybrid connections, load balancing, private access and network security."
+  },
+  {
+   "course": "DP-300T00",
+   "level": "Associate",
+   "cert": "Azure Database Administrator Associate",
+   "hubs": [
+    "azure"
+   ],
+   "exam": "PLahhVEj9XNTdjA6OC_XDMZnUS_uIbmUIZ",
+   "blurb": "Azure SQL: plan, secure, monitor, tune, automate and keep databases highly available."
+  },
+  {
+   "course": "DP-420T00",
+   "level": "Associate",
+   "cert": "Azure Cosmos DB AI Developer Associate",
+   "hubs": [
+    "azure",
+    "agents"
+   ],
+   "blurb": "AI applications on Azure Cosmos DB: design and develop with the NoSQL API, then secure, optimize and deploy, and add vector search and AI capabilities."
+  },
+  {
+   "course": "DP-800T00",
+   "level": "Associate",
+   "cert": "SQL AI Developer Associate",
+   "hubs": [
+    "azure",
+    "agents"
+   ],
+   "blurb": "AI-enabled database solutions: design and develop databases, secure, optimize and deploy them, and build AI capabilities like vector search into them."
+  },
+  {
+   "course": "AZ-305T00",
+   "level": "Expert",
+   "cert": "Azure Solutions Architect Expert",
+   "hubs": [
+    "azure"
+   ],
+   "exam": "PLahhVEj9XNTfwP-ZMX4BIlx2fPZeVjKrv",
+   "cram": "vq9LuCM4YP4",
+   "blurb": "Design on Azure: identity, governance and monitoring, data storage, business continuity and infrastructure."
+  },
+  {
+   "course": "AI-500T00",
+   "level": "Expert",
+   "cert": "Multi-Agent AI Solutions Expert",
+   "hubs": [
+    "azure",
+    "agents"
+   ],
+   "blurb": "Production-grade multi-agent AI on Azure: architecture, building with Microsoft Foundry, deployment and governance, then monitoring and evaluation."
+  }
+ ]
+}
