@@ -65,7 +65,8 @@ jobs:
         run: python3 fetch.py --force
 
       # Official Microsoft Learn certification courses (learn_courses.json): unit videos hosted by Microsoft,
-      # plus the exam-prep playlists fetch.py just fetched. If Learn fails, the current learn.json stays.
+      # plus the exam-prep playlists fetch.py just fetched. learn.py rebuilds once a week (it skips while
+      # learn.json is under 6 days old); if Learn fails, the current learn.json stays and the next run retries.
       - name: Build the Microsoft Learn courses
         run: python3 learn.py || echo "::warning::Microsoft Learn courses not rebuilt; keeping the current learn.json."
 

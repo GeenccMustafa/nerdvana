@@ -1,13 +1,18 @@
 """Build learn.json: official Microsoft Learn certification courses with their unit videos.
 
-Usage: python3 learn.py           # keeps the current learn.json if the new one lost more than 10% of its videos
-       python3 learn.py --force
+Usage: python3 learn.py           # once a week: does nothing if learn.json was built less than 6 days ago
+       python3 learn.py --force   # rebuild now, and accept a learn.json that lost more than 10% of its videos
+
+Learn is read gently (a few requests at a time, waiting and retrying when it asks to slow down). A module
+whose pages can't be read keeps what the last learn.json had for it, so a bad run never drops a course;
+if most of them can't be read, nothing is written and the next run tries again.
 
 learn_courses.json lists the courses. For each one, the Learn catalog API gives its learning paths and
 modules; every module page lists its units, and a unit page embeds its video (hosted by Microsoft, not
 on YouTube). The video API gives each video's length, its MP4 and its English captions.
 
 learn.json:
+  built    the date it was built (YYYY-MM-DD)
   modules  [module title]
   videos   [[id, unit title, seconds, module index, unit, mp4, captions]]   id = "ml-" + Learn video id. To keep the
            file small, unit is the unit's url after UNIT_BASE, and mp4/captions the file name after
@@ -18,7 +23,7 @@ learn.json:
 
 Video metadata never changes for an id, so it's cached in .cache/learn_videos.json.
 """
-import json, re, sys, html, urllib.request
+import collections, datetime, html, json, re, sys, time, urllib.error, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -29,7 +34,10 @@ CATALOG = "https://learn.microsoft.com/api/catalog/?locale=en-us&type=courses,le
 VIDEO_API = "https://learn.microsoft.com/api/video/public/v1/entries/"
 VID = re.compile(r'learn-video\.azurefd\.net/vod/player\?id=([0-9a-f-]{36})')
 UNIT = re.compile(r'<a class="unit-title[^"]*" href="(\d+-[a-z0-9-]+)"[^>]*>([^<]+)</a>')
-UA = {"User-Agent": "nerdvana-learn/1.0"}
+UA = {"User-Agent": "Mozilla/5.0 (compatible; nerdvana-learn/1.1)"}
+WORKERS = 3          # requests in flight at once
+MAX_AGE_DAYS = 6
+errors = collections.Counter()   # why requests failed, printed at the end
 UNIT_BASE = "https://learn.microsoft.com/en-us/training/modules/"
 MEDIA_BASE = "https://videoencodingpublic-hgeaeyeba8gycee3.b01.azurefd.net/"
 
@@ -38,27 +46,51 @@ def short(url, base):
     return url[len(base):] if url.startswith(base) else url
 
 
-def get(url, tries=3):
-    for _ in range(tries):
+def get(url, tries=5):
+    """The page, or None. Waits and retries on errors, longer when Learn asks to slow down (429/503)."""
+    for k in range(tries):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
                 return r.read().decode("utf8", "replace")
-        except Exception:
-            pass
+        except urllib.error.HTTPError as e:
+            errors[f"HTTP {e.code}"] += 1
+            if e.code == 404:
+                return None
+            wait = e.headers.get("Retry-After", "")
+            time.sleep(min(int(wait), 120) if wait.isdigit() else 2 ** (k + 1))
+        except Exception as e:
+            errors[type(e).__name__] += 1
+            time.sleep(2 ** (k + 1))
     return None
 
 
 def scan_module(m):
-    """[(unit title, unit url, [video ids])] for a module, or None if its page couldn't be read."""
+    """[(unit title, unit url, [video ids])] for a module, or None if any of its pages couldn't be read."""
     base = m["url"].split("?")[0]
     page = get(base)
     if page is None:
         return m["uid"], None
     units = []
     for slug, title in dict.fromkeys(UNIT.findall(page)):
-        body = get(base + slug) or ""
+        body = get(base + slug)
+        if body is None:
+            return m["uid"], None
         units.append((html.unescape(title).strip(), base + slug, list(dict.fromkeys(VID.findall(body)))))
-    return m["uid"], units
+    return m["uid"], units or None
+
+
+def previous_units(old):
+    """{module title: units} and {video id: metadata} from the last learn.json, to fill in modules that
+    couldn't be read this time."""
+    by_mod, meta = collections.defaultdict(dict), {}
+    for sid, title, dur, mi, unit, mp4, cc in old.get("videos", []):
+        vid, media = sid[3:], f"{MEDIA_BASE}public-{sid[3:]}/"
+        full = lambda u, base: u if not u or u.startswith("https://") else base + u
+        url = full(unit, UNIT_BASE)
+        t, vs = by_mod[old["modules"][mi]].setdefault(url, (re.sub(r" \(\d+\)$", "", title), []))
+        vs.append(vid)
+        meta[vid] = {"dur": dur, "mp4": full(mp4, media), "cc": full(cc, media)}
+    return {m: [(t, u, vs) for u, (t, vs) in us.items()] for m, us in by_mod.items()}, meta
 
 
 def video_meta(vid):
@@ -82,6 +114,10 @@ def exam_ids(pid):
 
 
 def main():
+    old = json.loads((ROOT / "learn.json").read_text()) if (ROOT / "learn.json").exists() else {}
+    age = (datetime.date.today() - datetime.date.fromisoformat(old.get("built", "2000-01-01"))).days
+    if "--force" not in sys.argv and age < MAX_AGE_DAYS:
+        print(f"learn.json is {age} days old; rebuilt once a week (--force to rebuild now)"); return
     cfg = json.loads((ROOT / "learn_courses.json").read_text())["courses"]
     cat = json.loads(get(CATALOG) or "{}")
     if not cat.get("courses"):
@@ -99,22 +135,29 @@ def main():
         plan.append((c, lc, [(p, [mods[m] for m in p.get("modules", []) if m in mods]) for p in paths]))
 
     needed = {m["uid"]: m for _, _, paths in plan for _, ms in paths for m in ms}
-    with ThreadPoolExecutor(8) as ex:
+    with ThreadPoolExecutor(WORKERS) as ex:
         units = dict(ex.map(scan_module, needed.values()))
-    failed = [u for u, x in units.items() if x is None]
-    if len(failed) > 0.1 * len(units):
-        sys.exit(f"{len(failed)} of {len(units)} module pages couldn't be read; keeping the current learn.json")
-
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
+    prev_units, prev_meta = previous_units(old)
+    for vid, meta in prev_meta.items():
+        cache.setdefault(vid, meta)
+    failed = [u for u, x in units.items() if x is None]
+    print(f"{len(needed)} modules: {len(needed) - len(failed)} read, {len(failed)} couldn't be read; "
+          f"failed requests: {dict(errors) or 'none'}")
+    # mostly unreadable: Learn is blocking or down, so try again next run instead of marking this week as done
+    if len(failed) > (0.5 if old else 0.1) * len(units):
+        sys.exit("Too many modules couldn't be read; keeping the current learn.json")
+    for u in failed:   # as in the last build (a module missing there had no videos)
+        units[u] = prev_units.get(needed[u]["title"], [])
     want = {v for us in units.values() if us for _, _, vs in us for v in vs}
-    with ThreadPoolExecutor(8) as ex:
+    with ThreadPoolExecutor(WORKERS) as ex:
         for vid, meta in ex.map(video_meta, [v for v in want if v not in cache]):
             if meta:
                 cache[vid] = meta
     CACHE.parent.mkdir(exist_ok=True)
     CACHE.write_text(json.dumps(cache))
 
-    last = {c["id"]: c["sections"] for c in json.loads((ROOT / "learn.json").read_text())["courses"]} if (ROOT / "learn.json").exists() else {}
+    last = {c["id"]: c["sections"] for c in old.get("courses", [])}
     modules, mod_ix, videos, seen, out = [], {}, [], set(), []
     for c, lc, paths in plan:
         code = c["course"].split("T")[0]
@@ -151,15 +194,13 @@ def main():
         print(f"{code:7} {len(paths)} paths, {len(sections) - bool(prep)} modules with video, {nv} videos, "
               f"{sum(cache[s['id'][3:]]['dur'] for sec in sections for s in sec['steps'] if s['id'].startswith('ml-')) / 3600:.1f} h")
 
-    prev = ROOT / "learn.json"
-    if prev.exists() and "--force" not in sys.argv:
-        old = json.loads(prev.read_text())
+    if old and "--force" not in sys.argv:
         if len(videos) < 0.9 * len(old["videos"]) or len(out) < len(old["courses"]) - 1:
             sys.exit(f"Only {len(out)} courses and {len(videos)} videos (now {len(old['courses'])} and {len(old['videos'])}); "
                      "Learn may be failing, keeping the current learn.json. Run with --force to accept it.")
-    (ROOT / "learn.json").write_text(json.dumps({"modules": modules, "videos": videos, "courses": out},
+    (ROOT / "learn.json").write_text(json.dumps({"built": datetime.date.today().isoformat(), "modules": modules, "videos": videos, "courses": out},
                                                 ensure_ascii=False, separators=(",", ":")))
-    print(f"learn.json: {len(out)} courses, {len(videos)} videos, {len(failed)} module pages unread")
+    print(f"learn.json: {len(out)} courses, {len(videos)} videos")
 
 
 if __name__ == "__main__":
