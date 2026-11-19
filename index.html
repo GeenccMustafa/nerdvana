@@ -65,6 +65,7 @@ header { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, v
 .search input { border: 0; background: transparent; outline: none; height: 38px; width: 100%; min-width: 0; }
 .search kbd { font: 11px var(--mono); color: var(--fg2); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
 .actions { display: flex; gap: 8px; }
+a.btn { color: inherit; text-decoration: none; }
 .btn { height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
 .btn:hover { border-color: var(--fg2); }
 .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); font-weight: 600; }
@@ -300,7 +301,13 @@ body[data-mode="articles"] #tvBtn { display: none; }
 .course-sec { margin: 0 0 26px; }
 .course-path { margin: 34px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--fg2); }
 .course-path:first-child { margin-top: 0; }
-.course-sec h3 { margin: 0 0 10px; font: 700 18px var(--display); display: flex; align-items: baseline; gap: 10px; }
+.course-sec .mod-link { margin-left: auto; font: 500 12.5px var(--body); color: var(--fg2); text-decoration: none; white-space: nowrap; }
+.course-sec .mod-link:hover { color: var(--fg); text-decoration: underline; }
+.step-wrap { position: relative; }
+.step-wrap .step { padding-right: 84px; }
+.step-learn { position: absolute; right: 12px; top: 14px; font: 500 12px var(--body); color: var(--fg2); text-decoration: none; padding: 4px 9px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); }
+.step-learn:hover { color: var(--fg); border-color: var(--fg2); }
+.course-sec h3 { margin: 0 0 10px; font: 700 18px var(--display); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
 .course-sec h3 small { font: 400 12px var(--mono); color: var(--fg2); }
 .step { display: grid; grid-template-columns: 30px 176px minmax(0, 1fr); gap: 14px; align-items: start; width: 100%; padding: 10px; border: 0; border-radius: 12px; background: none; text-align: left; color: inherit; text-decoration: none; }
 .step:hover { background: var(--raise); }
@@ -742,18 +749,20 @@ function renderContext() {
       <div class="group" style="margin-top:10px"><button class="chip" data-act="facet" data-f="" aria-pressed="${!f}">All</button>${h.facets.map(([id, label, re]) =>
         `<button class="chip" data-act="facet" data-f="${id}" aria-pressed="${state.facet === id}">${esc(label)}<span class="n">${count(re)}</span></button>`).join("")}</div></div>
       ${list.length && !A ? `<button class="btn primary" data-act="playall">Play in TV mode</button>` : ""}`;
-  } else if (state.view === "certs") { const cs = COURSES.filter(isCert), nv = cs.reduce((k, c) => k + courseItems(c).length, 0);
-    html = `<div class="txt"><h2>Azure certifications</h2><p>Microsoft Learn's official course for each certification, path by path and module by module: the video of every unit in order, then the exam prep. The reading, exercises and knowledge checks are a click away on Learn. · ${cs.length} courses · ${nv.toLocaleString("en-US")} videos</p></div>
+  } else if (state.view === "certs") { const cs = COURSES.filter(isCert), all = cs.flatMap(courseItems), nv = all.filter(x => !x.art).length;
+    html = `<div class="txt"><h2>Azure certifications</h2><p>Microsoft Learn's official course for each certification, path by path and module by module, every unit in order, then the exam prep. Videos play here; reading, exercises and knowledge checks open on Learn, which tracks your progress when you're signed in with a Microsoft account. · ${cs.length} courses · ${nv.toLocaleString("en-US")} videos · ${(all.length - nv).toLocaleString("en-US")} pages on Learn</p></div>
       <a class="btn" href="https://learn.microsoft.com/en-us/credentials/browse/?products=azure" target="_blank" rel="noopener">All on Learn ↗</a>`;
   } else if (state.view === "paths") {
     html = `<div class="txt"><h2>Learning paths</h2><p>Hand-picked courses that take one topic from zero to solid, mixing the best videos and articles, step by step. Plus complete courses from YouTube creators, in their own order.</p></div>`;
   } else if (state.view === "course") { const c = COURSES.find(x => x.id === state.course), items = c ? courseItems(c) : [];
     const done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0), nv = items.filter(x => !x.art).length;
-    const pl = c?.lists?.[0], byLine = isCert(c) ? `<p style="margin-top:6px">Official Microsoft Learn course ${esc(c.code)} for the ${esc(c.cert)} certification. Every step is the video of one unit; open a video and use <b>Read on Learn</b> for the unit's text and exercises.</p>`
+    const pl = c?.lists?.[0], byLine = isCert(c) ? `<p style="margin-top:6px">Official Microsoft Learn course ${esc(c.code)} for the ${esc(c.cert)} certification, every unit in order. Videos play here; reading, exercises and knowledge checks open on Learn, and <b>Learn ↗</b> beside a video opens its unit there. Signed in to Learn with your Microsoft account, it tracks your progress, so anyone can follow the course with their own account.</p>`
       : c?.by ? `<p style="margin-top:6px">A course by <a href="#c=${encodeURIComponent(c.h)}">${esc(c.by)}</a>, the whole YouTube playlist${c.lists.length > 1 ? "s" : ""} in order</p>` : "";
     html = c ? `<div class="txt lead"><span class="lvl">${esc(c.level)}</span><h2 style="margin-top:8px">${esc(c.title)}</h2><p>${esc(c.blurb)}</p>${byLine}
-      <p style="margin-top:6px">${items.length} steps · ${c.by ? `${nv} videos` : `${nv} videos, ${items.length - nv} articles`} · about ${fmtMin(mins)} · ${done} of ${items.length} done${c.checked ? ` · checked for newer videos on ${new Date(c.checked + "T00:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}` : ""}</p></div>
-      ${isCert(c) ? `<button class="btn" data-act="certs">All certifications</button><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener">On Learn ↗</a>` : `<button class="btn" data-act="allpaths">All paths</button>`}
+      <p style="margin-top:6px">${items.length} steps · ${isCert(c) ? `${nv} videos, ${items.length - nv} on Learn` : c.by ? `${nv} videos` : `${nv} videos, ${items.length - nv} articles`} · ${isCert(c) ? `${fmtMin(mins)} of video` : `about ${fmtMin(mins)}`} · ${done} of ${items.length} done${c.checked ? ` · checked for newer videos on ${new Date(c.checked + "T00:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}` : ""}</p></div>
+      ${isCert(c) ? `<button class="btn" data-act="certs">All certifications</button><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener">Course on Learn ↗</a>
+        ${c.certUrl ? `<a class="btn" href="${esc(c.certUrl)}" target="_blank" rel="noopener" title="The certification, its exam and the free practice assessment">Certification ↗</a>` : ""}
+        ${c.guide ? `<a class="btn" href="${esc(c.guide)}" target="_blank" rel="noopener" title="Skills measured on the exam">Study guide ↗</a>` : ""}` : `<button class="btn" data-act="allpaths">All paths</button>`}
       ${pl ? `<a class="btn" href="https://www.youtube.com/playlist?list=${encodeURIComponent(pl)}" target="_blank" rel="noopener">On YouTube ↗</a>` : ""}
       ${items.length ? `<button class="btn primary" data-act="cstart">${done ? (done === items.length ? "Start again" : "Continue") : "Start"}</button>` : ""}`
       : `<div class="txt"><h2>Path not found</h2><p>This path doesn't exist anymore.</p></div><button class="btn" data-act="allpaths">All paths</button>`;
@@ -1122,12 +1131,22 @@ function addLearn(d, byId) {
     byId.set(id, { i: -1, id, t, c: -1, ch: ML_CH, d: dur, v: 0, ts: 0, ml: 1, mod: d.modules[m],
                    unit: full(unit, ML_UNIT), mp4: full(mp4, media), cc: full(cc, media), s: "" });
   }
+  // units without a video open on Learn, where a signed-in Microsoft account tracks progress; here they
+  // count as read like an article step
+  for (const [unit, t, m] of d.units || []) {
+    const slug = unit.split("/").pop();
+    ML_UNITS.set("lu-" + unit, { id: "lu-" + unit, t, url: full(unit, ML_UNIT), art: 1, lu: 1, ch: ML_CH, d: 0, v: 0, mod: d.modules[m],
+      kind: /knowledge-check|assessment/.test(slug) ? "Knowledge check" : /exercise|lab\b|hands-on/.test(slug) ? "Exercise"
+        : /summary/.test(slug) ? "Summary" : /introduction/.test(slug) ? "Introduction" : "Reading" });
+  }
 }
+const ML_UNITS = new Map();
 const isCert = c => !!c?.ml;
 
 /* ---------- Curated paths ---------- */
 // Steps point into both data sets; article steps resolve once the article data is loaded
-const courseItems = c => !c ? [] : c.sections.flatMap(sec => sec.steps.map(st => (st.k === "v" ? DS.videos.byId : DS.articles.byId).get(st.id)).filter(Boolean));
+const stepItem = st => st.k === "v" ? DS.videos.byId.get(st.id) : st.k === "u" ? ML_UNITS.get(st.id) : DS.articles.byId.get(st.id);
+const courseItems = c => !c ? [] : c.sections.flatMap(sec => sec.steps.map(stepItem).filter(Boolean));
 const isDone = x => (x.art ? DS.articles.seen : DS.videos.seen).has(x.id);
 function openStep(c, items, k) {
   const x = items[k]; if (!x) return;
@@ -1149,18 +1168,23 @@ function renderCourse() {
     const head = sec.path && sec.path !== lastPath ? `<div class="course-path">${esc(sec.path)}</div>` : "";
     lastPath = sec.path;
     const rows = sec.steps.map(st => {
-      const x = (st.k === "v" ? DS.videos.byId : DS.articles.byId).get(st.id); if (!x) return "";
+      const x = stepItem(st); if (!x) return "";
       const k = n++, done = isDone(x);
-      const th = x.art ? `<span class="ph ${x.ch.t}"><b>${esc(x.ch.n)}</b></span>${x.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(x.img)}">` : ""}`
+      const th = x.lu ? `<span class="ph ML"><b>${esc(x.kind)}</b></span>`
+        : x.art ? `<span class="ph ${x.ch.t}"><b>${esc(x.ch.n)}</b></span>${x.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(x.img)}">` : ""}`
         : `${vimg(x)}<span class="dur">${fmtDur(x.d)}</span>`;
-      const meta = x.art ? `<span class="kind">ARTICLE</span>${esc(x.ch.n)}${x.d ? " · " + readTime(x) : ""}${x.v ? ` · ▲ ${fmtNum(x.v)}` : ""}`
+      const meta = x.lu ? `<span class="kind">LEARN</span>${esc(x.kind)} · opens on Microsoft Learn ↗`
+        : x.art ? `<span class="kind">ARTICLE</span>${esc(x.ch.n)}${x.d ? " · " + readTime(x) : ""}${x.v ? ` · ▲ ${fmtNum(x.v)}` : ""}`
         : x.ml ? `<span class="kind">VIDEO</span>Microsoft Learn · ${fmtDur(x.d)}`
         : `<span class="kind">VIDEO</span>${esc(x.ch.n)} · ${fmtNum(x.v)} views${x.ts ? ` · ${fmtAgo(x.ts)}` : ""}`;
-      return `<button type="button" class="step${done ? " done" : ""}" data-k="${k}"><span class="num">${done ? "✓" : k + 1}</span>
+      const row = `<button type="button" class="step${done ? " done" : ""}" data-k="${k}"><span class="num">${done ? "✓" : k + 1}</span>
         <div class="thumb">${th}</div><div><h4>${esc(x.t)}</h4>${st.note ? `<p class="why">${esc(st.note)}</p>` : ""}<div class="m">${meta}</div></div></button>`;
+      // a Learn video: watch it here, or open its unit on Learn (that's what Learn counts as progress)
+      return x.ml ? `<div class="step-wrap">${row}<a class="step-learn" href="${esc(x.unit)}" target="_blank" rel="noopener" title="Open this unit on Microsoft Learn">Learn ↗</a></div>` : row;
     }).join("");
-    const mins = sec.steps.reduce((s, st) => s + ((st.k === "v" ? DS.videos.byId : DS.articles.byId).get(st.id)?.d || 0), 0);
-    return rows ? `${head}<section class="course-sec"><h3>${esc(sec.title)} <small>${fmtMin(mins)}</small></h3>${rows}</section>` : "";
+    const mins = sec.steps.reduce((s, st) => s + (stepItem(st)?.d || 0), 0);
+    const nl = sec.steps.filter(st => st.k === "u").length;
+    return rows ? `${head}<section class="course-sec"><h3>${esc(sec.title)} <small>${mins ? fmtMin(mins) : ""}${mins && nl ? " · " : ""}${nl ? `${nl} on Learn` : ""}</small>${sec.url ? `<a class="mod-link" href="${esc(sec.url)}" target="_blank" rel="noopener">Module on Learn ↗</a>` : ""}</h3>${rows}</section>` : "";
   }).join("");
   box.querySelectorAll(".step").forEach(b => b.onclick = () => openStep(c, items, +b.dataset.k));
 }

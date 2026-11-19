@@ -9,7 +9,9 @@ if most of them can't be read, nothing is written and the next run tries again.
 
 learn_courses.json lists the courses. For each one, the Learn catalog API gives its learning paths and
 modules; every module page lists its units, and a unit page embeds its video (hosted by Microsoft, not
-on YouTube). The video API gives each video's length, its MP4 and its English captions.
+on YouTube). The video API gives each video's length, its MP4 and its English captions. Every unit is
+a step: units with a video play in Nerdvana, the rest (reading, exercises, knowledge checks) open on
+Learn, where a signed-in Microsoft account tracks progress.
 
 learn.json:
   built    the date it was built (YYYY-MM-DD)
@@ -17,9 +19,11 @@ learn.json:
   videos   [[id, unit title, seconds, module index, unit, mp4, captions]]   id = "ml-" + Learn video id. To keep the
            file small, unit is the unit's url after UNIT_BASE, and mp4/captions the file name after
            MEDIA_BASE + "public-<Learn video id>/" (a full url when a video is stored somewhere else)
-  courses  same shape as courses.json, plus "ml": 1, "code", "cert" and "url" (the course on Learn).
-           Sections are modules ("path": the learning path it belongs to); steps {"k": "v", "id"} point
-           at a video above, or at a YouTube video in videos.json for the last "Exam prep" section.
+  units    [[unit, title, module index]]   units without a video (unit as in videos); their step id is "lu-" + unit
+  courses  same shape as courses.json, plus "ml": 1, "code", "cert", "url" (the course on Learn), "certUrl"
+           (the certification's page) and "guide" (the exam's study guide). Sections are modules ("path": the
+           learning path it belongs to, "url": the module on Learn); steps {"k": "v", "id"} point at a video
+           above (or at a YouTube video in videos.json, in the last "Exam prep" section), {"k": "u", "id"} at a unit.
 
 Video metadata never changes for an id, so it's cached in .cache/learn_videos.json.
 """
@@ -30,7 +34,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CACHE = ROOT / ".cache" / "learn_videos.json"
 PLAYLISTS = ROOT / "raw" / "_playlists"
-CATALOG = "https://learn.microsoft.com/api/catalog/?locale=en-us&type=courses,learningPaths,modules"
+CATALOG = "https://learn.microsoft.com/api/catalog/?locale=en-us&type=courses,learningPaths,modules,certifications"
+GUIDE = "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/"
 VIDEO_API = "https://learn.microsoft.com/api/video/public/v1/entries/"
 VID = re.compile(r'learn-video\.azurefd\.net/vod/player\?id=([0-9a-f-]{36})')
 UNIT = re.compile(r'<a class="unit-title[^"]*" href="(\d+-[a-z0-9-]+)"[^>]*>([^<]+)</a>')
@@ -83,6 +88,8 @@ def previous_units(old):
     """{module title: units} and {video id: metadata} from the last learn.json, to fill in modules that
     couldn't be read this time."""
     by_mod, meta = collections.defaultdict(dict), {}
+    for unit, title, mi in old.get("units", []):
+        by_mod[old["modules"][mi]][UNIT_BASE + unit] = (title, [])
     for sid, title, dur, mi, unit, mp4, cc in old.get("videos", []):
         vid, media = sid[3:], f"{MEDIA_BASE}public-{sid[3:]}/"
         full = lambda u, base: u if not u or u.startswith("https://") else base + u
@@ -90,7 +97,9 @@ def previous_units(old):
         t, vs = by_mod[old["modules"][mi]].setdefault(url, (re.sub(r" \(\d+\)$", "", title), []))
         vs.append(vid)
         meta[vid] = {"dur": dur, "mp4": full(mp4, media), "cc": full(cc, media)}
-    return {m: [(t, u, vs) for u, (t, vs) in us.items()] for m, us in by_mod.items()}, meta
+    # back in Learn's order: units are numbered (1-introduction, 2-…)
+    order = lambda u: int(re.match(r"(\d+)", u.rsplit("/", 1)[1]).group(1))
+    return {m: [(t, u, vs) for u, (t, vs) in sorted(us.items(), key=lambda x: order(x[0]))] for m, us in by_mod.items()}, meta
 
 
 def video_meta(vid):
@@ -125,6 +134,7 @@ def main():
     courses = {c["course_number"]: c for c in cat["courses"]}
     lps = {p["uid"]: p for p in cat["learningPaths"]}
     mods = {m["uid"]: m for m in cat["modules"]}
+    certs = {c["title"].split(": ", 1)[-1]: c["url"].split("?")[0] for c in cat.get("certifications", [])}
 
     plan = []
     for c in cfg:
@@ -158,49 +168,59 @@ def main():
     CACHE.write_text(json.dumps(cache))
 
     last = {c["id"]: c["sections"] for c in old.get("courses", [])}
-    modules, mod_ix, videos, seen, out = [], {}, [], set(), []
+    modules, mod_ix, videos, texts, seen, out = [], {}, [], [], set(), []
     for c, lc, paths in plan:
         code = c["course"].split("T")[0]
         sections, nv = [], 0
         for p, ms in paths:
             for m in ms:
                 steps = []
+                if m["uid"] not in mod_ix:
+                    mod_ix[m["uid"]] = len(modules); modules.append(m["title"])
                 for title, url, vs in units.get(m["uid"]) or []:
-                    for k, vid in enumerate(v for v in vs if v in cache):
+                    vs = [v for v in vs if v in cache]
+                    if not vs:   # a unit without a video: a link to it on Learn
+                        uid = "lu-" + short(url, UNIT_BASE)
+                        if uid not in seen:
+                            seen.add(uid); texts.append([short(url, UNIT_BASE), title, mod_ix[m["uid"]]])
+                        steps.append({"k": "u", "id": uid})
+                    for k, vid in enumerate(vs):
                         sid = "ml-" + vid
                         if sid not in seen:
                             seen.add(sid)
-                            if m["uid"] not in mod_ix:
-                                mod_ix[m["uid"]] = len(modules); modules.append(m["title"])
                             meta = cache[vid]
                             media = f"{MEDIA_BASE}public-{vid}/"
                             videos.append([sid, title + (f" ({k + 1})" if k else ""), meta["dur"], mod_ix[m["uid"]],
                                            short(url, UNIT_BASE), short(meta["mp4"], media), short(meta["cc"], media)])
                         steps.append({"k": "v", "id": sid})
                 if steps:
-                    sections.append({"title": m["title"], "path": p["title"], "steps": steps}); nv += len(steps)
+                    sections.append({"title": m["title"], "path": p["title"], "url": m["url"].split("?")[0], "steps": steps})
+                    nv += sum(st["k"] == "v" for st in steps)
         # the exam playlist comes from fetch.py; if YouTube blocked it this time, keep the steps from the last build
         ids = exam_ids(c.get("exam")) or [st["id"] for sec in last.get("learn-" + code.lower(), [])
                                            if sec.get("path") == "Exam prep" for st in sec["steps"] if "note" not in st]
         prep = [{"k": "v", "id": i} for i in ids] + ([{"k": "v", "id": c["cram"], "note": "A whiteboard run through the whole exam."}] if c.get("cram") else [])
         if prep:
             sections.append({"title": f"Exam prep: {code}", "path": "Exam prep", "steps": prep})
-        if not nv:
-            print(f"  {c['course']}: no unit videos, skipped"); continue
+        if not any(sec["path"] != "Exam prep" for sec in sections):
+            print(f"  {c['course']}: no units, skipped"); continue
         out.append({"id": "learn-" + code.lower(), "ml": 1, "code": code, "cert": c["cert"],
                     "title": f"{code}: {lc['title']}", "level": c["level"], "blurb": c["blurb"],
                     "topic": "Azure certifications", "by": "Microsoft Learn", "hubs": c.get("hubs", []),
-                    "url": lc["url"].split("?")[0], "sections": sections})
-        print(f"{code:7} {len(paths)} paths, {len(sections) - bool(prep)} modules with video, {nv} videos, "
+                    "url": lc["url"].split("?")[0], "certUrl": certs.get(c["cert"], ""), "guide": GUIDE + code.lower(),
+                    "sections": sections})
+        print(f"{code:7} {len(paths)} paths, {len(sections) - bool(prep)} modules, {nv} videos, "
+              f"{sum(st['k'] == 'u' for sec in sections for st in sec['steps'])} other units, "
               f"{sum(cache[s['id'][3:]]['dur'] for sec in sections for s in sec['steps'] if s['id'].startswith('ml-')) / 3600:.1f} h")
 
     if old and "--force" not in sys.argv:
         if len(videos) < 0.9 * len(old["videos"]) or len(out) < len(old["courses"]) - 1:
             sys.exit(f"Only {len(out)} courses and {len(videos)} videos (now {len(old['courses'])} and {len(old['videos'])}); "
                      "Learn may be failing, keeping the current learn.json. Run with --force to accept it.")
-    (ROOT / "learn.json").write_text(json.dumps({"built": datetime.date.today().isoformat(), "modules": modules, "videos": videos, "courses": out},
+    (ROOT / "learn.json").write_text(json.dumps({"built": datetime.date.today().isoformat(), "modules": modules, "videos": videos,
+                                                "units": texts, "courses": out},
                                                 ensure_ascii=False, separators=(",", ":")))
-    print(f"learn.json: {len(out)} courses, {len(videos)} videos")
+    print(f"learn.json: {len(out)} courses, {len(videos)} videos, {len(texts)} other units")
 
 
 if __name__ == "__main__":
