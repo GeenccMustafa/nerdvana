@@ -5,21 +5,28 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-19T10:37:22Z</updated>
+  <updated>2026-11-19T21:14:15Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
     <id>tag:nerdvana,2026:video:NrF4mkTmuTU</id>
-    <title>▶ I Tested Every Single GTA</title>
+    <title>▶ Why GTA 6 is a Bigger Deal Than You Think</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=NrF4mkTmuTU"/>
     <updated>2026-11-19T02:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 1.4M views · 49 min</summary>
+    <summary>Video · Mrwhosetheboss · 3.8M views · 49 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:vDnogMSwbk4</id>
+    <title>▶ He DECLINED an AMD $5000 Ultimate Tech Upgrade</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=vDnogMSwbk4"/>
+    <updated>2026-11-19T00:00:00Z</updated>
+    <summary>Video · Linus Tech Tips · 1.6M views · 34 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:2069295c6c</id>
     <title>AI agents ask better questions than KPMG accountants in audit trial</title>
     <link href="https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/"/>
     <updated>2026-11-18T11:21:28Z</updated>
-    <summary>Article · Discovered · ▲ 463 on Hacker News · 3 min read
+    <summary>Article · Discovered · ▲ 479 on Hacker News · 3 min read
 
 LONDON, November 18, 2026 — Artificial intelligence has taken another significant step into the world of professional services after KPMG revealed that AI</summary>
   </entry>
@@ -37,21 +44,21 @@ At least 178 top web destinations unwittingly served a variety of malware exploi
     <title>▶ The Dark Side of China’s Perfect Cars</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=awjlMCCdqXw"/>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 9.8M views · 27 min</summary>
+    <summary>Video · Mrwhosetheboss · 11.0M views · 27 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:KTDJiVpSDTI</id>
     <title>▶ Can You Trust MKBHD?</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=KTDJiVpSDTI"/>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 3.0M views · 14 min</summary>
+    <summary>Video · Marques Brownlee · 3.2M views · 14 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:ddadc868c0</id>
     <title>Advancing chip design with OpenAI models</title>
     <link href="https://openai.com/index/advancing-chip-design-with-our-models/"/>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Article · OpenAI · ▲ 211 on Hacker News
+    <summary>Article · OpenAI · ▲ 219 on Hacker News
 
 OpenAI models optimized circuits used in Jalapeño silicon and improved RISC‑V core designs, showing progress in AI-assisted chip design with GPT‑6 Astra.</summary>
   </entry>
@@ -60,7 +67,7 @@ OpenAI models optimized circuits used in Jalapeño silicon and improved RISC‑V
     <title>Quad9's withdrawal from France: A canary in the coal mine</title>
     <link href="https://blog.cloudflare.com/quad9-withdrawal-from-france/"/>
     <updated>2026-11-17T20:24:27Z</updated>
-    <summary>Article · Cloudflare Blog · ▲ 895 on Hacker News · 9 min read
+    <summary>Article · Cloudflare Blog · ▲ 902 on Hacker News · 9 min read
 
 Quad9's forced withdrawal from France highlights the dangers of mandating DNS-level blocking.</summary>
   </entry>
@@ -69,16 +76,16 @@ Quad9's forced withdrawal from France highlights the dangers of mandating DNS-le
     <title>GPT‑6.2 Astra and Sol</title>
     <link href="https://openai.com/index/introducing-gpt-6-2-astra-sol/"/>
     <updated>2026-11-17T17:45:00Z</updated>
-    <summary>Article · OpenAI · ▲ 1339 on Hacker News
+    <summary>Article · OpenAI · ▲ 1345 on Hacker News
 
 Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:ytmawkPTP24</id>
-    <title>▶ The $7 billion bug hiding inside Microsoft’s network...</title>
+    <title>▶ Microsoft just broke email for most of the planet...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=ytmawkPTP24"/>
     <updated>2026-11-17T00:00:00Z</updated>
-    <summary>Video · Fireship · 2.0M views · 6 min</summary>
+    <summary>Video · Fireship · 2.1M views · 6 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:SxFJ5QGNxwo</id>
@@ -92,7 +99,7 @@ Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, c
     <title>Windows 11 is collecting data on which coding agents and developer tools you use</title>
     <link href="https://xusheng.dev/posts/windows-coding-agent-telemetry/"/>
     <updated>2026-11-16T05:00:00Z</updated>
-    <summary>Article · Discovered · ▲ 728 on Hacker News · 7 min read
+    <summary>Article · Discovered · ▲ 730 on Hacker News · 7 min read
 
 I recently asked AI to help me look through the latest Windows binaries for undocumented features and functionality. Among the leads it turned up, one list immediately caught my attention: coding agents such as…</summary>
   </entry>
@@ -120,6 +127,22 @@ The Methods Behind How LLMs Represent Token Positions</summary>
     <summary>Video · Linus Tech Tips · 2.6M views · 15 min</summary>
   </entry>
   <entry>
+    <id>tag:nerdvana,2026:article:ba1e55febf</id>
+    <title>Open-source AI without Jensen</title>
+    <link href="https://www.interconnects.ai/p/open-source-ai-without-jensen"/>
+    <updated>2026-11-14T12:23:15Z</updated>
+    <summary>Article · Interconnects · ▲ 27 on Hacker News · 7 min read
+
+The resignation of Nvidia CEO Jensen Huang is a major setback for the US development of an open model ecosystem. Nvidia still has the financial interests in supporting open models, which are to avoid concentration in…</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:SOwUWPtXQ9I</id>
+    <title>▶ Nvidia just got caught with its pants down...</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=SOwUWPtXQ9I"/>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <summary>Video · Fireship · 2.4M views · 6 min</summary>
+  </entry>
+  <entry>
     <id>tag:nerdvana,2026:video:YYU_geUwQoA</id>
     <title>▶ The Downfall of Jensen Huang: NVIDIA’s Greed &amp; Corruption</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=YYU_geUwQoA"/>
@@ -131,7 +154,7 @@ The Methods Behind How LLMs Represent Token Positions</summary>
     <title>Advancing science and engineering with Antigravity's /teamwork</title>
     <link href="https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/"/>
     <updated>2026-11-13T20:47:18Z</updated>
-    <summary>Article · Google Research · ▲ 214 on Hacker News · 15 min read
+    <summary>Article · Google Research · ▲ 215 on Hacker News · 15 min read
 
 We share recent results from Antigravity’s /teamwork multiagent systems, which enhance human-AI collaborations to solve open problems across mathematics, chemistry, systems software, and ML engineering. All of this work…</summary>
   </entry>
@@ -140,31 +163,8 @@ We share recent results from Antigravity’s /teamwork multiagent systems, which
     <title>Cuttlefish on Mac: Android's Virtual Device Framework on Apple Silicon</title>
     <link href="https://engineering.fb.com/2026/11/13/android/cuttlefish-on-mac/"/>
     <updated>2026-11-13T17:00:39Z</updated>
-    <summary>Article · Meta Engineering · ▲ 71 on Hacker News · 6 min read
+    <summary>Article · Meta Engineering · ▲ 80 on Hacker News · 6 min read
 
 How Meta’s Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon.</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:SOwUWPtXQ9I</id>
-    <title>▶ The backdoor that got banned GPUs into China...</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=SOwUWPtXQ9I"/>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Video · Fireship · 2.4M views · 6 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:e6MENpOuRC0</id>
-    <title>▶ I’m Selling My Stuff</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=e6MENpOuRC0"/>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 1.4M views · 17 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:353f930cd0</id>
-    <title>The Evolving Story of How Chemistry Became Biology</title>
-    <link href="https://www.quantamagazine.org/the-evolving-story-of-how-chemistry-became-biology-20261112/"/>
-    <updated>2026-11-12T15:45:27Z</updated>
-    <summary>Article · Quanta Magazine · ▲ 107 on Hacker News · 33 min read
-
-After decades of bickering about which molecules came first, a new generation of scientists is rethinking what life was, is, and could be.</summary>
   </entry>
 </feed>
