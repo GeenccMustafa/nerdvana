@@ -16,7 +16,7 @@ keeps out of the sidebar and the Home mix.
   - each channel keeps at most TOP_BY_VIEWS most-viewed + NEWEST most-recent videos
   - clips of 60s or shorter (Shorts) are dropped, and so are members-only videos and upcoming premieres
 
-Playlists used as learning paths (playlist_paths.json) are fetched to raw/_playlists/, and every video in
+Playlists used as learning paths (playlist_paths.json) and the exam-prep playlists of learn_courses.json are fetched to raw/_playlists/, and every video in
 them is kept too, past the per-channel limits, so a course is never missing a lesson. enrich.py turns them
 into courses.
 """
@@ -60,8 +60,10 @@ def fetch(ch, force=False):
 
 
 def playlist_ids():
+    """Playlists of the learning paths, plus the exam-prep playlists of the Microsoft Learn courses (learn.py)."""
     defs = json.loads((ROOT / "playlist_paths.json").read_text()) if (ROOT / "playlist_paths.json").exists() else []
-    return list(dict.fromkeys(pl["list"] for c in defs for pl in c["playlists"]))
+    learn = json.loads((ROOT / "learn_courses.json").read_text())["courses"] if (ROOT / "learn_courses.json").exists() else []
+    return list(dict.fromkeys([pl["list"] for c in defs for pl in c["playlists"]] + [c["exam"] for c in learn if c.get("exam")]))
 
 
 def fetch_playlist(pid, force=False):

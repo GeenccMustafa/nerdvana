@@ -202,7 +202,8 @@ main { padding-block: 20px 60px; min-width: 0; }
 .watch-bar .brand { margin-right: auto; }
 .watch-grid { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 24px; padding-block: 20px 60px; max-width: 1680px; margin: 0 auto; }
 .frame { aspect-ratio: 16/9; background: #000; width: 100%; border-radius: 12px; overflow: hidden; }
-.frame iframe, .frame > div { width: 100%; height: 100%; border: 0; display: block; }
+.frame iframe, .frame > div, .frame video { width: 100%; height: 100%; border: 0; display: block; }
+.frame [hidden] { display: none; }
 .pinfo h2 { margin: 14px 0 10px; font: 700 20px/1.3 var(--body); text-wrap: balance; }
 .prow { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .prow .who { display: flex; align-items: center; gap: 10px; margin-right: auto; min-width: 0; border: 0; background: none; padding: 0; text-align: left; }
@@ -270,6 +271,7 @@ body[data-mode="articles"] #tvBtn { display: none; }
 .ph { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center; color: #fff;
   background: radial-gradient(circle at 20% 15%, rgba(255,255,255,.22), transparent 55%), var(--tB); }
 .ph.S { background-color: var(--tS); } .ph.A { background-color: var(--tA); }
+.ph.ML { background-color: #0067b8; }   /* Microsoft Learn videos have no thumbnail: the module name on Learn blue */
 .ph b { font: 800 clamp(18px, 2vw, 24px)/1.1 var(--display); letter-spacing: -.01em; text-wrap: balance; text-shadow: 0 1px 8px rgba(0,0,0,.2); }
 .thumb img { position: relative; }
 .card .desc { margin: 0; color: var(--fg2); font-size: 13px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
@@ -296,6 +298,8 @@ body[data-mode="articles"] #tvBtn { display: none; }
 .path-card .lvl, .context .lvl { align-self: flex-start; font: 600 10.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 5px; background: var(--fg); color: var(--bg); }
 .course { max-width: 980px; }
 .course-sec { margin: 0 0 26px; }
+.course-path { margin: 34px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--fg2); }
+.course-path:first-child { margin-top: 0; }
 .course-sec h3 { margin: 0 0 10px; font: 700 18px var(--display); display: flex; align-items: baseline; gap: 10px; }
 .course-sec h3 small { font: 400 12px var(--mono); color: var(--fg2); }
 .step { display: grid; grid-template-columns: 30px 176px minmax(0, 1fr); gap: 14px; align-items: start; width: 100%; padding: 10px; border: 0; border-radius: 12px; background: none; text-align: left; color: inherit; text-decoration: none; }
@@ -378,6 +382,8 @@ body[data-mode="articles"] #tvBtn { display: none; }
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg>LangChain<span class="n" id="hubN-langchain"></span></button>
     <button class="nav-item" type="button" data-view="azure">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.1 9.1 4.5 4.5 0 0 0 7 18z"/></svg>Azure<span class="n" id="hubN-azure"></span></button>
+    <button class="nav-item" type="button" data-view="certs">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m9 14.2-1.5 7.3L12 19l4.5 2.5-1.5-7.3"/></svg>Azure certifications<span class="n" id="certsN"></span></button>
     <hr>
     <button class="nav-item" type="button" data-view="later">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span id="laterLbl">Watch later</span><span class="n" id="laterN"></span></button>
@@ -415,7 +421,7 @@ body[data-mode="articles"] #tvBtn { display: none; }
   </div>
   <div class="watch-grid wrap">
     <section class="pinfo">
-      <div class="frame"><div id="wPlayer"></div></div>
+      <div class="frame"><div id="wPlayer"></div><video id="mlPlayer" controls playsinline crossorigin="anonymous" hidden></video></div>
       <h2 id="pTitle"></h2>
       <div class="prow">
         <button class="who" id="pWho" type="button" title="Show this channel"></button>
@@ -511,6 +517,8 @@ const fmtAgo = ts => { if (!ts) return ""; const d = (Date.now() / 1000 - ts) / 
   if (d < 1) return "today"; if (d < 30) return ago(Math.round(d), "day");
   if (d < 365) return ago(Math.max(1, Math.round(d / 30)), "month"); return ago(Math.round(d / 365), "year"); };
 const thumb = id => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
+// Microsoft Learn videos (learn.json) have no thumbnail: a tile with the module name stands in
+const vimg = v => v.ml ? `<span class="ph ML"><b>${esc(v.mod)}</b></span>` : `<img loading="lazy" alt="" src="${thumb(v.id)}">`;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 const ICON_SAVE = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>`;
@@ -550,12 +558,14 @@ function updateCounts() {
   $("#laterN").textContent = n(later.filter(id => byId.has(id)).length);
   $("#newN").textContent = n(V.filter(isNew).length);
   $("#discN").textContent = n(V.filter(v => v.disc).length);
+  $("#certsN").textContent = n(COURSES.filter(isCert).length);
   if (!V.length) return;
   const hn = DS[mode].hubN ||= Object.fromEntries(Object.keys(HUBS).map(id => [id, V.filter(v => hubsOf(v).has(id)).length]));
   for (const id in HUBS) $("#hubN-" + id).textContent = n(hn[id]);
 }
 function renderSide() {
-  const cur = state.view === "path" || state.view === "course" ? "paths" : state.view;
+  const cur = state.view === "course" && isCert(COURSES.find(c => c.id === state.course)) ? "certs"
+    : state.view === "path" || state.view === "course" ? "paths" : state.view;
   document.querySelectorAll(".nav-item").forEach(b => b.setAttribute("aria-current", cur === b.dataset.view && state.ch == null && !state.tier));
   updateCounts();
   const box = $("#tierList"); box.innerHTML = "";
@@ -585,7 +595,7 @@ function pick(p) {
 document.querySelectorAll(".nav-item").forEach(b => b.onclick = () => pick({ view: b.dataset.view, tier: null, ch: null }));
 
 /* ---------- Shareable links: #v=ID&t=SEC, #c=handle, #tier=S, #path=id, #time=15, #picks, #new, #paths, #later, #history,
-   #agents, #langchain, #azure (a focus section), with a facet: #agents&f=mcp ---------- */
+   #agents, #langchain, #azure (a focus section), with a facet: #agents&f=mcp, #certs (Azure certifications) ---------- */
 // Articles views carry a leading "read": #read, #read&new, #read&c=dan-luu, #read&like=ID
 function hashFor() {
   let h = "";
@@ -623,7 +633,7 @@ function routeView(p) {
   else if (p.get("like") && byId.has(p.get("like"))) Object.assign(next, { view: "like", like: p.get("like") });
   else if (p.get("course")) Object.assign(next, { view: "course", course: p.get("course") });
   else if (p.has("time")) { next.view = "time"; state.budget = BUDGETS.includes(+p.get("time")) ? +p.get("time") : 15; }
-  else for (const k of ["picks", "new", "craft", "disc", ...Object.keys(HUBS), "paths", "later", "history"]) if (p.has(k)) next.view = k;
+  else for (const k of ["picks", "new", "craft", "disc", ...Object.keys(HUBS), "certs", "paths", "later", "history"]) if (p.has(k)) next.view = k;
   if (HUBS[next.view]?.facets.some(f => f[0] === p.get("f"))) next.facet = p.get("f");
   Object.assign(state, next); renderFilters(); apply(); syncHash();
 }
@@ -732,14 +742,18 @@ function renderContext() {
       <div class="group" style="margin-top:10px"><button class="chip" data-act="facet" data-f="" aria-pressed="${!f}">All</button>${h.facets.map(([id, label, re]) =>
         `<button class="chip" data-act="facet" data-f="${id}" aria-pressed="${state.facet === id}">${esc(label)}<span class="n">${count(re)}</span></button>`).join("")}</div></div>
       ${list.length && !A ? `<button class="btn primary" data-act="playall">Play in TV mode</button>` : ""}`;
+  } else if (state.view === "certs") { const cs = COURSES.filter(isCert), nv = cs.reduce((k, c) => k + courseItems(c).length, 0);
+    html = `<div class="txt"><h2>Azure certifications</h2><p>Microsoft Learn's official course for each certification, path by path and module by module: the video of every unit in order, then the exam prep. The reading, exercises and knowledge checks are a click away on Learn. · ${cs.length} courses · ${nv.toLocaleString("en-US")} videos</p></div>
+      <a class="btn" href="https://learn.microsoft.com/en-us/credentials/browse/?products=azure" target="_blank" rel="noopener">All on Learn ↗</a>`;
   } else if (state.view === "paths") {
     html = `<div class="txt"><h2>Learning paths</h2><p>Hand-picked courses that take one topic from zero to solid, mixing the best videos and articles, step by step. Plus complete courses from YouTube creators, in their own order.</p></div>`;
   } else if (state.view === "course") { const c = COURSES.find(x => x.id === state.course), items = c ? courseItems(c) : [];
     const done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0), nv = items.filter(x => !x.art).length;
-    const pl = c?.lists?.[0], byLine = c?.by ? `<p style="margin-top:6px">A course by <a href="#c=${encodeURIComponent(c.h)}">${esc(c.by)}</a>, the whole YouTube playlist${c.lists.length > 1 ? "s" : ""} in order</p>` : "";
+    const pl = c?.lists?.[0], byLine = isCert(c) ? `<p style="margin-top:6px">Official Microsoft Learn course ${esc(c.code)} for the ${esc(c.cert)} certification. Every step is the video of one unit; open a video and use <b>Read on Learn</b> for the unit's text and exercises.</p>`
+      : c?.by ? `<p style="margin-top:6px">A course by <a href="#c=${encodeURIComponent(c.h)}">${esc(c.by)}</a>, the whole YouTube playlist${c.lists.length > 1 ? "s" : ""} in order</p>` : "";
     html = c ? `<div class="txt lead"><span class="lvl">${esc(c.level)}</span><h2 style="margin-top:8px">${esc(c.title)}</h2><p>${esc(c.blurb)}</p>${byLine}
       <p style="margin-top:6px">${items.length} steps · ${c.by ? `${nv} videos` : `${nv} videos, ${items.length - nv} articles`} · about ${fmtMin(mins)} · ${done} of ${items.length} done${c.checked ? ` · checked for newer videos on ${new Date(c.checked + "T00:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}` : ""}</p></div>
-      <button class="btn" data-act="allpaths">All paths</button>
+      ${isCert(c) ? `<button class="btn" data-act="certs">All certifications</button><a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener">On Learn ↗</a>` : `<button class="btn" data-act="allpaths">All paths</button>`}
       ${pl ? `<a class="btn" href="https://www.youtube.com/playlist?list=${encodeURIComponent(pl)}" target="_blank" rel="noopener">On YouTube ↗</a>` : ""}
       ${items.length ? `<button class="btn primary" data-act="cstart">${done ? (done === items.length ? "Start again" : "Continue") : "Start"}</button>` : ""}`
       : `<div class="txt"><h2>Path not found</h2><p>This path doesn't exist anymore.</p></div><button class="btn" data-act="allpaths">All paths</button>`;
@@ -766,6 +780,7 @@ $("#context").addEventListener("click", e => {
   else if (a === "reroll") apply();
   else if (a === "playall") startTV([...list]);
   else if (a === "allpaths") pick({ view: "paths" });
+  else if (a === "certs") pick({ view: "certs" });
   else if (a === "course") pick({ view: "course", course: b.dataset.id, ch: null, tier: null });
   else if (a === "clearhist") {
     const what = mode === "videos" ? "watch history and in-progress videos" : "reading history";
@@ -804,7 +819,7 @@ new ResizeObserver(() => document.documentElement.style.setProperty("--hh", $("h
 }
 
 function passes(v, { ignoreSeen = false, ignoreQ = false } = {}) {
-  const c = CH[v.c];
+  const c = v.ch || CH[v.c];
   if (state.tier && c.t !== state.tier) return false;
   if (state.topic && c.topic !== state.topic) return false;
   if (state.ch != null && v.c !== state.ch) return false;
@@ -908,9 +923,10 @@ function hubsOf(v) {   // the ids of the focus sections a video or article is in
 const facetText = v => v.desc ? v.t + " " + v.desc : v.t;
 const facetOf = () => HUBS[state.view]?.facets.find(f => f[0] === state.facet);
 // courses listed in a focus section, curated paths first, then by level
-const LEVELS = ["Beginner", "Intermediate", "Advanced", "All levels"];
+const LEVELS = ["Beginner", "Intermediate", "Advanced", "All levels", "Fundamentals", "Associate", "Expert"];
+const courseRank = c => isCert(c) ? 2 : c.by ? 1 : 0;
 const hubCourses = id => COURSES.filter(c => c.hubs?.includes(id))
-  .sort((a, b) => !b.by - !a.by || LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
+  .sort((a, b) => courseRank(a) - courseRank(b) || LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
 let hubAll = [];   // the current section before the facet, for the facet counts
 // "I have X minutes": pack unwatched S/A videos (in a channel-balanced order) into the time budget
 function packBudget() {
@@ -928,7 +944,7 @@ function apply() {
   if (view === "history") { const order = [...seen]; list = V.filter(v => seen.has(v.id) && passes(v, { ignoreSeen: true })); list.sort((a, b) => order.lastIndexOf(b.id) - order.lastIndexOf(a.id)); }
   else if (view === "later") list = later.map(id => byId.get(id)).filter(v => v && passes(v, { ignoreSeen: true }));
   else if (view === "path") { const p = PATHS.find(p => p.id === state.path); list = (p?.videos || p?.articles || []).map(id => byId.get(id)).filter(Boolean); }
-  else if (view === "paths" || view === "course") list = [];
+  else if (view === "paths" || view === "course" || view === "certs") list = [];
   else if (view === "like") { const a = byId.get(state.like); list = a ? (SIM?.[a.i] || []).map(i => V[i]).filter(x => x && passes(x, { ignoreQ: true })) : []; }
   else if (view === "time") list = packBudget();
   else if (view === "new") { list = V.filter(v => isNew(v) && passes(v)); list.sort(by.new); }
@@ -950,7 +966,7 @@ function apply() {
   $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} ${L().many} · ${CH.filter(c => c.t !== "D").length} ${L().src}`;
   $("#grid").innerHTML = ""; shown = 0; more();
   const empty = { later: `Nothing saved yet. Use the bookmark button on any ${L().one} to keep it for later.`,
-                  history: "", course: "", new: `Nothing new in the last 7 days matches these filters.`, time: "", paths: "", path: "",
+                  history: "", course: "", certs: "", new: `Nothing new in the last 7 days matches these filters.`, time: "", paths: "", path: "",
                   like: SIM ? "No similar articles match these filters." : "Similar articles aren't available yet." }[view];
   $("#empty").textContent = empty ?? `No ${L().many} match these filters.`;
   $("#empty").hidden = list.length > 0 || !$("#empty").textContent;
@@ -974,12 +990,12 @@ function card(v, o = {}) {
   el.className = "card" + (seen.has(v.id) ? " seen" : ""); el.dataset.id = v.id;
   const p = progress[v.id], pct = p && v.d ? Math.min(100, p.t / v.d * 100) : 0;
   const badge = o.step ? `<span class="badge step">${o.step}</span>` : seen.has(v.id) ? `<span class="badge">WATCHED</span>` : isNew(v) ? `<span class="badge new">NEW</span>` : "";
-  el.innerHTML = `<button type="button" class="card-hit"><div class="thumb"><img loading="lazy" alt="" src="${thumb(v.id)}">${badge}
+  el.innerHTML = `<button type="button" class="card-hit"><div class="thumb">${vimg(v)}${badge}
       ${o.at != null ? `<span class="badge ts">▶ ${fmtDur(o.at)}</span>` : v.d ? `<span class="dur">${fmtDur(v.d)}</span>` : ""}
       ${pct ? `<span class="prog"><i style="width:${pct.toFixed(1)}%"></i></span>` : ""}</div>
     <h3>${esc(v.t)}</h3>
-    <div class="meta"><span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span>
-    <span class="dot"></span><span class="num">${fmtNum(v.v)}</span><span class="dot"></span><span class="num">${fmtAgo(v.ts)}</span></div></button>
+    <div class="meta">${v.ml ? `<span class="ch">Microsoft Learn · ${esc(v.mod)}</span>` : `<span class="tier ${c.t}">${c.t}</span><span class="ch">${esc(c.n)}</span>
+    <span class="dot"></span><span class="num">${fmtNum(v.v)}</span><span class="dot"></span><span class="num">${fmtAgo(v.ts)}</span>`}</div></button>
     ${own ? `<button type="button" class="later-btn" aria-pressed="${later.includes(v.id)}" aria-label="Watch later" title="Watch later">${ICON_SAVE}</button>` : ""}${own ? rmBtn() : ""}`;
   // transcript hits start 3 s before the mention, so the sentence isn't cut off
   // keepHash: the player pushes its own entry, so Back returns to the article page this came from
@@ -1027,7 +1043,7 @@ function renderLaterBtn() { if (mode !== "videos") return; const on = later.incl
 /* ---------- Learning paths ---------- */
 // each tile has the source-name tile underneath, so a missing or broken image still looks right
 const tile = v => `<span class="mt">${v.art ? `<span class="ph ${v.ch.t}"><b>${esc(v.ch.n)}</b></span>${v.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(v.img)}">` : ""}`
-  : `<img loading="lazy" alt="" src="${thumb(v.id)}">`}</span>`;
+  : vimg(v)}</span>`;
 function courseCard(c) {
   const items = courseItems(c), done = items.filter(isDone).length, mins = items.reduce((s, x) => s + x.d, 0);
   const b = document.createElement("button");
@@ -1052,15 +1068,21 @@ function renderHub() {
 }
 function renderPaths() {
   const box = $("#pathsGrid");
-  box.hidden = state.view !== "paths";
+  box.hidden = state.view !== "paths" && state.view !== "certs";
   if (box.hidden) return;
   box.innerHTML = "";
+  const certs = COURSES.filter(isCert);   // in Learn's order of levels: Fundamentals, Associate, Expert
+  if (state.view === "certs") {
+    let lv = null;
+    for (const c of certs) { if (c.level !== lv) { lv = c.level; box.insertAdjacentHTML("beforeend", `<div class="paths-head">${esc(lv)}</div>`); } box.append(courseCard(c)); }
+    return;
+  }
   if (COURSES.length && !DS.articles.V.length) { ensureArticles().then(() => state.view === "paths" && renderPaths()).catch(() => {}); }
   const byLevel = (a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level);
   // creator courses are grouped by topic, the biggest topics first
-  const tn = {}; for (const c of COURSES) if (c.by) tn[c.topic] = (tn[c.topic] || 0) + 1;
+  const tn = {}; for (const c of COURSES) if (c.by && !isCert(c)) tn[c.topic] = (tn[c.topic] || 0) + 1;
   const byTopic = (a, b) => tn[b.topic] - tn[a.topic] || a.topic.localeCompare(b.topic) || byLevel(a, b);
-  const courses = [...COURSES.filter(c => !c.by).sort(byLevel), ...COURSES.filter(c => c.by).sort(byTopic)];
+  const courses = [...COURSES.filter(c => !c.by).sort(byLevel), ...COURSES.filter(c => c.by && !isCert(c)).sort(byTopic)];
   let lastLevel = null, lastTopic = null;
   for (const c of courses) {
     if (c.by && c.topic !== lastTopic) {
@@ -1068,6 +1090,10 @@ function renderPaths() {
       lastTopic = c.topic; box.insertAdjacentHTML("beforeend", `<div class="paths-head sub">${esc(c.topic || "More")}</div>`); }
     if (c.level !== lastLevel && !c.by) { lastLevel = c.level; box.insertAdjacentHTML("beforeend", `<div class="paths-head">${esc(c.level)}</div>`); }
     box.append(courseCard(c));
+  }
+  if (certs.length) {
+    box.insertAdjacentHTML("beforeend", `<div class="paths-head creators">Azure certifications <small>Microsoft Learn's official courses, every unit's video in order</small></div>`);
+    certs.forEach(c => box.append(courseCard(c)));
   }
   if (COURSES.length && PATHS.length) box.insertAdjacentHTML("beforeend", `<div class="paths-head">More paths <small>picked automatically, being replaced by curated ones</small></div>`);
   for (const p of PATHS) {
@@ -1083,6 +1109,21 @@ function renderPaths() {
     box.append(b);
   }
 }
+
+/* ---------- Microsoft Learn courses (learn.json, built by learn.py) ----------
+   Their videos are playable by id like any other (#v=ml-…) but stay out of V: they only show up in their courses. */
+const ML_CH = { h: "microsoftlearn", n: "Microsoft Learn", t: "ML", topic: "Azure certifications", a: "https://learn.microsoft.com/favicon.ico" };
+const ML_UNIT = "https://learn.microsoft.com/en-us/training/modules/", ML_MEDIA = "https://videoencodingpublic-hgeaeyeba8gycee3.b01.azurefd.net/";
+function addLearn(d, byId) {
+  if (!d) return;
+  const full = (u, base) => !u || /^https:\/\//.test(u) ? u : base + u;
+  for (const [id, t, dur, m, unit, mp4, cc] of d.videos) {
+    const media = `${ML_MEDIA}public-${id.slice(3)}/`;
+    byId.set(id, { i: -1, id, t, c: -1, ch: ML_CH, d: dur, v: 0, ts: 0, ml: 1, mod: d.modules[m],
+                   unit: full(unit, ML_UNIT), mp4: full(mp4, media), cc: full(cc, media), s: "" });
+  }
+}
+const isCert = c => !!c?.ml;
 
 /* ---------- Curated paths ---------- */
 // Steps point into both data sets; article steps resolve once the article data is loaded
@@ -1100,22 +1141,26 @@ function renderCourse() {
   if (box.hidden) return;
   const c = COURSES.find(x => x.id === state.course);
   if (!c) { box.innerHTML = ""; return; }
-  if (!DS.articles.V.length) { box.innerHTML = `<p class="empty">Loading…</p>`; ensureArticles().then(apply).catch(() => {}); return; }
+  if (!DS.articles.V.length && !isCert(c)) { box.innerHTML = `<p class="empty">Loading…</p>`; ensureArticles().then(apply).catch(() => {}); return; }
   const items = courseItems(c);
-  let n = 0;
+  let n = 0, lastPath = null;
+  // Microsoft Learn courses: the sections are modules, grouped under their learning path
   box.innerHTML = c.sections.map(sec => {
+    const head = sec.path && sec.path !== lastPath ? `<div class="course-path">${esc(sec.path)}</div>` : "";
+    lastPath = sec.path;
     const rows = sec.steps.map(st => {
       const x = (st.k === "v" ? DS.videos.byId : DS.articles.byId).get(st.id); if (!x) return "";
       const k = n++, done = isDone(x);
       const th = x.art ? `<span class="ph ${x.ch.t}"><b>${esc(x.ch.n)}</b></span>${x.img ? `<img loading="lazy" alt="" referrerpolicy="no-referrer" src="${esc(x.img)}">` : ""}`
-        : `<img loading="lazy" alt="" src="${thumb(x.id)}"><span class="dur">${fmtDur(x.d)}</span>`;
+        : `${vimg(x)}<span class="dur">${fmtDur(x.d)}</span>`;
       const meta = x.art ? `<span class="kind">ARTICLE</span>${esc(x.ch.n)}${x.d ? " · " + readTime(x) : ""}${x.v ? ` · ▲ ${fmtNum(x.v)}` : ""}`
+        : x.ml ? `<span class="kind">VIDEO</span>Microsoft Learn · ${fmtDur(x.d)}`
         : `<span class="kind">VIDEO</span>${esc(x.ch.n)} · ${fmtNum(x.v)} views${x.ts ? ` · ${fmtAgo(x.ts)}` : ""}`;
       return `<button type="button" class="step${done ? " done" : ""}" data-k="${k}"><span class="num">${done ? "✓" : k + 1}</span>
         <div class="thumb">${th}</div><div><h4>${esc(x.t)}</h4>${st.note ? `<p class="why">${esc(st.note)}</p>` : ""}<div class="m">${meta}</div></div></button>`;
     }).join("");
     const mins = sec.steps.reduce((s, st) => s + ((st.k === "v" ? DS.videos.byId : DS.articles.byId).get(st.id)?.d || 0), 0);
-    return `<section class="course-sec"><h3>${esc(sec.title)} <small>${fmtMin(mins)}</small></h3>${rows}</section>`;
+    return rows ? `${head}<section class="course-sec"><h3>${esc(sec.title)} <small>${fmtMin(mins)}</small></h3>${rows}</section>` : "";
   }).join("");
   box.querySelectorAll(".step").forEach(b => b.onclick = () => openStep(c, items, +b.dataset.k));
 }
@@ -1177,10 +1222,10 @@ function transcriptHits(q) {
 /* ---------- Watch view ---------- */
 let current = null, nextUp = null, wp = null, autoplay = store.get("autoplay", true);
 function upItem(u) {
-  const uc = CH[u.c], b = document.createElement("button");
+  const uc = u.ch, b = document.createElement("button");
   b.type = "button"; b.className = "up";
-  b.innerHTML = `<div class="thumb"><img loading="lazy" alt="" src="${thumb(u.id)}">${u.d ? `<span class="dur">${fmtDur(u.d)}</span>` : ""}${seen.has(u.id) ? `<span class="badge">WATCHED</span>` : ""}</div>
-    <div class="m"><h4>${esc(u.t)}</h4><span>${esc(uc.n)} <span class="tier ${uc.t}">${uc.t}</span></span><span>${fmtNum(u.v)} views${u.ts ? ` · ${fmtAgo(u.ts)}` : ""}</span></div>`;
+  b.innerHTML = `<div class="thumb">${vimg(u)}${u.d ? `<span class="dur">${fmtDur(u.d)}</span>` : ""}${seen.has(u.id) ? `<span class="badge">WATCHED</span>` : ""}</div>
+    <div class="m"><h4>${esc(u.t)}</h4>${u.ml ? `<span>Microsoft Learn</span><span>${esc(u.mod)}</span>` : `<span>${esc(uc.n)} <span class="tier ${uc.t}">${uc.t}</span></span><span>${fmtNum(u.v)} views${u.ts ? ` · ${fmtAgo(u.ts)}` : ""}</span>`}</div>`;
   b.onclick = () => openPlayer(u, { start: progress[u.id]?.t || 0 });
   return b;
 }
@@ -1198,11 +1243,14 @@ function openPlayer(v, o = {}) {
   if (!inPath && feed.length < 12) feed.push(...pool.filter(x => x !== v && !simSet.has(x) && seen.has(x.id)).slice(0, 12 - feed.length));
   nextUp = inPath ? feed[0] : ([...sim, ...feed].find(x => !seen.has(x.id)) || feed[0] || sim[0]);
 
-  const c = CH[v.c];
+  const c = v.ch;
   $("#pTitle").textContent = v.t;
-  $("#pWho").innerHTML = `${avatar(c)}<span><b>${esc(c.n)}</b><small>${c.t === "D" ? "Found by keyword search" : `${fmtNum(c.subs)} subscribers`}</small></span>`;
-  $("#pStats").textContent = [`${v.v.toLocaleString("en-US")} views`, fmtAgo(v.ts), fmtDur(v.d), `${TIER_NAME[c.t]} tier`, c.topic].filter(Boolean).join(" · ");
-  $("#pYt").href = `https://www.youtube.com/watch?v=${v.id}`;
+  $("#pWho").innerHTML = `${avatar(c)}<span><b>${esc(c.n)}</b><small>${v.ml ? "Official certification course" : c.t === "D" ? "Found by keyword search" : `${fmtNum(c.subs)} subscribers`}</small></span>`;
+  $("#pStats").textContent = (v.ml ? [fmtDur(v.d), `Module: ${v.mod}`]
+    : [`${v.v.toLocaleString("en-US")} views`, fmtAgo(v.ts), fmtDur(v.d), `${TIER_NAME[c.t]} tier`, c.topic]).filter(Boolean).join(" · ");
+  // a Learn video's unit page has the text, exercises and knowledge check that go with it
+  $("#pYt").href = v.ml ? v.unit : `https://www.youtube.com/watch?v=${v.id}`;
+  $("#pYt").textContent = v.ml ? "Read on Learn ↗" : "YouTube ↗";
   $("#pSeen").textContent = seen.has(v.id) ? "Mark unwatched" : "Mark watched";
   renderLaterBtn();
   const pn = $("#pathNav"); pn.hidden = !inPath;
@@ -1217,7 +1265,9 @@ function openPlayer(v, o = {}) {
   renderReads(v);
   $("#simLabel").hidden = !sim.length || inPath; $("#simList").innerHTML = "";
   if (!inPath) sim.forEach(u => $("#simList").append(upItem(u)));
-  $("#upLabel").hidden = !sim.length || inPath; $("#upLabel").textContent = "From your feed";
+  // in a course, "Up next" is the course's own next steps
+  if (courseCtx) feed = courseCtx.items.slice(courseCtx.i + 1).filter(x => !x.art).slice(0, 12);
+  $("#upLabel").hidden = courseCtx ? !feed.length : !sim.length || inPath; $("#upLabel").textContent = courseCtx ? "Next in this course" : "From your feed";
   $("#upList").innerHTML = ""; feed.forEach(u => $("#upList").append(upItem(u)));
 
   const wasHidden = $("#watch").hidden;
@@ -1228,6 +1278,8 @@ function openPlayer(v, o = {}) {
 
   if (o.keepPlayer) return;
   let start = Math.floor(o.start || 0); if (start > v.d - 20) start = 0;
+  if (v.ml) return playLearn(v, start);
+  mlv.pause(); mlv.hidden = true; $("#wPlayer").hidden = false;
   loadYT().then(() => {
     if (current !== v) return;
     if (wp) wp.loadVideoById({ videoId: v.id, startSeconds: start });
@@ -1236,6 +1288,16 @@ function openPlayer(v, o = {}) {
                 onStateChange: e => { if (e.data === YT.PlayerState.ENDED && current) { finish(current.id); if (autoplay && nextUp) openPlayer(nextUp); } } } });
   });
 }
+// Microsoft Learn videos are MP4 files with English captions, played in a <video> in place of the YouTube player
+const mlv = $("#mlPlayer");
+function playLearn(v, start) {
+  wp?.pauseVideo?.(); $("#wPlayer").hidden = true; mlv.hidden = false;
+  mlv.innerHTML = v.cc ? `<track kind="captions" srclang="en" label="English" src="${esc(v.cc)}"${cc ? " default" : ""}>` : "";
+  mlv.src = v.mp4 + (start ? `#t=${start}` : "");
+  mlv.play().catch(() => {});
+}
+mlv.addEventListener("ended", () => { if (current?.ml) { finish(current.id); if (autoplay && nextUp) openPlayer(nextUp); } });
+const curTime = () => current?.ml ? mlv.currentTime : wp?.getCurrentTime?.();
 // "Read more about this": articles on the same topic (loads the article data the first time)
 function renderReads(v) {
   const box = $("#reads"); box.hidden = true; box.innerHTML = "";
@@ -1262,7 +1324,7 @@ function renderCourseNav() {
 }
 function closePlayer(fromPop) {
   saveCurrentProgress();
-  $("#watch").hidden = true; document.body.style.overflow = ""; wp?.stopVideo?.(); current = null;
+  $("#watch").hidden = true; document.body.style.overflow = ""; wp?.stopVideo?.(); mlv.pause(); current = null;
   renderSide(); renderShelf();
   if (fromPop !== true) { if (history.state?.watch) history.back(); else syncHash(); }
 }
@@ -1275,19 +1337,19 @@ function markSeen(id, on) {
 function finish(id) { markSeen(id, true); }
 // Remember the playback position every few seconds, so "Continue watching" can resume it
 function saveCurrentProgress() {
-  if (!current || !wp?.getCurrentTime) return;
-  const t = Math.floor(wp.getCurrentTime() || 0), id = current.id;
+  if (!current || !current.ml && !wp?.getCurrentTime) return;
+  const t = Math.floor(curTime() || 0), id = current.id;
   if (t >= current.d * 0.92 && current.d) { if (!seen.has(id)) markSeen(id, true); return; }
   if (t > 15) { progress[id] = { t, at: Date.now() }; saveProgress(); }
 }
-setInterval(() => { if (current && wp?.getPlayerState?.() === 1) saveCurrentProgress(); }, 5000);
+setInterval(() => { if (current && (current.ml ? !mlv.paused : wp?.getPlayerState?.() === 1)) saveCurrentProgress(); }, 5000);
 $("#pClose").onclick = () => closePlayer();
-$("#pWho").onclick = () => { if (!current) return; const i = current.c; closePlayer(true); pick({ ch: i, tier: null }); };
+$("#pWho").onclick = () => { if (!current) return; const i = current.c, ml = current.ml; closePlayer(true); pick(ml ? { view: "certs" } : { ch: i, tier: null }); };
 $("#pSeen").onclick = () => { if (!current) return; const on = !seen.has(current.id); markSeen(current.id, on); $("#pSeen").textContent = on ? "Mark unwatched" : "Mark watched"; };
 $("#pLater").onclick = () => current && toggleLater(current.id);
 $("#pShare").onclick = async () => {
   if (!current) return;
-  const t = Math.floor(wp?.getCurrentTime?.() || 0);
+  const t = Math.floor(curTime() || 0);
   const url = `${location.origin}${location.pathname}#v=${current.id}${t > 5 ? `&t=${t}` : ""}`;
   try { await navigator.clipboard.writeText(url); toast(t > 5 ? `Link copied, starts at ${fmtDur(t)}` : "Link copied"); }
   catch { toast(url); }
@@ -1381,11 +1443,13 @@ Promise.all([
   fetch("videos.json").then(r => r.json()),
   fetch("paths.json").then(r => r.ok ? r.json() : []).catch(() => []),
   fetch("courses.json").then(r => r.ok ? r.json() : []).catch(() => []),
-]).then(([d, paths, courses]) => {
-  COURSES = courses;
+  fetch("learn.json").then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([d, paths, courses, learn]) => {
+  COURSES = [...courses, ...(learn?.courses || [])];
   CH = d.channels; PATHS = paths; DS.videos.PATHS = paths;
   V = d.videos.map(([id, t, c, dur, v, ts], i) => ({ i, id, t, c, ch: CH[c], d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
   byId = new Map(V.map(v => [v.id, v]));
+  addLearn(learn, byId);
   markFound(d, byId);
   Object.assign(DS.videos, { CH, V, byId });
   if (!startOnArticles) { renderFilters(); apply(); }
