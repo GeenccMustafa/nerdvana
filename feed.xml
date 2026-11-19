@@ -5,14 +5,14 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-19T21:14:15Z</updated>
+  <updated>2026-11-19T21:37:32Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
     <id>tag:nerdvana,2026:video:NrF4mkTmuTU</id>
-    <title>▶ Why GTA 6 is a Bigger Deal Than You Think</title>
+    <title>▶ Why GTA 6 Broke the Internet.</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=NrF4mkTmuTU"/>
     <updated>2026-11-19T02:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 3.8M views · 49 min</summary>
+    <summary>Video · Mrwhosetheboss · 3.9M views · 49 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:vDnogMSwbk4</id>
@@ -26,7 +26,7 @@
     <title>AI agents ask better questions than KPMG accountants in audit trial</title>
     <link href="https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/"/>
     <updated>2026-11-18T11:21:28Z</updated>
-    <summary>Article · Discovered · ▲ 479 on Hacker News · 3 min read
+    <summary>Article · Discovered · ▲ 480 on Hacker News · 3 min read
 
 LONDON, November 18, 2026 — Artificial intelligence has taken another significant step into the world of professional services after KPMG revealed that AI</summary>
   </entry>
@@ -82,7 +82,7 @@ Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, c
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:ytmawkPTP24</id>
-    <title>▶ Microsoft just broke email for most of the planet...</title>
+    <title>▶ Why Microsoft couldn’t fix its own servers for 36 hours...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=ytmawkPTP24"/>
     <updated>2026-11-17T00:00:00Z</updated>
     <summary>Video · Fireship · 2.1M views · 6 min</summary>
@@ -136,13 +136,6 @@ The Methods Behind How LLMs Represent Token Positions</summary>
 The resignation of Nvidia CEO Jensen Huang is a major setback for the US development of an open model ecosystem. Nvidia still has the financial interests in supporting open models, which are to avoid concentration in…</summary>
   </entry>
   <entry>
-    <id>tag:nerdvana,2026:video:SOwUWPtXQ9I</id>
-    <title>▶ Nvidia just got caught with its pants down...</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=SOwUWPtXQ9I"/>
-    <updated>2026-11-14T00:00:00Z</updated>
-    <summary>Video · Fireship · 2.4M views · 6 min</summary>
-  </entry>
-  <entry>
     <id>tag:nerdvana,2026:video:YYU_geUwQoA</id>
     <title>▶ The Downfall of Jensen Huang: NVIDIA’s Greed &amp; Corruption</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=YYU_geUwQoA"/>
@@ -166,5 +159,12 @@ We share recent results from Antigravity’s /teamwork multiagent systems, which
     <summary>Article · Meta Engineering · ▲ 80 on Hacker News · 6 min read
 
 How Meta’s Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:SOwUWPtXQ9I</id>
+    <title>▶ The backdoor that got banned GPUs into China...</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=SOwUWPtXQ9I"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Video · Fireship · 2.4M views · 6 min</summary>
   </entry>
 </feed>
