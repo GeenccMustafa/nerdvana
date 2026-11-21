@@ -14037,6 +14037,130 @@
   ]
  },
  {
+  "id": "thinking-with-ai-stanford",
+  "title": "Thinking with AI (Stanford CS193T)",
+  "level": "Beginner",
+  "blurb": "How chatbots and LLMs work, prompting well, memory and RAG, prompt injection, agents with connectors and MCP, vibe coding and what AI costs. For anyone who uses AI.",
+  "topic": "AI agents",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLDrJO3v_iAZY"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, autumn 2026",
+    "steps": [
+     {
+      "k": "v",
+      "id": "I7zvCSGMkoc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Qhf1mp74tbk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8Ok6ZYILp2Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PeRJkvzIEts",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ho00IesajkY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0Uk4uLjuEeY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l07K2cdLofM",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "self-improving-agents-stanford",
+  "title": "Self-improving AI agents (Stanford CS329A)",
+  "level": "Advanced",
+  "blurb": "Agents that get better on their own: test-time compute, verification, learning from tool and code feedback, planning, scaling RL, deep research agents and long-horizon evals.",
+  "topic": "AI agents",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLangBM27OtEA"
+  ],
+  "sections": [
+   {
+    "title": "Lectures",
+    "steps": [
+     {
+      "k": "v",
+      "id": "6YnLB0XbTnI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-Ggc37xLj_Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "p7TdPUcPoik",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Lxh9RF5S-K0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ml_fp9XkB8Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yVnmHSAy3ck",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Uni9dqyuuDM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8JAqLnTaZu4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AyO6wyu4DEg",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
   "id": "llm-agents-berkeley",
   "title": "LLM agents (UC Berkeley)",
   "level": "Advanced",
@@ -16762,6 +16886,4442 @@
   "hubs": [
    "azure",
    "agents"
+  ]
+ },
+ {
+  "id": "transformers-llms-stanford",
+  "title": "Transformers and large language models (Stanford CME295)",
+  "level": "Intermediate",
+  "blurb": "From the transformer to how LLMs are trained, tuned, made to reason, turned into agents and evaluated. The autumn 2026 edition follows as its lectures come out.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rOCXd21gf0CF4xr35yINeOy",
+   "PLakGfbKCei80"
+  ],
+  "sections": [
+   {
+    "title": "Autumn 2025",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Ub3GoFaUcds",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yT84Y5zCnaA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q5baLehv5So",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VlA_jt_3Qc4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PmW_TMQ3l0I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "k5Fh-UgTuCo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "h-7S6HNq0Vg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8fNP4N46RRo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q86qzJ1K1Ss",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "title": "Autumn 2026, the new edition",
+    "steps": [
+     {
+      "k": "v",
+      "id": "114i2Kz-LZA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GaIeu3npx04",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "S3bCDcJhz4s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3Vaj0Oka_t4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "25KIyaeI_Fg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nU2a2lm6vDE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uoSynlTDyMs",
+      "note": ""
+     }
+    ]
+   }
+  ],
+  "hubs": [
+   "agents"
+  ]
+ },
+ {
+  "id": "llm-from-scratch-stanford",
+  "title": "Language modeling from scratch (Stanford CS336)",
+  "level": "Advanced",
+  "blurb": "Build an LLM end to end: tokenization, architectures, GPUs and kernels, parallelism, scaling laws, inference, data, and post-training with RL.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rMqXOcazWaTUHhq-yembLCV"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, spring 2026",
+    "steps": [
+     {
+      "k": "v",
+      "id": "JuoVZkPBiKk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kuYAsz7zspQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lVynu4bo1rY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cKSwj_qZ8Jg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "izZba4UA7iY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xnDHaNUvHBg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SzpOcwdIL0Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6-cXp-aOmdg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q15rhEWZPQ4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EfM546A79aM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vTfEyOyzV9E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JpAxdTWQJxM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-qm0ln33G24",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5sxHosTLPF8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2oH6PWPrYFo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dIFAi87Ws4E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "26FtD08ZpOU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9EEm4iMAF5s",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "transformers-united-stanford",
+  "title": "Transformers United (Stanford CS25)",
+  "level": "Advanced",
+  "blurb": "The seminar where the people behind the models speak: Karpathy, Hinton, and researchers from OpenAI, DeepMind and Anthropic on GPT, mixture of experts, reasoning, alignment, interpretability and multimodal models.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM"
+  ],
+  "sections": [
+   {
+    "title": "Talks",
+    "steps": [
+     {
+      "k": "v",
+      "id": "P127jhj-8-Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qGkzHFllWDY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BP5CM0YxbP8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "w4Bw8WYL8Ps",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "U8J32Z3qV8s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wTZ3o36lXoQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zejXBg-2Vpk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pC4zRb_5noQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wvE2n8u3drA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CYaju6aCMoQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XfpMkf4rD6E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DJ1Yy6Aquug",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tVtOevLrt5U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "phWxl0nkgKk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ct4tdyyNDY4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sTQaJyrI-zg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nz7_wg5iOlA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L4DC7e6g2iI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fz8wf9hN20c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wwQ1LQA3RCU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1GbDTTK3aR4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mcep6W8oB1I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ckNMsUuLryM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ylEk1TE1uBo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mE7IDf2SmJg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fKMB5UlVY1E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3gb-ZkVRemQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AdLgPmcrXwQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RcJ1YXHLv5o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zL9B3eXq0gY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cYfKQ6YG9Qo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jm2hyJLFfN8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "orDKvo8h71o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JKbtWimlzAE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gLwiPrwUDJ8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nEHNwdrbfGA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ebnX5Ur1hBk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vRQs7qfIDaU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8kXIaUM3h1E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vXtapCFctTI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YGHF8_tf--g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bHSDPgZYie0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GBd7iuJkW08",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OyimE74UMF8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "I5BKi32IEa8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e_H_tkpCAK4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jFdH7n6BAl0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dJtHauhRasc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZUdIsRZhWXI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NDdc39KYqDU",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "nlp-deep-learning-stanford",
+  "title": "NLP with deep learning (Stanford CS224N)",
+  "level": "Intermediate",
+  "blurb": "Christopher Manning's classic: word vectors, neural networks, RNNs, attention and transformers, pretraining, post-training, benchmarks, reasoning and agents.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, spring 2024",
+    "steps": [
+     {
+      "k": "v",
+      "id": "DzpHeXVSC5I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nBor4jfWetQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HnliVHU2g9U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KVKvde-_MYc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fyc0Jzr74y4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ba6Fn1-Jsfw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J7ruSOIzhrE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LWMzyfvuehA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DGfCRXuNA2w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "N9L32bFieEY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "35X6zlhoCy4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TO0CqzqiArM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UVX7SYGCKkA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tfVgHsKpRC8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "I0tj4Y7xaOQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dnF463_Ar9I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "S8d-7v3f5MQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NxH0Y78xcF4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5vfIT5LOkR0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cd3pRpEtjLs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8j4wpU98Q74",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Uv0AIRr3ptg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "b80by3Xk_A8",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "nlu-stanford",
+  "title": "Natural language understanding (Stanford XCS224U)",
+  "level": "Advanced",
+  "blurb": "Contextual word representations from the transformer to GPT and BERT, neural information retrieval, in-context learning, evaluating and analyzing models, and how to build language models.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp"
+  ],
+  "sections": [
+   {
+    "title": "Lessons, spring 2023",
+    "steps": [
+     {
+      "k": "v",
+      "id": "K_Dh0Sxujuc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J52Dtu40esQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PzvvtyK0QOk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FEFeeRONEdw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yqV_YfBBtK0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JERXX2Byr90",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sNw40lEhaIQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "H0Zw0_22JRg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZIRQM-W02Cs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QFMBRk26AjU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ymKWRZgHwPc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "f9cfLq9T6MI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ni3T4vStzBI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NQUxBVOJM14",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "enRb6fp5_hw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "D3yL63aYNMQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9YCb-IxtbFQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EDVqG86AT0Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Bqps-t-U9jw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eyNLkiQ89KI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7OOCV8XfMbo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a9KQkvcuV3I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0mXbM2j3Dzs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "e73Ch08XhX0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l_w05N0QGLk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sZPxZm8HfaE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g5zwxUqBzN8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tOh-1GYaDl8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "486mTOQnhgU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_ZkewUyBb-w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2K0BH52EtIw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Bc-2yPz8cGA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5RZDKW1_HS4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lZqsLuAjZ4c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "p0dzR6iaFmc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6pwpOOj33aw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fSx1Vj0BZj0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "myAuZuXXPcI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ORg6bZ3d1Rc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mbL4uUNtZwY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DXz4IeOENiM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zFtA0fjaXPE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JJ5TE2_-_uM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7zZRaoHr-8g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L0ISjkoUoZY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "teEA1DACM40",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9tDtzLlfdxM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "K-AqbhLJMgU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4-kuJpVrr7M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JVKtPZsiv4k",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "human-preferences-stanford",
+  "title": "Machine learning from human preferences (Stanford CS329H)",
+  "level": "Advanced",
+  "blurb": "The ideas behind RLHF: preference models, preference optimization, mechanism design, human-centered design, ethics and voting.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rNm525zyAObP4al43WAifZz"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, autumn 2024",
+    "steps": [
+     {
+      "k": "v",
+      "id": "ApF2OenMgfc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-bych9RfQvw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7i6WsIzZaeo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zkHTbb-0Gns",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VffFArrRSBE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-kdR_7dCcyI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1QpNZXL35NM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HFrCySzH9QI",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "diffusion-stanford",
+  "title": "Diffusion and large vision models (Stanford CME296)",
+  "level": "Advanced",
+  "blurb": "How image generators work: diffusion, score matching and flow matching, latent space and guidance, architectures, training and evaluation.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rNdy8rt2rZ4T2xM0OjADnfu"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, spring 2026",
+    "steps": [
+     {
+      "k": "v",
+      "id": "tr-CUpw--ck",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_WaR2fjZpEQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "agN3AlfGFrk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WUUq6TVAu8U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HpFdSlMeXzQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IvXTl3yj-4Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iNaRBp4T57Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oyLUvz9nR6E",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "machine-learning-stanford",
+  "title": "Machine learning with Andrew Ng (Stanford CS229)",
+  "level": "Intermediate",
+  "blurb": "The famous course, with the math: linear and logistic regression, GLMs, SVMs and kernels, trees, neural networks, EM, PCA and ICA, and reinforcement learning.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, autumn 2018",
+    "steps": [
+     {
+      "k": "v",
+      "id": "jGwO_UgTS7I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4b4MUYve_U8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "het9HFqo1TQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iZTeva0WSTQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nt63k3bfXS0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lDwow4aOrtg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8NYoQiRANpg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rjbkWSTjHzM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iVOxMcumR4A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wr9gUr-eWdA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MfIjxPh6Pys",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zUazLXZZA2U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ORrStCArmP4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rVfZHWTwXSA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tw6cmL5STuY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dyb_cFywuik",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YQA9lLdLig8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d5gaWTo6kDM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QFu5nuc-S0s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0rt2CsEQv6U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pLhPQynL0tY",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "deep-learning-stanford",
+  "title": "Deep learning (Stanford CS230)",
+  "level": "Intermediate",
+  "blurb": "Deep learning in practice: supervised and self-supervised learning, the full cycle of a project, generative models, deep RL, AI project strategy, agents, prompts and RAG.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, autumn 2025",
+    "steps": [
+     {
+      "k": "v",
+      "id": "_NLHFoVNlbg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DNCn1BpCAUY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MGqQuQEUXhk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aWlRtOlacYM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4E27qlfYw0A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "s6JVGzABKho",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "k1njvbBmfsw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AuZoDsNmG_s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ozb1AR_F5MU",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "computer-vision-stanford",
+  "title": "Deep learning for computer vision (Stanford CS231N)",
+  "level": "Intermediate",
+  "blurb": "From linear classifiers and backprop to CNNs and transformers, detection and segmentation, video, self-supervised and generative models, 3D vision and robot learning.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, spring 2025",
+    "steps": [
+     {
+      "k": "v",
+      "id": "2fq9wYslV0A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pdqofxJeBN8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dyNGd06MWn4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "25zD5qJHYsk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "f3g1zGdxptI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aVJy4O5TOk8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kG2lAPBF7zA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RQowiOF_FvQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PTypu6GqEd4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wElqklprhPE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9MvD-XsowsE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4howBU7THbM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zbHXQRUNlH0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Edr4uZFh4EE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7lxrKDKtykM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mQOK0Mfyrkk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XSfmOH_xVSU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "g8UaBfj6Sh8",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ai-principles-stanford",
+  "title": "Artificial intelligence: principles and techniques (Stanford CS221)",
+  "level": "Intermediate",
+  "blurb": "The broad AI course: machine learning, search, MDPs and reinforcement learning, games, Bayesian networks, logic, language models and AI in society.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, autumn 2025",
+    "steps": [
+     {
+      "k": "v",
+      "id": "yaLEGZuIIgE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ypZJaTqrNdk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Mbe5ICIUw5Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "89NND-Ca0yY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fPESauMaJYA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4Iu4KPVbnAY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2ZtF1j3n6XE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "34Hk2v2kwg4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lOMNskWVeD8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SMOD_GiRzb8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9CKRoKFdS5Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ec2rCf4iIqU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Dk7Kqqehzjk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4d9V6Sxa6gU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q7V13XriJEc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x9Mbqu06OVo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3orP3u2-jcg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "071zJXhvNfM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lPx5PF1ttkc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5u5I5jvWR5k",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "generative-models-stanford",
+  "title": "Deep generative models (Stanford CS236)",
+  "level": "Advanced",
+  "blurb": "Stefano Ermon on autoregressive models, VAEs, normalizing flows, GANs, energy-based and score-based models, and diffusion.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rPOWA-omMM6STXaWW4FvJT8"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, 2023",
+    "steps": [
+     {
+      "k": "v",
+      "id": "XZ0PMRWXBEU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rNEujZmD2Tg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tRArbBf-AbI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bt3dqcbMLa0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MAGBUh77bNg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8cO61e_8oPY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "m6dKKRsZwBQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qgTvgBCOyn8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3Zv-gokhLu8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "M3Fkvu78ZXc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "m61KiAMCJ5Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Nci1Bepcy0g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8G-OsDs1RLI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "E69Lp_T9nVg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MJt_ahtO-to",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VsllsC2JMGY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vBv7Mf1zsg8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mCaRNnEnYwA",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "reinforcement-learning-stanford",
+  "title": "Reinforcement learning (Stanford CS234)",
+  "level": "Advanced",
+  "blurb": "Emma Brunskill on MDPs, policy evaluation, Q-learning, policy search, offline RL, DPO, exploration, game playing and value alignment.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, spring 2024",
+    "steps": [
+     {
+      "k": "v",
+      "id": "WsvFL-LjA6U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gHdsUUGcBC0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jjq51TRNVvk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "b_wvosA70f8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L6OVEmV3NcE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8PwvNQ5WS-o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4ngb0IZTg8I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IEbuJtjqtMU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Q7rl8ovBWwQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F6APGIAm5fw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sqYii3nd78w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gFJNsfg_35E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pc7oayCSZmQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UgANzoWc0nc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FOlPpjNbHjE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eenJzay5aLo",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "deep-rl-stanford",
+  "title": "Deep reinforcement learning (Stanford CS224R)",
+  "level": "Advanced",
+  "blurb": "Imitation learning, policy gradients, actor-critic, Q-learning, offline and model-based RL, RL for LLMs and reasoning, and RL for robots.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, spring 2025",
+    "steps": [
+     {
+      "k": "v",
+      "id": "EvHRQhMX7_w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WxRDyObrm_M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KCAOXd4IO9o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oejFZShW9hU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cRGKc-nAWho",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-7kv6jf0isQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lRDaXnPIzks",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PDIxDhA9Z6Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XKLGuwvSKvI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "O2VpNnwB4lM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PvqyGnOirgA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qNdsI_4AQJw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wSiyEpvoGkA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4tlSKdi8teU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iKWYLSVAtfM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rbaWQQLrzl0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Hp1WBWghrak",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "07MQNMcxhZU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FacJ_1tTSx4",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "graph-ml-stanford",
+  "title": "Machine learning with graphs (Stanford CS224W)",
+  "level": "Advanced",
+  "blurb": "Jure Leskovec on node embeddings, PageRank, graph neural networks, knowledge graphs, community detection, graph generation and scaling GNNs.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, 2021",
+    "steps": [
+     {
+      "k": "v",
+      "id": "JAB_plj2rbA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aBHC6xzx9YI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "P-m1Qv6-8cI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3IS7UhNMQ3U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4dVwlE9jYxY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "buzsHTa4Hgs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rMq21iY61SE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Xv0wRy66Big",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eliMLfJeu7A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TU0ankRcHmo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rK2ZBmQHVVs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HbzQzUaJ_9I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r12qJZZVtqc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6g9vtxUmfwM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QUO-HQ44EDc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kh3I_UTtUOo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F3PgltDzllc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tutlI9YzJ2g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MH4yvtgAR-4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RU9uTa_-ZOw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "247Mkqj_wRM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ew1cnUjRgl4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1A6VoEkQnhQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eXIIH8YVxKI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ewEW_EMzRuo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5vMEgYbka0A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "B5y47gWt3co",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Rfkntma6ZUI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xop5tC9T5xM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Xm5VrxZYhu4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "X9yl0pTP9fY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qaRIBNE-4Ho",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Nt66M2OsbCw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lRCDpfJoMiE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4Ia5QzQ_QNI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kUv4gY5e0hg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KXi4ha79o3s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mJQrtXZT5pw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0zuiLBOIcsw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SHcVHrsgj8w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OhjXpYIo9h4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VC43S6Thwg0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZrDpzzVWwFs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Xnpt8US31cQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IMpkHvQ0LA4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xGDUYQGvRac",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kDu5YY9d1TM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SdBk8fMmwUU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yT5PziOXxQg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6ZFvToZUjGA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SJqWQGh__N8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uBmtTL3EitI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2nPCw3yHlnI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LLUxwHc7O4A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RJkR8Ig6dXI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iTRW9Gh7yKI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_hy9AgZXhbQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JDW82csukhE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "m2zoddmgvd0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8OhnwzT9ypg",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "meta-learning-stanford",
+  "title": "Multi-task and meta learning (Stanford CS330)",
+  "level": "Advanced",
+  "blurb": "Multi-task, transfer and meta learning, few-shot learning, contrastive pre-training, Bayesian meta-learning, domain adaptation and lifelong learning.",
+  "topic": "AI",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rNjRoawgt72BBNwL2V7doGI"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, autumn 2022",
+    "steps": [
+     {
+      "k": "v",
+      "id": "bkVCAk9Nsss",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vI46tzt4O7Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bVjCjdq06R4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cjTs7lH5eUs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Gj5SEpFIv8I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SUJCgisKW1Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jDzuGEcnRkA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Vs85VCzug0I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4z3ijI9QacE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tCGS5I9ow0k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iL1c1KmYPM0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-y3ufzjgmlY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Uk6MU_PLDMs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EK0sgHPLou8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tQjDijHgblg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x-Ca8mvNdPQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L8YHbVZlYuw",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "statistical-learning-stanford",
+  "title": "Statistical learning with Python (Stanford)",
+  "level": "Intermediate",
+  "blurb": "Trevor Hastie and Robert Tibshirani's course on their ISLP book: regression, classification, resampling, regularization, trees, SVMs, deep learning, survival analysis, clustering and multiple testing, with Python labs.",
+  "topic": "Data",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "LvySJGj-88U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9vlDVxG4ulA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Igd5srPxZfU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "B9s8rpdNxU0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ox0cKk7h4o0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uFwbrdvrAJs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pvcEQfcO3pk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BMJQ3LQ_QKU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RelOJOIKaTk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Cv1sx_HNRHM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JykmuvCY130",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Zcb-1JmmO_U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vCHtY6Me5FI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3GiWpRfkSjc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "o9hoLdylWKo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "50sv4UTjE90",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dEBQmiXv9fk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mKalBNrxToU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pGOr3HZhUZQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d0K2mDclyXM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ju3J7iRy6xI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kr_Be9NVXOM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1uJVE8bkabc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sYDDk6R-be0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oJc2r246VoQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "14JVlzWHKgk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aUlTqhDtpnw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "n8Nj64FyjSo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "giCZkipHEmA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wOGBlLLuc4I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9pfRgzM1oCQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yLEx1FnYyOo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6eWODQJrMKs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AMfvd_hLssE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jgoa28FR__Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "h_LweqiIotE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OKREmw6YP64",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oYzo95sFoSY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1BxtC6ZOvJQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nsv5rEV3mVI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ynXq-Gw1xfE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "c5aI9cowjRI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "48P-oV6cH44",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mzb5Xs58bb0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lLlG5xkyqIA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0tfPuddPhEY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KV1Kt6I8rYs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "bpto4g5l_go",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Uo19ST0IEZI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EJ-haQArGzU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dI7xi5kRwwM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F-D3lZzYn50",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FrVaxvwCLYM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "b_HSFOnrGLI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3aMB51GMUyQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_0omkfNiU2c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "C9h-o6AfNX0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hQx84r2maaE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QNnayf--_yk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JaoTOfTNOVk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gLcfKSMKOb0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_cKAxjnInfA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cdl4C2eCOHk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xWhPwHZF4c0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AVTfC5WnDTo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Op0OyOuDjcQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pjvnCEfAswc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "02icdqOJsH4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "m5d7-URGnVY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "94wKFGS4Zm4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1fmHMmoa47g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jJb2qytbcNg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ggOZuZnA6is",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Zw3L-0ZP_DA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MexNVKPwu7g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ogx1q2xBHkc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "07zslA8BXZY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qRHdQz_P_Lo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-ZHEnz-emcQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "csmHZGEsONU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NJ0gKDGdchQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RM-MkwkGUSI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7_XK7mGMm1E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lP42Vly2MVg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ujIMPpl2Tr0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rRYfWAsG4RI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HUBmWuxu68M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "H2AE2KS89-w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kpuQqOzQXfM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "O30nHhyBiAs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ded_NQqOe7I",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yktzn-Mr2Nw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MYKb5KcI55s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "InBhMLEx6sU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3zpISnhksqQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xhLD4nEEVlE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aygQSHAbMFQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ti9NFdjf3sM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "klFG10_XajI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "-6zM6mydlfA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xML6pCgPv2c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8r_pMRnG97s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4RPUrwzgO6c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BwjVTbU6is0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Zylc7K3hZoA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SBeMlJvijbQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "c9-zvw3AY3Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mMFT44ra-Rg",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "linear-algebra-stanford",
+  "title": "Applied linear algebra (Stanford ENGR108)",
+  "level": "Beginner",
+  "blurb": "Stephen Boyd on vectors, matrices and least squares, and how they are used for data fitting, classification, control and estimation.",
+  "topic": "Math",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "oR6G1MUMveE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vVspolIKPgc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wlPiJZ1DQjs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ih3rIcBnnSg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YiCAeeBEo50",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wqcknO3fArY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0rOEhJlNzhs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "H0jR5nqueWk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "odR39SYhUH0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "w77MlgsylqY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Gdl92kGR8Ho",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4shS22XxZYw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "liaZ_SCuE1w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a4GjONqojzM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RikEADik56Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IZhpqYeKZEM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dTeN9ypsVTU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1_LEoD33gC0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JbtNJM1hM_4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jXN50fuRSqE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "v7CH2ry-vrQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kTg0vKppOl8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tQ3nrT6cZGE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8SD2zRNWQcU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6zWKMTVGkgQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NS0jvPLtgGc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "t-G9n2uCa4k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NZfWiVuRMnI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vDCZpK96k7k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WFx4oV2JcRM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lWEJPWFIgtw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "R69sATXr1lM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "q7tuWtK2wWY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5XhCN-44ua0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1UssEuFDxd4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "R6sObXmPqXw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SaERMg6BhWk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3LGyi_9Yn8s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J-xhBfJn1mw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "WaOr_4M8yfE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "p18I80UDjNs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qr9uzoRkYK0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "y44HXBjCZ0Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "XTdzAMf0gG0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vOFsja_YmJc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "maCbeyno_mI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fKUea6LCzU8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MNqVUDkudYM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zu2nYmSfY6U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nK6uSzKQlEs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UQsOyMj9lnI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "W0mamVcppBA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SM_ZieyKicU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "00njRSL8WNQ",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "probability-stanford",
+  "title": "Probability for computer scientists (Stanford CS109)",
+  "level": "Intermediate",
+  "blurb": "Chris Piech's course: counting, conditional probability and Bayes, random variables and distributions, inference, MLE and MAP, up to naive Bayes, logistic regression and deep learning.",
+  "topic": "Math",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, 2022",
+    "steps": [
+     {
+      "k": "v",
+      "id": "2MuDZIAzBMY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ag4Ei15CG0c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EGgMCE2AgyU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NHRoXvPaZqY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zTJDZ2wmaRU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8QCg2ur-3fo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "I2UBspTNAG0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QV3IRiG6dVs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OFgBn4rQkqc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rpB_NNXiWlM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8Il2M7kbQSc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fvgQBAsg5Zo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d0ImA7m4BEg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "q9lk8l8P-E4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "c0QGjtu9GZg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "aOhk9mFrHdU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "UEyHbI9FRtM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6Q9wT6JGMMM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NXJwyPT1vsc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ht9yUPtppwY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "utFEufMXHgw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sL1zOr-P4xc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yqF3DvDVpvw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ILqZWvDWKEc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MSfI6TTgyl4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cbzwbr5H_LA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BquE8Z9htws",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "SoXygq5LtiM",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "convex-optimization-stanford",
+  "title": "Convex optimization (Stanford EE364A)",
+  "level": "Advanced",
+  "blurb": "Stephen Boyd's course: convex sets and functions, convex problems, duality, applications in fitting, statistics and geometry, and the algorithms that solve them.",
+  "topic": "Math",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, 2023",
+    "steps": [
+     {
+      "k": "v",
+      "id": "kV1ru-Inzl4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2H4_7izio9Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1menqhfNzzo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "U2HRwA7XePU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AAjG1TQcL7c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "d2jF3SXcFQ8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "P_SuSVZnrT0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wsRznzNgTS0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "whE03c84ahA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "N3V2AdTImJE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "trs0RI39uWI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "t8sp9rv-Dqo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ankx1lGi5jI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dAvxvA4_Euo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zVO4ccvrwrI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Sx7TKDFJjmk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vcTIA2X0UVk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4A5opemjRW4",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "intro-computers-stanford",
+  "title": "Introduction to computers (Stanford CS105)",
+  "level": "Beginner",
+  "blurb": "How computers work, in short lessons: bits and binary, images and sound, hardware, networks and the internet, HTML and CSS, a first taste of Python, security, AI and the cloud.",
+  "topic": "Computer Science",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rPzLcXBhbCFt8ahPrQGFSmN"
+  ],
+  "sections": [
+   {
+    "title": "Lessons",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Qpw-udshXdM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LOV_BwQfOqI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CzrUquTurzw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vTDCChTAnrs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Suodr0VVHgM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "MNAshR_e9sk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NYBAxql8-Xo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qysuyTJ8FJY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hFaI3a91ugo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KuLxqrdmais",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ejJEzdUwFjQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TiipidPdVw4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nOeh-WP4Xf0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7LJF8uzDOZg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yIdUOFxc0mQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "x0Gh7zUsEJM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lOxvIPCNm3Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "xs_jmQt5D0s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ypr3W8YbaH8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "wt8Z9SPPz9U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_7MGRAuG3kc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dxxEJbxuJOE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "TtM1YJ1Z8TA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zymolE4q_Pk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6IgMedQysSw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sYGcCi5xbtI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gpTIWKu36vQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "adggOmf3OEM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HLdDvQym5xk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eJ04XVHkr4s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6OxyB9yuSzo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GrV6BKNlCic",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ro34I0AgNs0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2pN-U5WpJ7o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "A3Q45MUUM4A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pWSDCGNq3s0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rA0lHWdsNeU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "135_QQk8cRA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "DA4jAHg8U-M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_k3FBZQXR5s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "apC9HmI7DRk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NaLLY3zKUII",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "oSPvIhkAm1o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r7daBdqV7cc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ckhu-nU-s9c",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0tAtq1vlU5w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "G0wGXq8kBZU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fF8mnKi6LTw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vBrbyb1pwtQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J7jQPSIReSc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rtgP-Pxrf2o",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "di0KgqNDqhA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eDh5_qZ5gNc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F_806eRoceA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dKBRavHfhfI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "4Ziwz6d94sE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EwBNTOhczok",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eKrlUVhM_5k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8XuUtzZVgb4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "imSwkC-W8KU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "T9aXJrLmv9w",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zv5A7ofqAEo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kVJKb7IHbsw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "r8J-tyDWjNg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vat2Mxu71VE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1r8ClbKmEtE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mR4DKWoZEM4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J4OnlGsym8Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Sw6S48iZ6DM",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "parallel-computing-stanford",
+  "title": "Parallel computing (Stanford CS149)",
+  "level": "Advanced",
+  "blurb": "Multi-core CPUs, SIMD and ISPC, GPUs and CUDA, Spark, running neural networks fast, cache coherence, memory consistency, lock-free programming and hardware specialization.",
+  "topic": "Computer Science",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, 2023",
+    "steps": [
+     {
+      "k": "v",
+      "id": "V1tINV2-9p4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CKmNpAO5rS4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F4bVSyz_jxo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0-ztm8SKq70",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mmO2Ri_dJkk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Mhdny2JNhmc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qQTDF0CBoxE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Ba3TqxSgnTk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jaMWmLq422U",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qbKtU0X6-WU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "lrCfG2CPDEw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nFXWmo9MFiY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GA1ObImqaMo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nHPKVtLz5Ko",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "sRuyBNxCkGQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rFFf3WIJ7BA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Tbk1vnYLQqI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2tAb3EgyjNw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "J7v_ubArrno",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "data-compression-stanford",
+  "title": "Data compression (Stanford EE274)",
+  "level": "Advanced",
+  "blurb": "Entropy, Huffman and arithmetic coding, ANS, LZ, lossy compression and rate-distortion, then how JPEG, video and learned compression really work.",
+  "topic": "Computer Science",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rPj4uhbgUAaEKwNNak8xgkz"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, 2023",
+    "steps": [
+     {
+      "k": "v",
+      "id": "FF7DRogZZdY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "EKdlz3vae04",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "kbAif7XhlTI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "975qcAxZCG0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "yeKngztLcBs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "L4n2u1TTkO4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "5Hp4bnvSjng",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tGPF2nw5Exc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "B8ucNShRwjQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "amv9LiGyY5s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "YEF0iCiQlOg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9Fv8PlpPUCI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9ZcYlFYqAhU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "eaMrplHvxlg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pMNVQIZa-G8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "H7dvh35xNuE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "LE6GLWv63wc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uKnEZKpZKVA",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ios-swiftui-stanford",
+  "title": "iOS development with SwiftUI (Stanford CS193p)",
+  "level": "Intermediate",
+  "blurb": "Build iOS apps with Swift and SwiftUI: Xcode, models and views, layout and data flow, animation, protocols, iPad and Mac, SwiftData and multithreading.",
+  "topic": "Programming",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rPHblRXKsJCQs8TLGpiCTrG"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, 2025",
+    "steps": [
+     {
+      "k": "v",
+      "id": "kCjDulwChRQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "63UHypFKRRM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "B42CuI0RO7Y",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IvOF3Bmk-94",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "u6cgk1W6EXE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tvVj6MSBhBA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RYemrq0e7KM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OZK7_p1G8Pw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "o3D3rqh-IVA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NnJ91M9PRYo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "PXcl5cjVNT0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "gNok5P7HLCw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "k9wjAdgUY0A",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1PDZl0LPryw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "F0nefFT2Uik",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "skECWIKpBVY",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "robotic-autonomy-stanford",
+  "title": "Principles of robotic autonomy (Stanford AA274A)",
+  "level": "Advanced",
+  "blurb": "How a mobile robot drives itself: kinematics, ROS, trajectory optimization, motion planning, cameras and computer vision, localization, filters and SLAM.",
+  "topic": "Robotics",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLR9iNyexfIkk"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, autumn 2019",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Lgt5ONBtFI0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "vEDeUdZ-jnQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Kv5G2OlrIbU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "nluc4rMiipA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Izu4_AUiHyk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hFCIZjVkSaw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AN4jXyWwV7Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "emb_KF3OSu0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "QyG0PTgLBxQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "idD08N4rgJU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8A3NmdQJRNc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GsIRJJ5sYoU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "dG3-D-vDwe8",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "pSBhRF6j-Zc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9y_lJdQmKcY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fkug1jGSgzU",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "j0LGkdKtKaY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "9kKEACFMQEM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "l5kwVWOe0OM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8vLx1MFVK_4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0rsms-e5_8s",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "control-stanford",
+  "title": "Optimal and learning-based control (Stanford AA203)",
+  "level": "Advanced",
+  "blurb": "Optimal control from the calculus of variations and dynamic programming to LQR and model predictive control, then imitation learning and reinforcement learning.",
+  "topic": "Robotics",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLa9dmHsLK9dg"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, spring 2026",
+    "steps": [
+     {
+      "k": "v",
+      "id": "Au2stLALZew",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "FbkNYklySak",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "duZJ2_ajLso",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7rejaoMWviw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "R4_fHzTo0IM",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zX8raxUa2DE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "hy-e9g4nugE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "1YdgSwEtf_s",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "C9mLpI8Td9g",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "Fl5EjGhQjgs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "3_gxaB_Pp3k",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "8Elrw30y0tg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RtJSHiqOdgQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7YdOx-ih0II",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "udHX5Auj7ik",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "cqPbt3OfRK4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zanXSI7zSws",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a1g9U_5zO54",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "ZXMThMHFD_w",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "sensing-autonomy-stanford",
+  "title": "Sensing for autonomy (Stanford EE259)",
+  "level": "Advanced",
+  "blurb": "The sensors autonomous machines rely on and how they work: GPS, inertial navigation, sonar, radar, lidar and cameras.",
+  "topic": "Robotics",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rOhE007XQu707Dy52qXiZGV"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, 2023",
+    "steps": [
+     {
+      "k": "v",
+      "id": "VvoKJ6xvssQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "v5OW9aZHWfk",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "a_feUoPuePA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "14ZmOyvG9aQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JZ9uAG_NXi0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qg9uN_pYF8E",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "h8vVU3vjHpY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "fQbHSX-G_Pg",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AkTkEEfeXLA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "CPkht7C0tEY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "tWqFcSbD8FA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "zfrudmIQvik",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "56MwUp5FnUo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "2JYMXDoHiDY",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "RajTLcrJDOo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "JlQKunkJgbA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mvIDwIWQP_M",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "0XBan0nC1Ok",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "VvKJN8yS1k4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "NQlYpDQf-SE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "BpZaQC5WiZo",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "safety-critical-stanford",
+  "title": "Validating safety-critical systems (Stanford AA228V)",
+  "level": "Advanced",
+  "blurb": "How to show that an autonomous system is safe: system modeling, specifications, falsification, estimating failure probability, reachability, explainability and runtime monitoring.",
+  "topic": "Robotics",
+  "by": "Stanford Online",
+  "h": "stanfordonline",
+  "lists": [
+   "PLoROMvodv4rOq1LMLI8U7djzDb8--xpaC"
+  ],
+  "sections": [
+   {
+    "title": "Lectures, 2025",
+    "steps": [
+     {
+      "k": "v",
+      "id": "hE9iWwMZANE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "6-qnwn23Iq4",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "AgZH1k9yObs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "rBGh5uJhAmo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "iO6OACXaF1Q",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "162ToWqAMnc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "v6edojW2vJI",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "7bZcHXJIaUo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "mzl8uer5qUc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "qspZyUkolbA",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "jwR2excDAJo",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "KsR5zqAS_GE",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "GysI7p6y1Hs",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "IKSQ7IxBLxQ",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "OU67A1tyfmc",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "uDaHF-rIXb0",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "_U0EUX2E3k0",
+      "note": ""
+     }
+    ]
+   }
   ]
  }
 ]
