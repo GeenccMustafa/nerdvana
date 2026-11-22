@@ -141,8 +141,10 @@ select.chip { padding-right: 8px; }
 .shelf h3 { margin: 0 0 12px; font: 700 17px var(--display); display: flex; align-items: baseline; gap: 10px; }
 .shelf h3 small { font: 400 12px var(--body); color: var(--fg2); }
 .shelf-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 260px); gap: 14px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: thin; }
-/* Continue watching: its own panel above the home feed, latest first, with the time left on each video */
-.resume { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px 10px; margin-bottom: 30px; }
+/* Continue watching: its own accent-tinted panel above the home feed, latest first, with the time left on each video */
+.resume { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+  border-radius: 16px; padding: 16px 18px 10px; margin-bottom: 30px; box-shadow: 0 8px 28px -18px color-mix(in srgb, var(--accent) 70%, transparent); }
+.resume-ico { width: 34px; height: 34px; flex: none; border-radius: 50%; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; }
 .resume-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
 .resume-head .txt { flex: 1; min-width: 0; }
 .resume-head h2 { margin: 0; font: 700 19px/1.2 var(--display); }
@@ -425,7 +427,8 @@ body[data-mode="articles"] #tvBtn { display: none; }
   <main class="wrap">
     <div class="context" id="context" hidden></div>
     <section class="resume" id="resume" aria-labelledby="resumeTitle" hidden>
-      <div class="resume-head"><div class="txt"><h2 id="resumeTitle">Continue watching</h2><p id="resumeSub"></p></div>
+      <div class="resume-head"><span class="resume-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+        <div class="txt"><h2 id="resumeTitle">Continue watching</h2><p id="resumeSub"></p></div>
         <button class="btn" id="resumeClear" type="button">Clear list</button></div>
       <div class="shelf-row resume-row" id="resumeRow"></div>
     </section>
