@@ -135,6 +135,14 @@ select.chip { padding-right: 8px; }
 .badge.new { background: var(--accent); color: var(--accent-fg); }
 .badge.ts { top: auto; bottom: 6px; background: var(--accent); color: var(--accent-fg); }
 .badge.step { background: var(--fg); color: var(--bg); font-size: 12px; }
+.badge.yo { top: auto; bottom: 6px; background: #cc1f1f; }   /* plays only on YouTube */
+/* in the player: a video whose owner turned off playing on other sites */
+.frame .yt-only { display: grid; place-content: center; justify-items: center; gap: 10px; padding: 20px; text-align: center; color: #fff;
+  background: radial-gradient(circle at 50% 30%, #2a1416, #000 70%); }
+.yt-only b { font: 700 clamp(17px, 2.4vw, 22px) var(--display); }
+.yt-only p { margin: 0; color: #c9ced8; font-size: 13.5px; max-width: 42ch; }
+.yt-only .acts { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+.yt-only .btn:not(.primary) { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.3); color: #fff; }
 
 /* Shelf: a horizontal row above the grid (transcript matches, related videos; Continue watching reuses the row) */
 .shelf { margin-bottom: 26px; }
@@ -452,7 +460,7 @@ body[data-mode="articles"] #tvBtn { display: none; }
   </div>
   <div class="watch-grid wrap">
     <section class="pinfo">
-      <div class="frame"><div id="wPlayer"></div><video id="mlPlayer" controls playsinline crossorigin="anonymous" hidden></video></div>
+      <div class="frame"><div id="wPlayer"></div><div class="yt-only" id="ytOnly" hidden></div><video id="mlPlayer" controls playsinline crossorigin="anonymous" hidden></video></div>
       <h2 id="pTitle"></h2>
       <div class="prow">
         <button class="who" id="pWho" type="button" title="Show this channel"></button>
@@ -1033,7 +1041,7 @@ function card(v, o = {}) {
   el.className = "card" + (seen.has(v.id) ? " seen" : ""); el.dataset.id = v.id;
   const p = progress[v.id], pct = p && v.d ? Math.min(100, p.t / v.d * 100) : 0;
   const badge = o.step ? `<span class="badge step">${o.step}</span>` : seen.has(v.id) ? `<span class="badge">WATCHED</span>` : isNew(v) ? `<span class="badge new">NEW</span>` : "";
-  el.innerHTML = `<button type="button" class="card-hit"><div class="thumb">${vimg(v)}${badge}
+  el.innerHTML = `<button type="button" class="card-hit"><div class="thumb">${vimg(v)}${badge}${v.yo ? YT_BADGE : ""}
       ${o.at != null ? `<span class="badge ts">▶ ${fmtDur(o.at)}</span>` : v.d ? `<span class="dur">${fmtDur(v.d)}</span>` : ""}
       ${pct ? `<span class="prog"><i style="width:${pct.toFixed(1)}%"></i></span>` : ""}</div>
     <h3>${esc(v.t)}</h3>
@@ -1042,7 +1050,9 @@ function card(v, o = {}) {
     ${own ? `<button type="button" class="later-btn" aria-pressed="${later.includes(v.id)}" aria-label="Watch later" title="Watch later">${ICON_SAVE}</button>` : ""}${own ? rmBtn() : ""}`;
   // transcript hits start 3 s before the mention, so the sentence isn't cut off
   // keepHash: the player pushes its own entry, so Back returns to the article page this came from
-  el.querySelector(".card-hit").onclick = () => { setMode("videos", { keepHash: true }); openPlayer(v, { start: o.at != null ? Math.max(0, o.at - 3) : p?.t ?? 0 }); };
+  el.querySelector(".card-hit").onclick = () => { const start = o.at != null ? Math.max(0, o.at - 3) : p?.t ?? 0;
+    if (v.yo) return openOnYouTube(v, start);
+    setMode("videos", { keepHash: true }); openPlayer(v, { start }); };
   el.querySelector(".later-btn")?.addEventListener("click", () => toggleLater(v.id));
   return el;
 }
@@ -1262,7 +1272,7 @@ function renderResume() {
   $("#resumeSub").textContent = `${items.length} ${items.length === 1 ? "video" : "videos"} · ${fmtMin(left)} left in all · picks up where you stopped`;
   $("#resumeRow").innerHTML = items.slice(0, 24).map(([v, p]) => { const pct = v.d ? Math.min(100, p.t / v.d * 100) : 0;
     return `<div class="card rcard" data-id="${v.id}"><button type="button" class="card-hit" data-resume="${v.id}">
-      <div class="thumb">${vimg(v)}${v.d ? `<span class="tleft">${timeLeft(v.d - p.t)}</span>` : ""}<span class="prog"><i style="width:${pct.toFixed(1)}%"></i></span></div>
+      <div class="thumb">${vimg(v)}${v.yo ? YT_BADGE : ""}${v.d ? `<span class="tleft">${timeLeft(v.d - p.t)}</span>` : ""}<span class="prog"><i style="width:${pct.toFixed(1)}%"></i></span></div>
       <h3>${esc(v.t)}</h3>
       <div class="meta"><span class="ch">${esc(v.ml ? "Microsoft Learn · " + v.mod : v.ch.n)}</span><span class="dot"></span><span class="num">at ${fmtDur(p.t)}${v.d ? ` of ${fmtDur(v.d)}` : ""}</span></div></button>
       <button type="button" class="drop-btn" data-drop="${v.id}" aria-label="Remove from Continue watching" title="Remove from Continue watching">✕</button></div>`; }).join("");
@@ -1276,7 +1286,7 @@ $("#resume").addEventListener("click", e => {
   const d = e.target.closest("[data-drop]");
   if (d) { dropResume([d.dataset.drop]); return toast("Removed from Continue watching"); }
   const r = e.target.closest("[data-resume]"), v = r && DS.videos.byId.get(r.dataset.resume);
-  if (v) openPlayer(v, { start: progress[v.id]?.t ?? 0 });
+  if (v) (v.yo ? openOnYouTube : (v, start) => openPlayer(v, { start }))(v, progress[v.id]?.t ?? 0);
 });
 $("#resumeClear").onclick = () => {
   const ids = resumeItems().map(([v]) => v.id);
@@ -1307,13 +1317,25 @@ function transcriptHits(q) {
 }
 
 /* ---------- Watch view ---------- */
+/* ---------- YouTube-only videos: their owner turned off playing on other sites ----------
+   noembed.json (embeds.py, nightly) lists them, and a player error adds one, remembered in this browser.
+   They stay in every list, tagged "YouTube ↗": a click opens them on YouTube; autoplay, TV mode and Surprise me skip them. */
+const YT_BADGE = `<span class="badge yo" title="Its owner allows playing it only on YouTube">YouTube ↗</span>`;
+const ytOnlyHere = new Set(store.get("ytonly", []));
+const ytUrl = (v, t = 0) => `https://www.youtube.com/watch?v=${v.id}${t > 5 ? `&t=${Math.floor(t)}s` : ""}`;
+const openOnYouTube = (v, t) => window.open(ytUrl(v, t), "_blank", "noopener");
+function markYtOnly(v) {
+  if (!v || v.yo) return;
+  v.yo = 1; ytOnlyHere.add(v.id); store.set("ytonly", [...ytOnlyHere]);
+  document.querySelectorAll(`.card[data-id="${v.id}"] .thumb`).forEach(t => t.insertAdjacentHTML("beforeend", YT_BADGE));
+}
 let current = null, nextUp = null, wp = null, autoplay = store.get("autoplay", true);
 function upItem(u) {
   const uc = u.ch, b = document.createElement("button");
   b.type = "button"; b.className = "up";
-  b.innerHTML = `<div class="thumb">${vimg(u)}${u.d ? `<span class="dur">${fmtDur(u.d)}</span>` : ""}${seen.has(u.id) ? `<span class="badge">WATCHED</span>` : ""}</div>
+  b.innerHTML = `<div class="thumb">${vimg(u)}${u.d ? `<span class="dur">${fmtDur(u.d)}</span>` : ""}${seen.has(u.id) ? `<span class="badge">WATCHED</span>` : ""}${u.yo ? YT_BADGE : ""}</div>
     <div class="m"><h4>${esc(u.t)}</h4>${u.ml ? `<span>Microsoft Learn</span><span>${esc(u.mod)}</span>` : `<span>${esc(uc.n)} <span class="tier ${uc.t}">${uc.t}</span></span><span>${fmtNum(u.v)} views${u.ts ? ` · ${fmtAgo(u.ts)}` : ""}</span>`}</div>`;
-  b.onclick = () => openPlayer(u, { start: progress[u.id]?.t || 0 });
+  b.onclick = () => u.yo ? openOnYouTube(u, progress[u.id]?.t || 0) : openPlayer(u, { start: progress[u.id]?.t || 0 });
   return b;
 }
 function openPlayer(v, o = {}) {
@@ -1328,7 +1350,7 @@ function openPlayer(v, o = {}) {
   const simSet = new Set(sim);
   let feed = pool.filter(x => x !== v && !simSet.has(x) && (inPath || !seen.has(x.id))).slice(0, inPath ? 20 : 12);
   if (!inPath && feed.length < 12) feed.push(...pool.filter(x => x !== v && !simSet.has(x) && seen.has(x.id)).slice(0, 12 - feed.length));
-  nextUp = inPath ? feed[0] : ([...sim, ...feed].find(x => !seen.has(x.id)) || feed[0] || sim[0]);
+  nextUp = inPath ? feed[0] : ([...sim, ...feed].find(x => !seen.has(x.id) && !x.yo) || feed.find(x => !x.yo) || sim[0]);
 
   const c = v.ch;
   $("#pTitle").textContent = v.t;
@@ -1366,19 +1388,30 @@ function openPlayer(v, o = {}) {
   if (o.keepPlayer) return;
   let start = Math.floor(o.start || 0); if (start > v.d - 20) start = 0;
   if (v.ml) return playLearn(v, start);
-  mlv.pause(); mlv.hidden = true; $("#wPlayer").hidden = false;
+  mlv.pause(); mlv.hidden = true;
+  if (v.yo) return showYtOnly(v, start);
+  $("#ytOnly").hidden = true; $("#wPlayer").hidden = false;
   loadYT().then(() => {
     if (current !== v) return;
     if (wp) wp.loadVideoById({ videoId: v.id, startSeconds: start });
     else wp = new YT.Player("wPlayer", { videoId: v.id, playerVars: { autoplay: 1, rel: 0, modestbranding: 1, start },
       events: { onReady: e => e.target.playVideo(),
-                onStateChange: e => { if (e.data === YT.PlayerState.ENDED && current) { finish(current.id); if (autoplay && nextUp) openPlayer(nextUp); } } } });
+                onStateChange: e => { if (e.data === YT.PlayerState.ENDED && current) { finish(current.id); if (autoplay && nextUp) openPlayer(nextUp); } },
+                // 101/150: the owner turned off playing on other sites
+                onError: e => { if (current && !current.ml && (e.data === 101 || e.data === 150)) { markYtOnly(current); showYtOnly(current, 0); } } } });
   });
+}
+function showYtOnly(v, start) {
+  wp?.pauseVideo?.(); $("#wPlayer").hidden = true;
+  const box = $("#ytOnly"); box.hidden = false;
+  box.innerHTML = `<b>This video plays only on YouTube</b><p>Its owner turned off playing it on other sites, so it opens on YouTube${start > 5 ? `, from ${fmtDur(start)}` : ""}.</p>
+    <div class="acts"><a class="btn primary" href="${ytUrl(v, start)}" target="_blank" rel="noopener">Watch on YouTube ↗</a>${nextUp && nextUp !== v ? `<button class="btn" type="button" data-next>Next video</button>` : ""}</div>`;
+  box.querySelector("[data-next]")?.addEventListener("click", () => openPlayer(nextUp));
 }
 // Microsoft Learn videos are MP4 files with English captions, played in a <video> in place of the YouTube player
 const mlv = $("#mlPlayer");
 function playLearn(v, start) {
-  wp?.pauseVideo?.(); $("#wPlayer").hidden = true; mlv.hidden = false;
+  wp?.pauseVideo?.(); $("#wPlayer").hidden = true; $("#ytOnly").hidden = true; mlv.hidden = false;
   mlv.innerHTML = v.cc ? `<track kind="captions" srclang="en" label="English" src="${esc(v.cc)}"${cc ? " default" : ""}>` : "";
   mlv.src = v.mp4 + (start ? `#t=${start}` : "");
   mlv.play().catch(() => {});
@@ -1424,7 +1457,7 @@ function markSeen(id, on) {
 function finish(id) { markSeen(id, true); }
 // Remember the playback position every few seconds, so "Continue watching" can resume it
 function saveCurrentProgress() {
-  if (!current || !current.ml && !wp?.getCurrentTime) return;
+  if (!current || current.yo || !current.ml && !wp?.getCurrentTime) return;
   const t = Math.floor(curTime() || 0), id = current.id;
   if (t >= current.d * 0.92 && current.d) { if (!seen.has(id)) markSeen(id, true); return; }
   if (t > 15) { progress[id] = { t, at: Date.now() }; saveProgress(); }
@@ -1447,7 +1480,7 @@ renderAuto();
 
 /* Surprise me: a random unwatched video from the current filter (or from everything if the filter is empty) */
 function surprise() {
-  const pool = (list.length ? list : V).filter(v => !seen.has(v.id));
+  const pool = (list.length ? list : V).filter(v => !seen.has(v.id) && !v.yo);
   const from = pool.length ? pool : (list.length ? list : V);
   const v = from[Math.random() * from.length | 0];
   if (!v) return;
@@ -1463,8 +1496,9 @@ function loadYT() {
   return ytReady;
 }
 async function startTV(fixed) {
-  if (Array.isArray(fixed)) queue = fixed;
-  else { const pool = list.length ? list : V;
+  // videos that play only on YouTube are skipped: opening YouTube would break the lean-back flow
+  if (Array.isArray(fixed)) queue = fixed.filter(v => !v.yo);
+  else { const pool = (list.length ? list : V).filter(v => !v.yo);
     queue = [...mix(pool.filter(v => !seen.has(v.id))), ...mix(pool.filter(v => seen.has(v.id)))]; }
   qi = 0;
   if (!queue.length) return;
@@ -1478,7 +1512,7 @@ async function startTV(fixed) {
               onStateChange: e => {
                 if (e.data === YT.PlayerState.PLAYING) applyCC();
                 if (e.data === YT.PlayerState.ENDED) { markSeen(queue[qi].id, true); step(1); } },
-              onError: () => step(1) } });
+              onError: e => { if (e.data === 101 || e.data === 150) markYtOnly(queue[qi]); step(1); } } });
   else yt.loadVideoById(queue[0].id);
   hud(); poke();
 }
@@ -1531,13 +1565,15 @@ Promise.all([
   fetch("paths.json").then(r => r.ok ? r.json() : []).catch(() => []),
   fetch("courses.json").then(r => r.ok ? r.json() : []).catch(() => []),
   fetch("learn.json").then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([d, paths, courses, learn]) => {
+  fetch("noembed.json").then(r => r.ok ? r.json() : []).catch(() => []),
+]).then(([d, paths, courses, learn, noembed]) => {
   COURSES = [...courses, ...(learn?.courses || [])];
   CH = d.channels; PATHS = paths; DS.videos.PATHS = paths;
   V = d.videos.map(([id, t, c, dur, v, ts], i) => ({ i, id, t, c, ch: CH[c], d: dur, v, ts, s: norm(t + " " + d.channels[c].n) }));
   byId = new Map(V.map(v => [v.id, v]));
   addLearn(learn, byId);
   markFound(d, byId);
+  for (const id of [...noembed, ...ytOnlyHere]) { const x = byId.get(id); if (x) x.yo = 1; }
   Object.assign(DS.videos, { CH, V, byId });
   if (!startOnArticles) { renderFilters(); apply(); }
   route();
