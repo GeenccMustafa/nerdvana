@@ -136,11 +136,26 @@ select.chip { padding-right: 8px; }
 .badge.ts { top: auto; bottom: 6px; background: var(--accent); color: var(--accent-fg); }
 .badge.step { background: var(--fg); color: var(--bg); font-size: 12px; }
 
-/* Shelf: a horizontal row above the grid (Continue watching, transcript matches) */
+/* Shelf: a horizontal row above the grid (transcript matches, related videos; Continue watching reuses the row) */
 .shelf { margin-bottom: 26px; }
 .shelf h3 { margin: 0 0 12px; font: 700 17px var(--display); display: flex; align-items: baseline; gap: 10px; }
 .shelf h3 small { font: 400 12px var(--body); color: var(--fg2); }
 .shelf-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 260px); gap: 14px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: thin; }
+/* Continue watching: its own panel above the home feed, latest first, with the time left on each video */
+.resume { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px 10px; margin-bottom: 30px; }
+.resume-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.resume-head .txt { flex: 1; min-width: 0; }
+.resume-head h2 { margin: 0; font: 700 19px/1.2 var(--display); }
+.resume-head p { margin: 3px 0 0; color: var(--fg2); font-size: 12.5px; }
+.resume-head .btn { height: 32px; padding: 0 12px; font-size: 13px; }
+.resume-row { grid-auto-columns: minmax(230px, 260px); }
+.rcard .prog { height: 5px; }
+.tleft { position: absolute; right: 6px; bottom: 11px; background: var(--accent); color: var(--accent-fg); font: 600 11px var(--mono); padding: 2px 6px; border-radius: 4px; font-variant-numeric: tabular-nums; }
+.drop-btn { position: absolute; top: 6px; right: 6px; z-index: 1; width: 30px; height: 30px; border-radius: 8px; border: 0; background: rgba(0,0,0,.72); color: #fff; font-size: 14px; display: grid; place-items: center; opacity: 0; transition: opacity .15s; }
+.rcard:hover .drop-btn, .drop-btn:focus-visible { opacity: 1; }
+.drop-btn:hover { background: var(--tS); }
+@media (hover: none) { .drop-btn { opacity: .9; } }
+@media (max-width: 640px) { .resume { padding: 12px 12px 6px; border-radius: 14px; } .resume-row { grid-auto-columns: minmax(200px, 72vw); } }
 /* a focus section's courses: one scrollable row of path cards, blurbs cut to three lines so the row stays even */
 .hub-row { grid-auto-columns: minmax(250px, 290px); align-items: stretch; }
 .hub-row .path-card p:not(.by) { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
@@ -409,6 +424,11 @@ body[data-mode="articles"] #tvBtn { display: none; }
 
   <main class="wrap">
     <div class="context" id="context" hidden></div>
+    <section class="resume" id="resume" aria-labelledby="resumeTitle" hidden>
+      <div class="resume-head"><div class="txt"><h2 id="resumeTitle">Continue watching</h2><p id="resumeSub"></p></div>
+        <button class="btn" id="resumeClear" type="button">Clear list</button></div>
+      <div class="shelf-row resume-row" id="resumeRow"></div>
+    </section>
     <section class="shelf" id="hubBox" hidden><h3 id="hubTitle"></h3><div class="shelf-row hub-row" id="hubRow"></div></section>
     <section class="shelf" id="shelf" hidden><h3 id="shelfTitle"></h3><div class="shelf-row" id="shelfRow"></div></section>
     <div class="paths" id="pathsGrid" hidden></div>
@@ -978,7 +998,7 @@ function apply() {
   // Discovered items (a video or two from many small channels) would flood the channel-balanced mix,
   // so outside Code craft they only show up in search, on their channel page and in "More like this"
   else { list = V.filter(v => passes(v) && (v.ch.t !== "D" || state.q || state.ch != null)); sortList(); }
-  renderContext(); renderHub(); renderPaths(); renderCourse(); renderShelf();
+  renderContext(); renderHub(); renderPaths(); renderCourse(); renderShelf(); renderResume();
   $("#count").textContent = `${list.length.toLocaleString("en-US")} / ${V.length.toLocaleString("en-US")} ${L().many} · ${CH.filter(c => c.t !== "D").length} ${L().src}`;
   $("#grid").innerHTML = ""; shown = 0; more();
   const empty = { later: `Nothing saved yet. Use the bookmark button on any ${L().one} to keep it for later.`,
@@ -1196,7 +1216,7 @@ function renderCourse() {
   box.querySelectorAll(".step").forEach(b => b.onclick = () => openStep(c, items, +b.dataset.k));
 }
 
-/* ---------- Shelf: "Continue watching" on the home feed, transcript matches while searching ---------- */
+/* ---------- Shelf: transcript matches while searching, related videos on an article page ---------- */
 let shelfToken = 0;
 function renderShelf() {
   const token = ++shelfToken, box = $("#shelf");
@@ -1220,13 +1240,42 @@ function renderShelf() {
     ensureSearch().then(() => show(`Mentioned in transcripts <small>spoken in the video, jumps to the moment</small>`, transcriptHits(state.q)));
     return;
   }
-  const home = state.view === "home" && state.ch == null && !state.tier && !state.topic && state.dur == null;
-  if (home) {
-    const items = Object.entries(progress).sort((a, b) => b[1].at - a[1].at).map(([id, p]) => [byId.get(id), null]).filter(([v]) => v && !seen.has(v.id)).slice(0, 12);
-    return show(`Continue watching <small>picks up where you left off</small>`, items);
-  }
   show("", []);
 }
+
+/* ---------- Continue watching: half-watched videos, latest first, in their own panel on the home feed ---------- */
+const resumeItems = () => Object.entries(progress).sort((a, b) => b[1].at - a[1].at)
+  .map(([id, p]) => [DS.videos.byId.get(id), p]).filter(([v]) => v && !DS.videos.seen.has(v.id));
+const timeLeft = s => s < 60 ? "<1 min left" : `${fmtMin(s)} left`;
+function renderResume() {
+  const home = mode === "videos" && !state.q && state.view === "home" && state.ch == null && !state.tier && !state.topic && state.dur == null;
+  const items = home ? resumeItems() : [], box = $("#resume");
+  box.hidden = !items.length; if (!items.length) return;
+  const left = items.reduce((s, [v, p]) => s + Math.max(0, (v.d || 0) - p.t), 0);
+  $("#resumeSub").textContent = `${items.length} ${items.length === 1 ? "video" : "videos"} · ${fmtMin(left)} left in all · picks up where you stopped`;
+  $("#resumeRow").innerHTML = items.slice(0, 24).map(([v, p]) => { const pct = v.d ? Math.min(100, p.t / v.d * 100) : 0;
+    return `<div class="card rcard" data-id="${v.id}"><button type="button" class="card-hit" data-resume="${v.id}">
+      <div class="thumb">${vimg(v)}${v.d ? `<span class="tleft">${timeLeft(v.d - p.t)}</span>` : ""}<span class="prog"><i style="width:${pct.toFixed(1)}%"></i></span></div>
+      <h3>${esc(v.t)}</h3>
+      <div class="meta"><span class="ch">${esc(v.ml ? "Microsoft Learn · " + v.mod : v.ch.n)}</span><span class="dot"></span><span class="num">at ${fmtDur(p.t)}${v.d ? ` of ${fmtDur(v.d)}` : ""}</span></div></button>
+      <button type="button" class="drop-btn" data-drop="${v.id}" aria-label="Remove from Continue watching" title="Remove from Continue watching">✕</button></div>`; }).join("");
+}
+// Removing one or all forgets the saved position only; nothing is marked as watched
+function dropResume(ids) {
+  for (const id of ids) { delete progress[id]; document.querySelectorAll(`.card[data-id="${id}"] .prog`).forEach(el => el.remove()); }
+  saveProgress(); renderResume();
+}
+$("#resume").addEventListener("click", e => {
+  const d = e.target.closest("[data-drop]");
+  if (d) { dropResume([d.dataset.drop]); return toast("Removed from Continue watching"); }
+  const r = e.target.closest("[data-resume]"), v = r && DS.videos.byId.get(r.dataset.resume);
+  if (v) openPlayer(v, { start: progress[v.id]?.t ?? 0 });
+});
+$("#resumeClear").onclick = () => {
+  const ids = resumeItems().map(([v]) => v.id);
+  if (!confirm(`Clear Continue watching (${ids.length} ${ids.length === 1 ? "video" : "videos"})? Their saved positions are forgotten; nothing is marked as watched.`)) return;
+  dropResume(ids); toast("Continue watching cleared");
+};
 function ensureSearch() {
   return searchLoading ||= fetch("search.json").then(r => r.ok ? r.json() : null)
     .then(d => { if (d) { SEARCH = d; SEARCH.keys = Object.keys(d.terms); } }).catch(() => {});
@@ -1356,7 +1405,7 @@ function renderCourseNav() {
 function closePlayer(fromPop) {
   saveCurrentProgress();
   $("#watch").hidden = true; document.body.style.overflow = ""; wp?.stopVideo?.(); mlv.pause(); current = null;
-  renderSide(); renderShelf();
+  renderSide(); renderShelf(); renderResume();
   if (fromPop !== true) { if (history.state?.watch) history.back(); else syncHash(); }
 }
 function markSeen(id, on) {
