@@ -803,7 +803,8 @@ function renderContext() {
       <button class="btn primary" data-act="start">${done ? (done === list.length ? "Watch again" : "Continue") : "Start"}</button>`
       : `<div class="txt"><h2>Path not found</h2><p>This path doesn't exist anymore.</p></div><button class="btn" data-act="allpaths">All paths</button>`;
   } else if (state.view === "time") {
-    html = `<div class="txt"><h2>I have ${state.budget} minutes</h2><p>${list.length ? `${list.length} un${l.seen} ${list.length > 1 ? l.many : l.one} from the Essential and Great ${l.src} · ${fmtMin(total)} ${A ? "of reading" : "in total"}` : "Nothing fits. Try more time or clear the filters."}</p>
+    const [lo, hi] = budgetRange();
+    html = `<div class="txt"><h2>I have ${state.budget} minutes</h2><p>${list.length ? `${n} un${l.seen} ${list.length > 1 ? l.many : l.one} of ${lo}–${hi} min${A ? " reading" : ""}` : "Nothing in this range. Try another length or clear the filters."}</p>
       <div class="group" style="margin-top:10px">${BUDGETS.map(m => `<button class="chip" data-act="budget" data-m="${m}" aria-pressed="${m === state.budget}">${m} min</button>`).join("")}</div></div>
       <button class="btn" data-act="reroll">Shuffle</button>
       ${list.length && !A ? `<button class="btn primary" data-act="playall">Play all</button>` : ""}`;
@@ -974,14 +975,10 @@ const courseRank = c => isCert(c) ? 2 : c.by ? 1 : 0;
 const hubCourses = id => COURSES.filter(c => c.hubs?.includes(id))
   .sort((a, b) => courseRank(a) - courseRank(b) || LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
 let hubAll = [];   // the current section before the facet, for the facet counts
-// "I have X minutes": pack unwatched S/A videos (in a channel-balanced order) into the time budget
-function packBudget() {
-  const cap = state.budget * 60;
-  const pool = mix(V.filter(v => passes(v) && !seen.has(v.id) && "SA".includes(CH[v.c].t) && v.d >= 60 && v.d <= cap && v.v >= (mode === "articles" ? 20 : 20000)));
-  const out = []; let left = cap;
-  for (const v of pool) { if (v.d <= left) { out.push(v); left -= v.d; } if (left < 90 || out.length >= 12) break; }
-  return out;
-}
+// "I have X minutes": every unwatched video that fits the time and is longer than the next shorter choice,
+// so 10 min lists the 5–10 min videos and 45 min the 30–45 min ones (5 min: 1–5 min)
+function budgetRange(m = state.budget) { const i = BUDGETS.indexOf(m); return [i > 0 ? BUDGETS[i - 1] : 1, m]; }
+function inBudget(v) { const [lo, hi] = budgetRange(); return v.d > lo * 60 - (lo === 1) && v.d <= hi * 60; }
 
 function apply() {
   const by = { new: (a, b) => b.ts - a.ts, views: (a, b) => b.v - a.v, long: (a, b) => b.d - a.d };
@@ -992,7 +989,7 @@ function apply() {
   else if (view === "path") { const p = PATHS.find(p => p.id === state.path); list = (p?.videos || p?.articles || []).map(id => byId.get(id)).filter(Boolean); }
   else if (view === "paths" || view === "course" || view === "certs") list = [];
   else if (view === "like") { const a = byId.get(state.like); list = a ? (SIM?.[a.i] || []).map(i => V[i]).filter(x => x && passes(x, { ignoreQ: true })) : []; }
-  else if (view === "time") list = packBudget();
+  else if (view === "time") { list = V.filter(v => inBudget(v) && passes(v) && !seen.has(v.id) && CH[v.c].t !== "D"); sortList(); }
   else if (view === "new") { list = V.filter(v => isNew(v) && passes(v)); list.sort(by.new); }
   else if (view === "craft") { list = V.filter(v => isCraft(v) && passes(v)); sortList(); }
   else if (HUBS[view]) { const f = facetOf();
