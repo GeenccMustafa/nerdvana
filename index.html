@@ -191,14 +191,15 @@ main { padding-block: 20px 60px; min-width: 0; }
   .side { position: fixed; z-index: 40; top: 0; left: 0; bottom: 0; height: auto; width: min(300px, 85vw); background: var(--bg); padding-top: max(14px, env(safe-area-inset-top, 0px)); transform: translateX(-102%); transition: transform .25s ease; }
   body.drawer .side { transform: none; box-shadow: 0 0 40px rgba(0,0,0,.35); }
   body.drawer .scrim { display: block; position: fixed; inset: 0; z-index: 39; background: var(--shade); }
-  /* Small screens: the header slides away while scrolling down and comes back on scroll up,
-     and the filter groups sit on one horizontally scrollable row instead of wrapping into many. */
+  /* Small screens: the header slides away while scrolling down and comes back on scroll up.
+     The filters move out of it to the top of the page (see placeFilters), so they scroll away with
+     the page and only show at the top: every group on its own line, chips wrapping, nothing sideways. */
   header { transition: transform .25s ease; }
   body.head-hidden header { transform: translateY(-100%); }
-  .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
-  .filters::-webkit-scrollbar { display: none; }
-  .filters .group { flex-wrap: nowrap; flex: none; }
-  .filters .chip { white-space: nowrap; flex: none; }
+  main > .filters { gap: 10px; padding-block: 0 16px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+  main > .filters .group { width: 100%; gap: 5px; }
+  main > .filters .group > b { min-width: 50px; flex: none; }
+  main > .filters .chip { height: 30px; padding: 0 9px; }
 }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px 16px; }
 .thumb { position: relative; aspect-ratio: 16/9; max-width: 100%; border-radius: var(--r); overflow: hidden; background: var(--raise); }
@@ -840,6 +841,12 @@ $("#menuBtn").onclick = () => setDrawer(!document.body.classList.contains("drawe
 $("#scrim").onclick = () => setDrawer(false);
 // Keep the sticky sidebar exactly below the header, whatever its height
 new ResizeObserver(() => document.documentElement.style.setProperty("--hh", $("header").offsetHeight + "px")).observe($("header"));
+// Below 1000px the filters sit at the top of the page instead of in the sticky header, so they scroll away
+function placeFilters() {
+  const f = $(".filters");
+  if (matchMedia("(max-width: 999px)").matches) $("main").prepend(f); else $(".top").after(f);
+}
+matchMedia("(max-width: 999px)").addEventListener("change", placeFilters); placeFilters();
 // Below 1000px, hide the header on scroll down and bring it back on scroll up so the grid gets the screen
 {
   const small = matchMedia("(max-width: 999px)");
