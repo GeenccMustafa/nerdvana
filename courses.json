@@ -4,7 +4,7 @@
   "title": "Neural networks to LLMs",
   "level": "Intermediate",
   "blurb": "From a single neuron to how ChatGPT-style models are built, trained and tuned. Light on math, heavy on intuition, with two build-it-yourself detours.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "What a neural network is",
@@ -390,7 +390,7 @@
   "title": "Docker to Kubernetes",
   "level": "Beginner",
   "blurb": "Containers from first principles, then running them at scale: from your first Dockerfile to Helm charts and operating a real cluster.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "Why containers",
@@ -519,7 +519,7 @@
   "title": "How the internet works",
   "level": "Beginner",
   "blurb": "What happens between typing a URL and seeing a page: cables, addresses, routing, DNS, HTTP and encryption, plus a few stories of it breaking.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "The physical internet",
@@ -658,7 +658,7 @@
   "title": "How a computer works",
   "level": "Beginner",
   "blurb": "From a single switch to a working CPU: transistors, logic, machine code, memory and how chips are made.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "From switches to logic",
@@ -757,7 +757,7 @@
   "title": "Python from scratch",
   "level": "Beginner",
   "blurb": "Learn Python properly: the basics, the data types, functions, classes, the Pythonic features, reading and improving other people's code, then testing and concurrency. Code along with every video.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "First steps",
@@ -961,7 +961,7 @@
   "title": "Git and GitHub",
   "level": "Beginner",
   "blurb": "Version control from the first commit to branching, rebasing and automation, with Julia Evans explaining what Git is really doing.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "What Git is",
@@ -1055,7 +1055,7 @@
   "title": "Linux and the command line",
   "level": "Beginner",
   "blurb": "Get comfortable in the terminal: commands, the file system, users, services, Bash scripting, and the tools that make it home.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "First steps",
@@ -1169,7 +1169,7 @@
   "title": "Web development",
   "level": "Beginner",
   "blurb": "Build for the web from the ground up: HTML, CSS, JavaScript, React and a small backend, plus how browsers really work.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "The big picture",
@@ -1288,7 +1288,7 @@
   "title": "Databases and SQL",
   "level": "Intermediate",
   "blurb": "Write SQL with confidence, pick the right database, and understand what happens inside one: indexes, B-trees and transactions.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "SQL",
@@ -1392,7 +1392,7 @@
   "title": "System design",
   "level": "Intermediate",
   "blurb": "How large systems are put together: APIs, proxies, caches, queues, auth, and how to design one yourself.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "The building blocks",
@@ -1501,7 +1501,7 @@
   "title": "Distributed systems",
   "level": "Advanced",
   "blurb": "Why things get hard when work is spread across machines, and the ideas that make it work: consistency, consensus and failure handling. Mostly reading.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "Why it's hard",
@@ -1595,7 +1595,7 @@
   "title": "Security basics",
   "level": "Beginner",
   "blurb": "How attacks really work and how to defend against them: passwords, web attacks, cryptography, and famous real-world exploits.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "Thinking like an attacker",
@@ -1719,7 +1719,7 @@
   "title": "Performance and the machine",
   "level": "Advanced",
   "blurb": "What really makes code fast or slow: caches, branch prediction, SIMD, and how the experts measure it. Mostly reading.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "Intuition",
@@ -1818,7 +1818,7 @@
   "title": "Engineering career",
   "level": "All levels",
   "blurb": "Essays on doing great work, growing as an engineer, working in teams and building companies.",
-  "checked": "2026-11-15",
+  "checked": "2026-11-22",
   "sections": [
    {
     "title": "Doing great work",

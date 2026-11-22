@@ -5,14 +5,21 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-21T03:20:15Z</updated>
+  <updated>2026-11-22T03:21:55Z</updated>
   <author><name>Nerdvana</name></author>
+  <entry>
+    <id>tag:nerdvana,2026:video:gicEOsFtMxw</id>
+    <title>▶ Are Lions Stronger Than Sharks?</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=gicEOsFtMxw"/>
+    <updated>2026-11-21T14:00:00Z</updated>
+    <summary>Video · Mark Rober · 3.7M views · 34 min</summary>
+  </entry>
   <entry>
     <id>tag:nerdvana,2026:article:7019d79c8b</id>
     <title>The stochastic parrots have apparently proved the Riemann Hypothesis</title>
     <link href="https://scottaaronson.blog/?p=10344"/>
     <updated>2026-11-20T18:29:03Z</updated>
-    <summary>Article · Scott Aaronson · ▲ 224 on Hacker News · 33 min read
+    <summary>Article · Scott Aaronson · ▲ 346 on Hacker News · 33 min read
 
 “… it is very probable that all roots are real. Of course one would wish for a rigorous proof here; I have for the time being, after some fleeting vain attempts, provisionally put aside…</summary>
   </entry>
@@ -21,7 +28,7 @@
     <title>Unforced Navier-Stokes Singularity and the Generalized Riemann Hypothesis</title>
     <link href="https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/"/>
     <updated>2026-11-20T17:19:00Z</updated>
-    <summary>Article · Terence Tao · ▲ 362 on Hacker News · 29 min read
+    <summary>Article · Terence Tao · ▲ 539 on Hacker News · 29 min read
 
 Obviously these results will be reported widely in other outlets, but I will note them here, in decreasing order of how “digested” the results currently are: Levent Alpöge, Tristan Buck…</summary>
   </entry>
@@ -30,7 +37,7 @@ Obviously these results will be reported widely in other outlets, but I will not
     <title>Restricting AI agents in mobile operating systems platforms from capturing data</title>
     <link href="https://signal.org/blog/protecting-your-privacy/"/>
     <updated>2026-11-20T09:42:16Z</updated>
-    <summary>Article · Discovered · ▲ 523 on Hacker News · 7 min read
+    <summary>Article · Discovered · ▲ 571 on Hacker News · 7 min read
 
 Privacy is our mission; it’s why we exist, and we do everything we can to protect it. This means that we are restricting the latest AI agents built into mobile operating systems from potentially capturing and storing…</summary>
   </entry>
@@ -39,28 +46,35 @@ Privacy is our mission; it’s why we exist, and we do everything we can to prot
     <title>▶ Comparing GTA VI on Every Console</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=E4RGVl86E2U"/>
     <updated>2026-11-20T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 2.6M views · 21 min</summary>
+    <summary>Video · Linus Tech Tips · 2.8M views · 21 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:NrF4mkTmuTU</id>
     <title>▶ Why GTA is a Bigger Deal Than You Think</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=NrF4mkTmuTU"/>
     <updated>2026-11-19T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 7.6M views · 49 min</summary>
+    <summary>Video · Mrwhosetheboss · 9.1M views · 49 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:uJG53ligJt4</id>
     <title>▶ NVIDIA SC26 Special Address</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=uJG53ligJt4"/>
     <updated>2026-11-19T00:00:00Z</updated>
-    <summary>Video · NVIDIA · 2.6M views · 48 min</summary>
+    <summary>Video · NVIDIA · 3.5M views · 48 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:uXuQF_PPg5U</id>
-    <title>▶ This Simple Task Is Impossible for Computers</title>
+    <title>▶ The Simplest Math Problem No Computer Can Solve</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=uXuQF_PPg5U"/>
     <updated>2026-11-19T00:00:00Z</updated>
-    <summary>Video · Veritasium · 2.5M views · 39 min</summary>
+    <summary>Video · Veritasium · 3.0M views · 39 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:vDnogMSwbk4</id>
+    <title>▶ He DECLINED an AMD $5000 Ultimate Tech Upgrade</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=vDnogMSwbk4"/>
+    <updated>2026-11-19T00:00:00Z</updated>
+    <summary>Video · Linus Tech Tips · 2.2M views · 34 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:b48326e6ee</id>
@@ -76,21 +90,21 @@ At least 178 top web destinations unwittingly served a variety of malware exploi
     <title>▶ The Dark Side of China’s Perfect Cars</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=awjlMCCdqXw"/>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 13.0M views · 27 min</summary>
+    <summary>Video · Mrwhosetheboss · 15.0M views · 27 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:KTDJiVpSDTI</id>
     <title>▶ Can You Trust MKBHD?</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=KTDJiVpSDTI"/>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 3.5M views · 14 min</summary>
+    <summary>Video · Marques Brownlee · 3.7M views · 14 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:ddadc868c0</id>
     <title>Advancing chip design with OpenAI models</title>
     <link href="https://openai.com/index/advancing-chip-design-with-our-models/"/>
     <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Article · OpenAI · ▲ 224 on Hacker News
+    <summary>Article · OpenAI · ▲ 225 on Hacker News
 
 OpenAI models optimized circuits used in Jalapeño silicon and improved RISC‑V core designs, showing progress in AI-assisted chip design with GPT‑6 Astra.</summary>
   </entry>
@@ -99,7 +113,7 @@ OpenAI models optimized circuits used in Jalapeño silicon and improved RISC‑V
     <title>Quad9's withdrawal from France: A canary in the coal mine</title>
     <link href="https://blog.cloudflare.com/quad9-withdrawal-from-france/"/>
     <updated>2026-11-17T20:24:27Z</updated>
-    <summary>Article · Cloudflare Blog · ▲ 906 on Hacker News · 9 min read
+    <summary>Article · Cloudflare Blog · ▲ 908 on Hacker News · 9 min read
 
 Quad9's forced withdrawal from France highlights the dangers of mandating DNS-level blocking.</summary>
   </entry>
@@ -108,23 +122,16 @@ Quad9's forced withdrawal from France highlights the dangers of mandating DNS-le
     <title>GPT‑6.2 Astra and Sol</title>
     <link href="https://openai.com/index/introducing-gpt-6-2-astra-sol/"/>
     <updated>2026-11-17T17:45:00Z</updated>
-    <summary>Article · OpenAI · ▲ 1346 on Hacker News
+    <summary>Article · OpenAI · ▲ 1347 on Hacker News
 
 Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:ytmawkPTP24</id>
-    <title>▶ Why Microsoft couldn’t fix its own servers for 36 hours...</title>
+    <title>▶ Microsoft just broke email for most of the planet...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=ytmawkPTP24"/>
     <updated>2026-11-17T00:00:00Z</updated>
     <summary>Video · Fireship · 2.3M views · 6 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:SxFJ5QGNxwo</id>
-    <title>▶ IF ONLY SOMEBODY TOLD US ABOUT THE NVIDIA GPU SMUGGLING</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=SxFJ5QGNxwo"/>
-    <updated>2026-11-17T00:00:00Z</updated>
-    <summary>Video · Gamers Nexus · 1.5M views · 44 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:9a4db8eca8</id>
@@ -140,7 +147,7 @@ I sat down with AMD’s Mahesh Subramony at AMD In-Depth to talk about the SoC d
     <title>Windows 11 is collecting data on which coding agents and developer tools you use</title>
     <link href="https://xusheng.dev/posts/windows-coding-agent-telemetry/"/>
     <updated>2026-11-16T05:00:00Z</updated>
-    <summary>Article · Discovered · ▲ 736 on Hacker News · 7 min read
+    <summary>Article · Discovered · ▲ 737 on Hacker News · 7 min read
 
 I recently asked AI to help me look through the latest Windows binaries for undocumented features and functionality. Among the leads it turned up, one list immediately caught my attention: coding agents such as…</summary>
   </entry>
@@ -159,12 +166,5 @@ I recently asked AI to help me look through the latest Windows binaries for undo
     <summary>Article · Sebastian Raschka · ▲ 246 on Hacker News · 41 min read
 
 The Methods Behind How LLMs Represent Token Positions</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:u5UTIofKDGc</id>
-    <title>▶ My Datacenter Evicted Me</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=u5UTIofKDGc"/>
-    <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 2.7M views · 15 min</summary>
   </entry>
 </feed>
