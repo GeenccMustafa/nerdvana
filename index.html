@@ -505,6 +505,8 @@ const L = () => LBL[mode];
 let progress = store.get("progress", {});    // id -> { t: seconds watched, at: last watched (ms) }
 const saveProgress = () => store.set("progress", progress);
 const state = { q: "", view: "home", path: null, like: null, budget: 15, tier: null, topic: null, ch: null, dur: null, sort: "mix", hideSeen: false, facet: null };
+const COURSE_CHIPS = 6;     // course chips a channel page shows before "+N more"
+let coursesOpen = null;     // the channel whose full course list is open
 const TIERS = [["S", "Essential"], ["A", "Great"], ["B", "Worth a look"]];   // the sidebar groups
 // "D" (Discovered): found by keyword search (discover.py); kept out of the sidebar and the Home mix
 const TIER_NAME = { ...Object.fromEntries(TIERS), D: "Discovered" };
@@ -722,8 +724,12 @@ function renderContext() {
     html = a ? `<div class="txt lead"><p>More like</p><h2>${esc(a.t)}</h2><p>${esc(a.ch.n)}${a.d ? " · " + readTime(a) : ""}${a.v ? ` · ▲ ${fmtNum(a.v)} on Hacker News` : ""}</p>${a.desc ? `<p style="margin-top:6px">${esc(a.desc)}</p>` : ""}</div>
       <a class="btn primary" href="${esc(a.url)}" target="_blank" rel="noopener" data-read="${a.id}">Read ↗</a>` : "";
   } else if (state.ch != null) { const c = CH[state.ch], cs = COURSES.filter(x => x.h && x.h.toLowerCase() === c.h.toLowerCase());
+    // a channel with many courses (Stanford Online has 31) would push its videos off the first screen,
+    // so show the first few and a "+N more" chip that opens the rest
+    const long = cs.length > COURSE_CHIPS + 1, open = coursesOpen === state.ch, vis = long && !open ? cs.slice(0, COURSE_CHIPS) : cs;
     html = `${avatar(c)}<div class="txt"><h2>${esc(c.n)}</h2><p>${c.t === "D" ? `Found by keyword search · ${n} ${l.many}` : `${fmtNum(c.subs)} subscribers · ${c.topic} · showing ${n} of ${(c.total || 0).toLocaleString("en-US")} uploads`}</p>
-      ${cs.length ? `<div class="group" style="margin-top:10px">${cs.map(x => `<button class="chip" data-act="course" data-id="${esc(x.id)}">${esc(x.title)}</button>`).join("")}</div>` : ""}</div>
+      ${cs.length ? `<div class="group" style="margin-top:10px">${vis.map(x => `<button class="chip" data-act="course" data-id="${esc(x.id)}">${esc(x.title)}</button>`).join("")}${long
+        ? `<button class="chip" data-act="morecourses" aria-expanded="${open}">${open ? "Show fewer" : `+${cs.length - COURSE_CHIPS} more courses`}</button>` : ""}</div>` : ""}</div>
       <a class="btn" href="https://www.youtube.com/@${encodeURIComponent(c.h)}" target="_blank" rel="noopener">Channel ↗</a>`;
   } else if (state.tier) { const [t, label] = TIERS.find(x => x[0] === state.tier);
     html = `<span class="tier ${t}" style="width:40px;height:40px;font-size:18px;border-radius:10px">${t}</span><div class="txt"><h2>${label}</h2><p>${CH.filter(c => c.t === t).length} ${l.src} · ${n} ${l.many}</p></div>`;
@@ -791,6 +797,7 @@ $("#context").addEventListener("click", e => {
   else if (a === "allpaths") pick({ view: "paths" });
   else if (a === "certs") pick({ view: "certs" });
   else if (a === "course") pick({ view: "course", course: b.dataset.id, ch: null, tier: null });
+  else if (a === "morecourses") { coursesOpen = coursesOpen === state.ch ? null : state.ch; renderContext(); }
   else if (a === "clearhist") {
     const what = mode === "videos" ? "watch history and in-progress videos" : "reading history";
     if (!confirm(`Clear your ${what} (${seen.size.toLocaleString("en-US")} ${L().many})? This can't be undone.`)) return;
