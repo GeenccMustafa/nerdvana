@@ -5,28 +5,28 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-23T03:26:07Z</updated>
+  <updated>2026-11-24T03:26:14Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
     <id>tag:nerdvana,2026:video:gicEOsFtMxw</id>
-    <title>▶ Are Lions Stronger Than Sharks?</title>
+    <title>▶ I Tested The World's Most Dangerous Animals</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=gicEOsFtMxw"/>
     <updated>2026-11-22T00:00:00Z</updated>
-    <summary>Video · Mark Rober · 10.0M views · 34 min</summary>
+    <summary>Video · Mark Rober · 13.0M views · 34 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:zqzk43bSdDI</id>
-    <title>▶ We've been asking: “What if AI solved the Riemann Hypothesis?”</title>
+    <title>▶ We asked before it happened</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=zqzk43bSdDI"/>
     <updated>2026-11-22T00:00:00Z</updated>
-    <summary>Video · 3Blue1Brown · 2.1M views · 14 min</summary>
+    <summary>Video · 3Blue1Brown · 2.8M views · 14 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:bd545a438b</id>
     <title>Perplexity and Intelligence</title>
     <link href="https://openai.com/index/perplexity-and-intelligence/"/>
     <updated>2026-11-22T00:00:00Z</updated>
-    <summary>Article · OpenAI · ▲ 510 on Hacker News · 7 min read
+    <summary>Article · OpenAI · ▲ 698 on Hacker News · 7 min read
 
 How perplexity measures progress in AI models, and why it could help developers establish a shared approach to evaluating emerging capabilities.</summary>
   </entry>
@@ -35,7 +35,7 @@ How perplexity measures progress in AI models, and why it could help developers 
     <title>Notes on the discrete Fourier transform (DFT)</title>
     <link href="https://eli.thegreenplace.net/2026/notes-on-the-discrete-fourier-transform-dft/"/>
     <updated>2026-11-21T22:26:00Z</updated>
-    <summary>Article · Eli Bendersky · ▲ 94 on Hacker News · 10 min read
+    <summary>Article · Eli Bendersky · ▲ 104 on Hacker News · 10 min read
 
 In the previous post on this topic , we’ve seen how the Discrete-Time Fourier Series (DTFS) and transform (DTFT) are used to analyze infinite-duration periodic and non-periodic discrete signals. Now, it’s time to turn…</summary>
   </entry>
@@ -44,7 +44,7 @@ In the previous post on this topic , we’ve seen how the Discrete-Time Fourier 
     <title>The stochastic parrots have apparently proved the Riemann Hypothesis</title>
     <link href="https://scottaaronson.blog/?p=10344"/>
     <updated>2026-11-20T18:29:03Z</updated>
-    <summary>Article · Scott Aaronson · ▲ 357 on Hacker News · 33 min read
+    <summary>Article · Scott Aaronson · ▲ 360 on Hacker News · 33 min read
 
 “… it is very probable that all roots are real. Of course one would wish for a rigorous proof here; I have for the time being, after some fleeting vain attempts, provisionally put aside…</summary>
   </entry>
@@ -62,7 +62,7 @@ Obviously these results will be reported widely in other outlets, but I will not
     <title>Restricting AI agents in mobile operating systems platforms from capturing data</title>
     <link href="https://signal.org/blog/protecting-your-privacy/"/>
     <updated>2026-11-20T09:42:16Z</updated>
-    <summary>Article · Discovered · ▲ 578 on Hacker News · 7 min read
+    <summary>Article · Discovered · ▲ 581 on Hacker News · 7 min read
 
 Privacy is our mission; it’s why we exist, and we do everything we can to protect it. This means that we are restricting the latest AI agents built into mobile operating systems from potentially capturing and storing…</summary>
   </entry>
@@ -71,11 +71,18 @@ Privacy is our mission; it’s why we exist, and we do everything we can to prot
     <title>▶ Comparing GTA VI on Every Console</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=E4RGVl86E2U"/>
     <updated>2026-11-20T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 3.0M views · 21 min</summary>
+    <summary>Video · Linus Tech Tips · 3.1M views · 21 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:FcbwVXk83U8</id>
+    <title>▶ It's a Fiber Optic Christmas (or... was)</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=FcbwVXk83U8"/>
+    <updated>2026-11-20T00:00:00Z</updated>
+    <summary>Video · Technology Connections · 1.9M views · 38 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:NrF4mkTmuTU</id>
-    <title>▶ Why GTA 6 is a Bigger Deal Than You Think</title>
+    <title>▶ Why GTA 6 Broke the Internet.</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=NrF4mkTmuTU"/>
     <updated>2026-11-19T00:00:00Z</updated>
     <summary>Video · Mrwhosetheboss · 10.0M views · 49 min</summary>
@@ -85,21 +92,30 @@ Privacy is our mission; it’s why we exist, and we do everything we can to prot
     <title>▶ NVIDIA SC26 Special Address</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=uJG53ligJt4"/>
     <updated>2026-11-19T00:00:00Z</updated>
-    <summary>Video · NVIDIA · 4.9M views · 48 min</summary>
+    <summary>Video · NVIDIA · 6.3M views · 48 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:uXuQF_PPg5U</id>
-    <title>▶ The Simplest Math Problem No Computer Can Solve</title>
+    <title>▶ If everything follows the laws of physics, is anything random?</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=uXuQF_PPg5U"/>
     <updated>2026-11-19T00:00:00Z</updated>
-    <summary>Video · Veritasium · 3.4M views · 39 min</summary>
+    <summary>Video · Veritasium · 3.8M views · 39 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:vDnogMSwbk4</id>
     <title>▶ He DECLINED an AMD $5000 Ultimate Tech Upgrade</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=vDnogMSwbk4"/>
     <updated>2026-11-19T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 2.3M views · 34 min</summary>
+    <summary>Video · Linus Tech Tips · 2.4M views · 34 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:2069295c6c</id>
+    <title>AI agents ask better questions than KPMG accountants in audit trial</title>
+    <link href="https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/"/>
+    <updated>2026-11-18T11:21:28Z</updated>
+    <summary>Article · Discovered · ▲ 502 on Hacker News · 3 min read
+
+LONDON, November 18, 2026 — Artificial intelligence has taken another significant step into the world of professional services after KPMG revealed that AI</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:b48326e6ee</id>
@@ -129,7 +145,7 @@ At least 178 top web destinations unwittingly served a variety of malware exploi
     <title>Quad9's withdrawal from France: A canary in the coal mine</title>
     <link href="https://blog.cloudflare.com/quad9-withdrawal-from-france/"/>
     <updated>2026-11-17T20:24:27Z</updated>
-    <summary>Article · Cloudflare Blog · ▲ 908 on Hacker News · 9 min read
+    <summary>Article · Cloudflare Blog · ▲ 911 on Hacker News · 9 min read
 
 Quad9's forced withdrawal from France highlights the dangers of mandating DNS-level blocking.</summary>
   </entry>
@@ -147,24 +163,8 @@ Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, c
     <title>I joined the NTP Pool, but not with my Stratum 1 Pi</title>
     <link href="https://www.jeffgeerling.com/blog/2026/i-joined-the-ntp-pool/"/>
     <updated>2026-11-17T15:00:00Z</updated>
-    <summary>Article · Jeff Geerling · ▲ 134 on Hacker News · 6 min read
+    <summary>Article · Jeff Geerling · ▲ 170 on Hacker News · 6 min read
 
 Before I get too deep into the time-nuts rabbit hole, I figured I should share a little bit of the good time I now have in my studio, with everyone else. Thus, I</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:ytmawkPTP24</id>
-    <title>▶ Microsoft just broke email for most of the planet...</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=ytmawkPTP24"/>
-    <updated>2026-11-17T00:00:00Z</updated>
-    <summary>Video · Fireship · 2.4M views · 6 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:9af8c07a16</id>
-    <title>Windows 11 is collecting data on which coding agents and developer tools you use</title>
-    <link href="https://xusheng.dev/posts/windows-coding-agent-telemetry/"/>
-    <updated>2026-11-16T05:00:00Z</updated>
-    <summary>Article · Discovered · ▲ 737 on Hacker News · 7 min read
-
-I recently asked AI to help me look through the latest Windows binaries for undocumented features and functionality. Among the leads it turned up, one list immediately caught my attention: coding agents such as…</summary>
   </entry>
 </feed>
