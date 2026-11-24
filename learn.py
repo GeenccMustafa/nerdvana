@@ -48,6 +48,7 @@ MEDIA_BASE = "https://videoencodingpublic-hgeaeyeba8gycee3.b01.azurefd.net/"
 
 
 def short(url, base):
+    """url without base in front, to keep learn.json small; a url stored somewhere else stays whole."""
     return url[len(base):] if url.startswith(base) else url
 
 
@@ -103,6 +104,9 @@ def previous_units(old):
 
 
 def video_meta(vid):
+    """(video id, {"dur", "mp4", "cc"}) from Learn's video API, or (video id, None) when there's no MP4 to play.
+
+    dur is in seconds, mp4 the medium-quality file (or the closest there is), cc the English captions or ""."""
     try:
         d = json.loads(get(VIDEO_API + vid) or "")
     except ValueError:
@@ -116,6 +120,7 @@ def video_meta(vid):
 
 
 def exam_ids(pid):
+    """The video ids of an exam-prep playlist, as fetch.py saved it; [] if there is none (yet)."""
     f = PLAYLISTS / f"{pid}.json"
     if not pid or not f.exists():
         return []
@@ -123,6 +128,11 @@ def exam_ids(pid):
 
 
 def main():
+    """Rebuild learn.json when it's due (or with --force).
+
+    Reads the catalog, scans every module the courses need, fetches metadata for new videos, and turns
+    each course into sections (one per module, then "Exam prep"). Exits without writing when Learn looks
+    to be failing, so the current learn.json stays."""
     old = json.loads((ROOT / "learn.json").read_text()) if (ROOT / "learn.json").exists() else {}
     age = (datetime.date.today() - datetime.date.fromisoformat(old.get("built", "2000-01-01"))).days
     if "--force" not in sys.argv and age < MAX_AGE_DAYS:

@@ -44,6 +44,82 @@ Watched, read, saved and in-progress items are stored only in your browser. Ligh
 
 ## How it works
 
+There is no server and no database: a handful of Python scripts collect videos and articles, turn them into JSON files, and commit those files next to `index.html`, which loads them in the browser. The nightly GitHub Action runs the blue scripts top to bottom (`learn.py` does real work once a week); `transcripts.py` runs on a local machine.
+
+```mermaid
+flowchart TB
+  classDef cfg fill:#fff4d6,stroke:#c99a1e,color:#3d2e00
+  classDef job fill:#dbeafe,stroke:#3b82f6,color:#0b2a5b
+  classDef local fill:#dbeafe,stroke:#3b82f6,color:#0b2a5b,stroke-dasharray:5 3
+  classDef data fill:#dcfce7,stroke:#22a55a,color:#0b3d1f
+  classDef site fill:#ede9fe,stroke:#7c3aed,color:#2e1065
+
+  subgraph lists["Hand-edited lists"]
+    DJ[discover.json]:::cfg
+    CH[channels.json]:::cfg
+    PP[playlist_paths.json]:::cfg
+    LC[learn_courses.json]:::cfg
+    SRC[sources.json]:::cfg
+    CP["curated_paths.json<br/>paths_def.json<br/>reading_paths_def.json"]:::cfg
+  end
+
+  subgraph collect["Collect"]
+    discover(["discover.py<br/>keyword search on<br/>YouTube and Hacker News"]):::job
+    fetch(["fetch.py<br/>channel uploads and<br/>playlists via yt-dlp"]):::job
+    learn(["learn.py<br/>Microsoft Learn courses<br/>weekly"]):::job
+    articles(["articles.py<br/>Hacker News, RSS feeds<br/>and article pages"]):::job
+  end
+
+  subgraph core["Core data"]
+    V[videos.json]:::data
+    L[learn.json]:::data
+    A[articles.json]:::data
+  end
+
+  subgraph derive["Derive"]
+    embeds(["embeds.py<br/>YouTube oEmbed"]):::job
+    enrich(["enrich.py<br/>bge embeddings"]):::job
+    feed([feed.py]):::job
+    transcripts(["transcripts.py<br/>subtitles, run locally"]):::local
+  end
+
+  subgraph derived["Derived data"]
+    NE[noembed.json]:::data
+    D["similar.json<br/>similar_articles.json<br/>links.json<br/>paths.json<br/>courses.json<br/>reading_paths.json"]:::data
+    S[search.json]:::data
+  end
+
+  F[feed.xml]:::data
+
+  SITE["index.html<br/>the whole site, served by GitHub Pages"]:::site
+  READERS([feed readers])
+
+  DJ --> discover
+  CH & PP --> fetch
+  LC --> learn
+  SRC --> articles
+  CP --> enrich
+
+  discover -. "raw/_discovered.json" .-> fetch
+  discover -. "raw_articles/discovered.json" .-> articles
+  fetch -. "raw/_playlists/" .-> learn
+
+  fetch --> V
+  learn --> L
+  articles --> A
+
+  V --> embeds --> NE
+  V & A --> enrich --> D
+  V & A --> feed --> F
+  V --> transcripts --> S
+
+  core --> SITE
+  derived --> SITE
+  F --> READERS
+```
+
+Yellow: lists you edit by hand. Blue: scripts (dashed border: runs on a local machine, not in the Action). Green: data files that are committed and served with the page. Dotted arrows are hand-offs through git-ignored working files; downloaded pages, embeddings and other caches live in `.cache/`, which the Action keeps between runs.
+
 | File | What it is |
 |---|---|
 | `channels.json` | The channel list: handle, tier, topic and optionally `pin`. This is the part to edit. |
@@ -58,6 +134,7 @@ Watched, read, saved and in-progress items are stored only in your browser. Ligh
 | `learn.py` | Builds `learn.json` from those: the Learn catalog API gives each course's learning paths and modules, the module and unit pages give each unit (and its video, if it has one), and Learn's video API its length, MP4 and captions (cached in `.cache/learn_videos.json`). Runs once a week from the nightly refresh, reading Learn a few pages at a time; a module it can't read keeps what the last build had, and if most can't be read or the new file lost more than 10% of its videos, the current `learn.json` stays (`--force` rebuilds now and accepts it). |
 | `playlist_paths.json` | Learning paths that are whole YouTube playlists: an id, title, level, topic, blurb and one or more playlist ids (each becomes a section), and optionally `"hubs"`: the Focus sections it is shown in (`["agents", "azure"]`). `"order": "number"` sorts a shuffled playlist by the lesson numbers in its titles (`#12`, `Part 12`, `Episode 12`…), `"reverse"` flips one that runs newest first, and `"skip"` leaves out videos. `fetch.py` fetches the playlists and keeps all their videos, past the per-channel limits; `enrich.py` adds them to `courses.json`. Members-only videos and Shorts are left out. |
 | `curated_paths.json` | The curated paths: sections and hand-picked steps (a video or article id, its title and a one-line note). If a step's item disappears, the nightly job swaps in the closest match. Once a week the paths are also checked for age: a video step that is four or more years old is replaced by a recent video on the same topic from an Essential or Great channel, when one matches well enough (a step with `"keep": true` is never replaced; articles are left alone). Newer, better-fitting items are listed in `path_candidates.json`; once a month these are reviewed and proposed as a pull request. |
+| `embeds.py` | Asks YouTube's oEmbed endpoint which videos their owners have kept from playing on other sites and writes their ids to `noembed.json`; the site tags those *YouTube ↗* and opens them on YouTube. Results are cached in `.cache/embeds.json`, so each night only new videos are checked (plus YouTube-only ones again after 30 days). |
 | `feed.py` | Writes `feed.xml`, the weekly top-20 Atom feed. |
 | `index.html` | The whole site: one file, no build step, no dependencies. |
 
@@ -86,6 +163,7 @@ python3 discover.py        # keyword search on YouTube and Hacker News (run befo
 python3 fetch.py           # fetch new channels, rebuild videos.json
 python3 fetch.py --force   # re-fetch every channel (picks up new uploads)
 python3 learn.py --force   # Microsoft Learn certification courses -> learn.json (after fetch.py)
+python3 embeds.py          # find videos that play only on YouTube -> noembed.json (after fetch.py)
 uv run --python 3.12 --with fastembed --with numpy python enrich.py   # similarity, paths, video/article links
 python3 feed.py            # feed.xml
 python3 transcripts.py     # download missing transcripts, rebuild search.json

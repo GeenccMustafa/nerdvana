@@ -39,6 +39,10 @@ def check(vid):
 
 
 def main():
+    """Check the videos that are due, update the cache and write noembed.json from it.
+
+    Stops early once TIME_LIMIT is reached, or when most answers are unclear (YouTube throttling the
+    runner); the videos left over wait for the next run."""
     limit = int(sys.argv[sys.argv.index("--max") + 1]) if "--max" in sys.argv else MAX_CHECKS
     ids = [v[0] for v in json.loads((ROOT / "videos.json").read_text())["videos"]]
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}   # id -> [status, day checked]

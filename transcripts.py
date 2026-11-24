@@ -5,8 +5,9 @@ Usage:
   python3 transcripts.py --build    # only rebuild search.json from transcripts/
 
 This runs every morning on a local machine (YouTube blocks subtitle downloads from CI runners).
-The transcripts stay in transcripts/ (or $TRANSCRIPTS_DIR) and are never committed; only search.json is. It is resumable: already-downloaded videos are skipped, and videos
-from the last 14 days that had no subtitles yet are tried again (auto-captions can take a while).
+The transcripts stay in transcripts/ (or $TRANSCRIPTS_DIR) and are never committed; only search.json is.
+It is resumable: already-downloaded videos are skipped, and videos from the last 14 days that had no
+subtitles yet are tried again (auto-captions can take a while).
 If YouTube starts refusing requests ("confirm you're not a bot"), it stops and keeps what it has.
 
   MAX_NEW=500 python3 transcripts.py   # fetch at most 500 transcripts this run
@@ -43,6 +44,7 @@ BLOCKED = "confirm you" + "’" + "re not a bot"
 
 
 def wanted_ids():
+    """The videos to index: from each Essential (S-tier) channel, its TOP_BY_VIEWS most-viewed and NEWEST newest."""
     d = json.loads((ROOT / "videos.json").read_text())
     s_chans = {i for i, c in enumerate(d["channels"]) if c["t"] == "S"}
     by_ch = defaultdict(list)
@@ -77,6 +79,11 @@ def compact(json3_path):
 
 
 def fetch_batch(ids):
+    """Download English subtitles (by hand or automatic) for a batch of videos in one yt-dlp call.
+
+    Each video's transcript is saved compacted to OUT; one without subtitles gets an empty file, so it
+    isn't asked for again, unless YouTube was refusing requests. Returns (videos with subtitles,
+    videos tried, whether YouTube blocked the run)."""
     with tempfile.TemporaryDirectory() as tmp:
         cmd = YTDLP + ["--skip-download", "--write-subs", "--write-auto-subs", "--sub-langs", "en,en-orig",
                        "--sub-format", "json3", "--sleep-requests", "0.5", "--ignore-errors",
@@ -95,11 +102,13 @@ def fetch_batch(ids):
 
 
 def download():
+    """Fetch the transcripts that are still missing, newest videos first, at most $MAX_NEW of them."""
     OUT.mkdir(exist_ok=True)
     ts = {v[0]: v[5] for v in json.loads((ROOT / "videos.json").read_text())["videos"]}
     recent = time.time() - RETRY_DAYS * 86400
 
     def needed(i):
+        """No transcript yet, or an empty one for a video recent enough that captions may still come."""
         f = OUT / f"{i}.json"
         return not f.exists() or (f.stat().st_size <= 2 and (ts.get(i) or 0) > recent)
 
@@ -117,6 +126,10 @@ def download():
 
 
 def build():
+    """Build search.json from the transcripts in OUT.
+
+    Each video keeps its TERMS_PER_VIDEO most distinctive words (by tf-idf), each with the second it is
+    first said; words that appear in half or more of the transcripts are left out."""
     docs, per_doc = [], []
     for f in sorted(OUT.glob("*.json")):
         chunks = json.loads(f.read_text())

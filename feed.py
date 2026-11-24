@@ -16,14 +16,17 @@ WEEK, PER_KIND, PER_SOURCE = 7 * 86400, 10, 2
 
 
 def iso(ts):
+    """A Unix timestamp as an Atom (RFC 3339) date in UTC."""
     return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(ts))
 
 
 def fmt_num(n):
+    """A count in short form: 1.2M, 340K or 950."""
     return f"{n / 1e6:.1f}M" if n >= 1e6 else f"{round(n / 1e3)}K" if n >= 1e3 else str(n)
 
 
 def top(rows, key, src):
+    """The first PER_KIND rows in key order, with at most PER_SOURCE from one channel or source (column src)."""
     out, per = [], {}
     for r in sorted(rows, key=key):
         if per.get(r[src], 0) < PER_SOURCE:
@@ -35,6 +38,7 @@ def top(rows, key, src):
 
 
 def entry(eid, title, link, ts, summary):
+    """One Atom <entry>, with its text XML-escaped."""
     return f"""  <entry>
     <id>{eid}</id>
     <title>{escape(title)}</title>
@@ -45,6 +49,7 @@ def entry(eid, title, link, ts, summary):
 
 
 def main():
+    """Pick this week's top videos and articles and write them to feed.xml, newest first."""
     now = time.time()
     entries = []
     vd = json.loads((ROOT / "videos.json").read_text())

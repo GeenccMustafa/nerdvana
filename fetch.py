@@ -9,16 +9,20 @@ Balancing rules (so a few prolific channels can't drown out the rest):
   - only channels with >= MIN_SUBS subscribers are kept, at most MAX_CHANNELS of them
     (picked by tier first, then subscriber count)
   - channels marked "pin": true in channels.json skip both limits and don't use up a slot
+  - each channel keeps at most TOP_BY_VIEWS most-viewed + NEWEST most-recent videos
+  - clips of 60s or shorter (Shorts) are dropped, and so are members-only videos and upcoming premieres
 
 Videos found by keyword search (discover.py -> raw/_discovered.json) are added too: to their channel
 if it's already listed, otherwise under a "D" (Discovered) channel of their own, which the site
 keeps out of the sidebar and the Home mix.
-  - each channel keeps at most TOP_BY_VIEWS most-viewed + NEWEST most-recent videos
-  - clips of 60s or shorter (Shorts) are dropped, and so are members-only videos and upcoming premieres
 
-Playlists used as learning paths (playlist_paths.json) and the exam-prep playlists of learn_courses.json are fetched to raw/_playlists/, and every video in
-them is kept too, past the per-channel limits, so a course is never missing a lesson. enrich.py turns them
-into courses.
+Playlists used as learning paths (playlist_paths.json) and the exam-prep playlists of learn_courses.json
+are fetched to raw/_playlists/, and every video in them is kept too, past the per-channel limits, so a
+course is never missing a lesson. enrich.py turns them into courses.
+
+videos.json  {"channels": [{h, n, t, topic, subs, total, a}],
+              "videos": [[id, title, channel index, seconds, views, timestamp], ...],
+              "discovered": [id], "craft": [id], "hubs": {hub: [id]}, "fields": [column names of a video]}
 """
 import json, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
@@ -39,10 +43,14 @@ UNWATCHABLE = {"subscriber_only", "premium_only", "needs_auth"}
 
 
 def watchable(e):
+    """True if a yt-dlp entry can be watched: not members-, Premium- or login-only, and not an upcoming premiere."""
     return e.get("availability") not in UNWATCHABLE and e.get("live_status") != "is_upcoming"
 
 
 def fetch(ch, force=False):
+    """Save a channel's newest FETCH_LIMIT uploads (yt-dlp's flat list) to raw/<handle>.json.
+
+    A channel already in raw/ is skipped unless force. Returns (handle, status line for the log)."""
     out = RAW / f"{ch['handle']}.json"
     if out.exists() and not force:
         return ch["handle"], "cached"
@@ -67,6 +75,9 @@ def playlist_ids():
 
 
 def fetch_playlist(pid, force=False):
+    """Save a playlist's entries to raw/_playlists/<id>.json, like fetch() does for a channel.
+
+    Returns (playlist id, status line for the log)."""
     out = PLAYLISTS / f"{pid}.json"
     if out.exists() and not force:
         return pid, "cached"
@@ -82,6 +93,11 @@ def fetch_playlist(pid, force=False):
 
 
 def pick_videos(entries):
+    """Apply the per-channel limit to a channel's uploads.
+
+    Private, deleted and unwatchable videos and Shorts are dropped; of the rest, the TOP_BY_VIEWS
+    most-viewed and the NEWEST most-recent are kept. Returns (rows, number of watchable videos),
+    each row [id, title, seconds, views, timestamp]."""
     vids = []
     for e in entries or []:
         if not e.get("id") or e.get("title") in ("[Private video]", "[Deleted video]") or not watchable(e):
@@ -97,6 +113,8 @@ def pick_videos(entries):
 
 
 def build(channels):
+    """Write videos.json from raw/: pick the channels by the balancing rules, then their videos, then add
+    the keyword-search results and the learning-path playlists. Prints every channel left out and why."""
     loaded, skipped = [], []
     for ch in channels:
         f = RAW / f"{ch['handle']}.json"

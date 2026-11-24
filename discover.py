@@ -37,10 +37,16 @@ CRAFT_GROUPS = ("python", "general")
 
 
 def must_words(q):
+    """The words of a query that a title must contain: all of them except GENERIC ones ("tutorial", "the"...)."""
     return [w for w in re.findall(r"[a-z0-9_+]+", q.lower()) if w not in GENERIC]
 
 
 def title_ok(title, words, phrase=False):
+    """Whether a title matches a query's words (from must_words).
+
+    phrase=False (python queries): every word appears somewhere in the title, give or take an ending.
+    phrase=True (general and hub queries): the words appear in order as a phrase; up to two FILLER words
+    may sit between them and each may take a SUFFIX ending."""
     if phrase:   # general and hub queries: the words in this order, next to each other ("code review", "code reviews")
         return bool(re.search(r"(?<![a-z0-9])" + (SUFFIX + r"\W+" + FILLER).join(map(re.escape, words)) + SUFFIX + r"(?![a-z0-9])",
                               (title or "").lower()))
@@ -54,6 +60,7 @@ OTHER_LANG = re.compile(r"(?<![a-z])(c\+\+|c#|java|javascript|typescript|rust|go
 
 
 def is_python(text, also=False):
+    """Whether text is about Python: it says "python" (or also is true) and names no other language."""
     return ("python" in text.lower() or also) and not OTHER_LANG.search(text)
 
 
@@ -66,6 +73,7 @@ def watchable(e):
 
 
 def latin(title):
+    """True if at least 90% of a title's letters are ASCII: a rough test for English content."""
     letters = [c for c in title if c.isalpha()]
     return not letters or sum(c.isascii() for c in letters) / len(letters) >= 0.9
 
@@ -86,10 +94,18 @@ def limits(group, cfg):
 
 
 def label(q, group):
+    """A query as the log shows it: "py " before python queries, the hub's name before hub queries."""
     return {"python": "py ", "general": ""}.get(group, group + " ") + q
 
 
 def search_youtube(q, group, cfg, known):
+    """Search YouTube for one query and keep the best videos that match it.
+
+    Reads the top SEARCH_N results and keeps watchable videos of 3 min to 3 h with enough views, an
+    English title that matches the query, and nothing that looks like music or sleep sounds. For the
+    python group a video must also be about Python; known holds the "@handle"s of the channels in
+    channels.json, whose videos count as Python without saying so. Returns (log label, the most-viewed
+    matches up to the group's per-query limit, error message or "")."""
     py, (min_views, keep) = group == "python", limits(group, cfg)
     query = f"python {q}" if py else q
     r = subprocess.run(YTDLP + ["--flat-playlist", "-J", f"ytsearch{SEARCH_N}:{query}"], capture_output=True, text=True)
@@ -113,6 +129,11 @@ def search_youtube(q, group, cfg, known):
 
 
 def search_hn(q, group, cfg):
+    """Search Hacker News stories for one query and keep the best articles that match it.
+
+    A story needs min_points points, a title that matches the query and a link to a web page that isn't
+    on YouTube or GitHub; Show/Ask/Launch/Tell HN posts are skipped. Returns (log label, the most-upvoted
+    matches up to the group's per-query limit, error message or "")."""
     py, keep = group == "python", limits(group, cfg)[1]
     query = " ".join(must_words(q)) or q
     params = urllib.parse.urlencode({"query": query, "tags": "story", "hitsPerPage": 100,
@@ -153,6 +174,7 @@ def merge(into, found, key, group, topic):
 
 
 def write(path, data):
+    """Write data to path as JSON, atomically (through a .part file), creating the folder if needed."""
     path.parent.mkdir(exist_ok=True)
     tmp = path.with_suffix(".part")
     tmp.write_text(json.dumps(data, ensure_ascii=False))

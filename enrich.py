@@ -1,7 +1,9 @@
-"""Build similar.json ("More like this") and paths.json (learning paths) from videos.json.
+"""Build "More like this", the learning and reading paths and the video/article links.
 
-Run after fetch.py, with Python 3.10-3.13 (onnxruntime has no wheels for newer versions yet):
+Reads videos.json (and articles.json, when it exists) and writes the files listed below. Run after
+fetch.py and articles.py, with Python 3.10-3.13 (onnxruntime has no wheels for newer versions yet):
   uv run --python 3.12 --with fastembed --with numpy enrich.py
+  uv run --python 3.12 --with fastembed --with numpy enrich.py --refresh-paths   # check paths for newer videos now
 
 Video titles are embedded with BAAI/bge-small-en-v1.5. Embeddings are cached in .cache/ by video id,
 so re-runs only embed new videos.
@@ -78,6 +80,7 @@ def embed(texts, model, cache_file, by_text=False, max_changed=None):
 
 
 def embed_titles(videos, channels, model):
+    """Embed every video's title, with its channel's topic as context (cached in .cache/emb.npz)."""
     return embed({v[0]: f"{v[1]} ({channels[v[2]]['topic']})" for v in videos}, model, CACHE)
 
 
@@ -106,6 +109,12 @@ def article_texts(arts, cache_file):
 
 
 def build_similar(E, videos, min_sim=None):
+    """For every row, up to SIMILAR other rows closest to it in meaning ("More like this").
+
+    Works for videos and articles alike (column 2 is the channel or the source). Rows with the same
+    title are skipped, and at most MAX_SAME_CHANNEL picks come from one channel, so the list isn't one
+    channel's back catalogue. With min_sim, matches below that cosine similarity are left out.
+    Returns {"n", "first", "sim"}, with sim aligned to the rows."""
     n, ch = len(videos), np.array([v[2] for v in videos])
     titles = [v[1].lower() for v in videos]
     out = []
@@ -162,6 +171,7 @@ def resolve_paths(defs, E, rows, src_col, ok, boost, model, key):
 
 
 def build_paths(E, videos, channels, model):
+    """Learning paths from paths_def.json: videos of 2 min to 3 h with 50K+ views from Essential/Great channels."""
     defs = json.loads((ROOT / "paths_def.json").read_text())
     ok = np.array([channels[v[2]]["t"] in ("S", "A") and v[4] >= 50_000 and 120 <= v[3] <= 10800 for v in videos])
     boost = np.array([0.025 * math.log10(max(v[4], 1)) for v in videos])
@@ -174,6 +184,7 @@ def build_reading_paths(A, arts, srcs, model):
     ok = np.array([srcs[a[2]]["t"] in ("S", "A") and a[4] >= 30 and (a[3] == 0 or 300 <= a[3] <= 15000) for a in arts])
     boost = np.array([0.025 * math.log10(max(a[4], 1)) for a in arts])
     return resolve_paths(defs, A, arts, 2, ok, boost, model, "articles")
+
 
 def build_courses(E, videos, channels, A, arts, model, refresh=False):
     """Curated paths (curated_paths.json): every step is pinned by hand. If a pinned item disappears

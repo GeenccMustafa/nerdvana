@@ -2,6 +2,7 @@
 
 Usage:
   python3 articles.py            # refresh every source (HN + RSS), fetch new pages, rebuild articles.json
+  python3 articles.py --pages    # skip the source refresh: only fetch pages not cached yet, then rebuild
   python3 articles.py --build    # only rebuild articles.json from raw_articles/ and the page cache
 
 Where the articles come from:
@@ -22,7 +23,8 @@ source, "Discovered" (tier D), with all of its posts kept. A post that one of th
 already has stays with that blog.
 
 articles.json  {"sources": [{n, u, t, topic, total}],
-                "articles": [[id, title, source, words, points, ts, url, desc, img, hn_id, comments], ...]}
+                "articles": [[id, title, source, words, points, ts, url, desc, img, hn_id, comments], ...],
+                "discovered": [id], "craft": [id], "hubs": {hub: [id]}}
 """
 import hashlib, html, json, os, re, sys, time, urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
@@ -48,6 +50,7 @@ PAGE_BUDGET = int(os.environ.get("PAGE_BUDGET", 15 * 60))  # seconds; pages not 
 
 
 def get(url, timeout=20, limit=3_000_000):
+    """Download url (at most limit bytes); returns (text, content type, final url after redirects)."""
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*", "Accept-Language": "en"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         data = r.read(limit)
@@ -66,16 +69,19 @@ def norm_url(u):
 
 
 def match_key(src):
+    """The source's site in norm_url() form: every post of the source starts with it."""
     return norm_url(src["url"])
 
 
 def slug(src):
+    """The name of the source's file in raw_articles/ (without .json)."""
     if src.get("discover"):
         return "discovered"
     return re.sub(r"[^a-z0-9]+", "-", match_key(src)).strip("-")
 
 
 def parse_date(s):
+    """A date from a feed or a page (RFC 2822 or ISO 8601) as a Unix timestamp, or None."""
     if not s:
         return None
     s = s.strip()
@@ -93,6 +99,10 @@ def parse_date(s):
 # ---------------------------------------------------------------- sources: HN + feed
 
 def fetch_hn(src):
+    """Every Hacker News story with MIN_POINTS or more that links to a post on the source's site.
+
+    A post submitted more than once counts once, with its best submission. Each record holds the url,
+    title, points, comments, HN id ("hn") and HN time ("hn_ts")."""
     key = match_key(src)
     q = urllib.parse.urlencode({"query": key, "restrictSearchableAttributes": "url", "tags": "story",
                                 "hitsPerPage": 1000, "numericFilters": f"points>={MIN_POINTS}"})
@@ -114,6 +124,7 @@ def fetch_hn(src):
 
 
 def find_feed(src):
+    """The RSS or Atom feed that the source's homepage points to with a <link> tag, or None."""
     body, _, final = get(src["url"])
     for m in re.finditer(r"<link\b[^>]*>", body, re.I):
         tag = m.group(0)
@@ -125,10 +136,14 @@ def find_feed(src):
 
 
 def strip_tags(s):
+    """Plain text from a piece of HTML: tags removed, entities decoded, whitespace collapsed."""
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
 
 
 def fetch_feed(src):
+    """The posts in the source's RSS or Atom feed ("feed" in sources.json, else the one its homepage names).
+
+    Each item holds the url, title, date ("ts", or None) and a summary of up to 600 characters."""
     feed = src.get("feed") or find_feed(src)
     if not feed:
         return []
@@ -158,6 +173,9 @@ def fetch_feed(src):
 
 
 def refresh_source(src):
+    """Fetch a source's HN stories and feed (three tries each) and save them to raw_articles/<slug>.json.
+
+    Returns (source name, HN stories, feed items, errors) for the log."""
     out = {"hn": [], "rss": [], "err": []}
     for kind, fn in (("hn", fetch_hn), ("rss", fetch_feed)):
         for attempt in range(3):
@@ -177,6 +195,7 @@ def refresh_source(src):
 # ---------------------------------------------------------------- pages
 
 def meta(body, *names):
+    """The content of the first non-empty <meta> tag whose name or property is one of names, or ""."""
     for n in names:
         for pat in (rf'<meta\b[^>]*(?:property|name)=["\']{n}["\'][^>]*content=["\']([^"\']*)',
                     rf'<meta\b[^>]*content=["\']([^"\']*)["\'][^>]*(?:property|name)=["\']{n}["\']'):
@@ -187,6 +206,12 @@ def meta(body, *names):
 
 
 def page_info(url):
+    """Fetch an article and read what its page says about it.
+
+    Returns {"ok": 1, "title", "desc", "img", "date", "words", "body", "para"}: the Open Graph/Twitter
+    title, description and image, the publish date, the word count of the main text (the longest
+    <article>, else <main> or <body>), its first BODY_LEN characters and its first real paragraph.
+    A file that isn't HTML (a PDF, say) gives just {"ok": 1, "body": ""}."""
     body, ctype, final = get(url, timeout=12)
     if "html" not in ctype and "<html" not in body[:2000].lower():
         return {"ok": 1, "body": ""}
@@ -221,6 +246,7 @@ def fetch_pages(urls, cache):
     done, deadline = [0], time.time() + PAGE_BUDGET
 
     def run(host_urls):
+        """Fetch one site's pages one after another, until the PAGE_BUDGET deadline."""
         for u in host_urls:
             if time.time() > deadline:
                 return
@@ -243,6 +269,7 @@ def fetch_pages(urls, cache):
 
 
 def load_cache():
+    """The page cache ({url: page_info}), topped up with what the current articles.json knows."""
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
     # articles.json doubles as a cache, so a fresh machine (or CI without its cache) doesn't refetch everything
     prev = ROOT / "articles.json"
@@ -253,6 +280,7 @@ def load_cache():
 
 
 def save_cache(cache):
+    """Write the page cache to .cache/pages.json, atomically."""
     CACHE.parent.mkdir(exist_ok=True)
     tmp = CACHE.with_suffix(".part")
     tmp.write_text(json.dumps(cache, ensure_ascii=False))
@@ -262,16 +290,19 @@ def save_cache(cache):
 # ---------------------------------------------------------------- build
 
 def clean_title(t):
+    """An HN title without the tags HN adds at the end: "[pdf]", "[video]", "(2019)"..."""
     t = re.sub(r"\s*\[(pdf|video|audio)\]\s*$", "", t, flags=re.I)
     return re.sub(r"\s*\((19|20)\d\d\)\s*$", "", t).strip()
 
 
 def year_hint(t):
+    """For an old post's HN title such as "... (2019)": June 1 of that year as a timestamp; else None."""
     m = re.search(r"\(((?:19|20)\d\d)\)\s*$", t)
     return int(datetime(int(m.group(1)), 6, 1, tzinfo=timezone.utc).timestamp()) if m else None
 
 
 def shorten(s, n=DESC_LEN):
+    """A description without "Read more" links or feed boilerplate, cut at a word to at most n characters."""
     s = re.sub(r"\s+", " ", s or "").strip()
     s = re.sub(r"\s*(\[?(…|\.\.\.)\]?\s*)?(Read more|Continue reading|Read the full (post|article))\W*$", "…", s, flags=re.I)
     s = re.sub(r"\s*The post .{0,200} appeared first on .{0,80}$", "", s)
@@ -299,6 +330,13 @@ def pick(srcs, refetch_pages=True):
 
 
 def build(srcs, cache):
+    """Write articles.json from the picked posts and the page cache.
+
+    Sources need MIN_ARTICLES posts; the best MAX_SOURCES (by tier, then total HN points) are kept, plus
+    Discovered. Every post gets a title, a short description, a date, a word count and a cover image. A
+    description or image that several posts of one source share is the site's tagline or logo, so it is
+    replaced (by the first paragraph or the feed summary) or dropped. Also lists the articles found by
+    keyword search, the Code craft ones and each hub's."""
     picked = pick(srcs)
     per_src = defaultdict(list)
     for si, rec in picked:
