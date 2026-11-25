@@ -5,28 +5,53 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-24T03:26:14Z</updated>
+  <updated>2026-11-25T03:28:37Z</updated>
   <author><name>Nerdvana</name></author>
+  <entry>
+    <id>tag:nerdvana,2026:article:e32ed061be</id>
+    <title>GPT-6 models demonstrate intrinsic protein-design capabilities</title>
+    <link href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"/>
+    <updated>2026-11-24T13:00:00Z</updated>
+    <summary>Article · OpenAI · ▲ 193 on Hacker News · 19 min read
+
+GPT-6 models design protein structures and sequences using reasoning and code. Lab tests found evidence of binding across five targets.</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:cc5C8hRblBY</id>
+    <title>▶ I'm Starting Over</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=cc5C8hRblBY"/>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <summary>Video · Marques Brownlee · 3.9M views · 22 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:bd659a6b86</id>
+    <title>You shouldn't do application-level sharding</title>
+    <link href="https://planetscale.com/blog/why-you-shouldnt-do-app-level-sharding"/>
+    <updated>2026-11-23T00:00:00Z</updated>
+    <summary>Article · PlanetScale Blog · ▲ 10 on Hacker News · 21 min read
+
+Application-level sharding feels like the right solution. But it isn't your core business, and it causes more headaches than you think.</summary>
+  </entry>
   <entry>
     <id>tag:nerdvana,2026:video:gicEOsFtMxw</id>
     <title>▶ I Tested The World's Most Dangerous Animals</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=gicEOsFtMxw"/>
     <updated>2026-11-22T00:00:00Z</updated>
-    <summary>Video · Mark Rober · 13.0M views · 34 min</summary>
+    <summary>Video · Mark Rober · 18.0M views · 34 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:zqzk43bSdDI</id>
-    <title>▶ We asked before it happened</title>
+    <title>▶ We've been asking: “What if AI solved the Riemann Hypothesis?”</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=zqzk43bSdDI"/>
     <updated>2026-11-22T00:00:00Z</updated>
-    <summary>Video · 3Blue1Brown · 2.8M views · 14 min</summary>
+    <summary>Video · 3Blue1Brown · 3.0M views · 14 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:bd545a438b</id>
     <title>Perplexity and Intelligence</title>
     <link href="https://openai.com/index/perplexity-and-intelligence/"/>
     <updated>2026-11-22T00:00:00Z</updated>
-    <summary>Article · OpenAI · ▲ 698 on Hacker News · 7 min read
+    <summary>Article · OpenAI · ▲ 718 on Hacker News · 7 min read
 
 How perplexity measures progress in AI models, and why it could help developers establish a shared approach to evaluating emerging capabilities.</summary>
   </entry>
@@ -35,16 +60,23 @@ How perplexity measures progress in AI models, and why it could help developers 
     <title>Notes on the discrete Fourier transform (DFT)</title>
     <link href="https://eli.thegreenplace.net/2026/notes-on-the-discrete-fourier-transform-dft/"/>
     <updated>2026-11-21T22:26:00Z</updated>
-    <summary>Article · Eli Bendersky · ▲ 104 on Hacker News · 10 min read
+    <summary>Article · Eli Bendersky · ▲ 107 on Hacker News · 10 min read
 
 In the previous post on this topic , we’ve seen how the Discrete-Time Fourier Series (DTFS) and transform (DTFT) are used to analyze infinite-duration periodic and non-periodic discrete signals. Now, it’s time to turn…</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:sMZMpsHeFKc</id>
+    <title>▶ The Riemann Hypothesis Falls (reaction) - Numberphile</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=sMZMpsHeFKc"/>
+    <updated>2026-11-21T00:00:00Z</updated>
+    <summary>Video · Numberphile · 1.4M views · 14 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:7019d79c8b</id>
     <title>The stochastic parrots have apparently proved the Riemann Hypothesis</title>
     <link href="https://scottaaronson.blog/?p=10344"/>
     <updated>2026-11-20T18:29:03Z</updated>
-    <summary>Article · Scott Aaronson · ▲ 360 on Hacker News · 33 min read
+    <summary>Article · Scott Aaronson · ▲ 364 on Hacker News · 33 min read
 
 “… it is very probable that all roots are real. Of course one would wish for a rigorous proof here; I have for the time being, after some fleeting vain attempts, provisionally put aside…</summary>
   </entry>
@@ -62,7 +94,7 @@ Obviously these results will be reported widely in other outlets, but I will not
     <title>Restricting AI agents in mobile operating systems platforms from capturing data</title>
     <link href="https://signal.org/blog/protecting-your-privacy/"/>
     <updated>2026-11-20T09:42:16Z</updated>
-    <summary>Article · Discovered · ▲ 581 on Hacker News · 7 min read
+    <summary>Article · Discovered · ▲ 583 on Hacker News · 7 min read
 
 Privacy is our mission; it’s why we exist, and we do everything we can to protect it. This means that we are restricting the latest AI agents built into mobile operating systems from potentially capturing and storing…</summary>
   </entry>
@@ -71,100 +103,66 @@ Privacy is our mission; it’s why we exist, and we do everything we can to prot
     <title>▶ Comparing GTA VI on Every Console</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=E4RGVl86E2U"/>
     <updated>2026-11-20T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 3.1M views · 21 min</summary>
+    <summary>Video · Linus Tech Tips · 3.2M views · 21 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:FcbwVXk83U8</id>
     <title>▶ It's a Fiber Optic Christmas (or... was)</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=FcbwVXk83U8"/>
     <updated>2026-11-20T00:00:00Z</updated>
-    <summary>Video · Technology Connections · 1.9M views · 38 min</summary>
+    <summary>Video · Technology Connections · 2.0M views · 38 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:a4f31a72ec</id>
+    <title>Inkling 2 Mini, Cutting-Edge Performance for Your Local Setup</title>
+    <link href="https://huggingface.co/blog/inkling2mini"/>
+    <updated>2026-11-20T00:00:00Z</updated>
+    <summary>Article · Hugging Face Blog · ▲ 15 on Hacker News · 15 min read
+
+TLDR; Inkling 2 Mini is a new looped transformer model. It’s a multimodal Mixture-of-Experts with ~26B physical total and 3B active parameters per token. It uses a neat trick to increase capacity: some layers are…</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:NrF4mkTmuTU</id>
-    <title>▶ Why GTA 6 Broke the Internet.</title>
+    <title>▶ Why GTA is a Bigger Deal Than You Think</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=NrF4mkTmuTU"/>
     <updated>2026-11-19T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 10.0M views · 49 min</summary>
+    <summary>Video · Mrwhosetheboss · 11.0M views · 49 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:uJG53ligJt4</id>
     <title>▶ NVIDIA SC26 Special Address</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=uJG53ligJt4"/>
     <updated>2026-11-19T00:00:00Z</updated>
-    <summary>Video · NVIDIA · 6.3M views · 48 min</summary>
+    <summary>Video · NVIDIA · 7.5M views · 48 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:uXuQF_PPg5U</id>
-    <title>▶ If everything follows the laws of physics, is anything random?</title>
+    <title>▶ The Nerds Who Beat Slot Machines With Math</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=uXuQF_PPg5U"/>
     <updated>2026-11-19T00:00:00Z</updated>
-    <summary>Video · Veritasium · 3.8M views · 39 min</summary>
+    <summary>Video · Veritasium · 4.1M views · 39 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:vDnogMSwbk4</id>
     <title>▶ He DECLINED an AMD $5000 Ultimate Tech Upgrade</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=vDnogMSwbk4"/>
     <updated>2026-11-19T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 2.4M views · 34 min</summary>
+    <summary>Video · Linus Tech Tips · 2.5M views · 34 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:bd5358d158</id>
+    <title>When Everything Has Changed, What Do We Do Next?</title>
+    <link href="https://css-tricks.com/when-everything-has-changed/"/>
+    <updated>2026-11-18T20:12:23Z</updated>
+    <summary>Article · CSS-Tricks · ▲ 26 on Hacker News</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:2069295c6c</id>
     <title>AI agents ask better questions than KPMG accountants in audit trial</title>
     <link href="https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/"/>
     <updated>2026-11-18T11:21:28Z</updated>
-    <summary>Article · Discovered · ▲ 502 on Hacker News · 3 min read
+    <summary>Article · Discovered · ▲ 503 on Hacker News · 3 min read
 
 LONDON, November 18, 2026 — Artificial intelligence has taken another significant step into the world of professional services after KPMG revealed that AI</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:b48326e6ee</id>
-    <title>Attackers Used Optimizely to A/B Test Malware on Top Websites</title>
-    <link href="https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/"/>
-    <updated>2026-11-18T02:52:04Z</updated>
-    <summary>Article · Krebs on Security · ▲ 57 on Hacker News · 5 min read
-
-At least 178 top web destinations unwittingly served a variety of malware exploits against visitors over the past 24 hours thanks to a security vulnerability involving Optimizely , a company that helps websites…</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:awjlMCCdqXw</id>
-    <title>▶ The Dark Side of China’s Perfect Cars</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=awjlMCCdqXw"/>
-    <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 17.0M views · 27 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:KTDJiVpSDTI</id>
-    <title>▶ Can You Trust MKBHD?</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=KTDJiVpSDTI"/>
-    <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 3.8M views · 14 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:bd15b74bcd</id>
-    <title>Quad9's withdrawal from France: A canary in the coal mine</title>
-    <link href="https://blog.cloudflare.com/quad9-withdrawal-from-france/"/>
-    <updated>2026-11-17T20:24:27Z</updated>
-    <summary>Article · Cloudflare Blog · ▲ 911 on Hacker News · 9 min read
-
-Quad9's forced withdrawal from France highlights the dangers of mandating DNS-level blocking.</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:9235aaac89</id>
-    <title>GPT‑6.2 Astra and Sol</title>
-    <link href="https://openai.com/index/introducing-gpt-6-2-astra-sol/"/>
-    <updated>2026-11-17T17:45:00Z</updated>
-    <summary>Article · OpenAI · ▲ 1347 on Hacker News
-
-Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:fd367ad841</id>
-    <title>I joined the NTP Pool, but not with my Stratum 1 Pi</title>
-    <link href="https://www.jeffgeerling.com/blog/2026/i-joined-the-ntp-pool/"/>
-    <updated>2026-11-17T15:00:00Z</updated>
-    <summary>Article · Jeff Geerling · ▲ 170 on Hacker News · 6 min read
-
-Before I get too deep into the time-nuts rabbit hole, I figured I should share a little bit of the good time I now have in my studio, with everyone else. Thus, I</summary>
   </entry>
 </feed>

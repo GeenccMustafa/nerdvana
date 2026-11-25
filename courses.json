@@ -158,7 +158,7 @@
   "title": "AI agents, from LLM calls to multi-agent systems",
   "level": "Intermediate",
   "blurb": "What you need to build agents and chatbots at work, in order: what an agent is, structured output and tool calling, a first agent from scratch, context, RAG and memory, MCP, frameworks, design patterns and multi-agent orchestration, then evals and production. Ends with agents on Azure.",
-  "checked": "2026-11-18",
+  "checked": "2026-11-25",
   "sections": [
    {
     "title": "What an agent is",
@@ -1485,9 +1485,7 @@
      {
       "k": "a",
       "note": "Lessons from building a large payment system.",
-      "swap": "Distributed architecture concepts I learned when building a large payment system",
-      "id": "e78ed7b02e",
-      "pin": "d446c40dc4"
+      "id": "d446c40dc4"
      },
      {
       "k": "a",
@@ -1858,9 +1856,7 @@
      {
       "k": "a",
       "note": "Why writing well is an undervalued engineering skill.",
-      "swap": "Undervalued Engineering Skills: Writing Well",
-      "id": "16fa42cbb5",
-      "pin": "b15320aa75"
+      "id": "b15320aa75"
      },
      {
       "k": "a",
@@ -11979,12 +11975,12 @@
      },
      {
       "k": "v",
-      "id": "OX9-zSfT4xI",
+      "id": "_iTbNy5aOR0",
       "note": ""
      },
      {
       "k": "v",
-      "id": "_iTbNy5aOR0",
+      "id": "-SBnbvhZ_zA",
       "note": ""
      },
      {
@@ -12309,12 +12305,12 @@
      },
      {
       "k": "v",
-      "id": "-SBnbvhZ_zA",
+      "id": "4LINhsEZEDI",
       "note": ""
      },
      {
       "k": "v",
-      "id": "4LINhsEZEDI",
+      "id": "OX9-zSfT4xI",
       "note": ""
      }
     ]
@@ -13990,11 +13986,6 @@
      },
      {
       "k": "v",
-      "id": "HbgZFwWj4vY",
-      "note": ""
-     },
-     {
-      "k": "v",
       "id": "DGI4vucR71w",
       "note": ""
      },
@@ -14041,6 +14032,11 @@
      {
       "k": "v",
       "id": "7GW-9ug2nvw",
+      "note": ""
+     },
+     {
+      "k": "v",
+      "id": "HbgZFwWj4vY",
       "note": ""
      }
     ]
