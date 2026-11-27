@@ -5,60 +5,60 @@
   <subtitle>The most-viewed tech videos and most-upvoted tech articles of the last 7 days</subtitle>
   <link href="https://geenccmustafa.github.io/nerdvana/"/>
   <link rel="self" href="https://geenccmustafa.github.io/nerdvana/feed.xml"/>
-  <updated>2026-11-26T03:23:07Z</updated>
+  <updated>2026-11-27T03:23:23Z</updated>
   <author><name>Nerdvana</name></author>
   <entry>
-    <id>tag:nerdvana,2026:article:3432e64671</id>
-    <title>Holy shit holy shit holy shit holy shit: The magnitude of what’s now happening</title>
-    <link href="https://scottaaronson.blog/?p=10379"/>
-    <updated>2026-11-25T19:01:13Z</updated>
-    <summary>Article · Scott Aaronson · ▲ 1003 on Hacker News · 53 min read
-
-I feel like my previous posts (and post titles), and podcasts, and talks, have failed to do full justice to the magnitude of what’s now happening, so I’m trying again. Last night, we ha…</summary>
+    <id>tag:nerdvana,2026:video:WbM7GP7QoEM</id>
+    <title>▶ Scientists Said This Wave Was Impossible</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=WbM7GP7QoEM"/>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary>Video · Veritasium · 6.8M views · 28 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:SyLzrF7LeUY</id>
+    <title>▶ The iPhone Duo's Weird Redemption Arc</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=SyLzrF7LeUY"/>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary>Video · Mrwhosetheboss · 4.6M views · 11 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:-Cd_JmKG1SM</id>
     <title>▶ I've Been Keeping This A Secret</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=-Cd_JmKG1SM"/>
-    <updated>2026-11-25T19:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 1.8M views · 18 min</summary>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary>Video · Marques Brownlee · 3.7M views · 18 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:dadebd14f2</id>
+    <title>Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email</title>
+    <link href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/"/>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary>Article · Discovered · ▲ 260 on Hacker News · 7 min read
+
+From February 2027, Google's terms require AI agents to reach Gmail, Drive and the rest of Workspace through Google's own MCP servers. What the rule says, what the servers can and can't do, and what to change before the…</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:article:3432e64671</id>
+    <title>Holy shit holy shit holy shit holy shit: The magnitude of what’s now happening</title>
+    <link href="https://scottaaronson.blog/?p=10379"/>
+    <updated>2026-11-25T19:01:13Z</updated>
+    <summary>Article · Scott Aaronson · ▲ 1999 on Hacker News · 53 min read
+
+I feel like my previous posts (and post titles), and podcasts, and talks, have failed to do full justice to the magnitude of what’s now happening, so I’m trying again. Last night, we ha…</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:5003e0cbeb</id>
     <title>In C++, = default and {} are not the same constructor</title>
     <link href="https://lemire.me/blog/2026/11/02/default-and-braces-are-not-the-same-constructor/"/>
     <updated>2026-11-25T15:20:15Z</updated>
-    <summary>Article · Daniel Lemire · ▲ 111 on Hacker News</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:WbM7GP7QoEM</id>
-    <title>▶ Scientists Said This Wave Was Impossible</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=WbM7GP7QoEM"/>
-    <updated>2026-11-25T14:00:00Z</updated>
-    <summary>Video · Veritasium · 3.4M views · 28 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:SyLzrF7LeUY</id>
-    <title>▶ The iPhone Duo's Weird Redemption Arc</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=SyLzrF7LeUY"/>
-    <updated>2026-11-25T13:00:00Z</updated>
-    <summary>Video · Mrwhosetheboss · 3.1M views · 11 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:article:1d62290067</id>
-    <title>Multiagent coding is the future</title>
-    <link href="https://www.kalzumeus.com/2026/11/25/multiagent-coding-is-the-future/"/>
-    <updated>2026-11-25T03:15:00Z</updated>
-    <summary>Article · Kalzumeus (patio11) · ▲ 52 on Hacker News · 18 min read
-
-Like many people with engineering degrees, I didn’t make it to thirty as an engineer. Doctors who manage doctors are doctors; lawyers who manage lawyers are lawyers; engineers who manage engineers are either engineering…</summary>
+    <summary>Article · Daniel Lemire · ▲ 125 on Hacker News</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:e32ed061be</id>
     <title>GPT-6 models demonstrate intrinsic protein-design capabilities</title>
     <link href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"/>
     <updated>2026-11-24T13:00:00Z</updated>
-    <summary>Article · OpenAI · ▲ 353 on Hacker News · 19 min read
+    <summary>Article · OpenAI · ▲ 356 on Hacker News · 19 min read
 
 GPT-6 models design protein structures and sequences using reasoning and code. Lab tests found evidence of binding across five targets.</summary>
   </entry>
@@ -67,21 +67,35 @@ GPT-6 models design protein structures and sequences using reasoning and code. L
     <title>▶ I'm Starting Over</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=cc5C8hRblBY"/>
     <updated>2026-11-24T00:00:00Z</updated>
-    <summary>Video · Marques Brownlee · 4.9M views · 22 min</summary>
+    <summary>Video · Marques Brownlee · 5.4M views · 22 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:Ip5EiqbuBpE</id>
+    <title>▶ Mac Gaming is Solved But Not By Apple</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=Ip5EiqbuBpE"/>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <summary>Video · Linus Tech Tips · 2.5M views · 19 min</summary>
+  </entry>
+  <entry>
+    <id>tag:nerdvana,2026:video:PjGlt3y-Nco</id>
+    <title>▶ How did they crack the Riemann Hypothesis? - Numberphile</title>
+    <link href="https://geenccmustafa.github.io/nerdvana/#v=PjGlt3y-Nco"/>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <summary>Video · Numberphile · 1.7M views · 27 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:jP9yjEDlc4k</id>
     <title>▶ Opus just lost to the last company you'd expect...</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=jP9yjEDlc4k"/>
     <updated>2026-11-24T00:00:00Z</updated>
-    <summary>Video · Fireship · 1.5M views · 5 min</summary>
+    <summary>Video · Fireship · 1.6M views · 5 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:f174abc5c6</id>
     <title>When in Doubt, Flail About</title>
     <link href="https://www.seangoedecke.com/when-in-doubt-flail-about/"/>
     <updated>2026-11-23T00:00:00Z</updated>
-    <summary>Article · Sean Goedecke · ▲ 128 on Hacker News · 6 min read
+    <summary>Article · Sean Goedecke · ▲ 132 on Hacker News · 6 min read
 
 When you’re working in an unclear situation — you have no clear guidance, or you don’t know what will help — the best course of action is often just to flail…</summary>
   </entry>
@@ -90,32 +104,32 @@ When you’re working in an unclear situation — you have no clear guidance, or
     <title>▶ I Tested The World's Most Dangerous Animals</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=gicEOsFtMxw"/>
     <updated>2026-11-22T00:00:00Z</updated>
-    <summary>Video · Mark Rober · 21.0M views · 34 min</summary>
+    <summary>Video · Mark Rober · 25.0M views · 34 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:zqzk43bSdDI</id>
     <title>▶ We've been asking: “What if AI solved the Riemann Hypothesis?”</title>
     <link href="https://geenccmustafa.github.io/nerdvana/#v=zqzk43bSdDI"/>
     <updated>2026-11-22T00:00:00Z</updated>
-    <summary>Video · 3Blue1Brown · 3.2M views · 14 min</summary>
+    <summary>Video · 3Blue1Brown · 3.4M views · 14 min</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:article:bd545a438b</id>
     <title>Perplexity and Intelligence</title>
     <link href="https://openai.com/index/perplexity-and-intelligence/"/>
     <updated>2026-11-22T00:00:00Z</updated>
-    <summary>Article · OpenAI · ▲ 720 on Hacker News · 7 min read
+    <summary>Article · OpenAI · ▲ 721 on Hacker News · 7 min read
 
 How perplexity measures progress in AI models, and why it could help developers establish a shared approach to evaluating emerging capabilities.</summary>
   </entry>
   <entry>
-    <id>tag:nerdvana,2026:article:c1eb51f93d</id>
-    <title>Notes on the discrete Fourier transform (DFT)</title>
-    <link href="https://eli.thegreenplace.net/2026/notes-on-the-discrete-fourier-transform-dft/"/>
-    <updated>2026-11-21T22:26:00Z</updated>
-    <summary>Article · Eli Bendersky · ▲ 107 on Hacker News · 10 min read
+    <id>tag:nerdvana,2026:article:cec5cefa40</id>
+    <title>CTO of 'RansomwareHelp' indicted for wire fraud</title>
+    <link href="https://krebsonsecurity.com/2026/11/cto-of-ransomwarehelp-indicted-for-wire-fraud/"/>
+    <updated>2026-11-21T00:36:39Z</updated>
+    <summary>Article · Krebs on Security · ▲ 225 on Hacker News · 6 min read
 
-In the previous post on this topic , we’ve seen how the Discrete-Time Fourier Series (DTFS) and transform (DTFT) are used to analyze infinite-duration periodic and non-periodic discrete signals. Now, it’s time to turn…</summary>
+The chief technology officer and co-founder of ransomwarehelp.com , a six year old Florida business that claimed to use “advanced cryptographic tools” to restore data locked by ransomware, has been charged with wire…</summary>
   </entry>
   <entry>
     <id>tag:nerdvana,2026:video:f0KK_4AaqLQ</id>
@@ -150,19 +164,5 @@ Obviously these results will be reported widely in other outlets, but I will not
     <summary>Article · Discovered · ▲ 584 on Hacker News · 7 min read
 
 Privacy is our mission; it’s why we exist, and we do everything we can to protect it. This means that we are restricting the latest AI agents built into mobile operating systems from potentially capturing and storing…</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:E4RGVl86E2U</id>
-    <title>▶ Comparing GTA VI on Every Console</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=E4RGVl86E2U"/>
-    <updated>2026-11-20T00:00:00Z</updated>
-    <summary>Video · Linus Tech Tips · 3.2M views · 21 min</summary>
-  </entry>
-  <entry>
-    <id>tag:nerdvana,2026:video:FcbwVXk83U8</id>
-    <title>▶ It's a Fiber Optic Christmas (or... was)</title>
-    <link href="https://geenccmustafa.github.io/nerdvana/#v=FcbwVXk83U8"/>
-    <updated>2026-11-20T00:00:00Z</updated>
-    <summary>Video · Technology Connections · 2.1M views · 38 min</summary>
   </entry>
 </feed>
